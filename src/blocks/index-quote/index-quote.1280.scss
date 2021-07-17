@@ -1,3 +1,35 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-quote-sect {
+  &.lazyloaded {
+    .index-quote-sect__pic-wrap {
+      background-image: url('../img/line-quote-sect-desktop.svg');
+    }
+  }
+  &__title {}
+
+  &__pic-wrap {
+    margin-right: -40px;
+    padding: 115px 225px;
+    background-position: bottom left;
+  }
+
+  &__pic {
+    // width: 270px;
+    // height: 330px;
+    &::before {
+      // decor blue star
+    }
+  }
+
+  &__img {}
+}
+
+.index-quote-block {
+  max-width: 470px;
+  &__text {}
+
+  &__author {}
+}

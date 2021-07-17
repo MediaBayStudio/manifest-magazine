@@ -1,3 +1,23 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-quote-sect {
+  &__title {}
+
+  &__pic-wrap {}
+
+  &__pic {
+    &::before {
+      // decor blue star
+    }
+  }
+
+  &__img {}
+}
+
+.index-quote-block {
+  &__text {}
+
+  &__author {}
+}

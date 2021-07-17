@@ -1,3 +1,52 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-quote-sect {
+  padding-top: 0;
+  padding-bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  background: 0 0;
+  &.lazyloaded {
+    background: 0 0;
+
+    .index-quote-sect__pic-wrap {
+      background-image: url('../img/line-quote-sect-mobile.svg');
+    }
+  }
+  &__title {
+    margin: 0 50% 0 0;
+  }
+
+  &__pic-wrap {
+    margin: -35px -24px 0 0;
+    padding: 100px 100px 50px;
+    width: auto;
+    order: 10;
+    background: bottom 30px left/100% auto no-repeat, $lightBlue;
+  }
+
+  &__pic {
+    width: 100%;
+    height: 100%;
+    &::before {
+      // decor blue star
+      width: 130px;
+      height: 130px;
+    }
+  }
+
+  &__img {
+  }
+}
+
+.index-quote-block {
+  margin: auto auto auto 0;
+  max-width: 255px;
+  &__text {
+    font-size: 22px;
+  }
+
+  &__author {}
+}

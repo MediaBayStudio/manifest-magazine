@@ -1,3 +1,71 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-quote-sect {
+  padding-top: 40px;
+  padding-bottom: 40px;
+  background: top 100px left/100% auto no-repeat, $lightBlue;
+  &.lazyloaded {
+    background-image: url('../img/line-quote-sect-mobile.svg');
+    .index-quote-sect__pic {
+      &::before {
+        background-image: url('../img/decor-star-blue.svg');
+      }
+    }
+  }
+  &__title {}
+
+  &__pic-wrap {
+    margin: 0 auto 35px;
+    max-width: 57%;
+  }
+
+  &__pic {
+    display: block;
+    position: relative;
+    &::before {
+      // decor blue star
+      content: '';
+      position: absolute;
+      top: 0;
+      right: 0;
+      transform: translate(50%, -50%);
+      // width: 85px;
+      // height: 85px;
+      width: 53%;
+      height: 43%;
+      background: center/contain no-repeat;
+      pointer-events: none;
+    }
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: relative;
+  }
+}
+
+.index-quote-block {
+  margin: auto;
+  max-width: 290px;
+  &::before {
+    // decor quote
+    content: '“';
+    font: bold 96px/40% Quincy CF, serif;
+    color: $blue;
+  }
+  display: flex;
+  flex-flow: column;
+  text-align: center;
+  &__text {
+    font: bold 18px/120% Quincy CF, serif;
+  }
+
+  &__author {
+    margin-top: 30px;
+    // font: 14px/130% Raleway, sans-serif;
+  }
+}
