@@ -1,3 +1,67 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-subscribe-sect {
+  padding-top: 85px;
+  display: flex;
+  align-items: flex-start;
+  // decor star
+  &::before {
+    top: 15px;
+    left: calc(50vw - 305px);
+    width: 195px;
+    height: 195px;
+  }
+
+  &.lazyloaded {
+    .index-subscribe-sect__title {
+      &::before,
+      &::after {
+        background-image: url('../img/decor-star-white.svg');
+      }
+    }
+  }
+
+  &__title {
+    margin: 0 auto 0 0;
+    max-width: 300px;
+    > .br {
+      display: none;
+    }
+    &::before,
+    &::after {
+      content: '';
+      position: absolute;
+      bottom: -10px;
+      transform: translateY(100%);
+      background: center/contain no-repeat;
+    }
+    // decor small star
+    &::before {
+      left: 5px;
+      width: 30px;
+      height: 30px;
+    }
+
+    // decor big star
+    &::after {
+      right: 5px;
+      width: 55px;
+      height: 55px;
+    }
+  }
+
+  &__form {
+    width: 370px;
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__btn {
+    margin: 40px 0 0 auto;
+  }
+}

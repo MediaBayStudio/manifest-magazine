@@ -48,7 +48,7 @@
       }
 
       if (nextSlide !== undefined) {
-        progressCurrentNumber.textContent = '0' + (nextSlide + 1);
+        progressCurrentNumber.textContent = ('0' + (nextSlide + 1)).slice(-2);
       }
 
       // progress.classList.toggle('last-slide', nextSlide + 1 === slides.length);

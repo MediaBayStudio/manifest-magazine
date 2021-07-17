@@ -43,14 +43,18 @@
     let loadmoreButton = q('.articles-sect__loadmore', articlesSections[i]),
       articlesBlock = q('.articles-sect__articles', articlesSections[i]),
       existsArticles = qa('.article-card', articlesBlock[i]),
+      visibleImages = qa('.article-card:not(.hide) .article-card__img'),
       articlesMasonryBlock;
 
     if (media('(min-width:767.98px)')) {
-      imagesLoaded(articlesBlock).on('progress', function() {
-        articlesMasonryBlock = new Masonry(articlesBlock, {
-          itemSelector: '.article-card',
-          columnWidth: '.article-card',
-          gutter: '.gutter-size',
+      articlesMasonryBlock = new Masonry(articlesBlock, {
+        itemSelector: '.article-card',
+        columnWidth: '.article-card',
+        gutter: '.gutter-size',
+      });
+      visibleImages.forEach(function(img) {
+        img.addEventListener('load', function() {
+          articlesMasonryBlock.layout();
         });
       });
     }
@@ -89,19 +93,22 @@
             articlesBlock.insertAdjacentHTML('beforeend', response);
 
             let hiddenArticles = qa('.article-card.hide', articlesBlock),
+              hiddenImages = qa('.article-card.hide .article-card__img'),
               articlesQuantity = media('(max-width: 1023.98px)') ? 4 : 6;
 
             if (articlesMasonryBlock) {
-              imagesLoaded(articlesBlock).on('progress', function() {
-                articlesMasonryBlock.layout();
-              });
+              // imagesLoaded(articlesBlock).on('progress', function() {
+              //   articlesMasonryBlock.layout();
+              // });
             }
 
             for (let i = 0; i < articlesQuantity; i++) {
-              console.log(i);
               if (hiddenArticles[i]) {
                 hiddenArticles[i].classList.remove('hide');
                 if (articlesMasonryBlock) {
+                  hiddenImages[i].addEventListener('load', function() {
+                    articlesMasonryBlock.layout();
+                  });
                   articlesMasonryBlock.appended(hiddenArticles[i]);
                 }
               }

@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";.index-subscribe-sect{padding-top:60px;position:relative}.index-subscribe-sect::before{content:'';position:absolute;top:5px;left:35px;width:140px;height:140px;background:center/contain no-repeat;pointer-events:none}.index-subscribe-sect.lazyloaded::before{background-image:url(../img/decor-star-ol-white.svg)}.index-subscribe-sect__title{margin:0 0 55px;max-width:260px;position:relative}.index-subscribe-sect__btn{margin:25px auto 0}

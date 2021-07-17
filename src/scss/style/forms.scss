@@ -9,7 +9,7 @@ label.invalid {
   left: 0;
   bottom: -20px;
   font: normal 10px/150% sans-serif;
-  // color: $error;
+  color: $orange;
 }
 
 // Если ошибка, то можно подчеркнуть поле
@@ -99,8 +99,9 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
 }
 
 .field {
+  width: 100%;
   display: inline-block;
-  font: 16px/140% Montserrat;
+  font: 14px/130% Raleway, sans-serif;
   position: relative;
 
   &__textarea,
@@ -113,7 +114,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
     font: inherit;
     // color: $black;
     border-bottom: 1px solid;
-    transition: border-bottom-color .5s;
+    // transition: border-bottom-color .5s;
 
     &:focus,
     &.filled {
@@ -132,7 +133,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
     position: absolute;
     left: 0;
     top: 0;
-    // color: $grey;
+    color: $gray2;
     transition: top .25s, font-size .25s;
   }
 }

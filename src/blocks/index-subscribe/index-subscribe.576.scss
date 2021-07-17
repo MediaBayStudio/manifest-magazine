@@ -1,3 +1,30 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-subscribe-sect {
+
+  // decor star
+  &::before {
+    left: calc(50vw - 255px);
+  }
+
+  &__title {
+
+    // decor small star
+    &::before {}
+
+    // decor big star
+    &::after {}
+  }
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__btn {}
+}

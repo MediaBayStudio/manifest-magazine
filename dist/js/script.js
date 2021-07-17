@@ -247,7 +247,7 @@ document.addEventListener('DOMContentLoaded', function() {
     (function() {
       // Массив форм, на которые будет добавлена валидация
       let $forms = [
-        id('contacts-form')
+        id('subscribe-form')
       ];
     
       let formValidator = function(params) {
@@ -455,7 +455,7 @@ document.addEventListener('DOMContentLoaded', function() {
               classList = $input.classList,
               value = $input.value;
     
-            if (type === 'text' || $input.tagName === 'TEXTAREA') {
+            if (type === 'text' || type === 'email' || type === 'tel' || $input.tagName === 'TEXTAREA') {
               if (value === '') {
                 classList.remove('filled');
               } else {
@@ -494,7 +494,7 @@ document.addEventListener('DOMContentLoaded', function() {
         if ($forms[i]) {
           formValidator({
             form: $forms[i],
-            formBtn: q('button', $forms[i]),
+            formBtn: q('.btn', $forms[i]) || q('.btn[form="' + $forms[i].id + '"]'),
             uploadFilesBlock: q('.uploadedfiles', $forms[i]),
             filesInput: q('input[type="file"]', $forms[i])
           });
@@ -828,11 +828,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // closeButtons: '.thanks__close'
   // });
 
-  // Инициализация lazyload
-  lazy = new lazyload({
-    clearSrc: true,
-    clearMedia: true
-  });
 
   window.svg4everybody && svg4everybody();
 
@@ -862,4 +857,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // $(document).on('mouseup', function() {
   //   slickLists.removeClass('grabbing');
   // });
+
+  // Инициализация lazyload
+  lazy = new lazyload({
+    clearSrc: true,
+    clearMedia: true
+  });
 });

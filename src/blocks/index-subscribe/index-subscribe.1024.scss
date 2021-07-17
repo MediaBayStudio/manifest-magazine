@@ -1,3 +1,40 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-subscribe-sect {
+  padding-top: 100px;
+  // decor star
+  &::before {
+    top: 25px;
+    left: calc(50vw - 385px);
+    width: 260px;
+    height: 260px;
+  }
+
+  &__title {
+    max-width: 420px;
+    // decor small star
+    &::before {}
+
+    // decor big star
+    &::after {
+      width: 75px;
+      height: 75px;
+    }
+  }
+
+  &__form {
+    margin: 30px 0 0 0;
+    width: 415px;
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__btn {
+    margin-top: 50px;
+  }
+}

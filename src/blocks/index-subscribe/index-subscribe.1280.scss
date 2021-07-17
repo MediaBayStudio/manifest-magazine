@@ -1,3 +1,35 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+  .index-subscribe-sect {
+    padding-bottom: 85px;
+  // decor star
+  &::before {
+    left: calc(50vw - 565px);
+  }
+
+  &__title {
+    max-width: 450px;
+    // decor small star
+    &::before {}
+
+    // decor big star
+    &::after {}
+  }
+
+  &__form-wrap {
+    margin: 0 100px 0 0;
+  }
+
+  &__form {
+    width: 480px;
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__btn {}
+}

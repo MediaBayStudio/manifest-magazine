@@ -46,11 +46,6 @@ document.addEventListener('DOMContentLoaded', function() {
   // closeButtons: '.thanks__close'
   // });
 
-  // Инициализация lazyload
-  lazy = new lazyload({
-    clearSrc: true,
-    clearMedia: true
-  });
 
   window.svg4everybody && svg4everybody();
 
@@ -80,4 +75,10 @@ document.addEventListener('DOMContentLoaded', function() {
   // $(document).on('mouseup', function() {
   //   slickLists.removeClass('grabbing');
   // });
+
+  // Инициализация lazyload
+  lazy = new lazyload({
+    clearSrc: true,
+    clearMedia: true
+  });
 });

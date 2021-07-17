@@ -1,3 +1,48 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.index-subscribe-sect {
+  padding-top: 60px;
+  position: relative;
+  // decor star
+  &::before {
+    content: '';
+    position: absolute;
+    top: 5px;
+    left: 35px;
+    width: 140px;
+    height: 140px;
+    background: center/contain no-repeat;
+    pointer-events: none;
+  }
+
+  &.lazyloaded {
+    &::before {
+      background-image: url('../img/decor-star-ol-white.svg');
+    }
+  }
+
+  &__title {
+    margin: 0 0 55px;
+    max-width: 260px;
+    position: relative;
+    // decor small star
+    &::before {}
+
+    // decor big star
+    &::after {}
+  }
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__btn {
+    margin: 25px auto 0;
+  }
+}

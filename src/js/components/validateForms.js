@@ -2,7 +2,7 @@
 (function() {
   // Массив форм, на которые будет добавлена валидация
   let $forms = [
-    id('contacts-form')
+    id('subscribe-form')
   ];
 
   let formValidator = function(params) {
@@ -210,7 +210,7 @@
           classList = $input.classList,
           value = $input.value;
 
-        if (type === 'text' || $input.tagName === 'TEXTAREA') {
+        if (type === 'text' || type === 'email' || type === 'tel' || $input.tagName === 'TEXTAREA') {
           if (value === '') {
             classList.remove('filled');
           } else {
@@ -249,7 +249,7 @@
     if ($forms[i]) {
       formValidator({
         form: $forms[i],
-        formBtn: q('button', $forms[i]),
+        formBtn: q('.btn', $forms[i]) || q('.btn[form="' + $forms[i].id + '"]'),
         uploadFilesBlock: q('.uploadedfiles', $forms[i]),
         filesInput: q('input[type="file"]', $forms[i])
       });
