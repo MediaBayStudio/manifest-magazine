@@ -1,0 +1,21 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.article-card {
+  &__link {}
+
+  &__pic {}
+
+  &__img {}
+
+  &__categories {}
+
+  &__parent-category {}
+
+  &__child-category {}
+
+  &__title {}
+
+  &__descr {}
+}

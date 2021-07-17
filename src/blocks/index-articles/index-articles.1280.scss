@@ -1,0 +1,31 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.articles-sect {
+  &__title {}
+
+  &__articles {
+    // columns: 3 373.3333px;
+    > .gutter-size {
+      width: 40px;
+    }
+    .article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}

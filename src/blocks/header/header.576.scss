@@ -1,0 +1,30 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+
+.hdr {
+
+  &__burger,
+  &__search {
+    &::before {}
+  }
+
+  &__burger {
+    &::before {}
+  }
+
+  &__logo {}
+
+  &__logo-img {}
+
+  &__search {
+    &::before {}
+  }
+
+  &__nav {}
+
+  &__nav-list {}
+
+  &__nav-li {}
+}

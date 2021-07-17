@@ -1,0 +1,41 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+
+.hdr {
+  padding-top: 30px;
+  &__burger,
+  &__search {
+    &::before {}
+  }
+
+  &__burger {
+    &::before {}
+  }
+
+  &__logo {
+    width: 200px;
+  }
+
+  &__logo-img {}
+
+  &__search {
+    &::before {}
+  }
+
+  &__nav {
+    margin: 30px 0 0 0;
+    padding: 40px 0;
+  }
+
+  &__nav-list {}
+
+  &__nav-li {
+    &:not(:last-child) {
+      &::before {
+        margin: 0 25px;
+      }
+    }
+  }
+}

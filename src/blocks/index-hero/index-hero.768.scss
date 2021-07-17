@@ -1,0 +1,151 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-hero-sect {
+  &__circle {
+    top: 5px;
+    left: auto;
+    right: calc(50vw - 375px);
+  }
+
+  &__slide {}
+
+  &__progress {
+    font-size: 18px;
+    .slider-progress__bar {
+      width: 180px;
+    }
+    .slider-progress__background {
+      top: 50%;
+      height: 3px;
+      transform: translateY(-50%);
+    }
+  }
+
+  &.small-img {
+    background-size: 720px auto;
+    background-clip: content-box;
+    // padding-top: 0;
+    padding-bottom: 0;
+    .slick-list {
+      padding-top: 0;
+    }
+    .index-hero-sect__progress {
+      margin-top: 45px;
+      padding-bottom: 60px;
+      .slider-progress {
+        &__current-number {}
+
+        &__bar {}
+
+        &__background {}
+
+        &__total-number {}
+      }
+    }
+
+    .index-hero-slide {
+      &__pic {
+        width: 180px;
+        height: 235px;
+        // width: 230px;
+        // height: 265px;
+      }
+
+      &__pic-link {
+        margin: 40px 115px 0 auto;
+      }
+
+      &__img {}
+
+      &__text {
+        margin: 40px 0 0 40px;
+        order: -1;
+      }
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+
+  &.full-screen {
+    padding: 0 $sectionHorizontalPadding768;
+    .slick-list {
+      overflow: hidden;
+    }
+    .index-hero-sect__progress {
+      top: auto;
+      bottom: 30px;
+      .slider-progress {
+        &__current-number {}
+
+        &__bar {}
+
+        &__background {}
+
+        &__total-number {}
+      }
+    }
+
+    .index-hero-slide {
+      padding: 70px 45px 105px;
+      position: relative;
+      &__pic {
+        position: absolute;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+      }
+
+      &__img {}
+
+      &__text {
+        margin: 0;
+        padding: 0;
+        z-index: 1;
+      }
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}
+
+.index-hero-slide {
+  display: flex;
+  &__pic {}
+
+  &__img {}
+
+  &__text {
+    max-width: 270px;
+  }
+
+  &__categories {
+    margin: 0 0 15px;
+    font-size: 15px;
+  }
+
+  &__parent-category {}
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__descr {
+    margin: 15px 0 0;
+    display: block;
+  }
+}

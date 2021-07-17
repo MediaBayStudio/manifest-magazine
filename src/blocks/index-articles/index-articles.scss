@@ -1,0 +1,44 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.articles-sect {
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+
+  &__title {}
+
+  &__articles {
+    margin: 0 0 -40px;
+    transition: max-height .5s;
+    will-change: max-height;
+
+    .article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+
+  &__loadmore {
+    margin: 40px auto 0;
+
+    &.loading {
+      pointer-events: none;
+      opacity: 0.2;
+    }
+  }
+}

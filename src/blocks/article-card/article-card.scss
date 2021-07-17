@@ -1,0 +1,43 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.article-card {
+  margin: 0 0 40px;
+  display: flex;
+  flex-flow: column;
+  &.hide {
+    display: none;
+  }
+  &__link {}
+
+  &__pic {}
+
+  &__img {}
+
+  &__categories {
+    margin: 15px 0;
+    font: 12px/130% Raleway, sans-serif;
+    text-transform: uppercase;
+    color: $darkBlue;
+  }
+
+  &__parent-category,
+  &__child-category {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .5s;
+  }
+
+  &__parent-category {}
+
+  &__child-category {}
+
+  &__title {
+    margin: 0 0 15px;
+    font: bold 18px/120% Quincy CF, serif;
+    text-decoration: underline transparent;
+    transition: text-decoration-color .5s;
+  }
+
+  &__descr {}
+}

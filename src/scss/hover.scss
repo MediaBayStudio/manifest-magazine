@@ -1,0 +1,33 @@
+@import 'assets/colors';
+@import 'assets/mixins';
+@import 'assets/variables';
+
+.article-card__link:hover .article-card__title,
+.article-card__link:hover~.article-card__link .article-card__title {
+  text-decoration-color: currentColor;
+}
+
+.article-card__parent-category,
+.article-card__child-category {
+  &:hover {
+    border-bottom-color: currentColor;
+  }
+}
+
+.btn {
+  &:hover {
+    &::after {
+      transform: rotate(4deg);
+    }
+    &::before {
+      transform: rotate(-4deg);
+    }
+  }
+}
+
+
+.popup__close {
+  &:hover {
+    color: $orange;
+  }
+}

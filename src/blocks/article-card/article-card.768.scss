@@ -1,0 +1,32 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.article-card {
+  margin: 0 0 50px 0;
+  // break-inside: avoid;
+  // @-moz-document url-prefix() {
+    // width: 50%;
+    width: calc((100% - 20px) / 2);
+    // &:nth-child(odd) {
+    //   margin-right: 20px;
+    // }
+  // }
+  &__link {}
+
+  &__pic {}
+
+  &__img {}
+
+  &__categories {}
+
+  &__parent-category {}
+
+  &__child-category {}
+
+  &__title {
+    font-size: 22px;
+  }
+
+  &__descr {}
+}

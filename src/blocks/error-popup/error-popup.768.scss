@@ -1,0 +1,19 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.error-popup {
+  &__cnt {
+    padding: 30px 50px 50px;
+  }
+  &__close {
+    margin: -20px -35px 0 auto;
+  }
+  &__close-svg {
+  }
+  &__close-path {
+  }
+  &__descr {
+    margin-top: 35px;
+  }
+}

@@ -1,0 +1,279 @@
+@import '../assets/colors';
+@import '../assets/mixins';
+@import '../assets/variables';
+
+// Класс добавляется при вызове попапов и мобильного меню
+body.no-scroll {
+  overflow: hidden;
+
+  .hdr.fixed {
+    overflow-y: scroll;
+  }
+}
+
+body {
+  font: 14px/130% Raleway, sans-serif;
+  color: $black;
+}
+
+.slider-progress {
+  display: flex;
+  align-items: center;
+  font: bold 14px/130% QuincyCF, serif;
+  &__current-number {}
+
+  &__bar {
+    margin: 0 15px;
+    flex-shrink: 0;
+    width: 120px;
+    height: 1px;
+    position: relative;
+  }
+
+  &__background {
+    height: 1px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    // top: 50%;
+    // transform: translateY(-50%);
+    transition: width .5s;
+    will-change: width;
+  }
+
+  &__total-number {}
+}
+
+// Обертка для всего контента
+// фиксит горизонтальную прокрутку на некоторых iOS
+#page-wrapper {
+  position: relative;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+// img.lazy {
+//   background: url('../img/img-placeholder.svg') center/cover no-repeat;
+// }
+
+// a[href="#"] {
+//   opacity: .5;
+//   pointer-events: none;
+// }
+
+/* loader */
+// Лоадер в основном для форм
+
+.loader {
+  position: absolute;
+  top: 0;
+  left: 0;
+  display: flex;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
+  opacity: 0;
+  visibility: hidden;
+  transition: opacity .5s, visibility .5s;
+  // background: $color;
+
+  &__circle {
+    margin: auto;
+    width: 30px;
+    height: 30px;
+    border-radius: 50%;
+    border: 3px solid transparent;
+    animation: spin .5s linear infinite;
+    // border-top-color: $color;
+    // border-left-color: $color;
+  }
+}
+
+.loader_white {
+
+  // background: $color;
+  >.loader__circle {
+    // border-top-color: $color;
+    // border-left-color: $color;
+  }
+}
+
+.loading .loader {
+  opacity: 1;
+  visibility: visible;
+}
+
+/* loader */
+
+// Поле contact form 7 honeypot
+.cf7-form-field {
+  top: 0;
+  left: 0;
+  z-index: -1;
+  opacity: 0;
+  position: absolute;
+}
+
+// Блок с прокруткой, который показывается на всю ширину и высоту страницы страницы
+// нужен для незаметного overflow:hidden у body
+// при вызове мобильного меню или попапов
+#fake-scrollbar {
+  display: none;
+  pointer-events: none;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  overflow-y: scroll;
+  z-index: 9999;
+
+  &.active {
+    display: block;
+  }
+}
+
+// Блокирование текущей ссылки в меню
+// .nav__list-item {
+//   &.current {
+//     cursor: not-allowed;
+//     > .nav__link {
+//       pointer-events: none;
+//       > .nav__link-text {
+//         border-bottom: 1px solid;
+//       }
+//     }
+//   }
+// }
+
+// Общие стили для секций
+.sect {
+  margin: 30px 0;
+  &-lightblue-bg {
+
+  }
+
+  &-h1 {
+    font: bold 20px/130% QuincyCF, serif;
+    text-transform: uppercase;
+  }
+
+  &-title {
+    font: bold 20px/130% QuincyCF, serif;
+    text-transform: uppercase;
+  }
+
+  &-title-underline {
+    margin-bottom: 40px;
+    padding: 0 0 10px;
+    position: relative;
+    display: inline-block;
+    &::after {
+      content: '';
+      position: absolute;
+      left: $sectionHorizontalPaddingMinus320;
+      bottom: 0;
+      display: block;
+      width: 40%;
+      height: 1px;
+      background: $orange;
+    }
+  }
+
+  &-descr {}
+}
+
+
+// Скрытие стандартных сообщений от contact form 7
+div.wpcf7-response-output,
+span.wpcf7-not-valid-tip,
+.screen-reader-response {
+  display: none !important;
+}
+
+
+.btn,
+.hdr__nav {
+  font: bold 14px/130% QuincyCF, serif;
+}
+
+@import '../../blocks/article-card/article-card';
+
+@media (min-width: 575.98px) {
+  .sect {
+    &-title-underline {
+      left: 0;
+    }
+  }
+}
+
+@media (min-width: 767.98px) {
+  body {
+    font-size: 15px;
+  }
+
+  .sect {
+    &-h1 {
+      font-size: 36px;
+    }
+    &-title {
+      font-size: 24px;
+    }
+    &-title-underline {
+      margin-bottom: 50px;
+    }
+  }
+
+  .btn,
+  .hdr__nav {
+    font-size: 16px;
+  }
+
+  @import '../../blocks/article-card/article-card.768';
+}
+
+@media (min-width: 1023.98px) {
+  .sect {
+    &-h1 {
+      
+    }
+    &-title {
+      font-size: 36px;
+    }
+    &-title-underline {
+      padding: 0 0 20px;
+    }
+  }
+
+  .btn,
+  .hdr__nav {
+    font-size: 18px;
+  }
+
+  @import '../../blocks/article-card/article-card.1024';
+}
+
+@media (min-width: 1279.98px) {
+  body {
+    font-size: 16px;
+  }
+
+  .sect {
+    &-h1 {
+      font-size: 40px;
+    }
+    &-title {
+      font-size: 30px;
+    }
+    &-title-underline {
+      margin-bottom: 70px;
+    }
+  }
+
+  .btn,
+  .hdr__nav {
+    font-size: 18px;
+  }
+
+  @import '../../blocks/article-card/article-card.1280';
+}

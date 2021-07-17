@@ -1,0 +1,55 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+
+.hdr {
+  padding-top: 20px;
+  padding-bottom: 20px;
+  display: flex;
+  flex-flow: wrap;
+  align-items: center;
+  &__burger,
+  &__search {
+    &::before {
+      content: '';
+      display: inline-block;
+      width: 100%;
+      height: 100%;
+      background: center/contain no-repeat;
+    }
+  }
+
+  &__burger {
+    width: 24px;
+    height: 16px;
+    &::before {
+      background-image: url('../img/icon-burger.svg');
+    }
+  }
+
+  &__logo {
+    flex-shrink: 0;
+    margin: auto;
+  }
+
+  &__logo-img {
+    width: 100%;
+  }
+
+  &__search {
+    width: 16px;
+    height: 16px;
+    &::before {
+      background-image: url('../img/icon-search.svg');
+    }
+  }
+
+  &__nav {
+    display: none;
+  }
+
+  &__nav-list {}
+
+  &__nav-li {}
+}

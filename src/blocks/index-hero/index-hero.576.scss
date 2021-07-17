@@ -1,0 +1,96 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.index-hero-sect {
+  &__circle {
+    width: 125px;
+    height: 125px;
+    left: calc(50vw - 210px);
+  }
+
+  &__slide {}
+
+  &__progress {}
+
+  &.small-img {
+    .index-hero-sect__progress {
+      .slider-progress {
+        &__current-number {}
+
+        &__bar {}
+
+        &__background {}
+
+        &__total-number {}
+      }
+    }
+
+    
+
+    .index-hero-slide {
+      &__pic {}
+
+      &__img {}
+
+      &__text {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+
+  &.full-screen {
+
+    .index-hero-sect__progress {
+
+      .slider-progress {
+        &__current-number {}
+
+        &__bar {}
+
+        &__background {}
+
+        &__total-number {}
+      }
+    }
+
+    .index-hero-slide {
+      &__pic {}
+
+      &__img {}
+
+      &__text {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}
+
+
+.index-hero-slide {
+  &__pic {}
+
+  &__img {}
+
+  &__text {}
+
+  &__categories {}
+
+  &__parent-category {}
+
+  &__title {}
+
+  &__descr {}
+}
