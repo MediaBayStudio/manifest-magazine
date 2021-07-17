@@ -1,17 +1,14 @@
 let /*path = require('path'),*/
 path = require('path').posix,
 
-  // localServerDest = path.normalize('/Applications/MAMP/htdocs/zubteh/'),
+  localServerDest = path.normalize('/Applications/MAMP/htdocs/manifest-magazine/'),
   // localServerDest = path.normalize('C:/OSPanel/domains/zubteh/'),
-  localServerDest = path.normalize('test'),
+  // localServerDest = path.normalize('test'),
 
-  // themeDest = path.normalize('/Applications/MAMP/htdocs/zubteh/wp-content/themes/zubteh/'),
+  themeDest = path.normalize('/Applications/MAMP/htdocs/manifest-magazine/wp-content/themes/manifest-magazine/'),
   // themeDest = path.normalize('C:/OSPanel/domains/zubteh/wp-content/themes/zubteh/'),
-  themeDest = path.normalize('test'),
+  // themeDest = path.normalize('test'),
   themeAssetsDest = path.join(themeDest, 'src'),
-
-  // destPath = path.relative('gulpfile.js', themeDest),
-  // destAssets = path.relative('gulpfile.js', themeAssetsDest),
 
   destPath = themeDest,
   destAssets = path.join(themeDest, 'src'),
@@ -31,23 +28,23 @@ path = require('path').posix,
     themeStyleTemplate: [
       '@charset "UTF-8";',
       '/*',
-      'Theme Name: Название',
+      'Theme Name: Manifest Magazine',
       'Author: Медиа Гавань',
       'Author URI: https://media-bay.ru/',
       'Version: 1.0',
       '*/'
     ],
 
-    dbname: 'andrejqb_name',
+    dbname: 'andrejqb_manifes',
     dbhost: '127.0.0.1:8889',
     dbuser: 'admin',
     dbpass: '12345',
     siteName: 'name',
-    siteurl: 'http://localhost:8888/site',
+    siteurl: 'http://localhost:8888/manifest-magazine',
     wpAdmin: 'admin',
-    siteTtitle: 'title',
+    siteTtitle: 'Manifest Magazine',
     siteDescr: 'descr',
-    adminEmail: 'alexadermediabay@gmail.com',
+    adminEmail: 'alexander@media-bay.ru',
 
     // Путь для локальных плагинов
     wpPluginsPath: path.normalize('/Users/administrator/Desktop/wordpress-plugins/'),
@@ -61,7 +58,7 @@ path = require('path').posix,
       'contact-form-7-honeypot',
       // 'advanced-custom-fields-table-field',
       'advanced-custom-fields-pro.zip',
-      'backupbuddy-8.7.2.0.zip'
+      'backupbuddy-8.7.3.0.zip'
     ],
 
     dest: {
@@ -128,7 +125,7 @@ path = require('path').posix,
       536,
       720,
       960,
-      1160
+      1200
     ],
 
     cssAnimations: {
@@ -138,16 +135,30 @@ path = require('path').posix,
     },
 
     cssColors: {
-      'light': '#EDF4F4',
-      'green': '#004753',
-      'lightGreen': '#A2B9BA',
+      'blue': '#B5CFD3',
+      'darkBkue': '#4A7987',
+      'dirtyBlue': '#B1BFBE',
+      'beige': '#BAABA1',
+      'lightBeige': '#F0E8DF',
+      'brown': '#AC7F55',
+      'brightOrange': '#E73E1B',
+      'lightGray': '#E4E4E4',
+      'gray1': '#C4C4C4',
+      'gray2': '#A3A3A3',
+      'gray3': '#7E7E7E',
+      'gray4': '#5F5F5F',
+      'darkGray': '#5F5F5F',
+      'light': '#F3F3F3',
+      'lightBlue': '#F0FBFE',
+      'lightYellow': '#FEFBF6',
+      'orange': '#E46A4F',
       'white': '#fff',
-      'black': '#3C4446'
+      'black': '#282828'
     },
 
     fonts: [
-      'OpenSans-Regular',
-      'SourceSerifPro-Bold',
+      'QuincyCF-Bold',
+      'Raleway-Regular',
       'SegoeUI-SemiBold'
     ],
 
@@ -159,9 +170,9 @@ path = require('path').posix,
       'sectionVerticalPadding': [
         30,
         0,
+        40,
         45,
-        50,
-        60
+        50
       ]
 
       // sectionHorizontalPadding будут созданы автоматичеси
@@ -262,7 +273,7 @@ path = require('path').posix,
       'phpPathJoin': {
         'comment': 'Склеивание путей с правильным сепаратором',
         'path': 'php-path-join.php'
-      },
+      }
       // 'printBreadcrumbs': {
       //   'comment': 'Функция формирования хлебных крошек',
       //   'path': 'print-breadcrumbs.php'
@@ -297,7 +308,16 @@ config.pages = [
   // в таком случае будут созданы файлы для страницы и будет создана страница в wordpress,
   // которой также будет назначен соответствующий шаблон.
 
-  path.join(srcPath, 'index.php')
+  path.join(srcPath, 'index.php'),
+  path.join(srcPath, 'about.php'),
+  path.join(srcPath, 'contacts.php'),
+  path.join(srcPath, 'callback.php'),
+  path.join(srcPath, 'author.php'),
+  path.join(srcPath, 'authors.php'),
+  path.join(srcPath, 'category.php'),
+  path.join(srcPath, 'single.php'),
+  path.join(srcPath, 'search.php'),
+  path.join(srcPath, '404.php')
 ];
 
 // При flexibleWordpress будет всталвено в style.css файл темы
@@ -314,14 +334,39 @@ config.generalScss = [
 config.blocks = [
   // Главная страница
   path.join(config.src.blocks, 'header/header.php'),
+  path.join(config.src.blocks, 'mobile-menu/mobile-menu.php'),
   path.join(config.src.blocks, 'index-hero/index-hero.php'),
-  path.join(config.src.blocks, 'index-teaching/index-teaching.php'),
-  path.join(config.src.blocks, 'index-system/index-system.php'),
-  path.join(config.src.blocks, 'index-features/index-features.php'),
-  path.join(config.src.blocks, 'index-principles/index-principles.php'),
-  path.join(config.src.blocks, 'index-entry/index-entry.php'),
-  path.join(config.src.blocks, 'index-steps/index-steps.php'),
-  path.join(config.src.blocks, 'index-contacts/index-contacts.php'),
+  path.join(config.src.blocks, 'index-articles/index-articles.php'),
+  // path.join(config.src.blocks, 'category-articles/category-articles.php'),
+  // path.join(config.src.blocks, 'authors/authors.php'),
+  path.join(config.src.blocks, 'index-quote/index-quote.php'),
+  // path.join(config.src.blocks, 'faq/faq.php'),
+  path.join(config.src.blocks, 'index-subscribe/index-subscribe.php'),
+
+  path.join(config.src.blocks, 'category-hero/category-hero.php'),
+  path.join(config.src.blocks, 'category-articles/category-articles.php'),
+
+  path.join(config.src.blocks, 'authors-hero/authors-hero.php'),
+  path.join(config.src.blocks, 'faq/faq.php'),
+
+  path.join(config.src.blocks, 'author-hero/author-hero.php'),
+  path.join(config.src.blocks, 'author-articles/author-articles.php'),
+  // path.join(config.src.blocks, 'faq/faq.php'),
+
+  path.join(config.src.blocks, 'about-hero/about-hero.php'),
+  path.join(config.src.blocks, 'about-concept/about-concept.php'),
+  path.join(config.src.blocks, 'about-team/about-team.php'),
+  path.join(config.src.blocks, 'about-prize/about-prize.php'),
+
+  path.join(config.src.blocks, 'callback-hero/callback-hero.php'),
+
+  path.join(config.src.blocks, 'contacts-hero/contacts-hero.php'),
+  path.join(config.src.blocks, 'contacts-contact-us/contacts-contact-us.php'),
+
+  path.join(config.src.blocks, 'article/article.php'),
+
+  path.join(config.src.blocks, 'hero-404/hero-404.php'),
+  path.join(config.src.blocks, 'footer/footer.php'),
 
   // Попапы
   path.join(config.src.blocks, '/thanks-popup/thanks-popup.php')

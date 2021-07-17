@@ -1,0 +1,1 @@
+@charset "UTF-8";.articles-sect{display:flex;flex-flow:column;align-items:flex-start}.articles-sect__articles{margin:0 0 -40px;transition:max-height .5s;will-change:max-height}.articles-sect__loadmore{margin:40px auto 0}.articles-sect__loadmore.loading{pointer-events:none;opacity:.2}

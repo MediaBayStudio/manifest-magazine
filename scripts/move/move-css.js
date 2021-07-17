@@ -4,6 +4,7 @@ let { src, dest } = require('gulp'),
   path = require('path').posix,
   argv = require('yargs').argv,
   include = require('gulp-include'),
+  sass = require('gulp-sass')(require('sass')),
   config = require('../config.js'),
 
   wordpress = config.wordpress,
@@ -59,10 +60,7 @@ let { src, dest } = require('gulp'),
       if (flexibleWordpress) {
         // move blocks
         src(path.join(config.src.blocks, '**', '*.scss'))
-          .pipe(sass({
-            errorLogToConsole: true,
-            outputStyle: 'expanded'
-          })).on('error', console.error.bind(console))
+          .pipe(sass().on('error', sass.logError))
           .pipe(autoprefixer({
             cascade: false,
             grid: 'no-autoplace'
