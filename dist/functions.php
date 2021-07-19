@@ -85,6 +85,10 @@ require $template_directory . '/inc/php-path-join.php';
 
 // Вывод карточек статей
 require $template_directory . '/inc/create-article-card.php';
+require $template_directory . '/inc/create-author-article-card.php';
+
+// Подсчет кол-ва просмотров статей
+require $template_directory . '/inc/posts-views-count.php';
 
 // loadmore
 require $template_directory . '/inc/loadmore.php';

@@ -83,6 +83,8 @@ var browser = {
   },
   // Сокращение записи querySelectorAll + перевод в массив
   qa = function(selectors, element, toArray) {
+    console.log(element);
+    console.log(selectors);
     element = element || body;
     return toArray ? Array.prototype.slice.call(element.querySelectorAll(selectors)) : element.querySelectorAll(selectors);
   },

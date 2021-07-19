@@ -8,6 +8,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //=include ../blocks/index-articles/index-articles.js
 
+//=include ../blocks/category-articles/category-articles.js
+
+//=include ../blocks/author-articles/author-articles.js
+
+//=include ../blocks/index-quote/index-quote.js
+
 //=include ../blocks/index-subscribe/index-subscribe.js
 
 //=include ../blocks/error-popup/error-popup.js

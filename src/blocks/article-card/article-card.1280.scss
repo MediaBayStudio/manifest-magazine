@@ -3,18 +3,6 @@
 @import '../../scss/assets/variables';
 
 .article-card {
-  // @-moz-document url-prefix() {
-    width: calc((100% - 80px) / 3);
-
-    // &:nth-child(n) {
-      // margin-right: 40px;
-    // }
-
-    // &:nth-child(3n+3) {
-      // margin-right: 0;
-    // }
-  // }
-
   &__link {}
 
   &__pic {}

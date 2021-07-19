@@ -18,6 +18,8 @@
       $articles = get_posts( $args );
     }
 
+    // array_pop( $articles );
+
     foreach ( $articles as $article ) {
       create_article_card( [
         'article' => $article,
@@ -43,6 +45,7 @@
         'article' => $article,
         'lazyload' => true
       ] );
+      break;
     } ?>
   </div>
   <button type="button" class="articles-sect__loadmore btn" data-post-type="post">Загрузить еще</button>

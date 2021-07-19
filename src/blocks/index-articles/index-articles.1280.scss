@@ -11,6 +11,7 @@
       width: 40px;
     }
     .article-card {
+      width: calc((100% - 80px) / 3);
       &__link {}
 
       &__pic {}

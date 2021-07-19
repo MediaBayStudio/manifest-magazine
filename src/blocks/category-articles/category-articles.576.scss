@@ -1,3 +1,109 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.category-articles-sect {
+  &__title {}
+
+  &__articles {
+    .slick-list {}
+
+    .article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}
+
+.category-articles {
+  &:not(.slick-slider) {
+    display: flex;
+    flex-wrap: wrap;
+    .article-card {
+      width: calc((100% - 20px) / 2);
+      &:nth-of-type(odd) {
+        margin-right: 20px;
+      }
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+
+  &.slick-slider {
+    .article-card {
+      &:not(:last-child) {
+        margin-right: 20px;
+      }
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+
+  .article-card {
+    &__link {}
+
+    &__pic {}
+
+    &__img {}
+
+    &__categories {}
+
+    &__parent-category {}
+
+    &__child-category {}
+
+    &__title {}
+
+    &__descr {}
+  }
+
+  &__prev,
+  &__next {}
+
+  &__prev {}
+
+  &__next {}
+
+  &__nav {
+    margin: 0 0 25px;
+  }
+}

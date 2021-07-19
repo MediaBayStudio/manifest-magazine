@@ -7,19 +7,8 @@
 
   &__articles {
     margin: 0 0 -50px;
-    width: 100%;
-    > .gutter-size {
-      width: 20px;
-    }
-    // display: flex;
-    // align-items: flex-start;
-    // flex-flow: column wrap;
-    // columns: 2 340px;
-    // @-moz-document url-prefix() {
-      display: flex;
-      flex-wrap: wrap;
-    // }
     .article-card {
+      margin: 0 0 50px 0;
       &__link {}
 
       &__pic {}

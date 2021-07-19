@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";.category-articles:not(.slick-slider){display:flex;flex-wrap:wrap}.category-articles:not(.slick-slider) .article-card{width:calc((100% - 20px)/ 2)}.category-articles.slick-slider .article-card:not(:last-child),.category-articles:not(.slick-slider) .article-card:nth-of-type(odd){margin-right:20px}.category-articles__nav{margin:0 0 25px}

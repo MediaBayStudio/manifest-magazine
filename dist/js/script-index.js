@@ -102,18 +102,17 @@ document.addEventListener('DOMContentLoaded', function() {
           }
         }
       }
-
-      console.log('setArticlesQuantity');
     };
+
 
   for (let i = 0, len = articlesSections.length; i < len; i++) {
     let loadmoreButton = q('.articles-sect__loadmore', articlesSections[i]),
       articlesBlock = q('.articles-sect__articles', articlesSections[i]),
-      existsArticles = qa('.article-card', articlesBlock[i]),
-      visibleImages = qa('.article-card:not(.hide) .article-card__img'),
+      existsArticles = qa('.article-card', articlesBlock),
+      visibleImages = qa('.article-card:not(.hide) .article-card__img', articlesBlock),
       articlesMasonryBlock;
 
-    if (media('(min-width:767.98px)')) {
+    if (media('(min-width:575.98px)')) {
       articlesMasonryBlock = new Masonry(articlesBlock, {
         itemSelector: '.article-card',
         columnWidth: '.article-card',
@@ -160,7 +159,7 @@ document.addEventListener('DOMContentLoaded', function() {
             articlesBlock.insertAdjacentHTML('beforeend', response);
 
             let hiddenArticles = qa('.article-card.hide', articlesBlock),
-              hiddenImages = qa('.article-card.hide .article-card__img'),
+              hiddenImages = qa('.article-card.hide .article-card__img', articlesBlock),
               articlesQuantity = media('(max-width: 1023.98px)') ? 4 : 6;
 
             if (articlesMasonryBlock) {
@@ -192,6 +191,109 @@ document.addEventListener('DOMContentLoaded', function() {
     });
   }
 })();
+
+;
+(function() {
+  let articlesSlider = qa('.category-articles-sect__articles'),
+    slidesSelector = '.article-card';
+
+  for (let i = 0, len = articlesSlider.length; i < len; i++) {
+    let $articlesSlider = $(articlesSlider[i]),
+      slides = qa(slidesSelector, articlesSlider[i]),
+      buildSlider = function() {
+        if (media('(min-width:1023.98px)') && slides.length < 4) {
+          if (SLIDER.hasSlickClass($articlesSlider)) {
+            SLIDER.unslick($articlesSlider);
+          }
+          // если ширина экрана больше 1440px и слайдов меньше 7, то слайдера не будет
+        } else if (media('(min-width:575.98px)') && slides.length < 3) {
+          if (SLIDER.hasSlickClass($articlesSlider)) {
+            SLIDER.unslick($articlesSlider);
+          }
+          // если ширина экрана больше 1440px и слайдов меньше 7, то слайдера не будет
+        } else {
+          if (SLIDER.hasSlickClass($articlesSlider)) {
+            // слайдер уже создан
+            return;
+          }
+          if (slides.length && slides.length > 1) {
+            $articlesSlider.slick({
+              slide: slidesSelector,
+              appendArrows: $('.category-articles__nav', $articlesSlider),
+              prevArrow: SLIDER.createArrow('category-articles__prev', SLIDER.arrowSvg),
+              nextArrow: SLIDER.createArrow('category-articles__next', SLIDER.arrowSvg),
+              infinite: false,
+              mobileFirst: true,
+              responsive: [{
+                breakpoint: 575.98,
+                settings: {
+                  slidesToShow: 2
+                }
+              }, {
+                breakpoint: 1023.98,
+                settings: {
+                  slidesToShow: 3
+                }
+              }]
+            });
+          }
+        }
+      };
+
+    buildSlider();
+    windowFuncs.resize.push(buildSlider);
+  }
+})();
+
+;
+(function() {
+  let articlesSlider = qa('.author-articles-slider'),
+    slidesSelector = '.author-article-card';
+
+  for (let i = 0, len = articlesSlider.length; i < len; i++) {
+    let $articlesSlider = $(articlesSlider[i]),
+      slides = qa(slidesSelector, articlesSlider[i]),
+      buildSlider = function() {
+        if (media('(min-width:1023.98px)') && slides.length < 4) {
+          if (SLIDER.hasSlickClass($articlesSlider)) {
+            SLIDER.unslick($articlesSlider);
+          }
+          // если ширина экрана больше 1440px и слайдов меньше 7, то слайдера не будет
+        } else if (media('(min-width:575.98px)') && slides.length < 3) {
+          if (SLIDER.hasSlickClass($articlesSlider)) {
+            SLIDER.unslick($articlesSlider);
+          }
+          // если ширина экрана больше 1440px и слайдов меньше 7, то слайдера не будет
+        } else {
+          if (SLIDER.hasSlickClass($articlesSlider)) {
+            // слайдер уже создан
+            return;
+          }
+          if (slides.length && slides.length > 1) {
+            $articlesSlider.slick({
+              slide: slidesSelector,
+              appendArrows: $('.category-articles__nav', $articlesSlider),
+              prevArrow: SLIDER.createArrow('category-articles__prev', SLIDER.arrowSvg),
+              nextArrow: SLIDER.createArrow('category-articles__next', SLIDER.arrowSvg),
+              infinite: false,
+              mobileFirst: true,
+              responsive: [{
+                breakpoint: 575.98,
+                settings: {
+                  slidesToShow: 2
+                }
+              }]
+            });
+          }
+        }
+      };
+
+    buildSlider();
+    windowFuncs.resize.push(buildSlider);
+  }
+})();
+
+//=include ../blocks/index-quote/index-quote.js
 
 //=include ../blocks/index-subscribe/index-subscribe.js
 

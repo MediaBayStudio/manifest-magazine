@@ -79,6 +79,11 @@ li.slick-active > .dot {
 .arrow {
   display: flex;
   transition: opacity .35s, fill .35s, stroke .35s;
+  width: 50px;
+  height: 30px;
+  &:active {
+    transform: scale(.95);
+  }
   &.slick-disabled {
     opacity: 0.5;
     pointer-events: none;

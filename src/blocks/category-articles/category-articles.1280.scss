@@ -1,3 +1,113 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.category-articles-sect {
+  &__title {}
+
+  &__articles {
+    .slick-list {}
+
+    .article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}
+
+.category-articles {
+  &:not(.slick-slider) {
+    .article-card {
+      width: calc((100% - 80px) / 3);
+      &:nth-child(n) {
+        margin-right: 40px;
+      }
+      &:nth-of-type(3n+3) {
+        margin-right: 0;
+      }
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+
+  &.slick-slider {
+    .article-card {
+      &:not(:last-child) {
+        margin-right: 40px;
+      }
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+
+  .article-card {
+    &__link {}
+
+    &__pic {}
+
+    &__img {}
+
+    &__categories {}
+
+    &__parent-category {}
+
+    &__child-category {}
+
+    &__title {}
+
+    &__descr {}
+  }
+
+  &__prev,
+  &__next {
+    width: 75px;
+    height: 45px;
+  }
+
+  &__prev {
+    margin-right: 50px;
+  }
+
+  &__next {}
+
+  &__nav {}
+}

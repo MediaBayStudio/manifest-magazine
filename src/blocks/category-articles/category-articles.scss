@@ -1,3 +1,60 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.category-articles-sect {
+  &__title {}
+
+  &__articles {
+    .slick-list {
+      overflow: hidden;
+    }
+
+    .article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}
+
+.category-articles {
+
+  &__prev,
+  &__next {
+    // width: 50px;
+    // height: 30px;
+    color: $darkBlue;
+  }
+
+  &__prev {
+    margin-right: 20px;
+  }
+
+  &__next {}
+
+  &:not(.slick-slider) {
+    .category-articles__nav {
+      display: none;
+    }
+  }
+
+    &__nav {
+      margin: 0 0 20px;
+      display: flex;
+      align-items: center;
+      justify-content: flex-end;
+    }
+  }

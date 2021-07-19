@@ -1,0 +1,72 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+
+.author-article-card {
+  max-width: 400px;
+  display: flex;
+  flex-flow: column-reverse;
+
+  &__pic-link {
+    margin-top: 15px;
+  }
+
+  &__pic {}
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__text {}
+
+  &__author {
+    margin: 0 0 10px;
+    display: flex;
+    align-items: flex-start;
+  }
+
+  &__author-pic-link {
+    margin: 0 20px 0 0;
+  }
+
+  &__author-pic {
+    display: block;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__author-text {
+    display: flex;
+    flex-flow: column;
+    align-items: flex-start;
+  }
+
+  &__author-name {
+    margin: 0 0 10px;
+    font: bold 14px/130% Quincy CF, serif;
+    text-decoration: underline transparent;
+    transition: text-decoration-color .5s;
+  }
+
+  &__category {
+    font: 12px/130% Raleway, sans-serif;
+    text-transform: uppercase;
+    color: $darkBlue;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .5s;
+  }
+
+  &__title-link {
+    font: bold 18px/120% Quincy CF, serif
+  }
+
+  &__title {
+    text-decoration: underline transparent;
+    transition: text-decoration-color .5s;
+  }
+}

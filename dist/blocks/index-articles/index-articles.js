@@ -35,18 +35,17 @@
           }
         }
       }
-
-      console.log('setArticlesQuantity');
     };
+
 
   for (let i = 0, len = articlesSections.length; i < len; i++) {
     let loadmoreButton = q('.articles-sect__loadmore', articlesSections[i]),
       articlesBlock = q('.articles-sect__articles', articlesSections[i]),
-      existsArticles = qa('.article-card', articlesBlock[i]),
-      visibleImages = qa('.article-card:not(.hide) .article-card__img'),
+      existsArticles = qa('.article-card', articlesBlock),
+      visibleImages = qa('.article-card:not(.hide) .article-card__img', articlesBlock),
       articlesMasonryBlock;
 
-    if (media('(min-width:767.98px)')) {
+    if (media('(min-width:575.98px)')) {
       articlesMasonryBlock = new Masonry(articlesBlock, {
         itemSelector: '.article-card',
         columnWidth: '.article-card',
@@ -93,7 +92,7 @@
             articlesBlock.insertAdjacentHTML('beforeend', response);
 
             let hiddenArticles = qa('.article-card.hide', articlesBlock),
-              hiddenImages = qa('.article-card.hide .article-card__img'),
+              hiddenImages = qa('.article-card.hide .article-card__img', articlesBlock),
               articlesQuantity = media('(max-width: 1023.98px)') ? 4 : 6;
 
             if (articlesMasonryBlock) {

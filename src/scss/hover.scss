@@ -2,13 +2,9 @@
 @import 'assets/mixins';
 @import 'assets/variables';
 
-.article-card__link:hover .article-card__title,
-.article-card__link:hover~.article-card__link .article-card__title {
-  text-decoration-color: currentColor;
-}
-
 .article-card__parent-category,
-.article-card__child-category {
+.article-card__child-category,
+.author-article-card__category {
   &:hover {
     border-bottom-color: currentColor;
   }
@@ -30,4 +26,15 @@
   &:hover {
     color: $orange;
   }
+}
+
+.article-card__link:hover .article-card__title,
+.article-card__link:hover~.article-card__link .article-card__title,
+
+.author-article-card__title-link:hover .author-article-card__title,
+.author-article-card__pic-link:hover~.author-article-card__text .author-article-card__title,
+
+.author-article-card__author-name:hover,
+.author-article-card__author-pic-link:hover~.author-article-card__author-text .author-article-card__author-name {
+  text-decoration-color: currentColor;
 }
