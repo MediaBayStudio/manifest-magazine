@@ -96,4 +96,7 @@ li.slick-active > .dot {
   &__svg {
     pointer-events: none;
   }
+  &-path {
+    transition: transform .35s;
+  }
 }

@@ -19,12 +19,12 @@
         tel: {
           required: true,
           pattern: /\+7\([0-9]{3}\)[0-9]{3}\-[0-9]{2}\-[0-9]{2}/,
-          or: 'email'
+          // or: 'email'
         },
         email: {
           required: true,
           pattern: /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/,
-          or: 'tel'
+          // or: 'tel'
         },
         msg: {
           required: true,
@@ -36,14 +36,14 @@
       },
       messages = {
         tel: {
-          required: 'Введите ваш телефон или E-mail',
+          required: 'Введите ваш телефон',
           pattern: 'Укажите верный телефон'
         },
         name: {
           required: 'Введите ваше имя',
         },
         email: {
-          required: 'Введите ваш E-mail или телефон',
+          required: 'Введите ваш E-mail',
           pattern: 'Введите верный E-mail'
         },
         msg: {

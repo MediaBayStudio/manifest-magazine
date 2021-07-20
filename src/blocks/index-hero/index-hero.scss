@@ -164,10 +164,16 @@
     text-transform: uppercase;
   }
 
-  &__parent-category {}
+  &__parent-category,
+  &__child-category {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .5s;
+  }
 
   &__title {
     font: bold 20px/120% QuincyCF, serif;
+    text-decoration: underline transparent;
+    transition: text-decoration-color .5s;
   }
 
   &__descr {

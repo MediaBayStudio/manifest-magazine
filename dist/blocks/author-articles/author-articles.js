@@ -7,35 +7,24 @@
     let $articlesSlider = $(articlesSlider[i]),
       slides = qa(slidesSelector, articlesSlider[i]),
       buildSlider = function() {
-        if (media('(min-width:1023.98px)') && slides.length < 4) {
+        if (media('(max-width:575.98px)')) {
           if (SLIDER.hasSlickClass($articlesSlider)) {
             SLIDER.unslick($articlesSlider);
           }
-          // если ширина экрана больше 1440px и слайдов меньше 7, то слайдера не будет
-        } else if (media('(min-width:575.98px)') && slides.length < 3) {
-          if (SLIDER.hasSlickClass($articlesSlider)) {
-            SLIDER.unslick($articlesSlider);
-          }
-          // если ширина экрана больше 1440px и слайдов меньше 7, то слайдера не будет
         } else {
           if (SLIDER.hasSlickClass($articlesSlider)) {
             // слайдер уже создан
             return;
           }
-          if (slides.length && slides.length > 1) {
+          if (slides.length && slides.length > 2) {
             $articlesSlider.slick({
+              slidesToShow: 2,
               slide: slidesSelector,
-              appendArrows: $('.category-articles__nav', $articlesSlider),
-              prevArrow: SLIDER.createArrow('category-articles__prev', SLIDER.arrowSvg),
-              nextArrow: SLIDER.createArrow('category-articles__next', SLIDER.arrowSvg),
-              infinite: false,
-              mobileFirst: true,
-              responsive: [{
-                breakpoint: 575.98,
-                settings: {
-                  slidesToShow: 2
-                }
-              }]
+              draggable: false,
+              appendArrows: $('.author-articles-slider__nav', $articlesSlider),
+              prevArrow: SLIDER.createArrow('author-articles-slider__prev', SLIDER.arrowSvg),
+              nextArrow: SLIDER.createArrow('author-articles-slider__next', SLIDER.arrowSvg),
+              infinite: false
             });
           }
         }

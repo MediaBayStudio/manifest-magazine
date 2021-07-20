@@ -5,6 +5,23 @@
 .author-articles-sect {
   &__title {}
 
+  &__descr {
+    margin: 0 0 -100px 165px;
+    max-width: 455px;
+    padding: 55px 0 100px;
+    font-size: 18px;
+    &::before {
+      width: 515px;
+      height: 195px;
+      top: -10px;
+      left: -60px;
+    }
+  }
+
+  &__decor-star {
+    left: calc(50vw - 35px);
+  }
+
   &__articles {
     >.gutter-size {}
   }
@@ -13,8 +30,22 @@
 }
 
 .author-articles {
-  .author-articles-slider {
+  &.author-articles-slider {
+    .author-articles-slider__prev {
+      margin: 0 50px 0 0;
+    }
+    .author-articles-slider__prev,
+    .author-articles-slider__next {
+      width: 75px;
+      height: 45px;
+    }
     .author-article-card {
+      width: calc((100% - 40px) / 2);
+
+      &:not(:last-child) {
+        margin-right: 40px;
+      }
+
       &__pic-link {}
 
       &__pic {}
@@ -41,7 +72,7 @@
     }
   }
 
-  .author-articles-masonry {
+  &.author-articles-masonry {
     .author-article-card {
       &__pic-link {}
 

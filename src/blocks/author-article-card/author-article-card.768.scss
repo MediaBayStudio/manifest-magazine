@@ -4,15 +4,22 @@
 
 
 .author-article-card {
-  &__pic-link {}
+  &__pic-link {
+    margin-top: 20px;
+  }
 
-  &__pic {}
+  &__pic {
+    width: 340px;
+    height: 390px;
+  }
 
   &__img {}
 
   &__text {}
 
-  &__author {}
+  &__author {
+    margin: 0 0 15px;
+  }
 
   &__link {}
 
@@ -20,11 +27,16 @@
 
   &__author-text {}
 
-  &__author-name {}
+  &__author-name {
+    font-size: 16px;
+  }
 
   &__category {}
 
-  &__title-link {}
+  &__title-link {
+  }
 
-  &__title {}
+  &__title {
+    font-size: 22px;
+  }
 }

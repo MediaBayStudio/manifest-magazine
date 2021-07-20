@@ -37,7 +37,7 @@ var browser = {
       className = (className.indexOf('prev') === -1 ? 'next ' : 'prev ') + className;
       return '<button type="button" class="arrow arrow_' + className + '">' + inside + '</button>';
     },
-    arrowSvg: '<svg class="arrow__svg" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg" fill="none"><path fill-rule="evenodd" clip-rule="evenodd" d="M38.589 14l-5.018-4.157.429-.51 6 5.014-6 4.986-.43-.509 5.019-4.157h-38.589v-.667h38.589z" fill="currentColor"/><circle r="14.5" transform="matrix(-1 0 0 1 35 15)" stroke="currentColor"/></svg>'
+    arrowSvg: '<svg class="arrow__svg" viewBox="0 0 50 30" xmlns="http://www.w3.org/2000/svg" fill="none"><path class="arrow-path" fill-rule="evenodd" clip-rule="evenodd" d="M38.589 14l-5.018-4.157.429-.51 6 5.014-6 4.986-.43-.509 5.019-4.157h-38.589v-.667h38.589z" fill="currentColor"/><circle r="14.5" transform="matrix(-1 0 0 1 35 15)" stroke="currentColor"/></svg>'
     // setImages: function(slides) {
     //   for (let i = 0, len = slides.length; i < len; i++) {
     //     let img = q('img', slides[i]);
@@ -266,12 +266,12 @@ document.addEventListener('DOMContentLoaded', function() {
             tel: {
               required: true,
               pattern: /\+7\([0-9]{3}\)[0-9]{3}\-[0-9]{2}\-[0-9]{2}/,
-              or: 'email'
+              // or: 'email'
             },
             email: {
               required: true,
               pattern: /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/,
-              or: 'tel'
+              // or: 'tel'
             },
             msg: {
               required: true,
@@ -283,14 +283,14 @@ document.addEventListener('DOMContentLoaded', function() {
           },
           messages = {
             tel: {
-              required: 'Введите ваш телефон или E-mail',
+              required: 'Введите ваш телефон',
               pattern: 'Укажите верный телефон'
             },
             name: {
               required: 'Введите ваше имя',
             },
             email: {
-              required: 'Введите ваш E-mail или телефон',
+              required: 'Введите ваш E-mail',
               pattern: 'Введите верный E-mail'
             },
             msg: {

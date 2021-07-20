@@ -4,19 +4,29 @@
 
 
 .author-article-card {
-  &__pic-link {}
+  &__pic-link {
+    margin: 0 40px 0 0;
+  }
 
-  &__pic {}
+  &__pic {
+    width: 270px;
+    height: 340px;
+  }
 
   &__img {}
 
   &__text {}
 
-  &__author {}
+  &__author {
+    margin: 0 0 40px;
+  }
 
   &__link {}
 
-  &__author-pic {}
+  &__author-pic {
+    width: 90px;
+    height: 90px;
+  }
 
   &__author-text {}
 
@@ -26,5 +36,7 @@
 
   &__title-link {}
 
-  &__title {}
+  &__title {
+    font-size: 24px;
+  }
 }

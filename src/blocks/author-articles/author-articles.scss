@@ -5,6 +5,31 @@
 .author-articles-sect {
   &__title {}
 
+  &__descr {
+    margin: 0 0 30px;
+    padding: 25px 0 30px;
+    max-width: 375px;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 280px;
+      height: 105px;
+      border: 1px solid $lightBeige;
+      border-radius: 50%;
+      transform: rotate(-14deg);
+      z-index: -1;
+      pointer-events: none;
+    }
+  }
+
+  &__decor-star {
+    display: none;
+  }
+
   &__articles {
     >.gutter-size {}
   }
@@ -13,6 +38,8 @@
 }
 
 .author-articles {
+  margin-bottom: -40px;
+
   .author-articles-slider {
     .author-article-card {
       &__pic-link {}
@@ -70,6 +97,8 @@
   }
 
   .author-article-card {
+    margin: 0 0 40px;
+
     &__pic-link {}
 
     &__pic {}

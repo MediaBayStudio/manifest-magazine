@@ -80,11 +80,11 @@ foreach ( $section['slider'] as $slide ) :
     </a>
     <div class="index-hero-slide__text">
       <div class="index-hero-slide__categories">
-        <span class="index-hero-slide__parent-category"><?php echo $parent_category->name ?></span>
+        <a href="<?php echo get_term_link( $parent_category ) ?>" class="index-hero-slide__parent-category"><?php echo $parent_category->name ?></a>
         /
-        <span цclass="index-hero-slide__child-category"><?php echo $child_category->name ?></span>
+        <a href="<?php echo get_term_link( $child_category ) ?>" class="index-hero-slide__child-category"><?php echo $child_category->name ?></a>
       </div>
-      <a href="<?php echo $permalink ?>"><h2 class="index-hero-slide__title"><?php echo $single->post_title ?></h2></a>
+      <a href="<?php echo $permalink ?>" class="index-hero-slide__title-link"><h2 class="index-hero-slide__title"><?php echo $single->post_title ?></h2></a>
       <p class="index-hero-slide__descr"><?php echo get_the_excerpt( $single_id ) ?></p>
     </div>
   </div> <?php

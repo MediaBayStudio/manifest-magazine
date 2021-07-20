@@ -5,6 +5,15 @@
 .author-articles-sect {
   &__title {}
 
+  &__descr {
+    margin: 0 0 -40px 105px;
+    padding: 35px 0 55px;
+    &::before {
+      width: 330px;
+      height: 125px;
+    }
+  }
+
   &__articles {
     >.gutter-size {}
   }

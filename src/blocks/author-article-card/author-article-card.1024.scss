@@ -4,25 +4,41 @@
 
 
 .author-article-card {
-  &__pic-link {}
+  max-width: 100%;
+  flex-flow: row;
+  &__pic-link {
+    margin: 0 20px 0 0;
+  }
 
-  &__pic {}
+  &__pic {
+    width: 230px;
+    height: 275px;
+  }
 
   &__img {}
 
   &__text {}
 
-  &__author {}
+  &__author {
+    margin: 0 0 30px;
+  }
 
   &__link {}
 
-  &__author-pic {}
+  &__author-pic {
+    width: 80px;
+    height: 80px;
+  }
 
   &__author-text {}
 
-  &__author-name {}
+  &__author-name {
+    font-size: 18px;
+  }
 
-  &__category {}
+  &__category {
+    font-size: 14px;
+  }
 
   &__title-link {}
 

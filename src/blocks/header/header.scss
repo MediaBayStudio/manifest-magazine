@@ -11,12 +11,14 @@
   align-items: center;
   &__burger,
   &__search {
+    transition: filter .35s;
     &::before {
       content: '';
       display: inline-block;
       width: 100%;
       height: 100%;
       background: center/contain no-repeat;
+      pointer-events: none;
     }
   }
 
@@ -31,6 +33,7 @@
   &__logo {
     flex-shrink: 0;
     margin: auto;
+    transition: filter .35s;
   }
 
   &__logo-img {

@@ -2,6 +2,16 @@
 @import 'assets/mixins';
 @import 'assets/variables';
 
+.hdr__logo,
+.hdr__burger,
+.hdr__search {
+  &:hover {
+    filter: invert(0.5)
+  }
+}
+
+.index-hero-slide__parent-category,
+.index-hero-slide__child-category,
 .article-card__parent-category,
 .article-card__child-category,
 .author-article-card__category {
@@ -21,12 +31,14 @@
   }
 }
 
-
 .popup__close {
   &:hover {
     color: $orange;
   }
 }
+
+.index-hero-sect.small-img .index-hero-slide__pic-link:hover ~ .index-hero-slide__text > .index-hero-slide__title-link > .index-hero-slide__title,
+.index-hero-slide__title:hover,
 
 .article-card__link:hover .article-card__title,
 .article-card__link:hover~.article-card__link .article-card__title,
@@ -37,4 +49,11 @@
 .author-article-card__author-name:hover,
 .author-article-card__author-pic-link:hover~.author-article-card__author-text .author-article-card__author-name {
   text-decoration-color: currentColor;
+}
+
+.arrow_next:hover,
+.arrow_prev:hover {
+  .arrow-path {
+    transform: translateX(3px);
+  }
 }
