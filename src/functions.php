@@ -9,7 +9,9 @@ $ssl = is_ssl();
 // $tel = get_option( 'contacts_tel' );
 // $tel_dry = preg_replace( '/\s/', '', $tel );
 // $email = get_option( 'contacts_email' );
-// $insta = get_option( 'contacts_insta' );
+$facebook_link = get_option( 'contacts_facebook' );
+$instagram_link = get_option( 'contacts_instagram' );
+$twitter_link = get_option( 'contacts_twitter' );
 
 $logo_id = get_theme_mod( 'custom_logo' );
 $logo_url = wp_get_attachment_url( $logo_id );

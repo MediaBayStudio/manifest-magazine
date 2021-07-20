@@ -1,5 +1,8 @@
 <?php
   global
+    $instagram_link,
+    $facebook_link,
+    $twitter_link,
     $preload,
     $site_url,
     $logo_url,
@@ -84,19 +87,22 @@
   <noscript>
     <!-- <noindex> -->Для полноценного использования сайта включите JavaScript в настройках вашего браузера.<!-- </noindex> -->
   </noscript>
-  <div id="page-wrapper">
-  <header class="hdr container">
-    <button type="button" class="hdr__burger"></button> 
-    <a href="<?php echo $site_url ?>" class="hdr__logo">
-      <img src="<?php echo $logo_url ?>" alt="Логотип" class="hdr__logo-img">
-    </a>
-    <button type="button" class="hdr__search"></button> <?php
-    wp_nav_menu( [
-      'theme_location'  => 'header_menu',
-      'container'       => 'nav',
-      'container_class' => 'hdr__nav',
-      'menu_class'      => 'hdr__nav-list',
-      'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
-    ] );
-    require 'template-parts/mobile-menu.php' ?>
-  </header>
+  <div id="page-wrapper"> <?php
+    if ( is_front_page() ) : ?>
+      <h1 class="visually-hidden"><?php bloginfo( 'name' ) ?> &mdash; <?php bloginfo( 'description' ) ?></h1> <?php
+    endif ?>
+    <header class="hdr container">
+      <button type="button" class="hdr__burger"></button> 
+      <a href="<?php echo $site_url ?>" class="hdr__logo">
+        <img src="<?php echo $logo_url ?>" alt="Логотип" class="hdr__logo-img">
+      </a>
+      <button type="button" class="hdr__search"></button> <?php
+      wp_nav_menu( [
+        'theme_location'  => 'header_menu',
+        'container'       => 'nav',
+        'container_class' => 'hdr__nav',
+        'menu_class'      => 'hdr__nav-list',
+        'items_wrap'      => '<ul class="%2$s">%3$s</ul>'
+      ] );
+      require 'template-parts/mobile-menu.php' ?>
+    </header>

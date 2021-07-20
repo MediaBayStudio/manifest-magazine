@@ -1,3 +1,106 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.ftr {
+  &__logo {
+    margin: 0 0 40px;
+    width: 150px;
+    height: 63px;
+  }
+
+  &__logo-img {}
+
+  &__inner {}
+
+  &__search-block {
+    margin: 0 0 70px;
+  }
+
+  &__links {
+  }
+
+  &__form-wrap {
+    margin: auto;
+    width: 370px;
+  }
+
+  &__form-title {}
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__form-btn {
+    margin: 40px auto 0;
+  }
+
+  &__nav {
+    margin: 0 0 -15px;
+    font-size: 15px;
+
+    &:first-of-type {
+      width: 245px;
+
+      .ftr__nav-list {}
+
+      .ftr__nav-li {}
+
+      .nav-link {}
+    }
+
+    &:last-of-type {
+      width: 280px;
+
+      .ftr__nav-list {}
+
+      .ftr__nav-li {}
+
+      .nav-link {}
+    }
+  }
+
+  &__nav-title {}
+
+  &__nav-list {
+    display: block;
+    columns: 2 auto;
+  }
+
+  &__nav-li {
+    &:nth-child(n) {
+      margin: 0 0 15px;
+    }
+  }
+
+  &__bottom {
+    margin: 70px 0 0;
+    flex-flow: wrap;
+  }
+
+  &__policy {
+    margin: 0 auto 0 0;
+    font-size: 15px;
+  }
+
+  &__copy {
+    // order: auto;
+    width: 100%;
+    text-align: center;
+  }
+
+  &__dev {
+    font-size: 16px;
+  }
+
+  &__dev-link {
+    margin: 0 0 -6px 10px;
+    transform: scale(1.1);
+  }
+
+  &__dev-logo {}
+}

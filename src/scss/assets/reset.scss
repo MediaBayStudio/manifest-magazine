@@ -61,6 +61,7 @@ a,
 pre,
 button {
   font: inherit;
+  outline-offset: -1px;
 }
 
 :focus {

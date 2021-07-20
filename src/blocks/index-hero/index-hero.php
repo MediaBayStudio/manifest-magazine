@@ -61,7 +61,7 @@ foreach ( $section['slider'] as $slide ) :
     $picture .= '<source type="image/jpeg" media="(max-width:575.98px)" ' . $source_attr . $mobile_url['url'] . '">';
   }
 
-  $picture .= '<source type="image/webp"' . $source_attr . $webp_url . '">';
+  $picture .= '<source type="image/webp" ' . $source_attr . $webp_url . '">';
 
   $picture .= '<img ' . $img_attr . $img['url'] . '" alt="#" class="index-hero-slide__img">';
 

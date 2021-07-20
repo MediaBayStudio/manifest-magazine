@@ -3,8 +3,8 @@
   add_action( 'after_setup_theme', function() {
     register_nav_menus( [
       'header_menu' =>  'Меню в шапке сайта',
-      // 'mobile_menu' =>  'Мобильное меню на сайте',
-      // 'footer_menu' =>  'Меню в подвале сайта'
+      'mobile_menu' =>  'Мобильное меню на сайте',
+      'footer_menu' =>  'Меню в подвале сайта'
     ] );
   } );
 
@@ -23,13 +23,13 @@
       case 'hdr__nav':
         $li_class = 'hdr__nav-li';
         break;
-      // case 'ftr__nav':
-      //   $li_class = 'ftr__nav-li';
-      //   break;
-      // case 'menu__nav':
-      //   $li_class = 'menu__nav-li';
-      //   break;
-      // default:
+      case 'ftr__nav':
+        $li_class = 'ftr__nav-li';
+        break;
+      case 'menu__nav':
+        $li_class = 'menu__nav-li';
+        break;
+      default:
         $li_class = 'nav__li';
         break;
     }
@@ -47,6 +47,15 @@
   }, 10, 4);
 
 // убрать id у пунктов меню
-  add_filter( 'nav_menu_item_id', function( $menu_id, $item, $args, $depth ) {
-    return '';
-  }, 10, 4);
+add_filter( 'nav_menu_item_id', function( $menu_id, $item, $args, $depth ) {
+  return '';
+}, 10, 4);
+
+
+add_filter( 'wp_nav_menu', function( $nav_menu, $args ){
+  if ( $args->theme_location === 'footer_menu' ) {
+    $nav_menu = str_replace( 'ftr__nav">', 'ftr__nav"><span class="ftr__nav-title">Меню</span>', $nav_menu );
+  }
+
+  return $nav_menu;
+}, 10, 2 );

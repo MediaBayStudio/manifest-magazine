@@ -1,3 +1,65 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.ftr {
+  &__logo {}
+
+  &__logo-img {}
+
+  &__inner {}
+
+  &__search-block {}
+
+  &__links {}
+
+  &__form-wrap {}
+
+  &__form-title {}
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__form-btn {}
+
+  &__nav {
+    &:first-of-type {
+      .ftr__nav-list {}
+
+      .ftr__nav-li {}
+
+      .nav-link {}
+    }
+
+    &:last-of-type {
+      .ftr__nav-list {}
+
+      .ftr__nav-li {}
+
+      .nav-link {}
+    }
+  }
+
+  &__nav-title {}
+
+  &__nav-list {}
+
+  &__nav-li {}
+
+  &__bottom {}
+
+  &__policy {}
+
+  &__copy {}
+
+  &__dev {}
+
+  &__dev-link {}
+
+  &__dev-logo {}
+}

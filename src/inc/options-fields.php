@@ -11,7 +11,9 @@
       'address' =>  'Адрес',
       'email'   =>  'E-mail',
       'coords'  =>  'Координаты маркера на карте',
-      'zoom'    =>  'Увеличение карты'
+      'instagram'    =>  'Ссылка на Instagram',
+      'facebook'    =>  'Ссылка на Facebook',
+      'twitter'    =>  'Ссылка на Twitter'
     ];
 
     foreach ($options as $id => $name) {

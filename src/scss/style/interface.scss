@@ -11,6 +11,12 @@ body.no-scroll {
   }
 }
 
+.visually-hidden {
+  pointer-events: none;
+  opacity: 0;
+  position: absolute;
+}
+
 body {
   font: 14px/130% Raleway, sans-serif;
   color: $black;
@@ -152,7 +158,11 @@ body {
 // Общие стили для секций
 .sect {
   margin: $sectionVerticalPadding320 0;
+  &-with-decor {
+    margin: $sectionVerticalPadding320 0;
+  }
 
+  &-beige-bg,
   &-lightblue-bg,
   &-lightblue-bg-with-decor {
     margin: $sectionVerticalPadding320 0;
@@ -217,6 +227,29 @@ span.wpcf7-not-valid-tip,
   font: bold 14px/130% QuincyCF, serif;
 }
 
+.instagram,
+.facebook,
+.twitter {
+  background: center/contain no-repeat;
+  filter: brightness(0.1);
+  transition: filter .5s;
+}
+
+.instagram:not(.lazy),
+.instagram.lazyloaded {
+  background-image: url('./img/icon-instagram-orange.svg');
+}
+
+.facebook:not(.lazy),
+.facebook.lazyloaded {
+  background-image: url('./img/icon-facebook-orange.svg');
+}
+
+.twitter:not(.lazy),
+.twitter.lazyloaded {
+  background-image: url('./img/icon-twitter-orange.svg');
+}
+
 @import '../../blocks/article-card/article-card';
 @import '../../blocks/author-article-card/author-article-card';
 
@@ -235,6 +268,9 @@ span.wpcf7-not-valid-tip,
 
   .sect {
     margin: $sectionVerticalPadding768 0;
+    &-with-decor {
+      margin: $sectionVerticalPadding768 0;
+    }
 
     &-lightblue-bg,
     &-lightblue-bg-with-decor,
@@ -273,6 +309,9 @@ span.wpcf7-not-valid-tip,
 @media (min-width: 1023.98px) {
   .sect {
     margin: $sectionVerticalPadding1024 0;
+    &-with-decor {
+      margin: $sectionVerticalPadding1024 0;
+    }
 
     &-lightblue-bg,
     &-lightblue-bg-with-decor,
@@ -309,6 +348,9 @@ span.wpcf7-not-valid-tip,
 
   .sect {
     margin: $sectionVerticalPadding1280 0;
+    &-with-decor {
+      margin: $sectionVerticalPadding1280 0;
+    }
 
     &-lightblue-bg,
     &-lightblue-bg-with-decor,

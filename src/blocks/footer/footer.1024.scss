@@ -1,3 +1,118 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.ftr {
+  padding-top: 50px;
+  padding-bottom: 65px;
+  &__logo {
+    margin: 0 0 60px;
+    width: 200px;
+    height: 83px;
+  }
+
+  &__logo-img {}
+
+  &__inner {
+    flex-flow: row;
+  }
+
+  &__search-block {
+    margin: 0 0 0 60px;
+    flex: 1;
+    order: 10;
+  }
+
+  &__links {
+    margin: 0 0 40px;
+    justify-content: flex-start;
+  }
+
+  &__link {
+    &:not(:last-child) {
+      margin-right: 15px;
+    }
+  }
+
+  &__form-wrap {
+    margin: 0 auto 0 0;
+    width: 415px;
+  }
+
+  &__form-title {
+    font-size: 18px;
+    text-align: left;
+  }
+
+  &__form {
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+  }
+
+  &__form-btn {
+    margin: 30px 0 0 auto;
+  }
+
+  &__nav {
+    font-size: 16px;
+    &:first-of-type {
+      width: auto;
+      .ftr__nav-list {
+      }
+
+      .ftr__nav-li {}
+
+      .nav-link {}
+    }
+
+    &:last-of-type {
+      flex: 2;
+      width: auto;
+      .ftr__nav-list {
+      }
+
+      .ftr__nav-li {}
+
+      .nav-link {}
+    }
+  }
+
+  &__nav-title {
+    margin: 0 0 20px;
+    font-size: 18px;
+  }
+
+  &__nav-list {
+    display: flex;
+  }
+
+  &__nav-li {}
+
+  &__bottom {
+    margin: 100px 0 0;
+    flex-flow: row;
+  }
+
+  &__policy {
+    margin: 0;
+    font-size: 16px;
+  }
+
+  &__copy {
+    order: 0;
+    margin: 0 auto;
+    width: auto;
+    font-size: 18px;
+  }
+
+  &__dev {
+    font-size: 18px;
+  }
+
+  &__dev-link {}
+
+  &__dev-logo {}
+}

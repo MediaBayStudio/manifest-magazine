@@ -25,6 +25,7 @@
           if (slides.length && slides.length > 1) {
             $articlesSlider.slick({
               slide: slidesSelector,
+              draggable: false,
               appendArrows: $('.category-articles__nav', $articlesSlider),
               prevArrow: SLIDER.createArrow('category-articles__prev', SLIDER.arrowSvg),
               nextArrow: SLIDER.createArrow('category-articles__next', SLIDER.arrowSvg),
