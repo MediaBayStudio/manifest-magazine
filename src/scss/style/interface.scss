@@ -158,6 +158,7 @@ body {
 // Общие стили для секций
 .sect {
   margin: $sectionVerticalPadding320 0;
+
   &-with-decor {
     margin: $sectionVerticalPadding320 0;
   }
@@ -250,6 +251,21 @@ span.wpcf7-not-valid-tip,
   background-image: url('./img/icon-twitter-orange.svg');
 }
 
+.sect+.ftr,
+.sect+.popup+.ftr,
+.sect+script+.ftr {
+  margin-top: $sectionVerticalPadding320;
+}
+
+.sect-beige-bg+.sect-lightblue-bg,
+.sect-beige-bg+.sect-lightblue-bg-with-decor,
+.sect-lightblue-bg+.sect-beige-bg,
+.sect-lightblue-bg+.sect-lightblue-bg-with-decor,
+.sect-lightblue-bg-with-decor+.sect-beige-bg,
+.sect-lightblue-bg-with-decor+.sect-lightblue-bg {
+  margin-top: -$sectionVerticalPadding320;
+}
+
 @import '../../blocks/article-card/article-card';
 @import '../../blocks/author-article-card/author-article-card';
 
@@ -266,8 +282,24 @@ span.wpcf7-not-valid-tip,
     font-size: 15px;
   }
 
+  .sect+.ftr,
+  .sect+.popup+.ftr,
+  .sect+script+.ftr {
+    margin-top: $sectionVerticalPadding768;
+  }
+
+  .sect-beige-bg+.sect-lightblue-bg,
+  .sect-beige-bg+.sect-lightblue-bg-with-decor,
+  .sect-lightblue-bg+.sect-beige-bg,
+  .sect-lightblue-bg+.sect-lightblue-bg-with-decor,
+  .sect-lightblue-bg-with-decor+.sect-beige-bg,
+  .sect-lightblue-bg-with-decor+.sect-lightblue-bg {
+    margin-top: -$sectionVerticalPadding768;
+  }
+
   .sect {
     margin: $sectionVerticalPadding768 0;
+
     &-with-decor {
       margin: $sectionVerticalPadding768 0;
     }
@@ -307,8 +339,25 @@ span.wpcf7-not-valid-tip,
 }
 
 @media (min-width: 1023.98px) {
+
+  .sect+.ftr,
+  .sect+.popup+.ftr,
+  .sect+script+.ftr {
+    margin-top: $sectionVerticalPadding1024;
+  }
+
+  .sect-beige-bg+.sect-lightblue-bg,
+  .sect-beige-bg+.sect-lightblue-bg-with-decor,
+  .sect-lightblue-bg+.sect-beige-bg,
+  .sect-lightblue-bg+.sect-lightblue-bg-with-decor,
+  .sect-lightblue-bg-with-decor+.sect-beige-bg,
+  .sect-lightblue-bg-with-decor+.sect-lightblue-bg {
+    margin-top: -$sectionVerticalPadding1024;
+  }
+
   .sect {
     margin: $sectionVerticalPadding1024 0;
+
     &-with-decor {
       margin: $sectionVerticalPadding1024 0;
     }
@@ -346,8 +395,24 @@ span.wpcf7-not-valid-tip,
     font-size: 16px;
   }
 
+  .sect+.ftr,
+  .sect+.popup+.ftr,
+  .sect+script+.ftr {
+    margin-top: $sectionVerticalPadding1280;
+  }
+
+  .sect-beige-bg+.sect-lightblue-bg,
+  .sect-beige-bg+.sect-lightblue-bg-with-decor,
+  .sect-lightblue-bg+.sect-beige-bg,
+  .sect-lightblue-bg+.sect-lightblue-bg-with-decor,
+  .sect-lightblue-bg-with-decor+.sect-beige-bg,
+  .sect-lightblue-bg-with-decor+.sect-lightblue-bg {
+    margin-top: -$sectionVerticalPadding1280;
+  }
+
   .sect {
     margin: $sectionVerticalPadding1280 0;
+
     &-with-decor {
       margin: $sectionVerticalPadding1280 0;
     }

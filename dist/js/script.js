@@ -83,8 +83,6 @@ var browser = {
   },
   // Сокращение записи querySelectorAll + перевод в массив
   qa = function(selectors, element, toArray) {
-    console.log(element);
-    console.log(selectors);
     element = element || body;
     return toArray ? Array.prototype.slice.call(element.querySelectorAll(selectors)) : element.querySelectorAll(selectors);
   },
@@ -249,7 +247,8 @@ document.addEventListener('DOMContentLoaded', function() {
     (function() {
       // Массив форм, на которые будет добавлена валидация
       let $forms = [
-        id('subscribe-form')
+        id('subscribe-form'),
+        id('ftr-form'),
       ];
     
       let formValidator = function(params) {
@@ -804,19 +803,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   fakeScrollbar = id('fake-scrollbar');
 
-  // burger = q('.hdr__burger');
+  burger = q('.hdr__burger');
 
-  // hdr = q('.hdr');
+  hdr = q('.hdr');
 
-  // menu = mobileMenu({
-  //   menu: q('.menu'),
-  //   menuCnt: q('.menu__cnt'),
-  //   openBtn: burger,
-  //   closeBtn: burger,
-  //   toRight: true,
-  //   fade: false,
-  //   allowPageScroll: false
-  // });
+  menu = mobileMenu({
+    menu: q('.menu'),
+    menuCnt: q('.menu__cnt'),
+    openBtn: burger,
+    closeBtn: q('.menu__close'),
+    fade: true,
+    allowPageScroll: false
+  });
+
+  menu.open();
 
   // let navLinks = qa('.nav-link, .hdr__callback');
 
@@ -861,8 +861,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // });
 
   // Инициализация lazyload
-  lazy = new lazyload({
-    clearSrc: true,
-    clearMedia: true
-  });
+  // lazy = new lazyload({
+  //   clearSrc: true,
+  //   clearMedia: true
+  // });
 });

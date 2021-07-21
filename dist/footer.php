@@ -26,8 +26,8 @@
             </div>
             <div class="ftr__form-wrap">
               <span class="ftr__form-title">Подпишитесь на рассылку</span> <?php
-              echo do_shortcode( '[contact-form-7 id="4" html_class="ftr__form" html_id="ftr__form"]' ) ?>
-              <button form="ftr__form" class="ftr__form-btn btn">Подписаться</button>
+              echo do_shortcode( '[contact-form-7 id="4" html_class="ftr__form" html_id="ftr-form"]' ) ?>
+              <button form="ftr-form" class="ftr__form-btn btn">Подписаться</button>
             </div>
           </div> <?php 
           wp_nav_menu( [
@@ -56,5 +56,13 @@
       <div id="fake-scrollbar"></div> <?php
       wp_footer() ?>
     </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function() {
+        lazy = new lazyload({
+          clearSrc: true,
+          clearMedia: true
+        });
+      });
+    </script>
   </body>
 </html>

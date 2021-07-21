@@ -21,6 +21,8 @@
 .index-hero-slide__child-category,
 .article-card__parent-category,
 .article-card__child-category,
+.category-hero-article-card__parent-category,
+.category-hero-article-card__child-category,
 .author-article-card__category {
   &:hover {
     border-bottom-color: currentColor;
@@ -38,6 +40,7 @@
   }
 }
 
+.category-hero-menu__btn,
 .popup__close {
   &:hover {
     color: $orange;
@@ -49,6 +52,9 @@
 
 .article-card__link:hover .article-card__title,
 .article-card__link:hover~.article-card__link .article-card__title,
+
+.category-hero-article-card__link:hover .category-hero-article-card__title,
+.category-hero-article-card__link:hover~.category-hero-article-card__text .category-hero-article-card__title,
 
 .author-article-card__title-link:hover .author-article-card__title,
 .author-article-card__pic-link:hover~.author-article-card__text .author-article-card__title,

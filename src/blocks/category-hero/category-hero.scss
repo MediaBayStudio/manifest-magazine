@@ -1,3 +1,126 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.category-hero-sect {
+  margin: 0 0 10px;
+  padding-top: 40px;
+  padding-bottom: 30px;
+  background: $lightBlue;
+
+  &__title {
+    margin: 0 0 30px;
+    text-align: center;
+  }
+
+  &__menu {
+    margin: 0 0 0 -20px;
+    padding: 0 20px 10px;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    font: bold 14px/130% Quincy CF, serif;
+    text-transform: uppercase;
+    white-space: nowrap;
+    overflow-y: hidden;
+    overflow-x: auto;
+  }
+}
+
+.category-hero-menu {
+  &__li {}
+
+  &__btn {
+    transition: color .5s;
+  }
+
+  &__dot {
+    flex-shrink: 0;
+    margin: 0 12px 2px;
+    width: 5px;
+    height: 5px;
+    background: currentColor;
+    border-radius: 50%;
+    pointer-events: none;
+
+    &:last-of-type {
+      display: none;
+    }
+  }
+}
+
+.category-hero-articles {
+  >.gutter-size {
+    width: 20px;
+    // display: none;
+  }
+
+  &__articles {
+    margin: 0 0 -40px;
+
+    .category-hero-article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__text {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}
+
+.category-hero-article-card {
+  margin: 0 0 40px;
+  display: flex;
+  flex-flow: column;
+  align-items: flex-start;
+
+  &__link {}
+
+  &__pic {}
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__text {}
+
+  &__categories {
+    margin: 15px 0;
+    font: 12px/130% Raleway, sans-serif;
+    text-transform: uppercase;
+    color: $darkBlue;
+  }
+
+  &__parent-category {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .5s;
+  }
+
+  &__child-category {
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .5s;
+  }
+
+  &__title {
+    margin: 0 0 15px;
+    font: bold 18px/130% Quincy CF, serif;
+    text-decoration: underline transparent;
+    transition: text-decoration-color .5s;
+  }
+
+  &__descr {}
+}

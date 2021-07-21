@@ -3,6 +3,7 @@
 @import '../../scss/assets/variables';
 
 .ftr {
+  margin-top: -$sectionVerticalPadding768;
   &__logo {
     margin: 0 0 40px;
     width: 150px;

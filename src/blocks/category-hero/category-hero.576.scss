@@ -1,3 +1,65 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.category-hero-sect {
+  &__menu {}
+}
+
+.category-hero-menu {
+  &__li {}
+
+  &__btn {}
+}
+
+.category-hero-articles {
+  margin-bottom: -20px;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  &__articles {
+    .category-hero-article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__text {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
+    }
+  }
+}
+
+.category-hero-article-card {
+  margin: 0 0 50px;
+  width: calc(((100% - (50vw - 268px) * 2) - 20px) / 2);
+  &__link {
+    width: 100%;
+  }
+
+  &__pic {}
+
+  &__img {}
+
+  &__text {}
+
+  &__categories {}
+
+  &__parent-category {}
+
+  &__child-category {}
+
+  &__title {}
+
+  &__descr {}
+}

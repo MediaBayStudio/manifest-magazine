@@ -2,7 +2,8 @@
 (function() {
   // Массив форм, на которые будет добавлена валидация
   let $forms = [
-    id('subscribe-form')
+    id('subscribe-form'),
+    id('ftr-form'),
   ];
 
   let formValidator = function(params) {

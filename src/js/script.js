@@ -20,19 +20,20 @@ document.addEventListener('DOMContentLoaded', function() {
 
   fakeScrollbar = id('fake-scrollbar');
 
-  // burger = q('.hdr__burger');
+  burger = q('.hdr__burger');
 
-  // hdr = q('.hdr');
+  hdr = q('.hdr');
 
-  // menu = mobileMenu({
-  //   menu: q('.menu'),
-  //   menuCnt: q('.menu__cnt'),
-  //   openBtn: burger,
-  //   closeBtn: burger,
-  //   toRight: true,
-  //   fade: false,
-  //   allowPageScroll: false
-  // });
+  menu = mobileMenu({
+    menu: q('.menu'),
+    menuCnt: q('.menu__cnt'),
+    openBtn: burger,
+    closeBtn: q('.menu__close'),
+    fade: true,
+    allowPageScroll: false
+  });
+
+  menu.open();
 
   // let navLinks = qa('.nav-link, .hdr__callback');
 
@@ -77,8 +78,8 @@ document.addEventListener('DOMContentLoaded', function() {
   // });
 
   // Инициализация lazyload
-  lazy = new lazyload({
-    clearSrc: true,
-    clearMedia: true
-  });
+  // lazy = new lazyload({
+  //   clearSrc: true,
+  //   clearMedia: true
+  // });
 });

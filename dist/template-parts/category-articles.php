@@ -2,9 +2,15 @@
 if ( $section['manual'] ) {
   $articles = $section['articles'];
 } else {
+  if ( is_category() ) {
+    $category = $GLOBALS['quired_object']->term_id;
+  } else {
+    $category = $section['category'];
+  }
+
   $args = [
     'numberposts' => 6,
-    'category' => $section['category']
+    'category' => $category
   ];
 
   if ( $section['sort_by'] === 'date' ) {

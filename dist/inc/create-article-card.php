@@ -29,7 +29,8 @@ function create_article_card( $args ) {
   $defaults = [
     'lazyload' => false,
     'classes' => '',
-    'print' => true
+    'print' => true,
+    'default_class' => 'article-card'
   ];
 
   $parsed_args = wp_parse_args( $args, $defaults );
@@ -44,23 +45,33 @@ function create_article_card( $args ) {
     $src_attr = 'srcset="';
   }
 
+  $card_class = $parsed_args['default_class'];
+
   $response =
-  '<article class="article-card' . $parsed_args['classes'] . '">
-    <a href="' . $article_permalink . '" class="article-card__link">
-      <picture class="article-card__pic' . $lazy_class . '">
+  '<article class="' . $card_class . $parsed_args['classes'] . '">
+    <a href="' . $article_permalink . '" class="' . $card_class . '__link">
+      <picture class="' . $card_class . '__pic' . $lazy_class . '">
         <source type="image/webp" ' . $src_attr . $article_img_webp . '">
-        <img ' . $img_attr . $article_img_url . '" alt="' . $article_img_alt . '" class="article-card__img">
+        <img ' . $img_attr . $article_img_url . '" alt="' . $article_img_alt . '" class="' . $card_class . '__img">
       </picture>
-    </a>
-    <div class="article-card__categories">
-      <a href="' . get_term_link( $article_parent_category ) . '" class="article-card__parent-category">' . $article_parent_category->name . '</a>
+    </a>';
+    if ( $card_class === 'category-hero-article-card' ) {
+      $response .= '<div class="' . $card_class . '__text">';
+    }
+    $response .= '
+    <div class="' . $card_class . '__categories">
+      <a href="' . get_term_link( $article_parent_category ) . '" class="' . $card_class . '__parent-category">' . $article_parent_category->name . '</a>
       /
-      <a href="' . get_term_link( $article_child_category ) . '" class="article-card__child-category">' . $article_child_category->name . '</a>
+      <a href="' . get_term_link( $article_child_category ) . '" class="' . $card_class . '__child-category">' . $article_child_category->name . '</a>
     </div>
-    <a href="' . $article_permalink . '" class="article-card__link">
-      <h3 class="article-card__title">' . $article_title . '</h3>
+    <a href="' . $article_permalink . '" class="' . $card_class . '__link">
+      <h3 class="' . $card_class . '__title">' . $article_title . '</h3>
     </a>
-    <p class="article-card__descr">' . $article_descr . '</p>
+    <p class="' . $card_class . '__descr">' . $article_descr . '</p>';
+    if ( $card_class === 'category-hero-article-card' ) {
+      $response .= '</div>';
+    }
+    $response .= '
   </article>';
 
   if ( $parsed_args['print'] ) {

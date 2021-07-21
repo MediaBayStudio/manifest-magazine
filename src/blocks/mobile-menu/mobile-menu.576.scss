@@ -1,3 +1,32 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.menu {
+
+  &.active {}
+
+  &__cnt {}
+
+  &__hdr {}
+
+  &__close {}
+
+  &__logo {}
+
+  &__logo-img {}
+
+  &__nav {}
+
+  &__nav-list {}
+
+  &__nav-li {}
+
+  &__right {}
+
+  &__callback-link {}
+
+  &__links {}
+
+  &__link {}
+}
