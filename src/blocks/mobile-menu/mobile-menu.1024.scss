@@ -6,25 +6,58 @@
 
   &.active {}
 
-  &__cnt {}
+  &__cnt {
+    padding-top: 30px;
+    background: bottom 75px left/100% auto no-repeat, #fefbf6;
+    &.lazyloaded {
+      background-image: url('../img/mobile-menu-line.svg');
+    }
+  }
 
   &__hdr {}
 
-  &__close {}
+  &__close {
+    top: 55px;
+    right: 50px;
+  }
 
   &__logo {}
 
-  &__logo-img {}
+  &__logo-img {
+    width: 199px;
+    height: 83px;
+  }
 
-  &__nav {}
+  &__nav {
+    margin: 0 0 0 130px;
+  }
 
-  &__nav-list {}
+  &__nav-list {
+    font-size: 24px;
+  }
 
-  &__nav-li {}
+  &__nav-li {
+    &:not(:last-child) {
+      margin: 0 0 30px;
+    }
 
-  &__right {}
+    &:nth-last-child(3) {
+      padding: 0 0 30px;
+    }
+  }
 
-  &__callback-link {}
+  &__right {
+    margin: 0 130px auto auto;
+    .menu__nav-li {
+      &:nth-last-child(3) {
+        padding: 0;
+      }
+    }
+  }
+
+  &__callback-link {
+    padding: 27px 55px;
+  }
 
   &__links {}
 

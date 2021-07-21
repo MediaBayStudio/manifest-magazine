@@ -2,6 +2,7 @@
 @import 'assets/mixins';
 @import 'assets/variables';
 
+.menu__logo,
 .hdr__logo,
 .hdr__burger,
 .hdr__search {
@@ -17,6 +18,13 @@
   }
 }
 
+.menu__link {
+  &:hover {
+    filter: brightness(1);
+  }
+}
+
+.menu__nav-li > .nav-link,
 .index-hero-slide__parent-category,
 .index-hero-slide__child-category,
 .article-card__parent-category,
@@ -40,6 +48,8 @@
   }
 }
 
+
+.menu__close,
 .category-hero-menu__btn,
 .popup__close {
   &:hover {

@@ -6,23 +6,38 @@
 
   &.active {}
 
-  &__cnt {}
+  &__cnt {
+    padding-top: 35px;
+    padding-bottom: 100px;
+  }
 
-  &__hdr {}
+  &__hdr {
+    margin: 0 0 100px;
+  }
 
-  &__close {}
+  &__close {
+    top: 60px;
+    right: $sectionHorizontalPadding1280;
+  }
 
   &__logo {}
 
-  &__logo-img {}
+  &__logo-img {
+    width: 203px;
+    height: 110px;
+  }
 
-  &__nav {}
+  &__nav {
+    margin: 0 0 0 250px;
+  }
 
   &__nav-list {}
 
   &__nav-li {}
 
-  &__right {}
+  &__right {
+    margin: 0 250px auto auto;
+  }
 
   &__callback-link {}
 
