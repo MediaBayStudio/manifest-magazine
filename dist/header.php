@@ -21,6 +21,12 @@
       } 
     }
 
+    if ( is_author() ) {
+      $GLOBALS['current_author'] = get_queried_object();
+      $GLOBALS['current_author']->avatar_url = get_field( 'avatar', $GLOBALS['current_author'] )['url'];
+      $GLOBALS['current_author']->avatar_webp_url = str_replace( ['.jpg', '.png'], '.webp', $GLOBALS['current_author']->avatar_url );
+    }
+
     $GLOBALS['page_script_name'] = $script_name;
     $GLOBALS['page_style_name'] = $style_name ?>
 <!DOCTYPE html>
@@ -68,6 +74,23 @@
     } else {
       $preload[] = $GLOBALS['sections'][0]['slider'][0]['full_screen_img'];
     }
+  }
+
+
+  if ( is_author() ) {
+
+    $preload[] = [
+      'filepath' => $GLOBALS['current_author']->avatar_url,
+      'webp' => $GLOBALS['current_author']->avatar_webp_url
+    ];
+    $preload[] = [
+      'filepath' => $template_directory_uri . '/img/author-hero-bg-mobile.svg',
+      'media' => '(max-width:767.98px)'
+    ];
+    $preload[] = [
+      'filepath' => $template_directory_uri . '/img/author-hero-bg-desktop.svg',
+      'media' => '(min-width:767.98px)'
+    ];
   }
 
   if ( $preload ) {

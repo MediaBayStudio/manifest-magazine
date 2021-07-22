@@ -1,3 +1,85 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.author-hero {
+  background-image: url('../img/author-hero-bg-desktop.svg');
+  background-size: 145% auto;
+  &__pic {
+    margin: 0 0 20px;
+    width: 140px;
+    height: 140px;
+  }
+
+  &__img {}
+
+  &__title {
+    font-size: 22px;
+  }
+
+  &__category {}
+
+  &__descr {}
+
+  &__count {
+
+    &::before {}
+  }
+
+  &__count-posts {}
+
+  &__count-faq {}
+}
+
+.author-hero-articles-sect {
+  text-align: center;
+  &__categories {
+    margin: 0 0 30px 0;
+    padding: 0 0 1px;
+    display: inline-flex;
+    width: auto;
+    justify-content: center;
+    font-size: 16px;
+  }
+
+  &__categories-line {
+    bottom: 0;
+    left: 0;
+  }
+
+  &__category-btn {}
+
+  &__category-dot {
+    margin: 0 20px 2.5px;
+    &:last-child {}
+  }
+
+  &__articles {
+    text-align: left;
+  }
+
+  &__block {
+
+    &.active {}
+  }
+}
+
+.author-hero-article {
+  &__link-pic {
+    height: 400px;
+  }
+
+  &__pic {}
+
+  &__img {}
+
+  &__text {}
+
+  &__link-title {}
+
+  &__title {
+    font-size: 22px;
+  }
+
+  &__descr {}
+}

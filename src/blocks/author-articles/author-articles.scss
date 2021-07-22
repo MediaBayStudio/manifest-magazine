@@ -3,7 +3,16 @@
 @import '../../scss/assets/variables';
 
 .author-articles-sect {
-  &__title {}
+  margin-top: 0;
+  &__title {
+    &.sect-h1 {
+      margin: 0 0 40px -20px;
+      padding: 40px 0;
+      width: 100vw;
+      text-align: center;
+      background: $lightBlue;
+    }
+  }
 
   &__descr {
     margin: 0 0 30px;

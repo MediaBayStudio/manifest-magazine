@@ -266,6 +266,7 @@ span.wpcf7-not-valid-tip,
   margin-top: -$sectionVerticalPadding320;
 }
 
+@import '../../blocks/faq-block/faq-block';
 @import '../../blocks/article-card/article-card';
 @import '../../blocks/author-article-card/author-article-card';
 
@@ -334,6 +335,7 @@ span.wpcf7-not-valid-tip,
     padding: 26px 60px;
   }
 
+  @import '../../blocks/faq-block/faq-block.768';
   @import '../../blocks/article-card/article-card.768';
   @import '../../blocks/author-article-card/author-article-card.768';
 }
@@ -386,6 +388,7 @@ span.wpcf7-not-valid-tip,
     font-size: 18px;
   }
 
+  @import '../../blocks/faq-block/faq-block.1024';
   @import '../../blocks/article-card/article-card.1024';
   @import '../../blocks/author-article-card/author-article-card.1024';
 }
@@ -449,6 +452,7 @@ span.wpcf7-not-valid-tip,
     font-size: 18px;
   }
 
+  @import '../../blocks/faq-block/faq-block.1280';
   @import '../../blocks/article-card/article-card.1280';
   @import '../../blocks/author-article-card/author-article-card.1280';
 }

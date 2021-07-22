@@ -1,8 +1,7 @@
 <?php
 
 add_action( 'init', function() {
-  return;
-  register_post_type( 'expert_question', [
+  register_post_type( 'author_question', [
     'label'  => null,
     'labels' => [
       'name'               => 'Вопросы эксперту',
@@ -26,12 +25,12 @@ add_action( 'init', function() {
     'menu_position'       => null,
     'menu_icon'           => null,
     'hierarchical'        => false,
-    'supports'            => [ 'title' ],
-    'taxonomies'          => [ 'tax_slug' ]
+    'supports'            => ['title'],
+    'taxonomies'          => ['author_question']
   ] );
 
 
-  register_taxonomy( 'slug', ['slug_for'], [
+  register_taxonomy( 'author_question_category', ['author_question'], [
     'label'                 => '',
     'labels'                => [
       'name'              => 'Категории',

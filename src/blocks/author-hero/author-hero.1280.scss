@@ -1,3 +1,73 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.author-hero {
+  &__pic {}
+
+  &__img {}
+
+  &__title {}
+
+  &__category {}
+
+  &__descr {}
+
+  &__count {
+
+    &::before {}
+  }
+
+  &__count-posts {}
+
+  &__count-faq {}
+}
+
+.author-hero-articles-sect {
+  &__categories {}
+
+  &__categories-line {}
+
+  &__category-btn {}
+
+  &__category-dot {
+
+    &:last-child {}
+  }
+
+  &__articles {
+    margin: -50px 0 0;
+  }
+
+  &__block {
+
+    &.active {}
+  }
+}
+
+.author-hero-article {
+  margin: 50px 0 0;
+  width: calc((100% - 40px) / 2);
+
+  &:nth-child(odd) {
+    margin-right: 40px;
+  }
+
+  &__link-pic {
+    margin: 0 40px 0 0;
+  }
+
+  &__pic {}
+
+  &__img {}
+
+  &__text {}
+
+  &__link-title {}
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__descr {}
+}

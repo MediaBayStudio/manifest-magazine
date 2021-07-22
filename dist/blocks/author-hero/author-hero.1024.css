@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";.author-hero{background-size:100% auto}.author-hero__title{font-size:24px}.author-hero__category{font-size:14px}.author-hero__descr{max-width:455px;font-size:16px}.author-hero__count{font-size:14px}.author-hero-articles-sect__categories{margin:0 0 40px;font-size:18px}.author-hero-articles-sect__articles{font-size:16px}.author-hero-article{max-width:100%;width:calc((100% - 30px)/ 2);flex-flow:row}.author-hero-article:nth-child(odd){margin-right:30px}.author-hero-article__link-pic{margin:0 20px 0 0;flex-shrink:0;width:220px;height:290px}

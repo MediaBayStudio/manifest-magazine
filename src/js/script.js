@@ -33,7 +33,7 @@ document.addEventListener('DOMContentLoaded', function() {
     allowPageScroll: false
   });
 
-  menu.open();
+  // menu.open();
 
   // let navLinks = qa('.nav-link, .hdr__callback');
 
@@ -41,7 +41,7 @@ document.addEventListener('DOMContentLoaded', function() {
   // navLinks[i].addEventListener('click', scrollToTarget);
   // }
 
-  // sticky(hdr);
+  sticky(hdr);
 
   // thanksPopup = new Popup('.thanks', {
   // closeButtons: '.thanks__close'

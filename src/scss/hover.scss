@@ -25,6 +25,8 @@
 }
 
 .menu__nav-li > .nav-link,
+.faq-card__author-category,
+.author-hero__category,
 .index-hero-slide__parent-category,
 .index-hero-slide__child-category,
 .article-card__parent-category,
@@ -49,6 +51,7 @@
 }
 
 
+.author-hero-articles-sect__category-btn,
 .menu__close,
 .category-hero-menu__btn,
 .popup__close {
@@ -56,6 +59,9 @@
     color: $orange;
   }
 }
+
+.author-hero-article__link-pic:hover+.author-hero-article__text .author-hero-article__title,
+.author-hero-article__title:hover,
 
 .index-hero-sect.small-img .index-hero-slide__pic-link:hover ~ .index-hero-slide__text > .index-hero-slide__title-link > .index-hero-slide__title,
 .index-hero-slide__title:hover,
