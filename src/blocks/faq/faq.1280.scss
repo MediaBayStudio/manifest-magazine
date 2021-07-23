@@ -1,3 +1,49 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.faq-sect {
+  &.faq-front-page {
+    .faq-card {
+      &__title {}
+
+      &__author {}
+
+      &__author-pic {}
+
+      &__author-img {}
+
+      &__author-text {}
+
+      &__author-title {}
+
+      &__author-category {}
+
+      &__answer {}
+    }
+  }
+
+  .faq-card {
+    &__title {}
+
+    &__author {}
+
+    &__author-pic {}
+
+    &__author-img {}
+
+    &__author-text {}
+
+    &__author-title {}
+
+    &__author-category {}
+
+    &__answer {}
+  }
+
+  &__title {}
+
+  &__faq {}
+
+  &__btn {}
+}

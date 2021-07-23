@@ -14,6 +14,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //=include ../blocks/index-quote/index-quote.js
 
+//=include ../blocks/faq/faq.js
+
 //=include ../blocks/index-subscribe/index-subscribe.js
 
 //=include ../blocks/error-popup/error-popup.js

@@ -1,3 +1,13 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+
+.faq-sect {
+  &__btn {
+    margin: 40px auto 0;
+    &.hide {
+      display: none;
+    }
+  }
+}

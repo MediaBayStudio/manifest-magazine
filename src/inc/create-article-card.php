@@ -4,8 +4,8 @@
 // и из объекта берем заголовок, описание, изображение и т.д.
 function create_article_card( $args ) {
 
-  if ( is_object( $args['article'] ) ) {
-    $article = $args['article'];
+  if ( is_object( $args['object'] ) ) {
+    $article = $args['object'];
     $article_id = $article->ID;
     $article_title = $article->post_title;
     $article_descr = get_the_excerpt( $article_id );

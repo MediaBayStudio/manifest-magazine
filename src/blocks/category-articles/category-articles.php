@@ -31,27 +31,27 @@ if ( $articles ) : ?>
       <div class="category-articles__nav"></div> <?php
       foreach ( $articles as $article ) {
         create_article_card( [
-          'article' => $article,
+          'object' => $article,
           'lazyload' => true
         ] );
         create_article_card( [
-          'article' => $article,
+          'object' => $article,
           'lazyload' => true
         ] );
         create_article_card( [
-          'article' => $article,
+          'object' => $article,
           'lazyload' => true
         ] );
         create_article_card( [
-          'article' => $article,
+          'object' => $article,
           'lazyload' => true
         ] );
         // create_article_card( [
-        //   'article' => $article,
+        //   'object' => $article,
         //   'lazyload' => true
         // ] );
         // create_article_card( [
-        //   'article' => $article,
+        //   'object' => $article,
         //   'lazyload' => true
         // ] );
       } ?>

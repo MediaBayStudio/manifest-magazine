@@ -131,7 +131,7 @@ mobileMenu = function(_) {
         if (e.propertyName === 'transform') {
           transitionEndEvents();
         }
-      } 
+      }
       allowSwipe = true;
     },
     transitionEndEvents = function() {

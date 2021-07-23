@@ -1,8 +1,8 @@
 <?php
 function create_faq_card( $args ) {
 
-  if ( is_object( $args['faq'] ) ) {
-    $faq = $args['faq'];
+  if ( is_object( $args['object'] ) ) {
+    $faq = $args['object'];
     $faq_id = $faq->ID;
     $faq_title = $faq->post_title;
 

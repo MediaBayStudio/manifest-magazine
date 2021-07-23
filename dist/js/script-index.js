@@ -68,7 +68,13 @@ document.addEventListener('DOMContentLoaded', function() {
 ;
 (function() {
   let articlesSections = qa('.articles-sect'),
-    initial = true,
+    mobileMediaQuery = '(max-width: 1023.98px)',
+    articlesQuantityDefault = {
+      'mobile': 4,
+      'desktop': 6
+    },
+    masonry = true,
+    masonryMediaQuery = '(min-width:575.98px)',
     showError = function(text, btn) {
       btn.classList.remove('loading');
       errorPopup.openPopup();
@@ -78,8 +84,8 @@ document.addEventListener('DOMContentLoaded', function() {
       if (articlesBlock.wasLoadmore || articles.length < 5) {
         return;
       }
-      let isMobile = media('(max-width: 1023.98px)'),
-        articlesQuantity = isMobile ? 4 : 6,
+      let isMobile = media(mobileMediaQuery),
+        articlesQuantity = isMobile ? articlesQuantityDefault.mobile : articlesQuantityDefault.desktop,
         childs = [articles[articles.length - 1], articles[articles.length - 2]],
         action = '';
 
@@ -112,7 +118,7 @@ document.addEventListener('DOMContentLoaded', function() {
       visibleImages = qa('.article-card:not(.hide) .article-card__img', articlesBlock),
       articlesMasonryBlock;
 
-    if (media('(min-width:575.98px)')) {
+    if (masonry && media(masonryMediaQuery)) {
       articlesMasonryBlock = new Masonry(articlesBlock, {
         itemSelector: '.article-card',
         columnWidth: '.article-card',
@@ -134,7 +140,7 @@ document.addEventListener('DOMContentLoaded', function() {
       loadmoreButton.classList.add('loading');
 
       let url = siteUrl + '/wp-admin/admin-ajax.php',
-        data = 'action=loadmore&post_type=' + loadmoreButton.dataset.postType;
+        data = 'action=loadmore&post_type=' + loadmoreButton.getAttribute('data-post-type') + '&numberposts=' + loadmoreButton.getAttribute('data-numberposts');
 
       fetch(url, {
           method: 'POST',
@@ -160,18 +166,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
             let hiddenArticles = qa('.article-card.hide', articlesBlock),
               hiddenImages = qa('.article-card.hide .article-card__img', articlesBlock),
-              articlesQuantity = media('(max-width: 1023.98px)') ? 4 : 6;
-
-            if (articlesMasonryBlock) {
-              // imagesLoaded(articlesBlock).on('progress', function() {
-              //   articlesMasonryBlock.layout();
-              // });
-            }
+              articlesQuantity = media(mobileMediaQuery) ? articlesQuantityDefault.mobile : articlesQuantityDefault.desktop;
 
             for (let i = 0; i < articlesQuantity; i++) {
               if (hiddenArticles[i]) {
                 hiddenArticles[i].classList.remove('hide');
-                if (articlesMasonryBlock) {
+                if (masonry && rticlesMasonryBlock) {
                   hiddenImages[i].addEventListener('load', function() {
                     articlesMasonryBlock.layout();
                   });
@@ -284,6 +284,8 @@ document.addEventListener('DOMContentLoaded', function() {
 })();
 
 //=include ../blocks/index-quote/index-quote.js
+
+//=include ../blocks/faq/faq.js
 
 //=include ../blocks/index-subscribe/index-subscribe.js
 

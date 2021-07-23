@@ -9,6 +9,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
   //=include components/menu.js
 
+  //=include components/loadmore.js
+
   // В основном для IE
   if (!NodeList.prototype.forEach) {
     NodeList.prototype.forEach = Array.prototype.forEach;

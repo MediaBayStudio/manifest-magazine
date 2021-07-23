@@ -7,40 +7,50 @@ function loadmore() {
     'post_type' => $_POST['post_type']
   ];
 
-  $articles = get_posts( $args );
+  $posts = get_posts( $args );
 
-  $response .= create_article_card( [
-    'article' => $articles[0],
+  switch ( $_POST['post_type'] ) {
+    case 'author_question':
+      $func = 'create_faq_card';
+      break;
+    
+    default:
+      $func = 'create_article_card';
+      break;
+  }
+
+  $response .= $func( [
+    'object' => $posts[0],
     'lazyload' => false,
     'classes' => ' hide',
     'print' => false
   ] );
-  $response .= create_article_card( [
-    'article' => $articles[0],
+  $response .= $func( [
+    'object' => $posts[0],
     'lazyload' => false,
     'classes' => ' hide',
     'print' => false
   ] );
-  $response .= create_article_card( [
-    'article' => $articles[0],
+  $response .= $func( [
+    'object' => $posts[0],
     'lazyload' => false,
     'classes' => ' hide',
     'print' => false
   ] );
-  $response .= create_article_card( [
-    'article' => $articles[0],
+  $response .= $func( [
+    'object' => $posts[0],
     'lazyload' => false,
     'classes' => ' hide',
     'print' => false
   ] );
-  $response .= create_article_card( [
-    'article' => $articles[0],
+  $response .= $func( [
+    'object' => $posts[0],
     'lazyload' => false,
     'classes' => ' hide',
     'print' => false
   ] );
-  $response .= create_article_card( [
-    'article' => $articles[0],
+  $response .= $func( [
+    'object' => $posts[0],
     'lazyload' => false,
     'classes' => ' hide',
     'print' => false

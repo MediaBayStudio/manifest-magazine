@@ -20,31 +20,31 @@
 
     foreach ( $articles as $article ) {
       create_article_card( [
-        'article' => $article,
+        'object' => $article,
         'lazyload' => true
       ] );
       create_article_card( [
-        'article' => $article,
+        'object' => $article,
         'lazyload' => true
       ] );
       create_article_card( [
-        'article' => $article,
+        'object' => $article,
         'lazyload' => true
       ] );
       create_article_card( [
-        'article' => $article,
+        'object' => $article,
         'lazyload' => true
       ] );
       create_article_card( [
-        'article' => $article,
+        'object' => $article,
         'lazyload' => true
       ] );
       create_article_card( [
-        'article' => $article,
+        'object' => $article,
         'lazyload' => true
       ] );
       break;
     } ?>
   </div>
-  <button type="button" class="articles-sect__loadmore btn" data-post-type="post">Загрузить еще</button>
+  <button type="button" class="articles-sect__loadmore btn" data-post-type="post" data-numberposts="6" data-grid-masonry="true" data-masonry-media-query="(min-width:575.98px)" data-posts-count-mobile="4" data-posts-count-desktop="6">Загрузить еще</button>
 </section>
