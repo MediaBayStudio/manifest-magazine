@@ -4,6 +4,7 @@
 
 .menu__logo,
 .hdr__logo,
+.ftr__logo,
 .hdr__burger,
 .hdr__search {
   &:hover {
@@ -11,20 +12,22 @@
   }
 }
 
-.hdr__nav-li > .nav-link:hover {
+// .hdr__nav-li > .nav-link:hover {
+.link-with-bottom-line:hover {
   &::after {
     transform: translate3d(0, 100%, 0);
     opacity: 1;
   }
 }
 
-.menu__link {
+.menu__link,
+.ftr__link {
   &:hover {
     filter: brightness(1);
   }
 }
 
-.menu__nav-li > .nav-link,
+// .menu__nav-li > .nav-link,
 .faq-card__author-category,
 .author-hero__category,
 .index-hero-slide__parent-category,
@@ -84,5 +87,17 @@
 .arrow_prev:hover {
   .arrow-path {
     transform: translateX(3px);
+  }
+}
+
+.ftr__policy {
+  &:hover {
+    border-bottom-color: transparent;
+  }
+}
+
+.ftr__dev-link:hover {
+  .ftr__dev-logo-line {
+    opacity: 0;
   }
 }

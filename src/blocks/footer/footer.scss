@@ -10,10 +10,12 @@
   flex-flow: column;
   align-items: center;
   background: $lightYellow;
+
   &__logo {
     margin: 0 0 30px;
     width: 135px;
     height: 75px;
+    transition: filter .35s;
   }
 
   &__logo-img {
@@ -44,6 +46,7 @@
     flex-shrink: 0;
     width: 30px;
     height: 30px;
+
     &:not(:last-child) {
       margin: 0 25px 0 0;
     }
@@ -76,6 +79,7 @@
   &__nav {
     flex: 1;
     font: 12px/130% Raleway, sans-serif;
+
     &:first-of-type {
       .ftr__nav-list {}
 
@@ -96,6 +100,11 @@
 
       .nav-link {}
     }
+
+    // .nav-link {
+    //   border-bottom: 1px solid transparent;
+    //   transition: border-bottom-color .5s;
+    // }
   }
 
   &__nav-title {
@@ -151,4 +160,8 @@
   }
 
   &__dev-logo {}
+
+  &__dev-logo-line {
+    transition: opacity .5s;
+  }
 }

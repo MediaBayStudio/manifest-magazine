@@ -59,11 +59,22 @@ function create_article_card( $args ) {
       $response .= '<div class="' . $card_class . '__text">';
     }
     $response .= '
-    <div class="' . $card_class . '__categories">
-      <a href="' . get_term_link( $article_parent_category ) . '" class="' . $card_class . '__parent-category">' . $article_parent_category->name . '</a>
-      /
-      <a href="' . get_term_link( $article_child_category ) . '" class="' . $card_class . '__child-category">' . $article_child_category->name . '</a>
-    </div>
+    <div class="' . $card_class . '__categories">';
+    if ( $article_parent_category ) {
+      $response .=
+      '<a href="' . get_term_link( $article_parent_category ) . '" class="' . $card_class . '__parent-category">' . $article_parent_category->name . '</a>';
+    }
+    if ( $article_parent_category && $article_child_category ) {
+      $response .= 
+      '/';
+    }
+
+    if ( $article_child_category ) {
+      $response .=
+      '<a href="' . get_term_link( $article_child_category ) . '" class="' . $card_class . '__child-category">' . $article_child_category->name . '</a>';
+    }
+    $response .=
+    '</div>
     <a href="' . $article_permalink . '" class="' . $card_class . '__link">
       <h3 class="' . $card_class . '__title">' . $article_title . '</h3>
     </a>

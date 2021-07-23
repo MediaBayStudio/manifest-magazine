@@ -23,7 +23,7 @@
       <nav class="menu__nav">
         <ul class="menu__nav-list"> <?php
           foreach ( $menu_menu_links as $link ) : ?>
-            <li class="menu__nav-li"><a href="<?php echo $link['link']['url'] ?>" class="nav-link"><?php echo $link['link']['title'] ?></a></li> <?php
+            <li class="menu__nav-li"><a href="<?php echo $link['link']['url'] ?>" class="nav-link link-with-bottom-line"><?php echo $link['link']['title'] ?></a></li> <?php
           endforeach ?>
         </ul>
       </nav>

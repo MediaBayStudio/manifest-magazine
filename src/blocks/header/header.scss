@@ -9,6 +9,23 @@
   display: flex;
   flex-flow: wrap;
   align-items: center;
+  &.fixed {
+    padding-top: 15px;
+    padding-bottom: 15px;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    background: #fff;
+    animation: translateToBottom .5s;
+    .hdr__logo,
+    .hdr__nav {
+      display: none;
+    }
+    .hdr__burger {
+      margin: 0 auto 0 0;
+    }
+  }
   &__burger,
   &__search {
     transition: filter .35s;

@@ -10,7 +10,7 @@
 
 // добавить класс для ссылки в меню (a)
   add_filter( 'nav_menu_link_attributes', function( $atts, $item ) {
-    $atts['class'] = 'nav-link';
+    $atts['class'] = 'nav-link link-with-bottom-line';
     return $atts;
   }, 10, 2);  
 
