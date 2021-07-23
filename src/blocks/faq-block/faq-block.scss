@@ -3,6 +3,7 @@
 @import '../../scss/assets/variables';
 
 .faq-card {
+  margin: 40px 0 0;
   display: flex;
   flex-flow: column;
   align-items: flex-start;
@@ -42,7 +43,7 @@
   }
 
   &__author-category {
-    font: 11px/130% Raleway, sans-serif;
+    font: 12px/130% Raleway, sans-serif;
     text-transform: uppercase;
     color: $darkBlue;
     border-bottom: 1px solid transparent;
@@ -50,4 +51,8 @@
   }
 
   &__answer {}
+}
+
+.faq-block {
+  margin: -40px 0 0;
 }

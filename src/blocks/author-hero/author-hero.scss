@@ -96,6 +96,9 @@
 
   &__category-btn {
     transition: color .5s;
+    &.active {
+      pointer-events: none;
+    }
   }
 
   &__category-dot {
@@ -126,6 +129,7 @@
     &.active {
       opacity: 1;
       visibility: visible;
+      transition: opacity .5s .5s, visibility .5s .5s;
     }
   }
 }

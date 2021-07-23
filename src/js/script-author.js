@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //=include ../blocks/mobile-menu/mobile-menu.js
 
-//=include ../blocks/author-articles/author-articles.js
+//=include ../blocks/author-hero/author-hero.js
 
 //=include ../blocks/footer/footer.js
 

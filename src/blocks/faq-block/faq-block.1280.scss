@@ -3,11 +3,22 @@
 @import '../../scss/assets/variables';
 
 .faq-card {
+  margin: 50px 0 0;
+  width: calc((100% - 80px) / 3);
+  &:nth-child(n) {
+    margin-right: 40px;
+  }
+  &:nth-child(3n+3) {
+    margin-right: 0;
+  }
   &__title {}
 
   &__author {}
 
-  &__author-pic {}
+  &__author-pic {
+    width: 90px;
+    height: 90px;
+  }
 
   &__author-img {}
 
@@ -18,4 +29,8 @@
   &__author-category {}
 
   &__answer {}
+}
+
+.faq-block {
+  margin: -50px 0 0;
 }

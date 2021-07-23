@@ -20,7 +20,7 @@ $parent_categories = get_terms( [
 
 $author_categories = '<button type="button" class="author-hero-articles-sect__category-btn active" data-category-id="0">Все темы</button><span class="author-hero-articles-sect__category-dot"></span>';
 
-$author_all_articles = '<div class="author-hero-articles-sect__block active" data-categoruy-id="0">';
+$author_all_articles = '<div class="author-hero-articles-sect__block active" data-category-id="0">';
 
 $author_articles = [];
 
@@ -33,7 +33,7 @@ foreach ( $parent_categories as $parent_category ) {
   ] );
 
   if ( $articles ) {
-    $author_articles[ $i ] = '<div class="author-hero-articles-sect__block" data-categoruy-id="' . $parent_category->term_id . '">';
+    $author_articles[ $i ] = '<div class="author-hero-articles-sect__block" data-category-id="' . $parent_category->term_id . '">';
 
     foreach ( $articles as $article ) {
       $article_thumbnail_id = get_post_thumbnail_id( $article->ID );
@@ -99,7 +99,7 @@ $author_all_articles .= '</div>' ?>
 </section> <?php
 
 if ( $author_articles ) : ?>
-  <section class="author-hero-articles-sect sect container">
+  <section class="author-hero-articles-sect sect container" id="author-hero-articles-sect">
     <div class="author-hero-articles-sect__categories">
       <hr class="author-hero-articles-sect__categories-line"> <?php
       echo $author_categories ?>
@@ -126,6 +126,10 @@ $author_faq = get_posts( [
   <h2 class="author-hero-faq-sect__title sect-title sect-title-underline">Ответы эксперта</h2>
   <div class="author-hero-faq-sect__faq faq-block"> <?php
     foreach ( $author_faq as $faq ) {
+      create_faq_card( [
+        'faq' => $faq,
+        'lazyload' => true
+      ] );
       create_faq_card( [
         'faq' => $faq,
         'lazyload' => true
