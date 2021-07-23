@@ -20,7 +20,7 @@
               ];
               foreach ( $links as $key => $value ) :
                 if ( $value ) : ?>
-                  <a href="<?php echo $value ?>" class="ftr__link <?php echo $key ?>"></a> <?php
+                  <a href="<?php echo $value ?>" target="_blank" class="ftr__link lazy <?php echo $key ?>" data-src="#"></a> <?php
                 endif;
               endforeach ?>
             </div>

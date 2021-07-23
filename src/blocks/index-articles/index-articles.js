@@ -1,5 +1,6 @@
 ;
 (function() {
+  return;
   let articlesSections = qa('.articles-sect'),
     mobileMediaQuery = '(max-width: 1023.98px)',
     articlesQuantityDefault = {

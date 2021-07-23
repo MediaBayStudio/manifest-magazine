@@ -13,8 +13,8 @@
     &::before {
       width: 515px;
       height: 195px;
-      top: -10px;
-      left: -60px;
+      top: 10px;
+      left: -35px;
     }
   }
 
@@ -52,7 +52,9 @@
 
       &__img {}
 
-      &__text {}
+      &__text {
+        margin-top: 30px;
+      }
 
       &__author {}
 

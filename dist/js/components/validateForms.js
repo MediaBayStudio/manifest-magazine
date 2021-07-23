@@ -197,10 +197,10 @@
           $form.classList.remove('sent');
         }, 3000);
 
-        // thanksPopup.openPopup();
-        // thanksPopupTimer = setTimeout(function() {
-        //   thanksPopup.closePopup();
-        // }, 3000);
+        thanksPopup.openPopup();
+        thanksPopupTimer = setTimeout(function() {
+          thanksPopup.closePopup();
+        }, 3000);
 
 
       },

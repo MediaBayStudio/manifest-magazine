@@ -18,6 +18,7 @@
     width: 100%;
     background: #fff;
     animation: translateToBottom .5s;
+    z-index: 2;
     .hdr__logo,
     .hdr__nav {
       display: none;

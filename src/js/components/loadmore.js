@@ -49,7 +49,7 @@ initLoadmore = function() {
     let loadmoreButton = q('.loadmore-btn', loadmoreSections[i]),
       loadmoreBlock = q('.loadmore-block', loadmoreSections[i]),
       // existsArticles = qa('[class*="-card"]', loadmoreBlock),
-      existsArticles = qa('.loadmore-block > *', loadmoreSections[i]),
+      existsArticles = qa('.loadmore-block > *:not(.gutter-size)', loadmoreSections[i]),
       visibleImages = qa('[class*="-card"]:not(.hide) img', loadmoreBlock),
       masonry = loadmoreButton.getAttribute('data-grid-masonry'),
       masonryMediaQuery = loadmoreButton.getAttribute('data-masonry-media-query'),
@@ -60,12 +60,12 @@ initLoadmore = function() {
 
     // console.log(loadmoreButton);
     // console.log(loadmoreBlock);
-    // console.log(existsArticles);
+    // console.log(existsArticles[0].className);
 
-    if (masonry && media(masonryMediaQuery)) {
+    if (masonry === 'true' && media(masonryMediaQuery)) {
       articlesMasonryBlock = new Masonry(loadmoreBlock, {
-        itemSelector: '[class*="-card"]',
-        columnWidth: '[class*="-card"]',
+        itemSelector: '.' + existsArticles[0].className,
+        columnWidth: '.' + existsArticles[0].className,
         gutter: '.gutter-size',
       });
       visibleImages.forEach(function(img) {
@@ -115,7 +115,7 @@ initLoadmore = function() {
             for (let i = 0; i < articlesQuantity; i++) {
               if (hiddenArticles[i]) {
                 hiddenArticles[i].classList.remove('hide');
-                if (masonry && articlesMasonryBlock) {
+                if (masonry === 'true' && articlesMasonryBlock) {
                   hiddenImages[i].addEventListener('load', function() {
                     articlesMasonryBlock.layout();
                   });

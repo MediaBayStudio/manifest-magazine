@@ -51,6 +51,18 @@
         progressCurrentNumber.textContent = ('0' + (nextSlide + 1)).slice(-2);
       }
 
+      if (e.type === 'init' || e.type === 'reInit') {
+
+        // let buttonsHTML = '';
+
+        // for (let i = 0, len = slides.length; i < len; i++) {
+        //   buttonsHTML += '<button type="button" class="index-hero-sect__dot"></button>';
+        //   console.log('msg');
+        // }
+
+        // console.log(buttons);
+      }
+
       // progress.classList.toggle('last-slide', nextSlide + 1 === slides.length);
     });
 

@@ -86,7 +86,12 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //=include ../blocks/index-subscribe/index-subscribe.js
 
-//=include ../blocks/thanks-popup/thanks-popup.js
+
+;thanksPopup = new Popup('.thanks-popup', {
+  closeButtons: '.thanks-popup__close'
+});
+
+
 
 //=include ../blocks/footer/footer.js
 

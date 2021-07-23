@@ -57,6 +57,18 @@ document.addEventListener('DOMContentLoaded', function() {
         progressCurrentNumber.textContent = ('0' + (nextSlide + 1)).slice(-2);
       }
 
+      if (e.type === 'init' || e.type === 'reInit') {
+
+        // let buttonsHTML = '';
+
+        // for (let i = 0, len = slides.length; i < len; i++) {
+        //   buttonsHTML += '<button type="button" class="index-hero-sect__dot"></button>';
+        //   console.log('msg');
+        // }
+
+        // console.log(buttons);
+      }
+
       // progress.classList.toggle('last-slide', nextSlide + 1 === slides.length);
     });
 
@@ -67,6 +79,7 @@ document.addEventListener('DOMContentLoaded', function() {
 
 ;
 (function() {
+  return;
   let articlesSections = qa('.articles-sect'),
     mobileMediaQuery = '(max-width: 1023.98px)',
     articlesQuantityDefault = {
@@ -296,7 +309,12 @@ document.addEventListener('DOMContentLoaded', function() {
   });
 })();
 
-//=include ../blocks/thanks-popup/thanks-popup.js
+
+;thanksPopup = new Popup('.thanks-popup', {
+  closeButtons: '.thanks-popup__close'
+});
+
+
 
 //=include ../blocks/footer/footer.js
 
