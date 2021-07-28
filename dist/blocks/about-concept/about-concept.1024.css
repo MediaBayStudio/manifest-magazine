@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";.about-concept{position:relative;font-size:16px;line-height:130%}.about-concept__text{margin-bottom:40px;display:block;max-width:550px}.about-concept__links{position:static}.about-concept__links::before{left:auto;right:calc(50vw - 480px);top:135px;width:575px;height:310px}.about-concept__links-title{font-size:18px}.about-concept__link:not(:last-child){margin:0 15px 0 0}

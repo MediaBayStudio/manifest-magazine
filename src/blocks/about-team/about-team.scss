@@ -1,3 +1,76 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-team {
+  &__title {}
+
+  &__team {
+    &:not(.slick-slider) {
+      .team__nav {
+        display: none;
+      }
+    }
+  }
+}
+
+.team {
+  text-align: center;
+  display: flex;
+  flex-flow: column;
+  .slick-list {
+    overflow: hidden;
+  }
+  &__nav {
+    margin: 20px auto 0;
+    display: flex;
+    order: 10;
+    color: $darkBlue;
+  }
+
+  &__prev,
+  &__next {
+    width: 50px;
+    height: 30px;
+  }
+
+  &__prev {
+    margin: 0 20px 0 0;
+  }
+
+  &__next {}
+}
+
+.team-card {
+  display: flex;
+  flex-flow: column;
+  align-items: center;
+  &__pic {
+    margin: 0 0 20px;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    overflow: hidden;
+  }
+
+  &__img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__title {
+    margin: 0 0 10px;
+    font: bold 18px/130% Quincy CF, serif;
+    text-transform: uppercase;
+  }
+
+  &__role {
+    margin: 0 0 20px;
+    color: $darkBlue;
+    font: 12px/130% Raleway, sans-serif;
+    text-transform: uppercase;
+  }
+
+  &__descr {}
+}

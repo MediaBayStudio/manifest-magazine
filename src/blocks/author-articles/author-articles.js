@@ -1,7 +1,41 @@
 ;
 (function() {
-  let articlesSlider = qa('.author-articles-slider'),
-    slidesSelector = '.author-article-card';
+  let categoriesBlockSelector = '.author-articles-sect__categories',
+    slidesSelector = '.author-article-card',
+    articlesSlider = qa('.author-articles-slider'),
+    categoriesBlock = q(categoriesBlockSelector),
+    categoriesBlockTitle = q('.author-articles-sect__current-category', categoriesBlock);
+
+  if (categoriesBlock) {
+    categoriesBlock.addEventListener('click', function(e) {
+      let target = e.target;
+
+      if (target.classList.contains('author-articles-sect__current-category')) {
+        categoriesBlock.classList.toggle('active');
+      } else if (target.classList.contains('author-articles-sect__category')) {
+        let text = categoriesBlockTitle.textContent,
+          id = categoriesBlockTitle.getAttribute('data-id');
+
+        categoriesBlockTitle.textContent = target.textContent;
+        target.textContent = text;
+
+        categoriesBlockTitle.setAttribute('data-id', target.getAttribute('data-id'))
+        target.setAttribute('data-id', id);
+
+        categoriesBlock.classList.toggle('active');
+      }
+
+      console.log(target); 
+    });
+
+    body.addEventListener('click', function(e) {
+      let target = e.target;
+
+      if (!target.closest(categoriesBlockSelector)) {
+        categoriesBlock.classList.remove('active');
+      }
+    });
+  }
 
   for (let i = 0, len = articlesSlider.length; i < len; i++) {
     let $articlesSlider = $(articlesSlider[i]),

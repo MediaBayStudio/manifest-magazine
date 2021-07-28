@@ -11,6 +11,9 @@
     if ( is_front_page() ) {
       $script_name = 'script-index';
       $style_name = 'style-index';
+    } else if ( is_404() ) {
+      $script_name = 'script-404';
+      $style_name = 'style-404';
     } else {
       if ( $GLOBALS['current_template'] ) {
         $script_name = 'script-' . $GLOBALS['current_template'];
@@ -48,13 +51,13 @@
   <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/hover.css" media="(hover) and (min-width:1024px)" />
   <!-- fonts preload --> <?php
 	$fonts = [
-		'QuincyCF-Bold.woff',
+		'QuincyCF-Bold.otf',
 		'Raleway-Regular.woff',
 		'SegoeUI-SemiBold.woff'
 	];
 	foreach ( $fonts as $font ) : ?>
 
-	<link rel="preload" href="<?php echo $template_directory_uri . '/fonts/' . $font ?>" as="font" type="font/woff" crossorigin="anonymous" /> <?php
+	<link rel="preload" href="<?php echo $template_directory_uri . '/fonts/' . $font ?>" as="font" crossorigin="anonymous" /> <?php
 	endforeach ?>
   <!-- other preload --> <?php
   echo PHP_EOL;

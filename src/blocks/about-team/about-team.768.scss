@@ -1,3 +1,49 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-team {
+  &__title {}
+
+  &__team {
+    &:not(.slick-slider) {
+      justify-content: flex-start;
+
+      .team__nav {}
+
+      .team-card {
+        width: calc((100% - 40px) / 3);
+      }
+    }
+  }
+}
+
+.team {
+  &__nav {}
+
+  &__prev,
+  &__next {}
+
+  &__prev {}
+
+  &__next {}
+}
+
+.team-card {
+  &__pic {
+    margin: 0 0 15px;
+    width: 220px;
+    height: 220px;
+  }
+
+  &__img {}
+
+  &__title {
+    margin: 0 0 10px;
+    font-size: 24px;
+  }
+
+  &__role {}
+
+  &__descr {}
+}

@@ -1,8 +1,8 @@
 <?php
 function create_author_article_card( $args ) {
 
-  if ( is_object( $args['article'] ) ) {
-    $author_id = $args['article']->post_author;
+  if ( is_object( $args['object'] ) ) {
+    $author_id = $args['object']->post_author;
     $author_url = get_author_posts_url( $author_id );
 
     $avatar_id = get_the_author_meta( 'avatar', $author_id );
@@ -10,7 +10,7 @@ function create_author_article_card( $args ) {
     $avatar_webp_url = str_replace( ['.png', '.jpg'], '.webp', $avatar_url );
     $avatar_name = get_the_author_meta( 'display_name', $author_id );
 
-    $article = $args['article'];
+    $article = $args['object'];
     $article_id = $article->ID;
     $article_title = $article->post_title;
     $article_descr = get_the_excerpt( $article_id );

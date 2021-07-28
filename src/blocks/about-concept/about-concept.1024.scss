@@ -1,3 +1,43 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-concept {
+  position: relative;
+  font-size: 16px;
+  line-height: 130%;
+  &__title {
+  }
+  &__text {
+    margin-bottom: 40px;
+    display: block;
+    max-width: 550px;
+  }
+  &__text-left {
+  }
+  &__descr {
+  }
+  &__text-right {
+  }
+  &__links {
+    position: static;
+    &::before {
+      // decor logo
+      // теперь привязан к секции
+      left: auto;
+      right: $sectionHorizontalPadding1024;
+      // right: 20px;
+      top: 135px;
+      width: 575px;
+      height: 310px;
+    }
+  }
+  &__links-title {
+    font-size: 18px;
+  }
+  &__link {
+    &:not(:last-child) {
+      margin: 0 15px 0 0;
+    }
+  }
+}

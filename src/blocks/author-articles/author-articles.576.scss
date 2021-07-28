@@ -3,13 +3,48 @@
 @import '../../scss/assets/variables';
 
 .author-articles-sect {
-  &__title {}
+  &__title {
+    &.sect-h1 {
+      margin-left: $sectionHorizontalPaddingMinus576;
+    }
+  }
 
   &__articles {
     >.gutter-size {}
   }
 
   &__loadmore {}
+
+  &.authors-page {
+    .author-articles-sect__descr-block {
+      margin: 0 0 50px;
+      display: flex;
+      align-items: flex-end;
+    }
+  }
+}
+
+.author-articles-sect {
+  &__categories {
+    margin: 0 0 15px auto;
+    &.active {
+      >.author-articles-sect__current-category {
+        &::after {}
+      }
+
+      >.author-articles-sect__categories-list {}
+    }
+  }
+
+  &__current-category {
+    &::after {}
+  }
+
+  &__categories-list {}
+
+  &__category {
+    &:not(:last-child) {}
+  }
 }
 
 .author-articles {
@@ -18,9 +53,11 @@
 
   &.author-articles-slider {
     margin: 0;
+
     .slick-list {
       overflow: hidden;
     }
+
     .author-articles-slider__nav {
       margin: 0 0 30px auto;
       display: flex;
@@ -72,6 +109,12 @@
 
   &.author-articles-masonry {
     .author-article-card {
+      width: calc((100% - 20px) / 2);
+
+      &:nth-child(odd) {
+        margin-right: 20px;
+      }
+
       &__pic-link {}
 
       &__pic {}

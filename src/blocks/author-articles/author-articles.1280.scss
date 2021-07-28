@@ -3,14 +3,20 @@
 @import '../../scss/assets/variables';
 
 .author-articles-sect {
-  &__title {}
+  &__title {
+    &.sect-h1 {
+      margin-left: $sectionHorizontalPaddingMinus1280;
+    }
+  }
 
   &__descr {
     margin: 0 0 -100px 165px;
     max-width: 455px;
     padding: 55px 0 100px;
     font-size: 18px;
+
     &::before {
+      // decor ring
       width: 515px;
       height: 195px;
       top: 10px;
@@ -29,16 +35,42 @@
   &__loadmore {}
 }
 
+.author-articles-sect {
+  &__categories {
+    margin: 0 0 0 auto;
+
+    &.active {
+      >.author-articles-sect__current-category {
+        &::after {}
+      }
+
+      >.author-articles-sect__categories-list {}
+    }
+  }
+
+  &__current-category {
+    &::after {}
+  }
+
+  &__categories-list {}
+
+  &__category {
+    &:not(:last-child) {}
+  }
+}
+
 .author-articles {
   &.author-articles-slider {
     .author-articles-slider__prev {
       margin: 0 50px 0 0;
     }
+
     .author-articles-slider__prev,
     .author-articles-slider__next {
       width: 75px;
       height: 45px;
     }
+
     .author-article-card {
       width: calc((100% - 40px) / 2);
 
@@ -75,10 +107,22 @@
   }
 
   &.author-articles-masonry {
+    margin: 0 0 -50px;
+
     .author-article-card {
+      margin: 0 0 50px;
+      width: calc((100% - 40px) / 2);
+
+      &:nth-child(odd) {
+        margin-right: 40px;
+      }
+
       &__pic-link {}
 
-      &__pic {}
+      &__pic {
+        width: 270px;
+        height: 350px;
+      }
 
       &__img {}
 

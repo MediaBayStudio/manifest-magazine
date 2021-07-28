@@ -1,3 +1,50 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-prize {
+  &__decor-star-ol-beige {}
+
+  &__decor-star-beige {}
+
+  &__title {}
+
+  &__text {}
+
+  &__descr {}
+
+  &__pic {
+    width: 375px;
+    height: 415px;
+    &::before {
+      width: 200px;
+      height: 200px;
+      left: auto;
+      right: 0;
+      transform: translate(50%, -50%);
+    }
+  }
+
+  &__img {}
+
+  &__second-title {}
+
+  &__stages {}
+}
+
+.stages {}
+
+.stage {
+  &::before {}
+
+  &:not(:last-child) {
+    &::after {}
+  }
+
+  &__text {}
+
+  &__line {
+    margin: 65px -15px 0;
+    width: 110px;
+  }
+}

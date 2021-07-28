@@ -19,42 +19,27 @@ function loadmore() {
       break;
   }
 
-  $response .= $func( [
+  if ( $_POST['default_class'] === 'author-article-card' ) {
+    $func = 'create_author_article_card';
+  }
+
+  $args = [
     'object' => $posts[0],
     'lazyload' => false,
     'classes' => ' hide',
     'print' => false
-  ] );
-  $response .= $func( [
-    'object' => $posts[0],
-    'lazyload' => false,
-    'classes' => ' hide',
-    'print' => false
-  ] );
-  $response .= $func( [
-    'object' => $posts[0],
-    'lazyload' => false,
-    'classes' => ' hide',
-    'print' => false
-  ] );
-  $response .= $func( [
-    'object' => $posts[0],
-    'lazyload' => false,
-    'classes' => ' hide',
-    'print' => false
-  ] );
-  $response .= $func( [
-    'object' => $posts[0],
-    'lazyload' => false,
-    'classes' => ' hide',
-    'print' => false
-  ] );
-  $response .= $func( [
-    'object' => $posts[0],
-    'lazyload' => false,
-    'classes' => ' hide',
-    'print' => false
-  ] );
+  ];
+
+  if ( $_POST['default_class'] ) {
+    $args['default_class'] = $_POST['default_class'];
+  }
+
+  $response .= $func( $args );
+  $response .= $func( $args );
+  $response .= $func( $args );
+  $response .= $func( $args );
+  $response .= $func( $args );
+  $response .= $func( $args );
 
   echo json_encode( $response );
 

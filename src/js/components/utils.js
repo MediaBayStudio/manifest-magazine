@@ -61,7 +61,7 @@ var browser = {
     call: function(event) {
       let funcs = windowFuncs[event.type] || event;
       for (let i = funcs.length - 1; i >= 0; i--) {
-        console.log(funcs[i].name);
+        // console.log(funcs[i].name);
         funcs[i]();
       }
     }

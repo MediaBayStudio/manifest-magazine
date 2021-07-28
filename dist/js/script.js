@@ -61,7 +61,7 @@ var browser = {
     call: function(event) {
       let funcs = windowFuncs[event.type] || event;
       for (let i = funcs.length - 1; i >= 0; i--) {
-        console.log(funcs[i].name);
+        // console.log(funcs[i].name);
         funcs[i]();
       }
     }
@@ -842,9 +842,9 @@ document.addEventListener('DOMContentLoaded', function() {
     for (let i = 0, len = loadmoreSections.length; i < len; i++) {
       let loadmoreButton = q('.loadmore-btn', loadmoreSections[i]),
         loadmoreBlock = q('.loadmore-block', loadmoreSections[i]),
-        // existsArticles = qa('[class*="-card"]', loadmoreBlock),
         existsArticles = qa('.loadmore-block > *:not(.gutter-size)', loadmoreSections[i]),
         visibleImages = qa('[class*="-card"]:not(.hide) img', loadmoreBlock),
+        defaultCardsClass = loadmoreButton.getAttribute('data-cards-class'),
         masonry = loadmoreButton.getAttribute('data-grid-masonry'),
         masonryMediaQuery = loadmoreButton.getAttribute('data-masonry-media-query'),
         postsCountMobile = loadmoreButton.getAttribute('data-posts-count-mobile'),
@@ -862,6 +862,7 @@ document.addEventListener('DOMContentLoaded', function() {
           columnWidth: '.' + existsArticles[0].className,
           gutter: '.gutter-size',
         });
+  
         visibleImages.forEach(function(img) {
           img.addEventListener('load', function() {
             articlesMasonryBlock.layout();
@@ -879,6 +880,13 @@ document.addEventListener('DOMContentLoaded', function() {
   
         let url = siteUrl + '/wp-admin/admin-ajax.php',
           data = 'action=loadmore&post_type=' + loadmoreButton.getAttribute('data-post-type') + '&numberposts=' + loadmoreButton.getAttribute('data-numberposts');
+  
+        if (defaultCardsClass) {
+          data += '&default_class=' + defaultCardsClass;
+        }
+  
+        console.log(defaultCardsClass);
+        console.log(data);
   
         fetch(url, {
             method: 'POST',
@@ -917,8 +925,6 @@ document.addEventListener('DOMContentLoaded', function() {
                   }
                 }
               }
-  
-              // loadmoreBlock.style.maxHeight = loadmoreBlock.scrollHeight + 'px';
             } catch (err) {
               showError(err, loadmoreButton);
             }

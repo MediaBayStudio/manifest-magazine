@@ -1,3 +1,17 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-hero {
+  padding-top: 40px !important;
+  padding-bottom: 40px !important;
+  text-align: center;
+  text-transform: uppercase;
+  background: $lightYellow;
+  &__title {
+    margin: 0 0 20px;
+    // font: bold 20px/130% Quincy CF, serif;
+  }
+  &__descr {
+  }
+}

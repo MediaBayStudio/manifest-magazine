@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";.about-team__team:not(.slick-slider){justify-content:flex-start}.about-team__team:not(.slick-slider) .team-card{width:calc((100% - 40px)/ 3)}.team-card__pic{margin:0 0 15px;width:220px;height:220px}.team-card__title{margin:0 0 10px;font-size:24px}

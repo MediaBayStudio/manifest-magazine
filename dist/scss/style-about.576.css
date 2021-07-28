@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";.about-team__team:not(.slick-slider){flex-flow:row;justify-content:space-between}.about-team__team:not(.slick-slider) .team-card{width:calc((100% - 20px)/ 2)}.team__nav{margin:0 0 25px auto;order:-1}.team-card:not(:last-child){margin-right:20px}

@@ -1,3 +1,60 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-concept {
+  &__title {}
+
+  &__text {
+    margin: -15px 0 130px;
+  }
+
+  &__text-left {}
+
+  &__descr {
+    margin: 15px 0 0;
+  }
+
+  &__text-right {}
+
+  &__links {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    position: relative;
+
+    &::before {
+      content: '';
+      position: absolute;
+      top: 35px;
+      left: 0;
+      transform: translate(0, -100%);
+      width: 280px;
+      height: 150px;
+      background: center/contain no-repeat;
+      pointer-events: none;
+      z-index: -1;
+    }
+
+    &.lazyloaded {
+      &::before {
+        background-image: url('../img/logo-lightyellow.svg');
+      }
+    }
+  }
+
+  &__links-title {
+    margin: 0 0 20px;
+    width: 100%;
+    font: bold 14px/130% Quincy CF, serif;
+    text-transform: uppercase;
+  }
+
+  &__link {
+    width: 30px;
+    height: 30px;
+    &:not(:last-child) {
+      margin: 0 20px 0 0;
+    }
+  }
+}

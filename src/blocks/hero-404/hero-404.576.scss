@@ -1,3 +1,13 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.hero-404 {
+  &__title {
+    font-size: 150px;
+  }
+
+  &__text {
+    max-width: initial; //
+  }
+}

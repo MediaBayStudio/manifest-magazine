@@ -1,3 +1,28 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-concept {
+  &__title {
+  }
+  &__text {
+    max-width: 580px;
+  }
+  &__text-left {
+  }
+  &__descr {
+  }
+  &__text-right {
+  }
+  &__links {
+    &::before {
+      right: $sectionHorizontalPadding1280;
+      width: 740px;
+      height: 400px;
+    }
+  }
+  &__links-title {
+  }
+  &__link {
+  }
+}

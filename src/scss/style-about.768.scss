@@ -1,4 +1,10 @@
-
 @import 'assets/colors';
 @import 'assets/mixins';
 @import 'assets/variables';
+@import '../blocks/header/header.768';
+@import '../blocks/mobile-menu/mobile-menu.768';
+@import '../blocks/about-hero/about-hero.768';
+@import '../blocks/about-concept/about-concept.768';
+@import '../blocks/about-team/about-team.768';
+@import '../blocks/about-prize/about-prize.768';
+@import '../blocks/footer/footer.768';

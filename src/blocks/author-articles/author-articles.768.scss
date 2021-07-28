@@ -3,12 +3,17 @@
 @import '../../scss/assets/variables';
 
 .author-articles-sect {
-  &__title {}
+  &__title {
+    &.sect-h1 {
+      margin-left: $sectionHorizontalPaddingMinus768;
+    }
+  }
 
   &__descr {
     margin: 0 0 -40px 105px;
     padding: 35px 0 55px;
     &::before {
+      // decor ring
       width: 330px;
       height: 125px;
     }
@@ -19,6 +24,28 @@
   }
 
   &__loadmore {}
+}
+
+.author-articles-sect {
+  &__categories {
+    &.active {
+      >.author-articles-sect__current-category {
+        &::after {}
+      }
+
+      >.author-articles-sect__categories-list {}
+    }
+  }
+
+  &__current-category {
+    &::after {}
+  }
+
+  &__categories-list {}
+
+  &__category {
+    &:not(:last-child) {}
+  }
 }
 
 .author-articles {
@@ -50,11 +77,19 @@
     }
   }
 
-  .author-articles-masonry {
+  &.author-articles-masonry {
+    > .gutter-size {
+      width: 20px;
+    }
     .author-article-card {
+      max-width: 100%;
+      width: calc((100% - 20px) / 2);
       &__pic-link {}
 
-      &__pic {}
+      &__pic {
+        width: 350px;
+        height: 410px;
+      }
 
       &__img {}
 

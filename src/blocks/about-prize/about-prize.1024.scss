@@ -1,3 +1,79 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.about-prize {
+  font-size: 16px;
+
+  &__decor-star-ol-beige {}
+
+  &__decor-star-beige {
+    left: 375px;
+    bottom: 20px;
+  }
+
+  &__decor-ring {
+    left: 190px;
+    bottom: 35px;
+  }
+
+  &__title {}
+
+  &__text {
+    align-items: center;
+  }
+
+  &__descr {
+    max-width: 520px;
+  }
+
+  &__pic {
+    width: 330px;
+    height: 365px;
+    position: relative;
+    &::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translate(-50%, -50%);
+      width: 150px;
+      height: 150px;
+      background: center/contain no-repeat;
+      z-index: -1;
+      pointer-events: none;
+    }
+    &.lazyloaded {
+      &::before {
+        background-image: url('../img/decor-star-ol-lightblue.svg');
+      }
+    }
+  }
+
+  &__img {}
+
+  &__second-title {
+    margin-top: 40px;
+  }
+
+  &__stages {}
+}
+
+.stages {
+  flex-flow: row;
+}
+
+.stage {
+  &::before {}
+
+  &__text {}
+
+  &__line {
+    margin: 65px 0 0;
+    flex-shrink: 0;
+    width: 50px;
+    &:nth-of-type(3) {
+      display: block;
+    }
+  }
+}
