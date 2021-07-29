@@ -1,3 +1,90 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.callback-hero {
+  margin: 0 0 150px;
+
+  &__title {
+    margin-bottom: 60px;
+    padding-top: 50px;
+    padding-bottom: 50px;
+  }
+
+  &__body {
+    margin: 0;
+    display: flex;
+  }
+
+  &__subtitle {
+    margin: 0 0 50px;
+    font-size: 24px;
+  }
+
+  &__text-content {
+    max-width: 275px;
+    display: block;
+    // display: flex;
+    // flex-direction: column;
+    // justify-content: flex-start;
+    // align-items: flex-start;
+  }
+
+  &__text-block {
+    width: 275px;
+  }
+
+  &__forms {
+    margin: 0 0 0 auto;
+    padding: 50px 30px 40px;
+    flex-shrink: 0;
+    max-width: 580px;
+
+    &-header {
+      margin: 0 0 60px;
+    }
+
+    &-btn {
+      &:first-of-type {
+        margin: 0 75px 0 0;
+      }
+    }
+  }
+
+  &__form {
+    display: flex;
+    flex-wrap: wrap;
+
+    .field {
+      &_name {
+        margin-right: auto;
+        width: calc((100% - 25px) / 2);
+        // flex: 1 0 247px;
+      }
+
+      &_email {
+        width: calc((100% - 25px) / 2);
+        // flex: 1 0 247px;
+      }
+
+      &_file {
+        margin: 0 0 20px;
+      }
+    }
+
+    .form-bottom {
+      width: 100%;
+      display: flex;
+      align-items: center;
+    }
+
+    .btn {
+      margin: 0 0 0 auto;
+      // padding: 23px 52px;
+    }
+
+    .check {
+      max-width: 260px;
+    }
+  }
+}

@@ -25,6 +25,12 @@ $checkbox_margin_right: 10px;
 $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
 // $checkbox_border_radius: 0;
 
+.lazyloaded {
+  .checkbox__inp {
+    background-image: url('./img/check.svg');
+  }
+}
+
 .check {
   display: flex;
   cursor: pointer;
@@ -33,7 +39,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
     align-items: flex-start;
     max-width: 250px;
     flex-wrap: wrap;
-    font: 12px/140% Montserrat;
+    font: 11px/140% Raleway, sans-serif;
 
     >.check__text {
       width: $checkbox_text_width;
@@ -43,7 +49,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
       margin: 4px $checkbox_margin_right 0 0;
       width: $checkbox_size;
       height: $checkbox_size;
-      background: transparent url('../img/check.svg') center/0 border-box no-repeat;
+      background: transparent center/0 border-box no-repeat;
       transition: background .25s;
       pointer-events: none;
 
@@ -95,6 +101,11 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
   &__text,
   &__link {
     display: inline-block;
+  }
+
+  &__link {
+    border-bottom: 1px solid;
+    transition: border-bottom-color .5s;
   }
 }
 
