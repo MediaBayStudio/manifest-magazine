@@ -1,3 +1,51 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.contacts-contact-us-sect {
+  margin: 0 0 90px;
+  &__title {}
+}
+
+.contacts-contact-us {
+  &__wrap-form {
+    background: #fafafa;
+  }
+
+  &__form {
+    padding: 35px 20px 30px;
+    .field {
+      &__inp {}
+
+      &__text {}
+    }
+
+    .field_name,
+    .field_email,
+    .field_msg {
+      margin: 0 0 40px;
+    }
+
+    .field_name {}
+
+    .field_email {}
+
+    .field_msg {
+      resize: vertical;
+    }
+
+    .form-bottom {}
+
+    .check {
+      &__inp {}
+
+      &__text {}
+
+      &__link {}
+    }
+
+    .btn {
+      margin: 20px auto 0;
+    }
+  }
+}

@@ -8,9 +8,12 @@
   add_action( 'admin_init', function() {
     $options = [
       'tel'     =>  'Телефон',
-      'address' =>  'Адрес',
-      'email'   =>  'E-mail',
-      'coords'  =>  'Координаты маркера на карте',
+      'address' =>  'Адрес редакции',
+      'address_link' =>  'Ссылка на адрес (для карт)',
+      'email'   =>  'E-mail редакции',
+      'email_adv' => 'E-mail по вопросам рекламы',
+      'tel' => 'Телефон редакции',
+      'tel_adv' => 'Телефон по вопросам рекламы',
       'instagram'    =>  'Ссылка на Instagram',
       'facebook'    =>  'Ссылка на Facebook',
       'twitter'    =>  'Ссылка на Twitter'

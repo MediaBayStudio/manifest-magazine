@@ -1,3 +1,51 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.contacts-hero-sect {
+  display: flex;
+  flex-wrap: wrap;
+  &__title {
+    margin: 0 0 0 $sectionHorizontalPaddingMinus768;
+    flex-shrink: 0;
+  }
+
+  &__contacts {
+    margin: 60px 0 0;
+    flex: 1;
+  }
+
+  &__adv {
+    margin: 60px 0 0;
+    flex: 1;
+  }
+}
+
+.contacts {
+  &:first-of-type {
+    margin-right: 60px;
+  }
+  &__title {
+    font-size: 22px;
+  }
+
+  &__block {
+    margin-top: 30px;
+  }
+
+  &__block-title {
+    margin: 0 0 10px;
+    font-size: 14px;
+  }
+
+  &__block-link {}
+
+  &__block-socials {}
+
+  &__block-socials-link {}
+
+  &__link {
+    margin: 30px 0 0;
+    font-size: 14px;
+  }
+}

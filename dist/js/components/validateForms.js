@@ -4,6 +4,9 @@
   let $forms = [
     id('subscribe-form'),
     id('ftr-form'),
+    id('contact-us-form'),
+    id('became-an-author-form'),
+    id('offer-an-idea-form')
   ];
 
   let formValidator = function(params) {

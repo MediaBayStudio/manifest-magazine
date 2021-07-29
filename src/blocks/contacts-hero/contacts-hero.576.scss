@@ -1,3 +1,29 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.contacts-hero-sect {
+  &__title {
+    margin: 0 0 0 $sectionHorizontalPaddingMinus576;
+  }
+
+  &__contacts {}
+
+  &__adv {}
+}
+
+.contacts {
+  &__title {}
+
+  &__block {}
+
+  &__block-title {}
+
+  &__block-link {}
+
+  &__block-socials {}
+
+  &__block-socials-link {}
+
+  &__link {}
+}

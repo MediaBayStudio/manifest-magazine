@@ -26,7 +26,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
 // $checkbox_border_radius: 0;
 
 .lazyloaded {
-  .checkbox__inp {
+  .check_tick > .check__inp {
     background-image: url('./img/check.svg');
   }
 }
@@ -52,10 +52,11 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
       background: transparent center/0 border-box no-repeat;
       transition: background .25s;
       pointer-events: none;
+      color: $orange;
 
       &:checked {
-        // background-color: $green;
-        background-size: 100%;
+        background-color: $orange;
+        background-size: 70%;
       }
     }
   }
@@ -146,5 +147,15 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
     top: 0;
     color: $gray2;
     transition: top .25s, font-size .25s;
+  }
+}
+
+
+@media (min-width: 767.98px) {
+  .field__inp {
+    padding-left: 10px;
+  }
+  .field__text {
+    left: 10px;
   }
 }

@@ -3,6 +3,7 @@
           $instagram_link,
           $facebook_link,
           $twitter_link,
+          $social_links,
           $logo_url,
           $site_url,
           $template_directory_uri ?>
@@ -13,12 +14,7 @@
         <div class="ftr__inner">
           <div class="ftr__search-block">
             <div class="ftr__links"> <?php
-              $links = [ 
-                'instagram' => $instagram_link,
-                'facebook' => $facebook_link,
-                'twitter' => $twitter_link
-              ];
-              foreach ( $links as $key => $value ) :
+              foreach ( $social_links as $key => $value ) :
                 if ( $value ) : ?>
                   <a href="<?php echo $value ?>" target="_blank" class="ftr__link lazy <?php echo $key ?>" data-src="#"></a> <?php
                 endif;

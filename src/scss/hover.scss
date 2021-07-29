@@ -20,6 +20,7 @@
   }
 }
 
+.contacts__block-socials-link,
 .menu__link,
 .ftr__link {
   &:hover {
@@ -99,5 +100,17 @@
 .ftr__dev-link:hover {
   .ftr__dev-logo-line {
     opacity: 0;
+  }
+}
+
+.contacts__block-link {
+  &:hover {
+    color: $darkBlue;
+  }
+}
+
+.contacts__link {
+  &:hover {
+    background: transparent;
   }
 }

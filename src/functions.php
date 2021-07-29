@@ -5,13 +5,23 @@ $template_directory = get_template_directory();
 $site_url = site_url();
 $ssl = is_ssl();
 
-// $address = get_option( 'contacts_address' );
-// $tel = get_option( 'contacts_tel' );
-// $tel_dry = preg_replace( '/\s/', '', $tel );
-// $email = get_option( 'contacts_email' );
+$address = get_option( 'contacts_address' );
+$address_link = get_option( 'contacts_address_link' );
+$tel = get_option( 'contacts_tel' );
+$tel_adv = get_option( 'contacts_tel_adv' );
+$tel_dry = preg_replace( '/\s/', '', $tel );
+$tel_adv_dry = preg_replace( '/\s/', '', $tel_adv );
+$email = get_option( 'contacts_email' );
+$email_adv = get_option( 'contacts_email_adv' );
 $facebook_link = get_option( 'contacts_facebook' );
 $instagram_link = get_option( 'contacts_instagram' );
 $twitter_link = get_option( 'contacts_twitter' );
+
+$social_links = [ 
+  'instagram' => $instagram_link,
+  'facebook' => $facebook_link,
+  'twitter' => $twitter_link
+];
 
 $logo_id = get_theme_mod( 'custom_logo' );
 $logo_url = wp_get_attachment_url( $logo_id );

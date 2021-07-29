@@ -1,3 +1,38 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.contacts-hero-sect {
+  font-size: 16px;
+  &__title {
+    padding: 50px 0;
+    margin: 0 0 0 $sectionHorizontalPaddingMinus1024;
+  }
+
+  &__contacts {}
+
+  &__adv {}
+}
+
+.contacts {
+  &:first-of-type {
+    margin-right: 40px;
+  }
+  &__title {
+    font-size: 24px;
+  }
+
+  &__block {}
+
+  &__block-title {}
+
+  &__block-link {}
+
+  &__block-socials {
+    margin: 10px 0 0 -15px;
+  }
+
+  &__block-socials-link {}
+
+  &__link {}
+}
