@@ -1,3 +1,25 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.search-popup {
+  &__cnt {}
+
+  &__close {
+    right: calc(50vw - 475px);
+  }
+
+  &__close-svg {}
+
+  &__close-path {}
+
+  &__title {}
+
+  &__categories {}
+}
+
+.search-form {}
+
+.search {
+  &__inp {}
+}

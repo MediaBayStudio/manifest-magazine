@@ -7,28 +7,8 @@
   }
 
   &__form {
-    margin: auto;
-    max-width: 670px;
-    display: flex;
-    position: relative;
-    &::after {
-      content: '';
-      position: absolute;
-      top: 50%;
-      right: 10px;
-      transform: translateY(-50%);
-      display: block;
-      width: 14px;
-      height: 14px;
-      background: url('data:image/svg+xml;base64,PHN2ZyB2aWV3Qm94PSIwIDAgMjQgMjQiIGZpbGw9Im5vbmUiIHhtbG5zPSJodHRwOi8vd3d3LnczLm9yZy8yMDAwL3N2ZyI+PHBhdGggZmlsbC1ydWxlPSJldmVub2RkIiBjbGlwLXJ1bGU9ImV2ZW5vZGQiIGQ9Ik0xNS44NTMgMTYuNTZDMTQuMTcgMTguMDc3IDExLjk0MiAxOSA5LjUgMTlDNC4yNTcgMTkgMCAxNC43NDMgMCA5LjVDMCA0LjI1NyA0LjI1NyAwIDkuNSAwQzE0Ljc0MyAwIDE5IDQuMjU3IDE5IDkuNUMxOSAxMS45NDIgMTguMDc3IDE0LjE3IDE2LjU2IDE1Ljg1M0wyNCAyMy4yOTNMMjMuMjkzIDI0TDE1Ljg1MyAxNi41NlpNOS41IDFDMTQuMTkxIDEgMTggNC44MDkgMTggOS41QzE4IDE0LjE5MSAxNC4xOTEgMTggOS41IDE4QzQuODA5IDE4IDEgMTQuMTkxIDEgOS41QzEgNC44MDkgNC44MDkgMSA5LjUgMVoiIGZpbGw9IiMyODI4MjgiLz48L3N2Zz4=') center/contain no-repeat;
-    }
-    > .search__inp {
-      padding: 10px;
-      max-width: 100%;
-      width: 100%;
-      border: 0;
-      border-bottom: 1px solid $black;
-    }
+    // margin: auto;
+    // max-width: 670px;
   }
 }
 
