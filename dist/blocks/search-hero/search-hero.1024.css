@@ -1,0 +1,1 @@
+@charset "UTF-8";.search-hero-article{max-width:100%;width:calc((100% - 30px)/ 2);flex-flow:row}.search-hero-article:nth-child(odd){margin-right:30px}.search-hero-article__link-pic{margin:0 20px 0 0;flex-shrink:0;width:220px;height:290px}

@@ -58,7 +58,7 @@ $articles = array_fill( 0, 6, $article );
       $classes = '';
     }
     $articles_html .= create_article_card( [
-      'article' => $article,
+      'object' => $article,
       'lazyload' => true,
       'print' => false,
       'classes' => $classes,

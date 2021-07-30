@@ -13,11 +13,16 @@ function create_author_article_card( $args ) {
     $article = $args['object'];
     $article_id = $article->ID;
     $article_title = $article->post_title;
-    $article_descr = get_the_excerpt( $article_id );
+    $article_descr = get_excerpt( [
+      'text' => $args['object']->post_content,
+      'maxchar'   =>  120,
+      'autop' => false,
+      'ignore_more' => true
+    ] );
     $article_permalink = get_the_permalink( $article_id );
     $article_img_url = get_the_post_thumbnail_url( $article_id );
     $article_img_alt = $article_title;
-    $article_img_webp = str_replace( ['.png', '.jpg'], '.webp', $article_img_url );
+    $article_img_webp = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $article_img_url );
     $article_categories = get_the_terms( $article_id, 'category' );
     foreach ( $article_categories as $category ) {
       if ( $category->parent ) {

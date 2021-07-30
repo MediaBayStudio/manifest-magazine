@@ -1,0 +1,38 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.search-hero {
+  &__articles {
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__form {}
+}
+
+.search-hero-article {
+  width: calc((100% - 20px) / 2);
+  &:nth-child(odd) {
+    margin-right: 20px;
+  }
+  &__link-pic {
+    width: 100%;
+    height: 245px;
+  }
+
+  &__pic {
+    width: 100%;
+    height: 100%;
+  }
+
+  &__img {}
+
+  &__text {}
+
+  &__link-title {}
+
+  &__title {}
+
+  &__descr {}
+}

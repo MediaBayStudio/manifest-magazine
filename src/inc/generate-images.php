@@ -21,7 +21,7 @@ add_action( 'wp_generate_attachment_metadata', function ( $image_meta, $img_id )
 
   foreach ( $image_sizes as $size_name => $width ) {
     $file = image_get_intermediate_size( $img_id, $size_name );
-    $file_webp = str_replace( ['.png', '.jpg'], '', $file['file'] );
+    $file_webp = str_replace( ['.jpg', '.jpeg', '.png'], '', $file['file'] );
 
     $cwebp = '/usr/local/bin/cwebp -q 90 ' . $file['file'] . ' -o ' . $file_webp . '.webp';
 
@@ -48,7 +48,7 @@ add_action( 'delete_attachment', function( $img_id, $img ) {
 
   foreach ( $image_sizes as $size_name => $width ) {
     $file = image_get_intermediate_size( $img_id, $size_name );
-    $file_webp = str_replace( ['.png', '.jpg'], '.webp', $file['file'] );
+    $file_webp = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $file['file'] );
     $webp_path = $dirname . DIRECTORY_SEPARATOR . $file['file'];
     if ( file_exists( $webp_path ) ) {
       unlink( $webp_path );

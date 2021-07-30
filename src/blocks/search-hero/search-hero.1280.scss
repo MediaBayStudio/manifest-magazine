@@ -1,0 +1,36 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.search-hero {
+  &__articles {}
+
+  &__form {}
+}
+
+.search-hero-article {
+  margin: 50px 0 0;
+  width: calc((100% - 40px) / 2);
+
+  &:nth-child(odd) {
+    margin-right: 40px;
+  }
+
+  &__link-pic {
+    margin: 0 40px 0 0;
+  }
+
+  &__pic {}
+
+  &__img {}
+
+  &__text {}
+
+  &__link-title {}
+
+  &__title {
+    font-size: 24px;
+  }
+
+  &__descr {}
+}

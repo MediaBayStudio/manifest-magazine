@@ -1,0 +1,36 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.search-hero {
+  &__articles {}
+
+  &__form {}
+}
+
+.search-hero-article {
+  max-width: 100%;
+  width: calc((100% - 30px) / 2);
+  flex-flow: row;
+  &:nth-child(odd) {
+    margin-right: 30px;
+  }
+  &__link-pic {
+    margin: 0 20px 0 0;
+    flex-shrink: 0;
+    width: 220px;
+    height: 290px;
+  }
+
+  &__pic {}
+
+  &__img {}
+
+  &__text {}
+
+  &__link-title {}
+
+  &__title {}
+
+  &__descr {}
+}

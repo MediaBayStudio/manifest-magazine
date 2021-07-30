@@ -373,6 +373,16 @@ document.addEventListener('DOMContentLoaded', function() {
 
 
 
+;
+(function() {
+  searchPopup = new Popup('.search-popup', {
+
+  });
+  
+  // searchPopup.openPopup();
+
+})();
+
 //=include ../blocks/footer/footer.js
 
 });

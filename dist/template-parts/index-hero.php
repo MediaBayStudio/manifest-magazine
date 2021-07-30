@@ -23,7 +23,7 @@ foreach ( $section['slider'] as $slide ) :
   $laptop_url = image_get_intermediate_size( $img_id, 'laptop' );
   $tablet_url = image_get_intermediate_size( $img_id, 'tablet' );
   $mobile_url = image_get_intermediate_size( $img_id, 'mobile' );
-  $webp_url = str_replace( ['.jpg', '.png'], '.webp', $img['url'] );
+  $webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $img['url'] );
 
   if ( $i === 0 ) {
     $picture_class = '';

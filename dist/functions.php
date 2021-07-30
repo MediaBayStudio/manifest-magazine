@@ -95,6 +95,8 @@ add_filter( 'template_include', function( $template ) {
 // Склеивание путей с правильным сепаратором
 require $template_directory . '/inc/php-path-join.php';
 
+require $template_directory . '/inc/get-excerpt.php';
+
 // Вывод карточек статей
 require $template_directory . '/inc/create-article-card.php';
 require $template_directory . '/inc/create-author-article-card.php';

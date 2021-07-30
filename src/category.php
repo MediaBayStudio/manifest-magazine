@@ -26,7 +26,7 @@ foreach ( $GLOBALS['sections'] as $section ) {
 		      $classes = '';
 		    }
 		    $articles_html .= create_article_card( [
-		      'article' => $article,
+		      'object' => $article,
 		      'lazyload' => true,
 		      'print' => false,
 		      'classes' => $classes,

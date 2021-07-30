@@ -2,17 +2,25 @@
 // Если в аргументах передан объект статьи
 // то другие аргументы статьи не учитываем
 // и из объекта берем заголовок, описание, изображение и т.д.
+
 function create_article_card( $args ) {
 
   if ( is_object( $args['object'] ) ) {
     $article = $args['object'];
     $article_id = $article->ID;
     $article_title = $article->post_title;
-    $article_descr = get_the_excerpt( $article_id );
+    $article_descr = get_excerpt( [
+      'maxchar'   =>  120,
+      'autop' => false,
+      'ignore_more' => true
+    ] );
     $article_permalink = get_the_permalink( $article_id );
-    $article_img_url = get_the_post_thumbnail_url( $article_id );
+
+    $article_thumbnail_id = get_post_thumbnail_id( $article_id );
+    $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'mobile' )['url'];
     $article_img_alt = $article_title;
-    $article_img_webp = str_replace( ['.png', '.jpg'], '.webp', $article_img_url );
+    $article_img_webp = str_replace( ['.png', '.jpg', '.jpeg'], '.webp', $article_img_url );
+
     $article_categories = get_the_terms( $article_id, 'category' );
     foreach ( $article_categories as $category ) {
       if ( $category->parent ) {
@@ -66,7 +74,7 @@ function create_article_card( $args ) {
     }
     if ( $article_parent_category && $article_child_category ) {
       $response .= 
-      '/';
+      ' / ';
     }
 
     if ( $article_child_category ) {

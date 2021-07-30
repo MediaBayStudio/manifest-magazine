@@ -58,6 +58,11 @@ initLoadmore = function() {
       mobileMediaQuery = loadmoreButton.getAttribute('data-mobile-media-query'),
       articlesMasonryBlock;
 
+      // console.log(loadmoreSections[i]);
+      // console.log('postsCountMobile', postsCountMobile);
+      // console.log('postsCountDesktop', postsCountDesktop);
+      // console.log('----------');
+
     // console.log(loadmoreButton);
     // console.log(loadmoreBlock);
     // console.log(existsArticles[0].className);

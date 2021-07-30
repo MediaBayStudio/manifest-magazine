@@ -35,6 +35,8 @@
 .index-hero-slide__child-category,
 .article-card__parent-category,
 .article-card__child-category,
+.search-hero-article__parent-category,
+.search-hero-article__child-category,
 .category-hero-article-card__parent-category,
 .category-hero-article-card__child-category,
 .author-article-card__category {
@@ -66,6 +68,9 @@
 
 .author-hero-article__link-pic:hover+.author-hero-article__text .author-hero-article__title,
 .author-hero-article__title:hover,
+
+.search-hero-article__link-pic:hover+.search-hero-article__text .search-hero-article__title,
+.search-hero-article__title:hover,
 
 .index-hero-sect.small-img .index-hero-slide__pic-link:hover ~ .index-hero-slide__text > .index-hero-slide__title-link > .index-hero-slide__title,
 .index-hero-slide__title:hover,
