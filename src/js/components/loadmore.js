@@ -49,7 +49,7 @@ initLoadmore = function() {
     let loadmoreButton = q('.loadmore-btn', loadmoreSections[i]),
       loadmoreBlock = q('.loadmore-block', loadmoreSections[i]),
       existsArticles = qa('.loadmore-block > *:not(.gutter-size)', loadmoreSections[i]),
-      visibleImages = qa('article[class*="-card"]:not(.hide) img', loadmoreBlock),
+      visibleImages = qa('.loadmore-block > [class*="-card"]:not(.hide) img', loadmoreSections[i]),
       defaultCardsClass = loadmoreButton.getAttribute('data-cards-class'),
       masonry = loadmoreButton.getAttribute('data-grid-masonry'),
       masonryMediaQuery = loadmoreButton.getAttribute('data-masonry-media-query'),
@@ -60,6 +60,7 @@ initLoadmore = function() {
       orderby = loadmoreButton.getAttribute('data-orderby'),
       order = loadmoreButton.getAttribute('data-order'),
       metaKey = loadmoreButton.getAttribute('data-meta-key'),
+      offset = loadmoreButton.getAttribute('data-offset'),
       articlesMasonryBlock;
 
     if (masonry === 'true' && media(masonryMediaQuery)) {
@@ -84,11 +85,10 @@ initLoadmore = function() {
     loadmoreButton.addEventListener('click', function() {
       loadmoreButton.classList.add('loading');
 
-      let posts = qa('article[class*="-card"]', loadmoreButton.parentElement, true),
+      let posts = qa('.loadmore-block > [class*="-card"]', loadmoreSections[i], true),
         url = siteUrl + '/wp-admin/admin-ajax.php',
         data = 'action=loadmore&post_type=' + loadmoreButton.getAttribute('data-post-type') +
-        '&numberposts=' + loadmoreButton.getAttribute('data-numberposts') +
-        '&offset=' + posts.length,
+        '&numberposts=' + loadmoreButton.getAttribute('data-numberposts'),
         excludedPosts = '&exclude=';
 
         console.log(postsCount);
@@ -102,6 +102,14 @@ initLoadmore = function() {
       }
 
       excludedPosts = excludedPosts.slice(0, -1);
+
+      if (offset) {
+        offset = +offset + posts.length;
+      } else {
+        offset = posts.length;
+      }
+
+      data += '&offset=' + offset;
 
       if (orderby) {
         data += '&orderby=' + orderby;

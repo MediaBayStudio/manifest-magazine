@@ -5,11 +5,18 @@ $image_sizes = [
   'laptop' => 980,
   'tablet' => 740,
   'mobile' => 576,
+  // 'author_articles' => [300, 400],
   'thumb' => 400,
 ];
 
 foreach ( $image_sizes as $size_name => $width ) {
-  add_image_size( $size_name, $width, 0, true );
+  if ( is_array( $width ) ) {
+    $height = $width[1];
+    $width = $width[0];
+  } else {
+    $height = 0;
+  }
+  add_image_size( $size_name, $width, $height, true );
 }
 
 add_action( 'wp_generate_attachment_metadata', function ( $image_meta, $img_id ) {

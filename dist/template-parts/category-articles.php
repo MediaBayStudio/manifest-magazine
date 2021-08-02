@@ -5,7 +5,7 @@ if ( $section['manual'] ) {
   if ( is_category() ) {
     $category = $GLOBALS['quired_object']->term_id;
   } else {
-    $category = $section['category'];
+    $category = $section['cateogry'];
   }
 
   $args = [
@@ -34,26 +34,6 @@ if ( $articles ) : ?>
           'object' => $article,
           'lazyload' => true
         ] );
-        create_article_card( [
-          'object' => $article,
-          'lazyload' => true
-        ] );
-        create_article_card( [
-          'object' => $article,
-          'lazyload' => true
-        ] );
-        create_article_card( [
-          'object' => $article,
-          'lazyload' => true
-        ] );
-        // create_article_card( [
-        //   'object' => $article,
-        //   'lazyload' => true
-        // ] );
-        // create_article_card( [
-        //   'object' => $article,
-        //   'lazyload' => true
-        // ] );
       } ?>
     </div>
   </section> <?php

@@ -7,7 +7,7 @@ $section_title = $section['title_is_full'] ? get_field( 'full_title', $that ) : 
 
 $term_args = [
   'taxonomy' => 'category',
-  'hide_empty' => false
+  // 'hide_empty' => false
 ];
 
 $parent = $that->parent;
@@ -32,43 +32,49 @@ array_unshift( $child_categories, (object)[
 <section class="category-hero-sect container"<?php echo $section_id ?>>
   <h1 class="category-hero-sect__title sect-h1"><?php echo $section_title ?></h1>
   <ul class="category-hero-sect__menu category-hero-menu"> <?php
-    foreach ( $child_categories as $child_category ) : ?>
-      <li class="category-hero-menu__li<?php echo ( $child_category->term_id == $active_term_id ) ? ' active' : '' ?>"><button type="button" class="category-hero-menu__btn" data-category-id="<?php echo $child_category->term_id ?>"><?php echo $child_category->name ?></button></li><li class="category-hero-menu__dot"></li> <?php
+    foreach ( $child_categories as $child_category ) :
+      if ( $child_category->term_id === 0 ) {
+        if ( $parent ) {
+          $category = $parent;
+        } else {
+          $category = $that->term_id;
+        }
+      } else {
+        $category = $child_category->term_id;
+      }
+      $category_link = get_term_link( (int)$category ) ?>
+      <li class="category-hero-menu__li<?php echo ( $child_category->term_id == $active_term_id ) ? ' active' : '' ?>"><a href="<?php echo $category_link ?>" class="category-hero-menu__btn" data-category-id="<?php echo $child_category->term_id ?>"><?php echo $child_category->name ?></a></li><li class="category-hero-menu__dot"></li> <?php
     endforeach ?>
   </ul>
-</section>
-
-<?php 
-
-$article = get_post( 145 );
-
-$articles = array_fill( 0, 6, $article );
-
- ?>
-
-<div class="category-hero-articles container sect" data-id="category-hero-sect-1">
-  <div class="gutter-size"></div> <?php
-  $i = 0;
-  // $articles_html = '';
-  foreach ( $articles as $article ) {
-    if ( $i === 0 || $i === 4 ) {
-      $classes = ' category-hero-article-card--height2';
-    //   $articles_html .= '<div class="category-hero-articles__articles">';
-    } else {
-      $classes = '';
+</section> <?php
+$articles = get_posts( [
+  'numberposts' => 6,
+  'category' => $that->term_id
+] );
+if ( $articles ) : ?>
+  <div class="category-hero-articles container sect" data-id="category-hero-sect-1">
+    <div class="gutter-size"></div> <?php
+    $i = 0;
+    // $articles_html = '';
+    foreach ( $articles as $article ) {
+      if ( $i === 0 || $i === 4 ) {
+        $classes = ' category-hero-article-card--height2';
+      //   $articles_html .= '<div class="category-hero-articles__articles">';
+      } else {
+        $classes = '';
+      }
+      $articles_html .= create_article_card( [
+        'object' => $article,
+        'lazyload' => true,
+        'print' => false,
+        'classes' => $classes,
+        'default_class' => 'category-hero-article-card'
+      ] );
+      // if ( $i === 2 || ($i + 1) % 3 === 0 ) {
+        // $articles_html .= '</div>';
+      // }
+      $i++;
     }
-    $articles_html .= create_article_card( [
-      'object' => $article,
-      'lazyload' => true,
-      'print' => false,
-      'classes' => $classes,
-      'default_class' => 'category-hero-article-card'
-    ] );
-    // if ( $i === 2 || ($i + 1) % 3 === 0 ) {
-      // $articles_html .= '</div>';
-    // }
-    $i++;
-  }
-  echo $articles_html ?>
-  
-</div>
+    echo $articles_html ?>
+  </div> <?php
+endif ?>

@@ -407,6 +407,23 @@ document.addEventListener('DOMContentLoaded', function() {
             }
     
           },
+          resetForm = function($form) {
+            let $formElements = $form.elements;
+    
+            for (let i = 0; i < $formElements.length; i++) {
+              hideError($formElements[i]);
+              $formElements[i].classList.remove('filled');
+            }
+    
+            $form.reset();
+    
+            if ($uploadFilesBlock) {
+              $uploadFilesBlock.innerHTML = '';
+            }
+            // if ($form === $quizForm) {
+            //   id('quiz').resetQuiz();
+            // }
+          },
           hideError = function($formElement) {
             let $nextElement = $formElement.nextElementSibling;
             $formElement.classList.remove(errorsClass);
@@ -419,20 +436,7 @@ document.addEventListener('DOMContentLoaded', function() {
               eventType = event.type;
     
             if (eventType === 'wpcf7mailsent') {
-              let $formElements = $form.elements;
-    
-              for (let i = 0; i < $formElements.length; i++) {
-                hideError($formElements[i]);
-                $formElements[i].classList.remove('filled');
-              }
-    
-              $form.reset();
-              if ($uploadFilesBlock) {
-                $uploadFilesBlock.innerHTML = '';
-              }
-              // if ($form === $quizForm) {
-              //   id('quiz').resetQuiz();
-              // }
+              resetForm($form);
               console.log('отправлено');
             }
             /* else if (eventType === 'wpcf7mailfailed') {
@@ -441,7 +445,7 @@ document.addEventListener('DOMContentLoaded', function() {
     
             $form.classList.remove('loading');
     
-            setTimeout(function(){
+            setTimeout(function() {
               $form.classList.remove('sent');
             }, 3000);
     
@@ -485,6 +489,7 @@ document.addEventListener('DOMContentLoaded', function() {
             event.preventDefault();
           } else {
             $form.classList.add('loading');
+            resetForm($form);
           }
         });
         if (!document.wpcf7mailsent) {
@@ -846,23 +851,19 @@ document.addEventListener('DOMContentLoaded', function() {
       let loadmoreButton = q('.loadmore-btn', loadmoreSections[i]),
         loadmoreBlock = q('.loadmore-block', loadmoreSections[i]),
         existsArticles = qa('.loadmore-block > *:not(.gutter-size)', loadmoreSections[i]),
-        visibleImages = qa('[class*="-card"]:not(.hide) img', loadmoreBlock),
+        visibleImages = qa('.loadmore-block > [class*="-card"]:not(.hide) img', loadmoreSections[i]),
         defaultCardsClass = loadmoreButton.getAttribute('data-cards-class'),
         masonry = loadmoreButton.getAttribute('data-grid-masonry'),
         masonryMediaQuery = loadmoreButton.getAttribute('data-masonry-media-query'),
         postsCountMobile = loadmoreButton.getAttribute('data-posts-count-mobile'),
         postsCountDesktop = loadmoreButton.getAttribute('data-posts-count-desktop'),
         mobileMediaQuery = loadmoreButton.getAttribute('data-mobile-media-query'),
+        postsCount = loadmoreButton.getAttribute('data-posts-count'),
+        orderby = loadmoreButton.getAttribute('data-orderby'),
+        order = loadmoreButton.getAttribute('data-order'),
+        metaKey = loadmoreButton.getAttribute('data-meta-key'),
+        offset = loadmoreButton.getAttribute('data-offset'),
         articlesMasonryBlock;
-  
-        // console.log(loadmoreSections[i]);
-        // console.log('postsCountMobile', postsCountMobile);
-        // console.log('postsCountDesktop', postsCountDesktop);
-        // console.log('----------');
-  
-      // console.log(loadmoreButton);
-      // console.log(loadmoreBlock);
-      // console.log(existsArticles[0].className);
   
       if (masonry === 'true' && media(masonryMediaQuery)) {
         articlesMasonryBlock = new Masonry(loadmoreBlock, {
@@ -886,15 +887,47 @@ document.addEventListener('DOMContentLoaded', function() {
       loadmoreButton.addEventListener('click', function() {
         loadmoreButton.classList.add('loading');
   
-        let url = siteUrl + '/wp-admin/admin-ajax.php',
-          data = 'action=loadmore&post_type=' + loadmoreButton.getAttribute('data-post-type') + '&numberposts=' + loadmoreButton.getAttribute('data-numberposts');
+        let posts = qa('.loadmore-block > [class*="-card"]', loadmoreSections[i], true),
+          url = siteUrl + '/wp-admin/admin-ajax.php',
+          data = 'action=loadmore&post_type=' + loadmoreButton.getAttribute('data-post-type') +
+          '&numberposts=' + loadmoreButton.getAttribute('data-numberposts'),
+          excludedPosts = '&exclude=';
+  
+          console.log(postsCount);
+          console.log(posts.length);
+  
+        for (let i = 0, len = posts.length; i < len; i++) {
+          let postId = posts[i].getAttribute('data-post-id');
+          if (postId) {
+            excludedPosts += postId + ' ';
+          }
+        }
+  
+        excludedPosts = excludedPosts.slice(0, -1);
+  
+        if (offset) {
+          offset = +offset + posts.length;
+        } else {
+          offset = posts.length;
+        }
+  
+        data += '&offset=' + offset;
+  
+        if (orderby) {
+          data += '&orderby=' + orderby;
+        }
+  
+        if (order) {
+          data += '&order=' + order;
+        }
+  
+        if (metaKey) {
+          data += '&meta_key=' + metaKey;
+        }
   
         if (defaultCardsClass) {
           data += '&default_class=' + defaultCardsClass;
         }
-  
-        console.log(defaultCardsClass);
-        console.log(data);
   
         fetch(url, {
             method: 'POST',
@@ -918,7 +951,8 @@ document.addEventListener('DOMContentLoaded', function() {
               loadmoreButton.classList.remove('loading');
               loadmoreBlock.insertAdjacentHTML('beforeend', response);
   
-              let hiddenArticles = qa('[class*="-card"].hide', loadmoreBlock),
+              let posts = qa('article', loadmoreBlock),
+                hiddenArticles = qa('[class*="-card"].hide', loadmoreBlock),
                 hiddenImages = qa('[class*="-card"].hide img', loadmoreBlock),
                 articlesQuantity = media(mobileMediaQuery) ? postsCountMobile : postsCountDesktop;
   
@@ -932,6 +966,10 @@ document.addEventListener('DOMContentLoaded', function() {
                     articlesMasonryBlock.appended(hiddenArticles[i]);
                   }
                 }
+              }
+  
+              if (posts.length >= postsCount) {
+                loadmoreButton.classList.add('hide');
               }
             } catch (err) {
               showError(err, loadmoreButton);

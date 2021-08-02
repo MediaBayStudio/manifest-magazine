@@ -23,6 +23,9 @@
     } else if ( is_404() ) {
       $script_name = 'script-404';
       $style_name = 'style-404';
+    } else if ( is_single() ) {
+      $script_name = 'script-single';
+      $style_name = 'style-single';
     } else {
       if ( $GLOBALS['current_template'] ) {
         $script_name = 'script-' . $GLOBALS['current_template'];
@@ -86,11 +89,7 @@
     } else {
       $preload[] = $GLOBALS['sections'][0]['slider'][0]['full_screen_img'];
     }
-  }
-
-
-  if ( is_author() ) {
-
+  } else if ( is_author() ) {
     $preload[] = [
       'filepath' => $GLOBALS['current_author']->avatar_url,
       'webp' => $GLOBALS['current_author']->avatar_webp_url
@@ -102,6 +101,12 @@
     $preload[] = [
       'filepath' => $template_directory_uri . '/img/author-hero-bg-desktop.svg',
       'media' => '(min-width:767.98px)'
+    ];
+  } else if ( is_single() ) {
+    $post_thumbnail = get_the_post_thumbnail_url( $post );
+    $preload[] = [
+      'filepath' => $post_thumbnail,
+      'webp' => str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $post_thumbnail )
     ];
   }
 

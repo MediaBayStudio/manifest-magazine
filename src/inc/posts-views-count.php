@@ -4,11 +4,11 @@ function get_post_views( $post_id ) {
 
   $count_key = 'post_views_count';
 
-  $count = get_post_meta($post_id, $count_key, true);
+  $count = get_post_meta( $post_id, $count_key, true );
 
   if ( $count === '' ) {        
 
-    delete_post_meta( $post_id, $count_key);
+    delete_post_meta( $post_id, $count_key );
 
     add_post_meta( $post_id, $count_key, '0' );
 

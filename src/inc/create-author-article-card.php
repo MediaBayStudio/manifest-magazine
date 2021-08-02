@@ -63,7 +63,7 @@ function create_author_article_card( $args ) {
   }
 
   $response =
-  '<article class="author-article-card' . $parsed_args['classes'] . '">
+  '<article class="author-article-card' . $parsed_args['classes'] . '" data-post-id="' . $article_id . '">
     <a href="' . $article_permalink . '" class="author-article-card__pic-link">
       <picture class="author-article-card__pic' . $lazy_class . '">
         <source type="image/webp" ' . $src_attr . $article_img_webp . '">

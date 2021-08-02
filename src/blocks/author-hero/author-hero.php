@@ -2,10 +2,13 @@
 $author = $GLOBALS['current_author'];
 $author_id = $author->ID;
 $author_name = $author->display_name;
-// $author_posts_count = count_user_posts( $author_id );
-// $author_faq_count = count_user_posts( $author_id, 'author_question' );
-$author_posts_count = 5;
-$author_faq_count = 2;
+$author_posts_count = count_user_posts( $author_id );
+$author_faq = get_posts( [
+  'post_type' => 'author_question',
+  'meta_key' => 'expert',
+  'meta_value' => $author_id
+] );
+$author_faq_count = count( $author_faq );
 $author_descr = get_the_author_meta( 'description', $author_id );
 $author_fields = get_fields( $author );
 $author_category = $author_fields['author_category'];
@@ -117,11 +120,6 @@ if ( $author_articles ) : ?>
     </div>
   </section> <?php
 endif;
-$author_faq = get_posts( [
-  'post_type' => 'author_question',
-  'meta_key' => 'expert',
-  'meta_value' => $author_id
-] );
 if ( $author_faq ) : ?>
   <section class="author-hero-faq-sect sect container">
     <h2 class="author-hero-faq-sect__title sect-title sect-title-underline">Ответы эксперта</h2>

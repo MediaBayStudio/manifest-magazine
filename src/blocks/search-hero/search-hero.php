@@ -57,6 +57,8 @@
 
           echo $article_html;
         }
+      } else {
+        echo '<p style="margin-top:30px">По вашему запросу ничего не найдено</p>';
       } ?>
     </div>
 </section>

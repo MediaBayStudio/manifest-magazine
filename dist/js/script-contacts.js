@@ -8,6 +8,31 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //=include ../blocks/contacts-contact-us/contacts-contact-us.js
 
+;
+(function() {
+  errorPopup = new Popup('.error-popup', {
+    closeButtons: '.error-popup__close'
+  });
+})();
+
+
+;thanksPopup = new Popup('.thanks-popup', {
+  closeButtons: '.thanks-popup__close'
+});
+
+
+
+;
+(function() {
+  searchPopup = new Popup('.search-popup', {
+    openButtons: '.hdr__search',
+    closeButtons: '.search-popup__close'
+  });
+  
+  // searchPopup.openPopup();
+
+})();
+
 //=include ../blocks/footer/footer.js
 
 });

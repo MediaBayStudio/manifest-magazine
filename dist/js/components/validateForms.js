@@ -162,6 +162,23 @@
         }
 
       },
+      resetForm = function($form) {
+        let $formElements = $form.elements;
+
+        for (let i = 0; i < $formElements.length; i++) {
+          hideError($formElements[i]);
+          $formElements[i].classList.remove('filled');
+        }
+
+        $form.reset();
+
+        if ($uploadFilesBlock) {
+          $uploadFilesBlock.innerHTML = '';
+        }
+        // if ($form === $quizForm) {
+        //   id('quiz').resetQuiz();
+        // }
+      },
       hideError = function($formElement) {
         let $nextElement = $formElement.nextElementSibling;
         $formElement.classList.remove(errorsClass);
@@ -174,20 +191,7 @@
           eventType = event.type;
 
         if (eventType === 'wpcf7mailsent') {
-          let $formElements = $form.elements;
-
-          for (let i = 0; i < $formElements.length; i++) {
-            hideError($formElements[i]);
-            $formElements[i].classList.remove('filled');
-          }
-
-          $form.reset();
-          if ($uploadFilesBlock) {
-            $uploadFilesBlock.innerHTML = '';
-          }
-          // if ($form === $quizForm) {
-          //   id('quiz').resetQuiz();
-          // }
+          resetForm($form);
           console.log('отправлено');
         }
         /* else if (eventType === 'wpcf7mailfailed') {
@@ -196,7 +200,7 @@
 
         $form.classList.remove('loading');
 
-        setTimeout(function(){
+        setTimeout(function() {
           $form.classList.remove('sent');
         }, 3000);
 
@@ -240,6 +244,7 @@
         event.preventDefault();
       } else {
         $form.classList.add('loading');
+        resetForm($form);
       }
     });
     if (!document.wpcf7mailsent) {

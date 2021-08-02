@@ -32,11 +32,7 @@
       selectedBlock.classList.add('active');
       target.classList.add('active');
 
-      console.log(blockSelector);
-      console.log(selectedBlock);
-
       setLinePosition(target.offsetLeft, target.offsetWidth);
-
 
     }
   });

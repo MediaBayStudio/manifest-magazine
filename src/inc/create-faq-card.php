@@ -45,7 +45,7 @@ function create_faq_card( $args ) {
   $card_class = $parsed_args['default_class'];
 
   $response = 
-  '<div class="' . $card_class . '">
+  '<div class="' . $card_class . '" data-post-id="' . $faq_id . '">
     <p class="' . $card_class . '__title">' . $faq_title . '</p>
     <div class="' . $card_class . '__author">
       <picture class="' . $card_class . '__author-pic' . $lazy_class . '">
