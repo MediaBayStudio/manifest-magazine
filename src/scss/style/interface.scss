@@ -27,6 +27,10 @@ body {
     pointer-events: none;
     opacity: 0.5;
   }
+
+  &.hide {
+    display: none;
+  }
 }
 
 .slider-progress {
@@ -109,7 +113,7 @@ body {
   opacity: 0;
   visibility: hidden;
   transition: opacity .5s, visibility .5s;
-  // background: $color;
+  background: currentColor;
 
   &__circle {
     margin: auto;
@@ -118,22 +122,13 @@ body {
     border-radius: 50%;
     border: 3px solid transparent;
     animation: spin .5s linear infinite;
-    // border-top-color: $color;
-    // border-left-color: $color;
-  }
-}
-
-.loader_white {
-
-  // background: $color;
-  >.loader__circle {
-    // border-top-color: $color;
-    // border-left-color: $color;
+    border-top-color: $orange;
+    border-left-color: $orange;
   }
 }
 
 .loading .loader {
-  opacity: 1;
+  opacity: .5;
   visibility: visible;
 }
 
@@ -180,9 +175,31 @@ body {
 //   }
 // }
 
+.sect-beige-bg,
+.sect-lightblue-bg,
+.sect-lightblue-bg-with-decor {
+  &:last-of-type {
+    margin-bottom: -$sectionVerticalPadding320;
+  }
+
+  +.index-quote-sect {
+    margin-top: -$sectionVerticalPadding320;
+  }
+}
+
+.sect-beige-bg+.sect-lightblue-bg,
+.sect-beige-bg+.sect-lightblue-bg-with-decor,
+.sect-lightblue-bg+.sect-beige-bg,
+.sect-lightblue-bg+.sect-lightblue-bg-with-decor,
+.sect-lightblue-bg-with-decor+.sect-beige-bg,
+.sect-lightblue-bg-with-decor+.sect-lightblue-bg {
+  margin-top: -$sectionVerticalPadding320;
+}
+
 // Общие стили для секций
 .sect {
-  margin: $sectionVerticalPadding320 0;
+  padding-top: $sectionVerticalPadding320;
+  padding-bottom: $sectionVerticalPadding320;
 
   &-with-decor {
     margin: $sectionVerticalPadding320 0;
@@ -276,21 +293,6 @@ span.wpcf7-not-valid-tip,
   background-image: url('./img/icon-twitter-orange.svg');
 }
 
-.sect+.ftr,
-.popup+.ftr,
-.sect+script+.ftr {
-  margin-top: $sectionVerticalPadding320;
-}
-
-.sect-beige-bg+.sect-lightblue-bg,
-.sect-beige-bg+.sect-lightblue-bg-with-decor,
-.sect-lightblue-bg+.sect-beige-bg,
-.sect-lightblue-bg+.sect-lightblue-bg-with-decor,
-.sect-lightblue-bg-with-decor+.sect-beige-bg,
-.sect-lightblue-bg-with-decor+.sect-lightblue-bg {
-  margin-top: -$sectionVerticalPadding320;
-}
-
 @import '../../blocks/faq-block/faq-block';
 @import '../../blocks/article-card/article-card';
 @import '../../blocks/author-article-card/author-article-card';
@@ -308,10 +310,16 @@ span.wpcf7-not-valid-tip,
     font-size: 15px;
   }
 
-  .sect+.ftr,
-  .sect+.popup+.ftr,
-  .sect+script+.ftr {
-    margin-top: $sectionVerticalPadding768;
+  .sect-beige-bg,
+  .sect-lightblue-bg,
+  .sect-lightblue-bg-with-decor {
+    &:last-of-type {
+      margin-bottom: -$sectionVerticalPadding768;
+    }
+
+    +.index-quote-sect {
+      margin-top: 0;
+    }
   }
 
   .sect-beige-bg+.sect-lightblue-bg,
@@ -322,6 +330,7 @@ span.wpcf7-not-valid-tip,
   .sect-lightblue-bg-with-decor+.sect-lightblue-bg {
     margin-top: -$sectionVerticalPadding768;
   }
+
 
   .sect {
     margin: $sectionVerticalPadding768 0;
@@ -367,10 +376,12 @@ span.wpcf7-not-valid-tip,
 
 @media (min-width: 1023.98px) {
 
-  .sect+.ftr,
-  .sect+.popup+.ftr,
-  .sect+script+.ftr {
-    margin-top: $sectionVerticalPadding1024;
+  .sect-beige-bg,
+  .sect-lightblue-bg,
+  .sect-lightblue-bg-with-decor {
+    &:last-of-type {
+      margin-bottom: -$sectionVerticalPadding1024;
+    }
   }
 
   .sect-beige-bg+.sect-lightblue-bg,
@@ -423,10 +434,12 @@ span.wpcf7-not-valid-tip,
     font-size: 16px;
   }
 
-  .sect+.ftr,
-  .sect+.popup+.ftr,
-  .sect+script+.ftr {
-    margin-top: $sectionVerticalPadding1280;
+  .sect-beige-bg,
+  .sect-lightblue-bg,
+  .sect-lightblue-bg-with-decor {
+    &:last-of-type {
+      margin-bottom: -$sectionVerticalPadding1280;
+    }
   }
 
   .sect-beige-bg+.sect-lightblue-bg,

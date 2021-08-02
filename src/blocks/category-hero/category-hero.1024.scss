@@ -57,7 +57,7 @@
 
   &:not(.category-hero-article-card--height2) {
     flex-flow: row;
-    height: 280px;
+    // height: 280px;
 
     .category-hero-article-card__pic {
       width: 220px;
@@ -75,7 +75,7 @@
 
   &--height2 {
     width: calc(((100% - (50vw - 480px) * 2) - 30px) / 2);
-    height: 280px * 2 + 50px;
+    // height: 280px * 2 + 50px;
     flex-flow: column;
 
     .category-hero-article-card__pic {

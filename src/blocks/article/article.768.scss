@@ -1,3 +1,214 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.article {
+  &__header {
+    display: flex;
+    flex-flow: column;
+
+    &-inner {
+      max-width: 555px;
+      width: 100%;
+      margin: 10px 62px 10px auto;
+    }
+
+    &-pic {
+      // height: 386px;
+      margin: 10px 0;
+      order: -1;
+    }
+  }
+
+  &__author {
+    max-width: 555px;
+    width: 100%;
+    margin: 10px 62px 10px auto;
+  }
+
+  &__body {
+
+    >h1,
+    >h2,
+    >h3,
+    >h4,
+    >h5,
+    >h6,
+    >p,
+    >ul,
+    >ol,
+    >.wp-block-table,
+    >.wp-block-quote,
+    >.wp-block-pullquote,
+    >.wp-block-image,
+    >.wp-block-audio {
+      max-width: 555px;
+      width: 100%;
+      margin-right: 62px;
+      margin-left: auto;
+    }
+  }
+
+  &-sect {
+
+    >h1,
+    >h2,
+    >h3,
+    >h4,
+    >h5,
+    >h6,
+    >p,
+    >ul,
+    >ol,
+    >.wp-block-table,
+    >.wp-block-quote,
+    >.wp-block-pullquote,
+    >.wp-block-image,
+    >.wp-block-audio {
+      max-width: 555px;
+      width: 100%;
+      margin-right: 62px;
+      margin-left: auto;
+    }
+  }
+
+  // *** ЗАГОЛОВКИ И ТЕКСТ***
+
+  >p {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  h1 {
+    font-size: 36px;
+  }
+
+  h2 {
+    font-size: 30px;
+  }
+
+  h3 {
+    font-size: 24px;
+  }
+
+  h4 {
+    font-size: 20px;
+  }
+
+  h5 {
+    font-size: 18px;
+  }
+
+  h6 {
+    font-size: 16px;
+  }
+
+  // *** СПИСКИ ***
+
+  ul,
+  ol {
+    padding-left: 20px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+  }
+
+  ol {
+    li {
+      &::before {
+        left: -20px;
+      }
+    }
+  }
+
+  // *** ТАБЛИЦЫ ***
+
+  .wp-block-table {
+    table {
+      margin: 30px 0;
+    }
+
+    tr {
+      &:first-child {
+        font-size: 16px;
+      }
+    }
+
+    td {
+      padding: 15px 10px;
+    }
+  }
+
+  // *** ЦИТАТЫ ***
+
+  blockquote {
+    margin: 20px 0;
+    padding: 30px 0;
+
+    p {
+      font-size: 22px;
+
+      &+cite {
+        font-size: 15px;
+        margin-top: 35px;
+      }
+    }
+  }
+
+  .wp-block-quote {
+    p {
+      &::before {
+        margin-bottom: -20px;
+        font-size: 144px;
+      }
+    }
+  }
+
+  // *** ИЗОБРАЖЕНИЯ ***
+
+  .wp-block-image {
+    margin-top: 20px;
+    margin-bottom: 20px;
+
+    figcaption {
+      margin: 15px 0;
+    }
+  }
+
+  .wp-block-gallery {
+    .blocks-gallery-grid {
+      .blocks-gallery-item {
+        &:first-child {
+          margin-left: auto;
+        }
+
+        &:last-child {
+          margin-right: auto;
+        }
+
+        figure {
+          width: 288px;
+          height: 383px;
+        }
+      }
+    }
+  }
+
+  // *** АУДИО ***
+
+  .wp-block-audio {
+    audio {
+      width: 100%;
+      margin: 25px 0;
+    }
+  }
+}

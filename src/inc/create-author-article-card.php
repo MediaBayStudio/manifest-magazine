@@ -20,9 +20,13 @@ function create_author_article_card( $args ) {
       'ignore_more' => true
     ] );
     $article_permalink = get_the_permalink( $article_id );
-    $article_img_url = get_the_post_thumbnail_url( $article_id );
+    $article_thumbnail_id = get_post_thumbnail_id( $article_id );
+    $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'mobile' )['url'];
     $article_img_alt = $article_title;
-    $article_img_webp = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $article_img_url );
+    $article_img_webp = str_replace( ['.png', '.jpg', '.jpeg'], '.webp', $article_img_url );
+    // $article_img_url = get_the_post_thumbnail_url( $article_id );
+    // $article_img_alt = $article_title;
+    // $article_img_webp = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $article_img_url );
     $article_categories = get_the_terms( $article_id, 'category' );
     foreach ( $article_categories as $category ) {
       if ( $category->parent ) {
@@ -34,6 +38,10 @@ function create_author_article_card( $args ) {
   } else {
     $article_title = $args['title'];
     $article_descr = $args['descr'];
+  }
+
+  if ( !$article_parent_category ) {
+    $article_parent_category = get_term( $article_child_category->parent );
   }
 
   $defaults = [

@@ -10,18 +10,14 @@ function create_article_card( $args ) {
     $article_id = $article->ID;
     $article_title = $article->post_title;
     $article_descr = get_excerpt( [
+      'text' => $args['object']->post_content,
       'maxchar'   =>  120,
       'autop' => false,
       'ignore_more' => true
     ] );
     $article_permalink = get_the_permalink( $article_id );
-
-    $article_thumbnail_id = get_post_thumbnail_id( $article_id );
-    $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'mobile' )['url'];
-    $article_img_alt = $article_title;
-    $article_img_webp = str_replace( ['.png', '.jpg', '.jpeg'], '.webp', $article_img_url );
-
     $article_categories = get_the_terms( $article_id, 'category' );
+
     foreach ( $article_categories as $category ) {
       if ( $category->parent ) {
         $article_child_category = $category;
@@ -55,8 +51,25 @@ function create_article_card( $args ) {
 
   $card_class = $parsed_args['default_class'];
 
+
+  if ( $card_class === 'category-hero-article-card' ) {
+    $img_size = 'tablet';
+  } else {
+    $img_size = 'mobile';
+  }
+
+  $article_thumbnail_id = get_post_thumbnail_id( $article_id );
+  $article_img_url = image_get_intermediate_size( $article_thumbnail_id, $img_size )['url'];
+  $article_img_alt = $article_title;
+
+  if ( !$article_img_url ) {
+    $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'mobile' )['url'];
+  }
+
+  $article_img_webp = str_replace( ['.png', '.jpg', '.jpeg'], '.webp', $article_img_url );
+
   $response =
-  '<article class="' . $card_class . $parsed_args['classes'] . '">
+  '<article class="' . $card_class . $parsed_args['classes'] . '" data-post-id="' . $article_id . '">
     <a href="' . $article_permalink . '" class="' . $card_class . '__link">
       <picture class="' . $card_class . '__pic' . $lazy_class . '">
         <source type="image/webp" ' . $src_attr . $article_img_webp . '">

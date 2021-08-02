@@ -98,6 +98,8 @@
   }
 
   &__form {
+    position: relative;
+    color: #fafafa;
     .field {
       &_name,
       &_email {
@@ -110,6 +112,7 @@
       }
 
       &_file {
+        color: $black;
         .field__inp {
           display: none;
         }
@@ -135,8 +138,13 @@
       }
     }
 
+    .check {
+      color: $black;
+    }
+
     .btn {
       margin: 15px auto 0;
+      color: $black;
     }
   }
 }

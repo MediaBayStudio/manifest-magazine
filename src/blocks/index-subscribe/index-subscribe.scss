@@ -35,6 +35,8 @@
   }
 
   &__form {
+    position: relative;
+    color: $lightBeige;
     .field {
       &__inp {}
 

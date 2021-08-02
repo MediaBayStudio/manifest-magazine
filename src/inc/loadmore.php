@@ -4,8 +4,25 @@ function loadmore() {
 
   $args = [
     'numberposts' => 6,
-    'post_type' => $_POST['post_type']
+    'offset' => $_POST['offset'],
+    'post_type' => $_POST['post_type'],
   ];
+
+  if ( $_POST['order'] ) {
+    $args['order'] = $_POST['order'];
+  }
+
+  if ( $_POST['orderby'] ) {
+    $args['orderby'] = $_POST['orderby'];
+  }
+
+  if ( $_POST['meta_key'] ) {
+    $args['meta_key'] = $_POST['meta_key'];
+  }
+
+  if ( $_POST['exclude'] ) {
+    $args['exclude'] = $_POST['exclude'];
+  }
 
   $posts = get_posts( $args );
 
@@ -23,23 +40,19 @@ function loadmore() {
     $func = 'create_author_article_card';
   }
 
-  $args = [
-    'object' => $posts[0],
-    'lazyload' => false,
-    'classes' => ' hide',
-    'print' => false
-  ];
-
   if ( $_POST['default_class'] ) {
     $args['default_class'] = $_POST['default_class'];
   }
 
-  $response .= $func( $args );
-  $response .= $func( $args );
-  $response .= $func( $args );
-  $response .= $func( $args );
-  $response .= $func( $args );
-  $response .= $func( $args );
+  foreach ( $posts as $post ) {
+    $args = [
+      'object' => $post,
+      'lazyload' => false,
+      'classes' => ' hide',
+      'print' => false
+    ];
+    $response .= $func( $args );
+  }
 
   echo json_encode( $response );
 

@@ -2,6 +2,12 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+.page-template-authors {
+  .author-articles-sect__descr {
+    margin-bottom: 0;
+  }  
+}
+
 .author-articles-sect {
   &__title {
     &.sect-h1 {

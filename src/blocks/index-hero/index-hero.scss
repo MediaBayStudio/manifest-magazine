@@ -40,6 +40,22 @@
 
   &__progress {}
 
+  &__dots {
+    position: absolute;
+    top: 50%;
+    left: 0;
+    transform: translateY(-50%);
+    display: flex;
+    width: 100%;
+    height: 500%;
+    z-index: 1;
+  }
+
+  &__dot {
+    height: 100%;
+    flex-shrink: 0;
+  }
+
   &.small-img {
     // padding-top: 40px;
     background: url('../img/index-hero-line.svg') center/100% auto no-repeat, #FEFBF6;
@@ -61,22 +77,6 @@
         &__bar {
           background: $gray1;
           position: relative;
-
-          .index-hero-sect__dots {
-            position: absolute;
-            top: 50%;
-            left: 0;
-            transform: translateY(-50%);
-            display: flex;
-            width: 100%;
-            height: 500%;
-            z-index: 1;
-          }
-
-          .index-hero-sect__dot {
-            height: 100%;
-            flex-shrink: 0;
-          }
         }
 
         &__background {

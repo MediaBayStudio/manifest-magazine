@@ -50,7 +50,7 @@
 .category-hero-article-card {
   width: calc(((100% - (50vw - 600px) * 2) - 40px) / 2);
   &:not(.category-hero-article-card--height2) {
-    height: 310px;
+    // height: 310px;
 
     .category-hero-article-card__pic {
       width: 270px;
@@ -64,7 +64,7 @@
 
   &--height2 {
     width: calc(((100% - (50vw - 600px) * 2) - 40px) / 2);
-    height: 310px * 2 + 50px;
+    // height: 310px * 2 + 50px;
 
     .category-hero-article-card__pic {
       height: 525px;

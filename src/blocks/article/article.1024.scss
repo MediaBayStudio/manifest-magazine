@@ -1,3 +1,196 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.article {
+  &__header {
+    flex-flow: row wrap;
+
+    &-inner {
+      max-width: 690px;
+      width: 100%;
+      margin: 0 52px 0 auto;
+    }
+
+    &-pic {
+      // height: 440px;
+      margin: 0 0 45px;
+    }
+  }
+
+  &__categories {
+    margin: 0 0 15px;
+  }
+
+  &__author {
+    flex-flow: column;
+    max-width: none;
+    width: auto;
+    margin: 0;
+    order: -1;
+
+    &-img {
+      width: 80px;
+      height: 80px;
+      margin: 0 0 10px;
+    }
+
+    &-name {
+      font-size: 16px;
+    }
+  }
+
+  &__body {
+
+    >h1,
+    >h2,
+    >h3,
+    >h4,
+    >h5,
+    >h6,
+    >p,
+    >ul,
+    >ol,
+    >.wp-block-table,
+    >.wp-block-quote,
+    >.wp-block-pullquote,
+    >.wp-block-image,
+    >.wp-block-audio {
+      max-width: 690px;
+      width: 100%;
+      margin-right: 52px;
+      margin-left: auto;
+    }
+  }
+
+  &-sect {
+
+    >h1,
+    >h2,
+    >h3,
+    >h4,
+    >h5,
+    >h6,
+    >p,
+    >ul,
+    >ol,
+    >.wp-block-table,
+    >.wp-block-quote,
+    >.wp-block-pullquote,
+    >.wp-block-image,
+    >.wp-block-audio {
+      max-width: 690px;
+      width: 100%;
+      margin-right: 52px;
+      margin-left: auto;
+    }
+  }
+
+  // *** ЗАГОЛОВКИ И ТЕКСТ***
+
+  >p {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6 {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  h1 {
+    font-size: 40px;
+  }
+
+  h2 {
+    font-size: 36px;
+  }
+
+  h3 {
+    font-size: 30px;
+  }
+
+  h4 {
+    font-size: 24px;
+  }
+
+  h5 {
+    font-size: 20px;
+  }
+
+  h6 {
+    font-size: 18px;
+  }
+
+  // *** СПИСКИ ***
+
+  ul,
+  ol {
+    margin-top: 40px;
+    margin-bottom: 40px;
+  }
+
+  // *** ТАБЛИЦЫ ***
+
+  .wp-block-table {
+    tr {
+      &:first-child {
+        font-size: 18px;
+      }
+    }
+  }
+
+  // *** ЦИТАТЫ ***
+
+  blockquote {
+    margin: 30px 0;
+
+    p {
+      font-size: 24px;
+
+      &+cite {
+        font-size: 16px;
+      }
+    }
+  }
+
+  .wp-block-quote {
+    p {
+      &::before {
+        margin-bottom: -20px;
+        font-size: 144px;
+      }
+    }
+  }
+
+  // *** ИЗОБРАЖЕНИЯ ***
+
+  .wp-block-image {
+    margin-top: 30px;
+    margin-bottom: 30px;
+  }
+
+  .wp-block-gallery {
+    .blocks-gallery-grid {
+      .blocks-gallery-item {
+        figure {
+          width: auto;
+          height: 393px;
+        }
+      }
+    }
+  }
+
+  // *** АУДИО ***
+
+  .wp-block-audio {
+    audio {
+      margin: 30px 0;
+    }
+  }
+}

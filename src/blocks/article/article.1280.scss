@@ -1,3 +1,86 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.article {
+  &__header {
+
+    &-inner {
+      max-width: 827px;
+      margin: 0 103px 0 auto;
+    }
+
+    &-pic {
+      // height: 530px;
+      margin: 0 0 50px;
+    }
+  }
+
+  &__categories {
+    margin: 0 0 30px;
+    font-size: 14px;
+  }
+
+  &__author {
+    flex-flow: column;
+    max-width: none;
+    width: auto;
+    margin: 0;
+    order: -1;
+
+    &-img {
+      width: 90px;
+      height: 90px;
+    }
+
+    &-name {
+      font-size: 18px;
+    }
+  }
+
+  &__body {
+
+    >h1,
+    >h2,
+    >h3,
+    >h4,
+    >h5,
+    >h6,
+    >p,
+    >ul,
+    >ol,
+    >.wp-block-table,
+    >.wp-block-quote,
+    >.wp-block-pullquote,
+    >.wp-block-image,
+    >.wp-block-audio {
+      max-width: 827px;
+      width: 100%;
+      margin-right: 103px;
+      margin-left: auto;
+    }
+  }
+
+  &-sect {
+
+    >h1,
+    >h2,
+    >h3,
+    >h4,
+    >h5,
+    >h6,
+    >p,
+    >ul,
+    >ol,
+    >.wp-block-table,
+    >.wp-block-quote,
+    >.wp-block-pullquote,
+    >.wp-block-image,
+    >.wp-block-audio {
+      max-width: 827px;
+      width: 100%;
+      margin-right: 103px;
+      margin-left: auto;
+    }
+  }
+}

@@ -14,6 +14,8 @@
 
   &__form {
     padding: 35px 20px 30px;
+    position: relative;
+    color: #fafafa;
     .field {
       &__inp {}
 
@@ -37,6 +39,7 @@
     .form-bottom {}
 
     .check {
+      color: $black;
       &__inp {}
 
       &__text {}
@@ -46,6 +49,7 @@
 
     .btn {
       margin: 20px auto 0;
+      color: $black;
     }
   }
 }
