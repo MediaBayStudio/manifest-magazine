@@ -27,13 +27,13 @@
 
   &__title {
     margin: 0 0 10px;
-    font: bold 18px/130% Quincy CF, serif;
+    font: bold 18px/130% $quincy;
     text-transform: uppercase;
   }
 
   &__category {
     margin: 0 0 30px;
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
     color: $darkBlue;
     border-bottom: 1px solid transparent;
@@ -47,7 +47,7 @@
   &__count {
     margin: 40px 0 0;
     padding: 15px 0 0;
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
     position: relative;
 
@@ -77,7 +77,7 @@
     width: 100vw;
     overflow-y: hidden;
     overflow-x: auto;
-    font: bold 14px/130% Quincy CF, serif;
+    font: bold 14px/130% $quincy;
     text-transform: uppercase;
     position: relative;
   }
@@ -160,9 +160,8 @@
   }
 
   &__title {
-    font: bold 18px/130% Quincy CF, serif;
-    text-decoration: underline transparent;
-    transition: text-decoration-color .5s;
+    font: bold 18px/130% $quincy;    
+    transition: color .5s;
   }
 
   &__descr {}

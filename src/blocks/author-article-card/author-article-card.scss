@@ -50,13 +50,13 @@
 
   &__author-name {
     margin: 0 0 8px;
-    font: bold 14px/130% Quincy CF, serif;
-    text-decoration: underline transparent;
+    font: bold 14px/130% $quincy;
+    
     transition: text-decoration-color .5s;
   }
 
   &__category {
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
     color: $darkBlue;
     border-bottom: 1px solid transparent;
@@ -67,8 +67,7 @@
   }
 
   &__title {
-    font: bold 18px/120% Quincy CF, serif;
-    text-decoration: underline transparent;
-    transition: text-decoration-color .5s;
+    font: bold 18px/120% $quincy;
+    transition: color .5s;
   }
 }

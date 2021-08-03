@@ -187,7 +187,7 @@
   &__categories {
     margin: 0 0 10px;
     color: $darkBlue;
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
   }
 
@@ -198,9 +198,8 @@
   }
 
   &__title {
-    font: bold 20px/120% QuincyCF, serif;
-    text-decoration: underline transparent;
-    transition: text-decoration-color .5s;
+    font: bold 20px/120% $quincy;
+    transition: color .5s;
   }
 
   &__descr {

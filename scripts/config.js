@@ -1,5 +1,5 @@
 let /*path = require('path'),*/
-path = require('path').posix,
+  path = require('path').posix,
 
   localServerDest = path.normalize('/Applications/MAMP/htdocs/manifest-magazine/'),
   // localServerDest = path.normalize('C:/OSPanel/domains/zubteh/'),

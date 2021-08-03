@@ -2,6 +2,11 @@
 // Глобальные переменные
 $template_directory_uri = get_template_directory_uri();
 $template_directory = get_template_directory();
+
+$upload_dir = wp_get_upload_dir();
+$upload_basedir = $upload_dir['basedir'];
+$upload_baseurl = $upload_dir['baseurl'] . DIRECTORY_SEPARATOR;
+
 $site_url = site_url();
 $ssl = is_ssl();
 

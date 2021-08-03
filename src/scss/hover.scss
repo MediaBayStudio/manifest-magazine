@@ -86,7 +86,8 @@
 
 .author-article-card__author-name:hover,
 .author-article-card__author-pic-link:hover~.author-article-card__author-text .author-article-card__author-name {
-  text-decoration-color: currentColor;
+  // text-decoration-color: currentColor;
+  color: $darkBlue;
 }
 
 .arrow_next:hover,

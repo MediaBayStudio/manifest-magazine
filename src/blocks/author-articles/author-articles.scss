@@ -69,7 +69,7 @@
   }
 
   &__current-category {
-    font: bold 14px/130% Quincy CF, serif;
+    font: bold 14px/130% $quincy;
     text-transform: uppercase;
     &::after {
       content: '';

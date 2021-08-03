@@ -154,7 +154,7 @@
   display: block;
   width: 100%;
   position: relative;
-  font: 14px/140% Raleway, sans-serif;
+  font: 14px/140% $raleway;
 
   &.selected {
     >.select-label {

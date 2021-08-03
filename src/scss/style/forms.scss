@@ -39,7 +39,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
     align-items: flex-start;
     max-width: 250px;
     flex-wrap: wrap;
-    font: 11px/140% Raleway, sans-serif;
+    font: 11px/140% $raleway;
 
     >.check__text {
       width: $checkbox_text_width;
@@ -113,7 +113,7 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
 .field {
   width: 100%;
   display: inline-block;
-  font: 14px/130% Raleway, sans-serif;
+  font: 14px/130% $raleway;
   position: relative;
 
   &__textarea,

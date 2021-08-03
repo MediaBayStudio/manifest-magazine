@@ -54,18 +54,18 @@
   &::before {
     // decor quote
     content: '“';
-    font: bold 96px/40% Quincy CF, serif;
+    font: bold 96px/40% $quincy;
     color: $blue;
   }
   display: flex;
   flex-flow: column;
   text-align: center;
   &__text {
-    font: bold 18px/120% Quincy CF, serif;
+    font: bold 18px/120% $quincy;
   }
 
   &__author {
     margin-top: 30px;
-    // font: 14px/130% Raleway, sans-serif;
+    // font: 14px/130% $raleway;
   }
 }

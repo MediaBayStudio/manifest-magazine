@@ -26,37 +26,46 @@ add_action( 'wp_generate_attachment_metadata', function ( $image_meta, $img_id )
   $img_pathinfo = pathinfo( $img_path );
   $dirname = $img_pathinfo['dirname'];
 
+  $upload_dir = preg_replace( '/.*uploads/', '', $dirname );
+
   foreach ( $image_sizes as $size_name => $width ) {
     $file = image_get_intermediate_size( $img_id, $size_name );
     $file_webp = str_replace( ['.jpg', '.jpeg', '.png'], '', $file['file'] );
+    $file_webp_name = $file_webp . '.webp';
+    $webp_path = $upload_dir . DIRECTORY_SEPARATOR . $file_webp_name;
 
-    $cwebp = '/usr/local/bin/cwebp -q 90 ' . $file['file'] . ' -o ' . $file_webp . '.webp';
+    $cwebp = '/usr/local/bin/cwebp -q 90 ' . $file['file'] . ' -o ' . $file_webp_name;
+
+    update_post_meta( $img_id, $size_name . '_webp', $webp_path );
 
     chdir( $dirname );
     exec( $cwebp );
   }
 
+  $webp_name = $img_pathinfo['filename'] . '.webp';
+  $webp_path = $upload_dir . '/' . $webp_name;
 
-  $cwebp = '/usr/local/bin/cwebp -q 90 ' . $img_pathinfo['basename'] . ' -o ' . $img_pathinfo['filename'] . '.webp';
+  $cwebp = '/usr/local/bin/cwebp -q 90 ' . $img_pathinfo['basename'] . ' -o ' . $webp_name;
 
   chdir( $dirname );
   exec( $cwebp );
   minifyImg( $img_path );
+  update_post_meta( $img_id, 'webp', $webp_path );
 
   return $image_meta;
 }, 10, 3 );
 
 add_action( 'delete_attachment', function( $img_id, $img ) {
-  global $image_sizes;
+  global $upload_basedir;
 
   $img_path = get_attached_file( $img_id );
   $img_pathinfo = pathinfo( $img_path );
   $dirname = $img_pathinfo['dirname'];
+  $img_meta = get_post_meta( $img_id );
 
-  foreach ( $image_sizes as $size_name => $width ) {
-    $file = image_get_intermediate_size( $img_id, $size_name );
-    $file_webp = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $file['file'] );
-    $webp_path = $dirname . DIRECTORY_SEPARATOR . $file['file'];
+  foreach ( $img_meta as $size_name => $filename ) {
+    $webp_path = $upload_basedir . '/' . $filename[0];
+    $webp_path = wp_normalize_path( $webp_path );
     if ( file_exists( $webp_path ) ) {
       unlink( $webp_path );
     }

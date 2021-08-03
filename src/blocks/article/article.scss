@@ -14,18 +14,18 @@
     &-pic {
       display: block;
       width: 100%;
-      max-width: 100%;
+      // max-width: 100%;
       // height: auto;
       // width: 100%;
-      // height: 246px;
+      height: 246px;
       margin: 20px 0;
     }
 
     &-img {
       margin: auto;
       display: block;
-      // width: 100%;
-      // height: 100%;
+      width: 100%;
+      height: 100%;
       object-fit: cover;
     }
   }
@@ -33,7 +33,7 @@
   &__categories {
     color: $darkBlue;
     text-transform: uppercase;
-    font: 12px/1.35 Raleway, sans-serif;
+    font: 12px/1.35 $raleway;
   }
 
   &__author {
@@ -52,7 +52,7 @@
     }
 
     &-name {
-      font: 14px/1.35 Quincy CF, serif;
+      font: 14px/1.35 $quincy;
       margin: 0 0 7px;
     }
   }
@@ -73,27 +73,27 @@
   }
 
   h1 {
-    font: 700 24px/1.35 Quincy CF, serif;
+    font: 700 24px/1.35 $quincy;
   }
 
   h2 {
-    font: 700 22px/1.35 Quincy CF, serif;
+    font: 700 22px/1.35 $quincy;
   }
 
   h3 {
-    font: 700 20px/1.35 Quincy CF, serif;
+    font: 700 20px/1.35 $quincy;
   }
 
   h4 {
-    font: 700 18px/1.35 Quincy CF, serif;
+    font: 700 18px/1.35 $quincy;
   }
 
   h5 {
-    font: 700 16px/1.35 Quincy CF, serif;
+    font: 700 16px/1.35 $quincy;
   }
 
   h6 {
-    font: 700 15px/1.35 Quincy CF, serif;
+    font: 700 15px/1.35 $quincy;
   }
 
   // *** СПИСКИ ***
@@ -142,7 +142,7 @@
 
     tr {
       &:first-child {
-        font: 700 15px/1.35 Quincy CF, serif;
+        font: 700 15px/1.35 $quincy;
         text-transform: uppercase;
       }
     }
@@ -187,10 +187,10 @@
 
     p {
       margin: 0;
-      font: 18px/1.35 Quincy CF, serif;
+      font: 18px/1.35 $quincy;
 
       &+cite {
-        font: 400 14px/1.35 Raleway, sans-serif;
+        font: 400 14px/1.35 $raleway;
         font-style: normal;
         display: block;
         margin-top: 20px;
@@ -204,7 +204,7 @@
         content: '“';
         margin-bottom: -10px;
         display: block;
-        font: 700 72px/.8 Quincy CF, serif;
+        font: 700 72px/.8 $quincy;
         color: $blue;
       }
     }

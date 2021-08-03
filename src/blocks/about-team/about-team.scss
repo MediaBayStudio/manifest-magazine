@@ -61,14 +61,14 @@
 
   &__title {
     margin: 0 0 10px;
-    font: bold 18px/130% Quincy CF, serif;
+    font: bold 18px/130% $quincy;
     text-transform: uppercase;
   }
 
   &__role {
     margin: 0 0 20px;
     color: $darkBlue;
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
   }
 

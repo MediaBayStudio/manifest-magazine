@@ -34,7 +34,7 @@
 
   &__categories {
     margin: 15px 0;
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
     color: $darkBlue;
   }
@@ -51,9 +51,8 @@
   }
 
   &__title {
-    font: bold 18px/130% Quincy CF, serif;
-    text-decoration: underline transparent;
-    transition: text-decoration-color .5s;
+    font: bold 18px/130% $quincy;
+    transition: color .5s;
   }
 
   &__descr {}

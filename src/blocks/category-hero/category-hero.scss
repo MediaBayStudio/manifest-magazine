@@ -19,7 +19,7 @@
     width: 100vw;
     display: flex;
     align-items: center;
-    font: bold 14px/130% Quincy CF, serif;
+    font: bold 14px/130% $quincy;
     text-transform: uppercase;
     white-space: nowrap;
     overflow-y: hidden;
@@ -28,7 +28,21 @@
 }
 
 .category-hero-menu {
-  &__li {}
+  &__li {
+    &.active {
+      position: relative;
+      pointer-events: none;
+      &::after {
+        content: '';
+        position: absolute;
+        left: 0;
+        bottom: -2px;
+        width: 50%;
+        height: 1px;
+        background: $orange;
+      }
+    }
+  }
 
   &__btn {
     transition: color .5s;
@@ -100,7 +114,7 @@
 
   &__categories {
     margin: 15px 0;
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
     color: $darkBlue;
   }
@@ -117,9 +131,8 @@
 
   &__title {
     margin: 0 0 15px;
-    font: bold 18px/130% Quincy CF, serif;
-    text-decoration: underline transparent;
-    transition: text-decoration-color .5s;
+    font: bold 18px/130% $quincy;
+    transition: color .5s;
   }
 
   &__descr {}

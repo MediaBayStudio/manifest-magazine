@@ -12,7 +12,7 @@
   }
   &__title {
     margin: 0 0 30px;
-    font: bold 18px/130% Quincy CF, serif
+    font: bold 18px/130% $quincy;
   }
 
   &__author {
@@ -42,11 +42,11 @@
 
   &__author-title {
     margin: 0 0 10px;
-    font: bold 14px/130% Quincy CF, serif;
+    font: bold 14px/130% $quincy;
   }
 
   &__author-category {
-    font: 12px/130% Raleway, sans-serif;
+    font: 12px/130% $raleway;
     text-transform: uppercase;
     color: $darkBlue;
     border-bottom: 1px solid transparent;

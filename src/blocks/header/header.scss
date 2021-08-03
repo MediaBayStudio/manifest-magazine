@@ -72,5 +72,18 @@
 
   &__nav-list {}
 
-  &__nav-li {}
+  &__nav-li {
+    &.current {
+      pointer-events: none;
+      > .nav-link {
+        &::after {
+          bottom: -2px;
+          width: 50%;
+          opacity: 1;
+          transform: none;
+          background: $orange;
+        }
+      }
+    }
+  }
 }
