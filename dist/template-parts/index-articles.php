@@ -5,11 +5,11 @@
     $posts_count = wp_count_posts()->publish;
     $numberposts = 6;
 
-    $loadmore_btn_class = $posts_count < $numberposts ? ' hide' : '';
-
     $args = [
       'numberposts' => $numberposts
     ];
+
+    $articles = null;
 
     if ( $section['sort_by'] === 'date' ) {
       $args['order'] = 'ASC';
@@ -17,11 +17,18 @@
       $btn_attr = ' data-order="ASC" data-orderby="date"';
     } else if ( $section['sort_by'] === 'popuplar' ) {
       $args['meta_key'] = 'post_views_count';
-      $args['orderby'] = 'meta_value';
+      $args['orderby'] = 'meta_value_num';
       $btn_attr = ' data-meta-key="post_views_count" data-orderby="meta_value"';
+      $query = get_posts( [
+        'posts_per_page' => -1,
+        'meta_key' => 'post_views_count'
+      ] );
+      $posts_count = count( $query );
     } else {
       $articles = $section['articles'];
     }
+
+    $loadmore_btn_class = $posts_count < $numberposts ? ' hide' : '';
 
     if ( !$articles ) {
       $articles = get_posts( $args );
@@ -34,5 +41,5 @@
       ] );
     } ?>
   </div>
-  <button type="button" class="articles-sect__loadmore btn loadmore-btn<?php echo $loadmore_btn_class ?>" data-posts-count="<?php echo $posts_count ?>" data-post-type="post" data-numberposts="6" data-grid-masonry="true" data-masonry-media-query="(min-width:575.98px)" data-posts-count-mobile="4" data-posts-count-desktop="6" data-mobile-media-query="(max-width:1023.98px)"<?php echo $btn_attr ?>>Загрузить еще</button>
+  <button type="button" class="articles-sect__loadmore btn loadmore-btn<?php echo $loadmore_btn_class ?>" data-posts-count="<?php echo $posts_count ?>" data-post-type="post" data-numberposts="<?php echo $numberposts ?>" data-grid-masonry="true" data-masonry-media-query="(min-width:575.98px)" data-posts-count-mobile="4" data-posts-count-desktop="6" data-mobile-media-query="(max-width:1023.98px)"<?php echo $btn_attr ?>>Загрузить еще</button>
 </section>

@@ -5,6 +5,7 @@ $image_sizes = [
   'laptop' => 980,
   'tablet' => 740,
   'mobile' => 576,
+  'author_article' => [0, 375],
   // 'author_articles' => [300, 400],
   'thumb' => 400,
 ];

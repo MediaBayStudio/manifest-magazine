@@ -91,9 +91,6 @@ initLoadmore = function() {
         '&numberposts=' + loadmoreButton.getAttribute('data-numberposts'),
         excludedPosts = '&exclude=';
 
-        console.log(postsCount);
-        console.log(posts.length);
-
       for (let i = 0, len = posts.length; i < len; i++) {
         let postId = posts[i].getAttribute('data-post-id');
         if (postId) {
@@ -103,11 +100,16 @@ initLoadmore = function() {
 
       excludedPosts = excludedPosts.slice(0, -1);
 
-      if (offset) {
-        offset = +offset + posts.length;
-      } else {
-        offset = posts.length;
-      }
+      // if (offset) {
+      //   offset = +offset + posts.length;
+      // } else {
+      //   offset = posts.length;
+      // }
+
+      offset = posts.length;
+
+      console.log('offset', offset);
+      console.log('posts.length', posts.length);
 
       data += '&offset=' + offset;
 

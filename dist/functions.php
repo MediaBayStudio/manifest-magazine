@@ -112,6 +112,9 @@ require $template_directory . '/inc/create-faq-card.php';
 // Подсчет кол-ва просмотров статей
 require $template_directory . '/inc/posts-views-count.php';
 
+// Новые колонки в админке
+require $template_directory . '/inc/posts-columns.php';
+
 // loadmore
 require $template_directory . '/inc/loadmore.php';
 

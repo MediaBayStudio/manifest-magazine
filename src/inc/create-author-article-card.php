@@ -21,7 +21,12 @@ function create_author_article_card( $args ) {
     ] );
     $article_permalink = get_the_permalink( $article_id );
     $article_thumbnail_id = get_post_thumbnail_id( $article_id );
-    $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'mobile' )['url'];
+    $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'author_article' )['url'];
+
+    if ( !$article_img_url ) {
+      $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'mobile' )['url'];
+    }
+
     $article_img_alt = $article_title;
     $article_img_webp = str_replace( ['.png', '.jpg', '.jpeg'], '.webp', $article_img_url );
     // $article_img_url = get_the_post_thumbnail_url( $article_id );
