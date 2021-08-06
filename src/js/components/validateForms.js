@@ -244,7 +244,7 @@
         event.preventDefault();
       } else {
         $form.classList.add('loading');
-        resetForm($form);
+        // resetForm($form);
       }
     });
     if (!document.wpcf7mailsent) {

@@ -1,3 +1,25 @@
 @import '../../scss/assets/colors';
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
+
+.thanks-popup {
+  &__cnt {
+    padding: 20px 100px 75px;
+    max-width: 600px;
+  }
+
+  &__close {
+    margin: 0 -80px 20px auto;
+  }
+
+  &__close-svg {}
+
+  &__close-path {}
+
+  &__title {
+    margin: 0 0 20px;
+    font-size: 28px;
+  }
+
+  &__descr {}
+}

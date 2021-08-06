@@ -22,6 +22,12 @@ body {
   color: $black;
 }
 
+form {
+  &.loading {
+    pointer-events: none;
+  }
+}
+
 .loadmore-btn {
   &.loading {
     pointer-events: none;
