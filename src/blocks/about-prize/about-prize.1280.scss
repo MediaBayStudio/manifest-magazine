@@ -11,7 +11,9 @@
 
   &__text {}
 
-  &__descr {}
+  &__descr {
+    margin: 0 auto 0 0;
+  }
 
   &__pic {
     width: 375px;

@@ -24,10 +24,11 @@
     height: 100%;
     border: 1px solid $orange;
     border-radius: 50%;
-    transform: rotate(-4deg);
+    transform: rotate(7deg);
     transition: transform .35s, opacity .5s;
   }
   &::before {
-    transform: rotate(4deg);
+    transform: none;
+    // transform: rotate(7deg);
   }
 }

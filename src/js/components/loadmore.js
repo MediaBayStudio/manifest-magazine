@@ -89,7 +89,8 @@ initLoadmore = function() {
         url = siteUrl + '/wp-admin/admin-ajax.php',
         data = 'action=loadmore&post_type=' + loadmoreButton.getAttribute('data-post-type') +
         '&numberposts=' + loadmoreButton.getAttribute('data-numberposts'),
-        excludedPosts = '&exclude=';
+        excludedPosts = '&exclude=',
+        excludePostsAttr = loadmoreButton.getAttribute('data-posts-exclude');
 
       for (let i = 0, len = posts.length; i < len; i++) {
         let postId = posts[i].getAttribute('data-post-id');
@@ -100,18 +101,26 @@ initLoadmore = function() {
 
       excludedPosts = excludedPosts.slice(0, -1);
 
+      if (excludePostsAttr) {
+        excludedPosts += ' ' + excludePostsAttr;
+      }
+
+      data += excludedPosts;
+
+      // console.log(excludedPosts);
+
       // if (offset) {
       //   offset = +offset + posts.length;
       // } else {
       //   offset = posts.length;
       // }
 
-      offset = posts.length;
+      // offset = posts.length;
 
-      console.log('offset', offset);
-      console.log('posts.length', posts.length);
+      // console.log('offset', offset);
+      // console.log('posts.length', posts.length);
 
-      data += '&offset=' + offset;
+      // data += '&offset=' + offset;
 
       if (orderby) {
         data += '&orderby=' + orderby;
@@ -168,7 +177,10 @@ initLoadmore = function() {
               }
             }
 
-            if (posts.length >= postsCount) {
+            console.log('posts.length', posts.length);
+            console.log('postsCount', postsCount);
+
+            if (posts.length >= postsCount || excludePostsAttr && posts.length + 6 >= postsCount) {
               loadmoreButton.classList.add('hide');
             }
           } catch (err) {

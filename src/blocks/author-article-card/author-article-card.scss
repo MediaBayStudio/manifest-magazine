@@ -51,8 +51,8 @@
   &__author-name {
     margin: 0 0 8px;
     font: bold 14px/130% $quincy;
-    
-    transition: text-decoration-color .5s;
+    transition: color .5s;
+    // transition: text-decoration-color .5s;
   }
 
   &__category {

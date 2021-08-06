@@ -12,6 +12,12 @@
   }
 }
 
+.hdr__nav-li > .nav-link:hover {
+  &::after {
+    opacity: 1;
+  }
+}
+
 // .hdr__nav-li > .nav-link:hover {
 .link-with-bottom-line:hover {
   &::after {
@@ -48,10 +54,10 @@
 .btn {
   &:hover {
     &::after {
-      transform: rotate(4deg);
+      transform: rotate(-4deg);
     }
     &::before {
-      transform: rotate(-4deg);
+      transform: rotate(4deg);
     }
   }
 }

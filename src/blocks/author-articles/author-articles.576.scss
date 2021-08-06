@@ -111,7 +111,7 @@
     .author-article-card {
       width: calc((100% - 20px) / 2);
 
-      &:nth-child(odd) {
+      &:nth-of-type(odd) {
         margin-right: 20px;
       }
 

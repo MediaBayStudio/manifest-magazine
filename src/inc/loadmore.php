@@ -8,6 +8,10 @@ function loadmore() {
     'post_type' => $_POST['post_type'],
   ];
 
+  if ( $_POST['numberposts'] ) {
+    $args['numberposts'] = $_POST['numberposts'];
+  }
+
   if ( $_POST['order'] ) {
     $args['order'] = $_POST['order'];
   }
@@ -22,6 +26,13 @@ function loadmore() {
 
   if ( $_POST['exclude'] ) {
     $args['exclude'] = $_POST['exclude'];
+  }
+
+  if ( $_POST['category'] || $_POST['category'] == 0 ) {
+    $args['category'] = $_POST['category'];
+    $category = get_term( $args['category'] );
+    $posts_count = $args['category'] == 0 ? wp_count_posts()->publish : $category->count;
+    $response .= '<div data-posts-count="' . $posts_count . '"></div>';
   }
 
   $posts = get_posts( $args );

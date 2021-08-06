@@ -1,4 +1,9 @@
 <section class="articles-sect sect container loadmore-sect"<?php echo $section_id ?>>
+  <picture class="articles-sect__decor-star lazy">
+    <source type="image/svg+xml" media="(max-width:767.98px)" srcset="#" data-srcset="<?php echo $template_directory_uri ?>/img/decor-star-ol-beige.svg">
+    <img src="#" alt="#" data-src="<?php echo $template_directory_uri ?>/img/decor-star-beige.svg" class="articles-sect__decor-star-img">
+  </picture>
+  <div class="articles-sect__decor-circle"></div>
   <h2 class="articles-sect__title sect-title sect-title-underline"><?php echo $section['title'] ?></h2>
   <div class="articles-sect__articles loadmore-block">
     <div class="gutter-size"></div> <?php

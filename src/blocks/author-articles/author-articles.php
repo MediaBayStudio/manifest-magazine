@@ -6,7 +6,7 @@ if ( $section['by_default'] ) {
   $articles = get_posts( [
     'numberposts' => 6
   ] );
-  if ( $is_author ) {
+  if ( $is_author || is_page_template( 'authors.php' ) ) {
     $title_tag = 'h1';
     $title_class = 'sect-h1';
     $categories = get_terms( [
@@ -28,19 +28,19 @@ if ( $section['by_default'] ) {
 $title = '<' . $title_tag . ' class="author-articles-sect__title ' . $title_class . '">' . $section['title'] . '</' . $title_tag . '>';
 
 if ( $articles ) : ?>
-  <section class="author-articles-sect sect container <?php echo $sect_class ?>"<?php echo $section_id ?>> <?php
-    if ( !$section['by_default'] ) : ?>
+  <section class="author-articles-sect sect container<?php echo $sect_class ?>"<?php echo $section_id ?>> <?php
+    if ( !$section['by_default'] || is_front_page() ) : ?>
       <img src="#" alt="#" data-src="<?php echo $template_directory_uri ?>/img/decor-star-blue.svg" class="author-articles-sect__decor-star lazy"> <?php
     endif;
     if ( $section['title'] ) {
       echo $title;
     }
-    if ( $section['by_default'] && $is_author ) : ?>
+    if ( $section['by_default'] && $is_author || is_page_template( 'authors.php' ) ) : ?>
       <div class="author-articles-sect__bottom">
         <div class="author-articles-sect__descr-block"> <?php
     endif ?>
           <p class="author-articles-sect__descr"><?php echo $section['descr'] ?></p> <?php
-      if ( $section['by_default' ] && $is_author ) : ?>
+      if ( $section['by_default' ] && $is_author || is_page_template( 'authors.php' ) ) : ?>
           <div class="author-articles-sect__categories">
             <span class="author-articles-sect__current-category" data-id="0">Все темы</span>
             <ul class="author-articles-sect__categories-list"> <?php
@@ -68,7 +68,7 @@ if ( $articles ) : ?>
       if ( $section['view'] === 'author-articles-masonry' ) : ?>
         <!-- <button type="button" class="author-articles-sect__loadmore btn loadmore-btn" data-cards-class="author-article-card" data-post-type="post" data-numberposts="6" data-grid-masonry="false" data-posts-count-mobile="4" data-posts-count-desktop="6" data-mobile-media-query="(max-width:767.98px)">Загрузить еще</button>  --><?php
       endif;
-    if ( $section['by_default'] && $is_author ) : ?>
+    if ( $section['by_default'] && $is_author || is_page_template( 'authors.php' ) ) : ?>
       </div> <?php
     endif ?>
   </section> <?php

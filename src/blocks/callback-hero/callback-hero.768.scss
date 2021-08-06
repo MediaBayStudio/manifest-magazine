@@ -3,6 +3,7 @@
 @import '../../scss/assets/variables';
 
 .callback-hero {
+  margin: 0 0 $sectionVerticalPadding768;
   &__title {
     margin: 0 0 60px;
     padding-top: 40px;
@@ -73,4 +74,8 @@
 
 .tail-select>.select-label {
   padding: 0 0 0 10px;
+}
+
+.tail-select {
+  margin: 0 0 70px;
 }

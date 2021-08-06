@@ -3,7 +3,7 @@
 @import '../../scss/assets/variables';
 
 .callback-hero {
-  margin: 0 0 70px;
+  margin: 0 0 $sectionVerticalPadding320;
   &__title {
     margin: 0 0 40px;
     padding-top: 40px;
@@ -139,7 +139,7 @@
     }
 
     .check {
-      color: $black;
+      color: $gray2;
     }
 
     .btn {
@@ -150,7 +150,7 @@
 }
 
 .tail-select {
-  margin: 0 0 40px;
+  margin: 0 0 60px;
   display: block;
   width: 100%;
   position: relative;

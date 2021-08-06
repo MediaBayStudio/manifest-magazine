@@ -6,12 +6,14 @@
   width: 100%;
   padding: 35px 20px;
   min-height: 500px;
-  background: url('../img/author-hero-bg-desktop.svg') center/cover no-repeat, $lightYellow;
-
+  background: $lightYellow;
   display: flex;
   flex-flow: column;
   justify-content: flex-start;
   align-items: center;
+  +.ftr {
+    margin-top: 0;
+  }
 
   &__title {
     color: $darkBlue;

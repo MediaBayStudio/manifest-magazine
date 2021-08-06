@@ -3,7 +3,7 @@
 @import '../../scss/assets/variables';
 
 .contacts-contact-us-sect {
-  margin: 0 0 120px;
+  margin: 0 0 $sectionVerticalPadding1024;
 
   &.lazyloaded {}
 
@@ -21,6 +21,7 @@
     flex-wrap: wrap;
 
     .field {
+      font-size: 16px;
       &__inp {}
 
       &__text {}
@@ -50,6 +51,7 @@
     }
 
     .form-bottom {
+      width: 100%;
       display: flex;
       align-items: center;
     }

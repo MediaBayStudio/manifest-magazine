@@ -25,7 +25,7 @@ if ( $section['manual'] ) {
 }
 
 if ( $articles ) : ?>
-  <section class="category-articles-sect <?php echo $section['view'] ?> container"<?php echo $section_id ?>>
+  <section class="category-articles-sect <?php echo $section['view'] ?> container lazy" data-src="#"<?php echo $section_id ?>>
     <h2 class="category-articles-sect__title sect-title sect-title-underline"><?php echo $section['title'] ?></h2>
     <div class="category-articles-sect__articles category-articles">
       <div class="category-articles__nav"></div> <?php

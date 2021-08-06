@@ -24,6 +24,7 @@
   }
 
   &__descr {
+    margin: 50px auto auto 0;
     max-width: 520px;
   }
 
@@ -45,7 +46,7 @@
     }
     &.lazyloaded {
       &::before {
-        background-image: url('../img/decor-star-ol-lightblue.svg');
+        background-image: url('../img/decor-star-ol-blue.svg');
       }
     }
   }

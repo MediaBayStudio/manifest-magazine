@@ -3,7 +3,7 @@
 @import '../../scss/assets/variables';
 
 .callback-hero {
-  margin: 0 0 150px;
+  margin: 0 0 $sectionVerticalPadding1024;
 
   &__title {
     margin-bottom: 60px;
@@ -87,4 +87,8 @@
       max-width: 260px;
     }
   }
+}
+
+.tail-select {
+  margin: 0 0 80px;
 }

@@ -13,7 +13,7 @@
 
   &__descr {
     margin: 0 0 -70px 135px;
-    padding: 30px 0 85px;
+    padding: 30px 0 75px;
     max-width: 415px;
     font-size: 16px;
     line-height: 130%;
@@ -115,7 +115,7 @@
   &.author-articles-masonry {
     .author-article-card {
       width: calc((100% - 30px) / 2);
-      &:nth-child(odd) {
+      &:nth-of-type(odd) {
         margin-right: 30px;
       }
       &__pic-link {}

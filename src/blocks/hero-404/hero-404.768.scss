@@ -3,6 +3,7 @@
 @import '../../scss/assets/variables';
 
 .hero-404 {
+  background: url('../img/author-hero-bg-desktop.svg') center/cover no-repeat, $lightYellow;
   &__title {
     font-size: 190px;
   }

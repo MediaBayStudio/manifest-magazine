@@ -40,7 +40,8 @@ $checkbox_text_width: calc(100% - #{$checkbox_size + $checkbox_margin_right});
     max-width: 250px;
     flex-wrap: wrap;
     font: 11px/140% $raleway;
-
+    color: $gray2;
+    
     >.check__text {
       width: $checkbox_text_width;
     }

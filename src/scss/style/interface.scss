@@ -198,8 +198,9 @@ body {
 
 // Общие стили для секций
 .sect {
-  padding-top: $sectionVerticalPadding320;
-  padding-bottom: $sectionVerticalPadding320;
+  margin: $sectionVerticalPadding320 0;
+  // padding-top: $sectionVerticalPadding320;
+  // padding-bottom: $sectionVerticalPadding320;
 
   &-with-decor {
     margin: $sectionVerticalPadding320 0;
@@ -237,7 +238,7 @@ body {
 
   &-title-underline {
     margin-bottom: 40px;
-    padding: 0 0 10px;
+    padding: 0 0 7px;
     position: relative;
     display: inline-block;
 
@@ -247,7 +248,7 @@ body {
       left: $sectionHorizontalPaddingMinus320;
       bottom: 0;
       display: block;
-      width: 40%;
+      width: 80px;
       height: 1px;
       background: $orange;
     }
@@ -306,7 +307,8 @@ span.wpcf7-not-valid-tip,
 }
 
 @media (min-width: 767.98px) {
-  body {
+  body,
+  .field {
     font-size: 15px;
   }
 
@@ -375,7 +377,11 @@ span.wpcf7-not-valid-tip,
 }
 
 @media (min-width: 1023.98px) {
-
+  body,
+  .field {
+    font-size: 16px;
+  }
+  
   .sect-beige-bg,
   .sect-lightblue-bg,
   .sect-lightblue-bg-with-decor {
@@ -416,6 +422,9 @@ span.wpcf7-not-valid-tip,
 
     &-title-underline {
       padding: 0 0 20px;
+      &::after {
+        left: -32px;
+      }
     }
   }
 
@@ -430,9 +439,6 @@ span.wpcf7-not-valid-tip,
 }
 
 @media (min-width: 1279.98px) {
-  body {
-    font-size: 16px;
-  }
 
   .sect-beige-bg,
   .sect-lightblue-bg,
@@ -468,7 +474,7 @@ span.wpcf7-not-valid-tip,
 
     &-lightblue-bg-with-decor {
       &.lazyloaded {
-        background: url('../decor-line-lightblue-bg-sect.svg') center/100% auto no-repeat, $lightBlue;
+        background: url('./img/decor-line-lightblue-bg-sect.svg') center/100% auto no-repeat, $lightBlue;
       }
     }
 
@@ -482,6 +488,9 @@ span.wpcf7-not-valid-tip,
 
     &-title-underline {
       margin-bottom: 70px;
+      &::after {
+        left: -40px;
+      }
     }
   }
 

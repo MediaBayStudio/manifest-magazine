@@ -34,12 +34,19 @@
   }
 
   &__categories {
-    margin: 30px auto 0;
+    margin: 20px auto 0;
     width: 100%;
+    display: flex;
+    flex-wrap: wrap;
+  }
+
+  &__categories-title {
+    width: 100%;
+    font-family: $quincy;
   }
 
   &__category-link {
-    margin: 0 15px 0 0;
+    margin: 5px 15px 0 0;
     display: inline-block;
     border-bottom: 1px solid;
     transition: border-bottom-color .5s;

@@ -50,7 +50,7 @@ add_action( 'wp_enqueue_scripts', function() {
   // Подключаем скрипты циклом
   
 
-	$scripts = ['lazy.min', 'masonry.pkgd.min', 'tail.select.min', 'Popup.min', 'slick.min', 'script', $GLOBALS['page_script_name']];
+	$scripts = ['lazy.min', 'lax.min', 'masonry.pkgd.min', 'tail.select.min', 'Popup.min', 'slick.min', 'script', $GLOBALS['page_script_name']];
 
   foreach ( $scripts as $script ) {
     wp_enqueue_script( "{$script}", $template_directory_uri . "/js/{$script}.js", [], null );
@@ -76,6 +76,7 @@ add_action( 'wp_enqueue_scripts', function() {
       case 'lazy.min':
       case 'Popup.min':
       case 'slick.min':
+      case 'lax.min':
       case 'script':
       case $GLOBALS['page_script_name']:
       case 'contact-form-7':

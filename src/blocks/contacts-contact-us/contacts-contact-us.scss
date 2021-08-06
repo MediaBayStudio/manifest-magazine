@@ -3,8 +3,10 @@
 @import '../../scss/assets/variables';
 
 .contacts-contact-us-sect {
-  margin: 0 0 90px;
-  &__title {}
+  margin: 0 0 $sectionVerticalPadding320;
+  &__title {
+    max-width: 250px;
+  }
 }
 
 .contacts-contact-us {
@@ -39,7 +41,7 @@
     .form-bottom {}
 
     .check {
-      color: $black;
+      color: $gray2;
       &__inp {}
 
       &__text {}

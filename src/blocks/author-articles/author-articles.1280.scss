@@ -113,7 +113,7 @@
       margin: 0 0 50px;
       width: calc((100% - 40px) / 2);
 
-      &:nth-child(odd) {
+      &:nth-of-type(odd) {
         margin-right: 40px;
       }
 

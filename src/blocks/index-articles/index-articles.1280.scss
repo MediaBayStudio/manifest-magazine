@@ -3,15 +3,29 @@
 @import '../../scss/assets/variables';
 
 .articles-sect {
+  &__decor {
+
+    &-star {
+      top: 100px;
+    }
+
+    &-circle {
+      top: 175px;
+    }
+  }
+
   &__title {}
 
   &__articles {
+
     // columns: 3 373.3333px;
-    > .gutter-size {
+    >.gutter-size {
       width: 40px;
     }
+
     .article-card {
       width: calc((100% - 80px) / 3);
+
       &__link {}
 
       &__pic {}

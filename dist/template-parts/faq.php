@@ -3,7 +3,7 @@
 $posts_count = wp_count_posts( 'author_question' )->publish;
 $numberposts = is_page_template( 'authors.php' ) ? 6 : 3;
 
-$loadmore_btn_class = $posts_count < $numberposts ? ' hide' : '';
+$loadmore_btn_class = $posts_count <= $numberposts ? ' hide' : '';
 
 $faq_posts = get_posts( [
   'post_type' => 'author_question',

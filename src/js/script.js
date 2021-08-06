@@ -4,7 +4,7 @@ document.addEventListener('DOMContentLoaded', function() {
   body = document.body;
 
   //=include components/telMask.js
-  
+
   //=include components/validateForms.js
 
   //=include components/menu.js
@@ -84,4 +84,17 @@ document.addEventListener('DOMContentLoaded', function() {
   //   clearSrc: true,
   //   clearMedia: true
   // });
+
+  // lax.init();
+  // lax.addDriver('scrollY', function() {
+  //   return window.scrollY;
+  // });
+  // lax.addElements('.articles-sect__decor-star', {
+  //   scrollY: {
+  //     translateX: [
+  //       ['screenWidth/2', 'elOutY'],
+  //       [0, 500],
+  //     ]
+  //   }
+  // })
 });

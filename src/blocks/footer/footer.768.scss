@@ -30,9 +30,13 @@
 
   &__form {
     .field {
-      &__inp {}
+      &__inp {
+        padding-left: 0;
+      }
 
-      &__text {}
+      &__text {
+        left: 0;
+      }
     }
   }
 
@@ -95,7 +99,7 @@
   }
 
   &__dev {
-    font-size: 16px;
+    font-size: 15px;
   }
 
   &__dev-link {

@@ -6,6 +6,7 @@
   margin-top: $sectionVerticalPadding1024;
   padding-top: 50px;
   padding-bottom: 65px;
+
   &__logo {
     margin: 0 0 60px;
     width: 200px;
@@ -47,6 +48,8 @@
 
   &__form {
     .field {
+      font-size: 18px;
+
       &__inp {}
 
       &__text {}
@@ -59,10 +62,11 @@
 
   &__nav {
     font-size: 16px;
+
     &:first-of-type {
       width: auto;
-      .ftr__nav-list {
-      }
+
+      .ftr__nav-list {}
 
       .ftr__nav-li {}
 
@@ -72,8 +76,8 @@
     &:last-of-type {
       flex: 2;
       width: auto;
-      .ftr__nav-list {
-      }
+
+      .ftr__nav-list {}
 
       .ftr__nav-li {}
 
@@ -110,7 +114,7 @@
   }
 
   &__dev {
-    font-size: 18px;
+    font-size: 16px;
   }
 
   &__dev-link {}

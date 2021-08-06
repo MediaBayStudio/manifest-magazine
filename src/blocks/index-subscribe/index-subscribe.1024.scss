@@ -28,7 +28,9 @@
     margin: 30px 0 0 0;
     width: 415px;
     .field {
-      &__inp {}
+      font-size: 18px;
+      &__inp {
+      }
 
       &__text {}
     }

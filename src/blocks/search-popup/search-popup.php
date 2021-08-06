@@ -6,7 +6,7 @@
     <span class="search-popup__title sect-h1">Поиск</span> <?php
     get_search_form() ?>
     <div class="search-popup__categories">
-      <span>Популярные запросы: </span> <?php
+      <span class="search-popup__categories-title">Популярные запросы: </span> <?php
       $terms = get_terms( [
         'taxonomy' => 'category',
         'number' => 3,

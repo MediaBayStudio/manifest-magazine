@@ -1,1 +1,1 @@
-@charset "UTF-8";.articles-sect__articles{margin:0 0 -50px}.articles-sect__articles .article-card{margin:0 0 50px}
+@charset "UTF-8";.articles-sect{position:relative}.articles-sect__decor-star{top:60px;right:calc(50vw - 300px);width:120px;height:120px}.articles-sect__decor-circle{position:absolute;top:55px;right:calc(50vw - 275px);display:block;width:330px;height:125px;border:1px solid #f0e8df;border-radius:50%;transform:rotate(-23deg);z-index:-2}.articles-sect__articles{margin:0 0 -50px}.articles-sect__articles .article-card{margin:0 0 50px}

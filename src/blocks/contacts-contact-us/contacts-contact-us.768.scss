@@ -3,12 +3,14 @@
 @import '../../scss/assets/variables';
 
 .contacts-contact-us-sect {
-  margin: 0 0 110px;
+  margin: 0 0 $sectionVerticalPadding768;
   background: center/100% auto no-repeat;
   &.lazyloaded {
     background-image: url('../img/contacts-sect-bg.svg');
   }
-  &__title {}
+  &__title {
+    max-width: 100%;
+  }
 }
 
 .contacts-contact-us {
@@ -20,6 +22,7 @@
   &__form {
     padding: 50px 40px;
     .field {
+      font-size: 15px;
       &__inp {}
 
       &__text {}

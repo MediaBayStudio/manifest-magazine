@@ -55,9 +55,13 @@
   &__form {
     width: 370px;
     .field {
-      &__inp {}
+      &__inp {
+        padding-left: 0;
+      }
 
-      &__text {}
+      &__text {
+        left: 0;
+      }
     }
   }
 
