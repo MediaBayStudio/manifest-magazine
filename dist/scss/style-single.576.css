@@ -1,1 +1,1 @@
-@charset "UTF-8";
+@charset "UTF-8";.related-articles__articles{display:flex;flex-wrap:wrap}.related-articles__articles .article-card{width:calc((100% - 20px)/ 2)}.related-articles__articles .article-card:nth-child(odd){margin-right:20px}

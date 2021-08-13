@@ -85,16 +85,29 @@ document.addEventListener('DOMContentLoaded', function() {
   //   clearMedia: true
   // });
 
-  // lax.init();
-  // lax.addDriver('scrollY', function() {
-  //   return window.scrollY;
-  // });
-  // lax.addElements('.articles-sect__decor-star', {
-  //   scrollY: {
-  //     translateX: [
-  //       ['screenWidth/2', 'elOutY'],
-  //       [0, 500],
-  //     ]
-  //   }
-  // })
+  lax.init();
+  lax.addDriver('scrollY', function() {
+    return window.scrollY;
+  });
+
+  lax.addElements('.articles-sect__decor-star', {
+    scrollY: {
+      translateX: [
+        ['screenHeight/2', 1250],
+        {
+          1024: [0, 120],
+          1280: [0, 360],
+          1920: [0, 485]
+        }
+      ],
+      translateY: [
+        ['screenHeight/2', 1250],
+        {
+          1024: [0, 415],
+          1280: [0, 410],
+          1920: [0, 425]
+        }
+      ]
+    }
+  });
 });

@@ -7,7 +7,9 @@
 get_header();
 
 foreach ( $GLOBALS['sections'] as $section ) {
-	require 'template-parts/' . $section['acf_fc_layout'] . '.php';
+	if ( $section['is_visible'] ) {
+		require 'template-parts/' . $section['acf_fc_layout'] . '.php';
+	}
 	if ( is_page_template( 'authors.php' ) && $section['acf_fc_layout'] === 'faq' ) :
 		$posts_count = wp_count_posts()->publish;
 		$numberposts = 4;

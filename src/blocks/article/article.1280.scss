@@ -38,6 +38,14 @@
     }
   }
 
+  &__tags {}
+
+  &__tag {}
+
+  &__share {}
+
+  &__share-link {}
+
   &__body {
 
     >h1,
@@ -81,6 +89,40 @@
       width: 100%;
       margin-right: 103px;
       margin-left: auto;
+    }
+  }
+}
+
+.related-articles {
+  &__title {}
+
+  &__articles {
+    .article-card {
+      width: calc((100% - 80px) / 3);
+
+      &:nth-child(n) {
+        margin-right: 40px;
+      }
+
+      &:nth-child(3) {
+        margin-right: 0;
+      }
+
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
     }
   }
 }

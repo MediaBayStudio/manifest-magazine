@@ -1,6 +1,23 @@
 <section class="search-hero container"<?php echo $section_id ?>> <?php
     get_search_form() ?>
     <div class="search-hero__articles"> <?php
+    // if ( $_GET['s'] === 'category' ) {
+    //   global $wp_query;
+
+    //   $args = [
+    //     'numberposts' => -1,
+    //     'category' => $_GET['term_id']
+    //   ];
+
+    //   // $posts = get_posts( [
+    //   //   'numberposts' => -1,
+    //   //   'category' => $_GET['term_id']
+    //   // ] );
+
+    //   $wp_query->get_posts( $args );
+
+    // }
+    // var_dump( $wp_query );
       if ( have_posts() ) {
         while ( have_posts() ) {
           the_post();

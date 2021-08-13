@@ -4,6 +4,7 @@
 
 .callback-hero {
   margin: 0 0 $sectionVerticalPadding320;
+
   &__title {
     margin: 0 0 40px;
     padding-top: 40px;
@@ -42,6 +43,7 @@
       padding: 5px 25px 5px 0;
       position: relative;
       transition: color .5s;
+
       &::after {
         content: '';
         position: absolute;
@@ -70,6 +72,7 @@
       &.active {
         pointer-events: none;
         color: $black;
+
         &::after {
           opacity: 1;
         }
@@ -87,11 +90,13 @@
     opacity: 0;
     visibility: hidden;
     transition: opacity .5s, visibility .5s;
+
     &.active {
       opacity: 1;
       visibility: visible;
       transition: opacity .5s .5s, visibility .5s .5s;
     }
+
     &.hide {
       display: none;
     }
@@ -100,7 +105,9 @@
   &__form {
     position: relative;
     color: #fafafa;
+
     .field {
+
       &_name,
       &_email {
         margin: 0 0 40px;
@@ -113,6 +120,7 @@
 
       &_file {
         color: $black;
+
         .field__inp {
           display: none;
         }
@@ -234,4 +242,72 @@
       background-image: url('../img/icon-triangle.svg');
     }
   }
+}
+
+.callback-hero__form .field_file {
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+
+.codedropz-upload-handler,
+.wpcf7-drag-n-drop-file {
+  opacity: 0;
+  position: absolute;
+  pointer-events: none;
+}
+
+.codedropz-upload-wrapper {
+  order: 10;
+  margin: 10px 0 0;
+  width: 100%;
+}
+
+.dnd-upload-status .dnd-upload-image {
+  display: none;
+}
+
+
+.dnd-upload-status .dnd-upload-details .name {
+  padding-right: 30px;
+  font-size: 12px;
+  color: $black;
+}
+
+.dnd-upload-status .dnd-upload-details .name em {
+  font-style: normal;
+}
+
+.dnd-upload-status .dnd-upload-details .dnd-progress-bar {
+  height: 3px;
+  overflow: visible;
+  border-radius: 0;
+}
+
+.dnd-upload-status .dnd-upload-details .remove-file span:after {
+  content: 'x';
+  margin: -5px;
+  padding: 5px;
+  width: auto;
+  height: auto;
+  background: 0 0;
+  font-size: 12px;
+}
+
+.dnd-upload-status .dnd-upload-details .dnd-progress-bar span {
+  line-height: 26px;
+  color: $black;
+  background: $orange;
+}
+
+.dnd-upload-status .dnd-upload-details .remove-file {
+  top: 7px;
+}
+
+.dnd-upload-status {
+  margin: 0 0 10px;
+}
+
+
+.dnd-upload-status .dnd-upload-details {
+  width: 100%;
 }

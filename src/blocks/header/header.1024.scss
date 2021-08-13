@@ -33,7 +33,7 @@
 
   &__nav-li {
     &:not(:last-child) {
-      &::before {
+      &::after {
         margin: 0 25px;
       }
     }

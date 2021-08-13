@@ -39,6 +39,32 @@ form {
   }
 }
 
+.vk-share-link:not(.lazy),
+.vk-share-link.lazyloaded {
+  background-image: url('./img/icon-share-vk.svg');
+}
+
+.facebook-share-link:not(.lazy),
+.facebook-share-link.lazyloaded {
+  background-image: url('./img/icon-share-facebook.svg');
+}
+
+.twitter-share-link:not(.lazy),
+.twitter-share-link.lazyloaded {
+  background-image: url('./img/icon-share-twitter.svg');
+}
+
+.share-link {
+  font-size: 0;
+  border: 0;
+  cursor: pointer;
+}
+
+.share-link:not(.lazy),
+.share-link.lazyloaded {
+  background-image: url('./img/icon-share.svg');
+}
+
 .slider-progress {
   display: flex;
   align-items: center;
@@ -313,6 +339,7 @@ span.wpcf7-not-valid-tip,
 }
 
 @media (min-width: 767.98px) {
+
   body,
   .field {
     font-size: 15px;
@@ -383,11 +410,12 @@ span.wpcf7-not-valid-tip,
 }
 
 @media (min-width: 1023.98px) {
+
   body,
   .field {
     font-size: 16px;
   }
-  
+
   .sect-beige-bg,
   .sect-lightblue-bg,
   .sect-lightblue-bg-with-decor {
@@ -428,6 +456,7 @@ span.wpcf7-not-valid-tip,
 
     &-title-underline {
       padding: 0 0 20px;
+
       &::after {
         left: -32px;
       }
@@ -494,6 +523,7 @@ span.wpcf7-not-valid-tip,
 
     &-title-underline {
       margin-bottom: 70px;
+
       &::after {
         left: -40px;
       }

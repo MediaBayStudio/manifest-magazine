@@ -40,6 +40,20 @@
     }
   }
 
+  &__tags {
+    font-size: 14px;
+  }
+
+  &__tag {}
+
+  &__share {}
+
+  &__share-title {
+    font-size: 18px;
+  }
+
+  &__share-link {}
+
   &__body {
 
     >h1,
@@ -191,6 +205,40 @@
   .wp-block-audio {
     audio {
       margin: 30px 0;
+    }
+  }
+}
+
+.related-articles {
+  &__title {}
+
+  &__articles {
+    .article-card {
+      width: calc((100% - 60px) / 3);
+
+      &:nth-child(n) {
+        margin-right: 30px;
+      }
+
+      &:nth-child(3) {
+        margin-right: 0;
+      }
+
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
     }
   }
 }

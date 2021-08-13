@@ -7,7 +7,9 @@
 get_header();
 
 foreach ( $GLOBALS['sections'] as $section ) {
-	require 'template-parts/' . $section['acf_fc_layout'] . '.php';
+	if ( $section['is_visible'] ) {
+		require 'template-parts/' . $section['acf_fc_layout'] . '.php';
+	}
 	if ( $section['acf_fc_layout'] === 'category-articles' ) {
 		$articles = get_posts( [
 			'numberposts' => 6,

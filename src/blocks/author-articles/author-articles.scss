@@ -72,6 +72,7 @@
     font: bold 14px/130% $quincy;
     text-transform: uppercase;
     cursor: pointer;
+    transition: color .5s;
     &::after {
       content: '';
       margin: 0 0 1px 10px;
@@ -101,6 +102,7 @@
   &__category {
     padding: 10px 15px;
     cursor: pointer;
+    transition: color .5s;
     &:not(:last-child) {
     }
   }

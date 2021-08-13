@@ -26,6 +26,25 @@
     margin: 10px 62px 10px auto;
   }
 
+  &__tags {
+    margin: 30px -15px 0 0;
+    padding: 0;
+  }
+
+  &__tag {
+    margin-top: 20px;
+  }
+
+  &__share {
+    margin-top: 30px;
+  }
+
+  &__share-link {
+    margin: 0 15px 0 0;
+    width: 30px;
+    height: 30px;
+  }
+
   &__body {
 
     >h1,
@@ -209,6 +228,30 @@
     audio {
       width: 100%;
       margin: 25px 0;
+    }
+  }
+}
+
+.related-articles {
+  &__title {}
+
+  &__articles {
+    .article-card {
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
     }
   }
 }

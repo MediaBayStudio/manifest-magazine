@@ -5,6 +5,8 @@ $that = $GLOBALS['quired_object'];
 
 $section_title = $section['title_is_full'] ? get_field( 'full_title', $that ) : $that->name;
 
+$section_title = $section_title ?: $that->name;
+
 $term_args = [
   'taxonomy' => 'category',
   // 'hide_empty' => false

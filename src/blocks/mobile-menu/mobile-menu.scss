@@ -3,7 +3,7 @@
 @import '../../scss/assets/variables';
 
 #wpadminbar {
-  display: none !important;
+  // display: none !important;
 }
 
 html[lang] {
@@ -121,8 +121,9 @@ html[lang] {
       }
     }
     .nav-link {
-      border-bottom: 1px solid transparent;
-      transition: border-bottom-color .5s;
+      transition: color .5s;
+      // border-bottom: 1px solid transparent;
+      // transition: border-bottom-color .5s;
     }
   }
 

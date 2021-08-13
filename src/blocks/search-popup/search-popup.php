@@ -13,7 +13,7 @@
         'orderby' => 'rand'
       ] );
       foreach ( $terms as $term ) : ?>
-        <a href="<?php echo $site_url . '/?s=' . $term->name ?>" class="search-popup__category-link"><?php echo $term->name ?></a> <?php
+        <a href="<?php echo $site_url . '/?s=category&term_id=' . $term->term_id ?>" class="search-popup__category-link"><?php echo $term->name ?></a> <?php
       endforeach ?>
     </div>
   </div>

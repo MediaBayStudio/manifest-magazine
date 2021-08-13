@@ -38,7 +38,7 @@
             <span class="ftr__nav-title">Manifest Magazine</span>
             <ul class="ftr__nav-list"> <?php
               foreach ( $ftr_menu_links as $link ) : ?>
-                <li class="ftr__nav-li"><a href="<?php echo $link['link']['url'] ?>" class="nav-link link-with-bottom-line"><?php echo $link['link']['title'] ?></a></li> <?php
+                <li class="ftr__nav-li"><a href="<?php echo $link['link']['url'] ?>" class="nav-link"><?php echo $link['link']['title'] ?></a></li> <?php
               endforeach ?>
             </ul>
           </nav>

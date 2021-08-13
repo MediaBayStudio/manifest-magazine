@@ -26,15 +26,25 @@
   }
 }
 
-.contacts__block-socials-link,
-.menu__link,
-.ftr__link {
+// .contacts__block-socials-link,
+// .menu__link,
+// .ftr__link,
+.twitter,
+.facebook,
+.instagram, {
   &:hover {
     filter: brightness(1);
   }
 }
 
+.article__author-pic-link:hover + .article__author-info > .article__author-name-link {
+  border-bottom-color: currentColor;
+}
+
 // .menu__nav-li > .nav-link,
+.article__author-name-link,
+.article__author-categories-link,
+.article__categories-link,
 .faq-card__author-category,
 .author-hero__category,
 .index-hero-slide__parent-category,
@@ -65,12 +75,18 @@
 
 .author-hero-articles-sect__category-btn,
 .menu__close,
+.menu__nav-li > .nav-link,
+.hdr__nav-li > .nav-link,
+.ftr__nav-li > .nav-link,
 .category-hero-menu__btn,
 .popup__close {
   &:hover {
     color: $orange;
   }
 }
+
+.author-articles-sect__current-category:hover,
+.author-articles-sect__category:hover,
 
 .author-hero-article__link-pic:hover+.author-hero-article__text .author-hero-article__title,
 .author-hero-article__title:hover,

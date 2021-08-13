@@ -47,6 +47,25 @@ $webp_support = strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false || str
   // 'miw1024' => '(min-width:1023.98px)'
 // ];
 
+
+// Модицифируем поиск по статьям
+add_filter( 'pre_get_posts', function( $query ) {
+  if ( $query->is_search && $_GET['s'] === 'category' ) {
+    $query->set( 'category__in', $_GET['term_id'] );
+    $query->set( 's', '' );
+  }
+  return $query;
+} );
+
+// Модифицируем <title> на странице поиска
+add_filter( 'document_title_parts', function( $title ) {
+  if ( $_GET['s'] === 'category' ) {
+    $term_name = '«' . get_term( $_GET['term_id'] )->name . '»';
+    $title['title'] = 'Результаты поиска ' . $term_name;
+  }
+  return $title;
+} );
+
 // Передаем в js некоторые данные о сайте
 add_action( 'admin_head', 'print_site_data' );
 add_action( 'wp_body_open', 'print_site_data' );
@@ -102,6 +121,9 @@ require $template_directory . '/inc/php-path-join.php';
 
 require $template_directory . '/inc/get-excerpt.php';
 
+// Вывод статьи
+require $template_directory . '/inc/create-article.php';
+
 // Вывод карточек статей
 require $template_directory . '/inc/create-article-card.php';
 require $template_directory . '/inc/create-author-article-card.php';
@@ -150,6 +172,9 @@ require $template_directory . '/inc/theme-support-and-thumbnails.php';
 
 
 if ( is_super_admin() || is_admin_bar_showing() ) {
+
+  // Добавление спецсимволов html в заголовки и тело статей
+  require $template_directory . '/inc/posts-typography.php';
 
 	// Функция формирования стилей для страницы при сохранении страницы
 	require $template_directory . '/inc/build-styles.php';

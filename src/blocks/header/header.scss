@@ -81,7 +81,9 @@
 
   &__nav-li {
     &.current {
-      pointer-events: none;
+      &::before {
+        // width: 25%;
+      }
 
       >.nav-link {}
     }
@@ -90,29 +92,30 @@
 
 .hdr__nav-li {
   >.nav-link {
-    position: relative;
+    transition: color .5s;
+    // position: relative;
 
-    &::after {
-      content: '';
-      display: block;
-      bottom: -2px;
-      width: 50%;
-      height: 1px;
-      transform: none;
-      background: $orange;
-      opacity: 0;
-      transition: opacity .5s;
-      pointer-events: none;
-    }
+    // &::after {
+    //   content: '';
+    //   display: block;
+    //   bottom: -2px;
+    //   width: 50%;
+    //   height: 1px;
+    //   transform: none;
+    //   background: $orange;
+    //   opacity: 0;
+    //   transition: opacity .5s;
+    //   pointer-events: none;
+    // }
 
-    &.current {
-      pointer-events: none;
+    // &.current {
+    //   // pointer-events: none;
 
-      >.nav-link {
-        &::after {
-          opacity: 1;
-        }
-      }
-    }
+    //   >.nav-link {
+    //     &::after {
+    //       opacity: 1;
+    //     }
+    //   }
+    // }
   }
 }

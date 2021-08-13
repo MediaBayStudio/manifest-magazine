@@ -34,6 +34,8 @@
     color: $darkBlue;
     text-transform: uppercase;
     font: 12px/1.35 $raleway;
+
+    &-link {}
   }
 
   &__author {
@@ -55,7 +57,58 @@
       font: 14px/1.35 $quincy;
       margin: 0 0 7px;
     }
+
+    &-categories-link {
+      color: $darkBlue;
+    }
   }
+
+
+  &__tags {
+    margin: 20px -20px 0 0;
+    padding: 0 35px;
+    width: 100%;
+    display: flex;
+    flex-flow: wrap;
+    justify-content: center;
+    color: $darkBlue;
+    text-transform: uppercase;
+    font: 12px/130% $raleway;
+  }
+
+  &__tag {
+    margin: 10px 20px 0 0;
+    padding: 7px 15px;
+    display: inline-block;
+    background: $lightBlue;
+  }
+
+  &__share {
+    margin: 20px -8px 0 0;
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__share-title {
+    margin: 0 0 15px;
+    width: 100%;
+    text-align: center;
+    text-transform: uppercase;
+    font: bold 14px/130% $quincy;
+  }
+
+  &__share-link {
+    margin-right: 8px;
+    flex-shrink: 0;
+    width: 24px;
+    height: 24px;
+    border-radius: 50%;
+    overflow: hidden;
+    background: center/contain no-repeat;
+  }
+
 
   // *** ЗАГОЛОВКИ И ТЕКСТ***
 
@@ -94,6 +147,15 @@
 
   h6 {
     font: 700 15px/1.35 $quincy;
+  }
+
+  a {
+    text-decoration: underline;
+    transition: text-decoration-color .5s;
+
+    &:hover {
+      text-decoration-color: transparent;
+    }
   }
 
   // *** СПИСКИ ***
@@ -261,6 +323,42 @@
     audio::-webkit-media-controls-play-button,
     audio::-webkit-media-controls-panel {
       background-color: $lightBlue;
+    }
+  }
+}
+
+a.article__categories-link,
+a.article__author-categories-link,
+a.article__author-name-link {
+  text-decoration: none;
+  border-bottom: 1px solid transparent;
+  transition: border-bottom-color .5s;
+}
+
+.related-articles {
+  &__title {}
+
+  &__articles {
+    margin-top: -40px;
+
+    .article-card {
+      margin-top: 40px;
+
+      &__link {}
+
+      &__pic {}
+
+      &__img {}
+
+      &__categories {}
+
+      &__parent-category {}
+
+      &__child-category {}
+
+      &__title {}
+
+      &__descr {}
     }
   }
 }

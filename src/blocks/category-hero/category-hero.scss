@@ -27,22 +27,24 @@
   }
 }
 
-.category-hero-menu {
-  &__li {
-    &.active {
-      position: relative;
-      pointer-events: none;
-      &::after {
-        content: '';
-        position: absolute;
-        left: 0;
-        bottom: -2px;
-        width: 50%;
-        height: 1px;
-        background: $orange;
-      }
-    }
+.hdr__nav-li.current > .nav-link,
+.category-hero-menu__li.active {
+  position: relative;
+  pointer-events: none;
+
+  &::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -2px;
+    width: 50%;
+    height: 1px;
+    background: $orange;
   }
+}
+
+.category-hero-menu {
+  &__li {}
 
   &__btn {
     transition: color .5s;
