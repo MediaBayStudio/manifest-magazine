@@ -92,7 +92,10 @@
     .index-hero-slide {
       &__pic {
         margin: 0 auto 30px;
-        width: 60%;
+        width: 135px;
+        height: 175px;
+        // width: 60%;
+        // min-height: 200px;
         transform: rotate(13deg);
       }
 

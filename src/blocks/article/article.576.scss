@@ -2,6 +2,43 @@
 @import '../../scss/assets/mixins';
 @import '../../scss/assets/variables';
 
+.article {
+  div,
+  figure {
+    &.screen-width {
+      margin-left: calc((50vw - 268px) * -1);
+    }
+  }
+  // .wp-block-media-text {
+  //   margin: 50px 0;
+  //   h1,
+  //   h2,
+  //   h3,
+  //   h4,
+  //   h5 {
+  //     margin-top: 0;
+  //   }
+  // }
+  &__body {
+    .wp-block-media-text {
+      &.has-media-on-the-right {
+        .wp-block-media-text__content {
+          padding: 0 25px 0 0;
+        }
+      }
+      &:not(.has-media-on-the-right) {
+        .wp-block-media-text__content {
+          padding: 0 0 0 25px;
+        }
+      }
+    }
+    .wp-block-media-text__content {
+      > .mt-0 {
+        margin-top: 0;
+      }
+    }
+  }
+}
 
 .related-articles {
   &__title {}
@@ -12,6 +49,7 @@
 
     .article-card {
       width: calc((100% - 20px) / 2);
+
       &:nth-child(odd) {
         margin-right: 20px;
       }

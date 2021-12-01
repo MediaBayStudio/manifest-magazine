@@ -116,6 +116,9 @@ add_filter( 'template_include', function( $template ) {
   return $template;
 } );
 
+// Добавление своих блоков в гутенберг
+require $template_directory . '/inc/gutenberg-blocks.php';
+
 // Склеивание путей с правильным сепаратором
 require $template_directory . '/inc/php-path-join.php';
 

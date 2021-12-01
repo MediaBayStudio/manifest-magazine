@@ -76,6 +76,22 @@ var browser = {
   overlay,
   body,
   fakeScrollbar,
+  copyInputValue = function() {
+    // console.log(event);
+    // var $temp = $("<input>");
+    // $("body").append($temp);
+    // $temp.val($(this).val()).select();
+    // document.execCommand("copy");
+    // $temp.remove();
+    let temp = document.createElement('input');
+    temp.setAttribute('type', 'text');
+    temp.style.opacity = 0;
+    document.body.appendChild(temp);
+    temp.value = event.target.value;
+    temp.select();
+    document.execCommand('copy');
+    document.body.removeChild(temp);
+  },
   // Сокращение записи querySelector
   q = function(selector, element) {
     element = element || body;

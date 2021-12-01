@@ -6,6 +6,11 @@
 .hdr {
   padding-top: 25px;
   padding-bottom: 0;
+  &.fixed {
+    .hdr__logo-img-small {
+      width: 45px;
+    }
+  }
   &__burger,
   &__search {
     &::before {}

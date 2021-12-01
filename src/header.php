@@ -67,6 +67,18 @@
 		'Raleway-Regular.woff',
 		'SegoeUI-SemiBold.woff'
 	];
+  if ( is_single() ) {
+    $fonts[] = 'Raleway-Bold.woff' ?>
+    <style>
+      @font-face {
+        font-family: 'Raleway';
+        src: url('<?php echo $template_directory_uri ?>/fonts/Raleway-Bold.woff') format('woff');
+        font-weight: bold;
+        font-style: normal;
+        font-display: swap;
+      }
+    </style> <?php
+  }
 	foreach ( $fonts as $font ) : ?>
 
 	<link rel="preload" href="<?php echo $template_directory_uri . '/fonts/' . $font ?>" as="font" crossorigin="anonymous" /> <?php
@@ -117,7 +129,14 @@
     unset( $item );
     echo PHP_EOL;
   } ?>
-  <!-- favicons --> <?php
+  <!-- favicons -->
+  <link rel="apple-touch-icon" sizes="180x180" href="<?php echo $site_url ?>/apple-touch-icon.png">
+  <link rel="icon" type="image/png" sizes="32x32" href="<?php echo $site_url ?>/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="<?php echo $site_url ?>/favicon-16x16.png">
+  <link rel="manifest" href="<?php echo $site_url ?>/site.webmanifest">
+  <link rel="mask-icon" href="<?php echo $site_url ?>/safari-pinned-tab.svg" color="#5bbad5">
+  <meta name="msapplication-TileColor" content="#ffffff">
+  <meta name="theme-color" content="#ffffff"> <?php
   echo PHP_EOL;
   wp_head() ?>
 </head>
@@ -135,6 +154,7 @@
       <button type="button" class="hdr__burger"></button> 
       <a href="<?php echo $site_url ?>" class="hdr__logo">
         <img src="<?php echo $logo_url ?>" alt="Логотип" class="hdr__logo-img">
+        <img src="<?php echo $template_directory_uri ?>/img/logo-small.svg" alt="Логотип маленький" class="hdr__logo-img-small">
       </a>
       <button type="button" class="hdr__search"></button> <?php
       wp_nav_menu( [

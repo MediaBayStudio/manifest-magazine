@@ -163,13 +163,9 @@ function create_article( $args ) {
     $related_articles_args = [
       'numberposts' => 3,
       'exclude' => $exclude_posts,
+      'category' => $parent_category->term_id,
       'orderby' => 'rand'
     ];
-
-    // if ( $next_article ) {
-      // $related_articles_args['category'] = $parent_category->term_id;
-      // $related_articles_args['exclude'] .= ' ' . $next_article->ID;
-    // }
 
     $related_articles = get_posts( $related_articles_args );
 
@@ -219,6 +215,33 @@ function create_article( $args ) {
             </div> <?php
           endif ?>
           <h1 class="article__header-title"><?php echo $article->post_title ?></h1>
+          <div class="article__author"> <?php
+            $author_id = $article->post_author;
+            $author_category = get_the_author_meta( 'author_category', $author_id );
+            $author_category = get_term( $author_category );
+            $author_url = get_author_posts_url( $author_id );
+            $author_name = get_the_author_meta( 'display_name', $author_id );
+            $avatar_id = get_the_author_meta( 'avatar', $author_id );
+            $avatar_url = wp_get_attachment_url( $avatar_id );
+            $avatar_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $avatar_url ) ?>
+            <a href="<?php echo $author_url ?>" class="article__author-pic-link">
+              <picture class="article__author-pic">
+                <source type="image/webp" srcset="<?php echo $avatar_webp_url ?>">
+                <img src="<?php echo $avatar_url ?>" alt="<?php echo $author_name ?>" class="article__author-img" />
+              </picture>
+            </a>
+            <div class="article__author-info">
+              <a href="<?php echo $author_url ?>" class="article__author-name-link"><span class="article__author-name"><?php echo $author_name ?></span></a> <?php
+              if ( $author_category->name === 'Без рубрики' ) {
+                $style = 'style="display:none"';
+              } else {
+                $style = '';
+              } ?>
+              <div class="article__author-categories"<?php echo $style ?>>
+                <a href="<?php echo get_term_link( $author_category->term_id ) ?>" class="article__author-categories-link"><?php echo $author_category->name ?></a>
+              </div>
+            </div>
+          </div>
         </div>
         <picture class="article__header-pic"> <?php
           $thumbnail_url = get_the_post_thumbnail_url( $article->ID );
@@ -226,31 +249,10 @@ function create_article( $args ) {
           <source type="image/webp" srcset="<?php echo $thumbnail_webp_url ?>">
           <img src="<?php echo $thumbnail_url ?>" alt="#" class="article__header-img" />
         </picture>
-        <div class="article__author"> <?php
-          $author_id = $article->post_author;
-          $author_category = get_the_author_meta( 'author_category', $author_id );
-          $author_category = get_term( $author_category );
-          $author_url = get_author_posts_url( $author_id );
-          $author_name = get_the_author_meta( 'display_name', $author_id );
-          $avatar_id = get_the_author_meta( 'avatar', $author_id );
-          $avatar_url = wp_get_attachment_url( $avatar_id );
-          $avatar_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $avatar_url ) ?>
-          <a href="<?php echo $author_url ?>" class="article__author-pic-link">
-            <picture class="article__author-pic">
-              <source type="image/webp" srcset="<?php echo $avatar_webp_url ?>">
-              <img src="<?php echo $avatar_url ?>" alt="<?php echo $author_name ?>" class="article__author-img" />
-            </picture>
-          </a>
-          <div class="article__author-info">
-            <a href="<?php echo $author_url ?>" class="article__author-name-link"><span class="article__author-name"><?php echo $author_name ?></span></a>
-            <div class="article__author-categories">
-              <a href="<?php echo get_term_link( $author_category->term_id ) ?>" class="article__author-categories-link"><?php echo $author_category->name ?></a>
-            </div>
-          </div>
-        </div>
       </header>
       <section class="article__body"> <?php
-        echo get_the_content( null, null, $article->ID ) ?>
+        echo apply_filters( 'the_content', get_the_content( null, null, $article->ID ) );
+        #echo get_the_content( null, null, $article->ID ) ?>
       </section> <?php
       $tags = get_the_tags( $article->ID );
       if ( $tags ) : ?>
@@ -266,7 +268,7 @@ function create_article( $args ) {
         <a href="https://vkontakte.ru/share.php?url=<?php echo $permalink ?>" class="article__share-link vk-share-link" target="_blank"></a>
         <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo $permalink ?>" class="article__share-link facebook-share-link" target="_blank"></a>
         <a href="http://twitter.com/share?text=<?php echo $article->post_title ?>&url=<?php echo $permalink ?>" class="article__share-link twitter-share-link" target="_blank"></a>
-        <input type="text" value="<?php echo $permalink ?>" class="article__share-link share-link">
+        <input type="text" value="<?php echo $permalink ?>" onclick="copyInputValue()" class="article__share-link share-link">
       </div>
     </article> <?php
     wp_reset_postdata();

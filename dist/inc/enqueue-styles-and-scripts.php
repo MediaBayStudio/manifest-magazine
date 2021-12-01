@@ -93,8 +93,11 @@ add_action( 'wp_enqueue_scripts', function() {
 // Убираем id и type в тегах style
   add_filter( 'style_loader_tag', function( $html, $handle ) {
     // Подключаем стили гутенберга только в админке
-    if ( !is_single() && !is_admin() && $handle === 'wp-block-library' ) {
-      return '';
+    // if ( !is_single() && !is_admin() && $handle === 'wp-block-library' ) {
+      // return '';
+    // }
+    if ( $handle === 'wp-block-library' ) {
+      // return '';
     }
     $html = str_replace( " id='$handle-css' ", '', $html );
     $html = str_replace( " type='text/css'", '', $html );

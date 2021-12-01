@@ -3,7 +3,7 @@
 $image_sizes = [
   'desktop' => 1200,
   'laptop' => 980,
-  'tablet' => 740,
+  'tablet' => [740, 600],
   'mobile' => 576,
   'author_article' => [0, 375],
   // 'author_articles' => [300, 400],

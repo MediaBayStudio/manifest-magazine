@@ -47,7 +47,9 @@
 
       &__title {}
 
-      &__descr {}
+      &__descr {
+
+      }
     }
   }
 }
@@ -107,5 +109,6 @@
   }
 
   &__descr {
+    font-size: 17px;
   }
 }
