@@ -75,7 +75,7 @@ add_action( 'delete_attachment', function( $img_id, $img ) {
 }, 10, 2 );
 
 
-function minifyImg( $src, $dest = null, $quality = 90 ) {
+function minifyImg( $src, $dest = null, $quality = 9 ) {
   if ( is_null( $dest ) ) {
     $dest = $src;
   }
@@ -93,9 +93,10 @@ function minifyImg( $src, $dest = null, $quality = 90 ) {
   }
 
   if ( $is_jpg ) {
-    imagejpeg( $image, $dest, $quality );
+    imagejpeg( $image, $dest, 90 );
   } else if ( $is_png ) {
-    imagepng( $image, $dest, $quality );
+    imagesavealpha( $image, true);
+    imagepng( $image, $dest, 9 );
   }
 
   return $dest;

@@ -53,9 +53,15 @@
 
   &.author-articles-slider {
     margin: 0;
+    overflow: hidden;
 
     .slick-list {
-      overflow: hidden;
+      // overflow: hidden;
+    }
+
+    >.slick-list {
+      margin: 0 -20px 0 0;
+      width: calc(100% + 20px);
     }
 
     .author-articles-slider__nav {

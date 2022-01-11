@@ -80,6 +80,8 @@
     // отступы чтобы было нормально видно звезду
     .slick-list {
       padding: 0 0 85px;
+      margin: 0 -30px 0 0;
+      width: calc(100% + 30px);
     }
     .author-article-card {
       width: calc((100% - 30px) / 2);

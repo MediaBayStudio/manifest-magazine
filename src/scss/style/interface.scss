@@ -37,11 +37,16 @@ form {
   &.hide {
     display: none;
   }
-}
+} 
 
 .vk-share-link:not(.lazy),
 .vk-share-link.lazyloaded {
   background-image: url('./img/icon-share-vk.svg');
+}
+
+.tg-share-link:not(.lazy),
+.tg-share-link.lazyloaded {
+  background-image: url('./img/icon-share-tg.svg');
 }
 
 .facebook-share-link:not(.lazy),
@@ -305,7 +310,8 @@ span.wpcf7-not-valid-tip,
 
 .instagram,
 .facebook,
-.twitter {
+.twitter,
+.telegram {
   background: center/contain no-repeat;
   filter: brightness(0.1);
   transition: filter .5s;
@@ -324,6 +330,11 @@ span.wpcf7-not-valid-tip,
 .twitter:not(.lazy),
 .twitter.lazyloaded {
   background-image: url('./img/icon-twitter-orange.svg');
+}
+
+.telegram:not(.lazy),
+.telegram.lazyloaded {
+  background-image: url('./img/icon-telegram-orange.svg');
 }
 
 @import '../../blocks/faq-block/faq-block';

@@ -56,6 +56,11 @@
   }
 
   &.slick-slider {
+    overflow: hidden;
+    >.slick-list {
+      margin: 0 -20px 0 0;
+      width: calc(100% + 20px);
+    }
     .article-card {
       &:not(:last-child) {
         margin-right: 20px;

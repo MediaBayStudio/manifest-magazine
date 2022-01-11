@@ -21,11 +21,13 @@ $email_adv = get_option( 'contacts_email_adv' );
 $facebook_link = get_option( 'contacts_facebook' );
 $instagram_link = get_option( 'contacts_instagram' );
 $twitter_link = get_option( 'contacts_twitter' );
+$telegram_link = get_option( 'contacts_telegram' );
 
 $social_links = [ 
   'instagram' => $instagram_link,
-  'facebook' => $facebook_link,
-  'twitter' => $twitter_link
+  'telegram' => $telegram_link,
+  // 'facebook' => $facebook_link,
+  // 'twitter' => $twitter_link
 ];
 
 $logo_id = get_theme_mod( 'custom_logo' );
@@ -33,19 +35,6 @@ $logo_url = wp_get_attachment_url( $logo_id );
 
 // Проверка поддержки webp браузером
 $webp_support = strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false || strpos( $_SERVER['HTTP_USER_AGENT'], ' Chrome/' ) !== false;
-
-// $media = [
-  // '1x_webkit' => '(-webkit-max-device-pixel-ratio:1.99)',
-  // '1x_ie' => '(max-resolution: 191.04dpi)',
-  // '2x_webkit' => '(-webkit-min-device-pixel-ratio:2)',
-  // '2x_ie' => '(min-resolution: 192dpi)',
-  // 'maw576' => '(max-width:575.98px)',
-  // 'miw576' => '(min-width:575.98px)',
-  // 'maw768' => '(max-width:767.98px)',
-  // 'miw768' => '(min-width:767.98px)',
-  // 'maw1024' => '(max-width:1023.98px)',
-  // 'miw1024' => '(min-width:1023.98px)'
-// ];
 
 
 // Модицифируем поиск по статьям

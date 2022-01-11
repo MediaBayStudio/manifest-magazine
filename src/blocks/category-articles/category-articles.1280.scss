@@ -57,6 +57,11 @@
   }
 
   &.slick-slider {
+    margin: -40px 0 0;
+    >.slick-list {
+      margin: 0 -40px 0 0;
+      width: calc(100% + 40px);
+    }
     .article-card {
       &:not(:last-child) {
         margin-right: 40px;
@@ -110,6 +115,6 @@
   &__next {}
 
   &__nav {
-    margin-top: -40px;
+    // margin-top: -40px;
   }
 }

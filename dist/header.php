@@ -54,21 +54,22 @@
   <!-- styles preload -->
   <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/style.css"> <?php
   if ( $style_name ) : ?>
-	<link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.css" />
-	<link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.576.css" media="(min-width:575.98px)" />
-	<link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.768.css" media="(min-width:767.98px)" />
-	<link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.1024.css" media="(min-width:1023.98px)" />
-	<link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.1280.css" media="(min-width:1279.98px)" /> <?php
+  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.css" />
+  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.576.css" media="(min-width:575.98px)" />
+  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.768.css" media="(min-width:767.98px)" />
+  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.1024.css" media="(min-width:1023.98px)" />
+  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.1280.css" media="(min-width:1279.98px)" /> <?php
   endif ?>
   <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/hover.css" media="(hover) and (min-width:1024px)" />
   <!-- fonts preload --> <?php
-	$fonts = [
-		'QuincyCF-Bold.otf',
-		'Raleway-Regular.woff',
-		'SegoeUI-SemiBold.woff'
-	];
+  $fonts = [
+    'QuincyCF-Bold.woff',
+    'Raleway-Regular.woff',
+    'SegoeUI-SemiBold.woff'
+  ];
   if ( is_single() ) {
-    $fonts[] = 'Raleway-Bold.woff' ?>
+    $fonts[] = 'Raleway-Bold.woff';
+    $fonts[] = 'QuincyCF-Regular.woff'; ?>
     <style>
       @font-face {
         font-family: 'Raleway';
@@ -77,12 +78,20 @@
         font-style: normal;
         font-display: swap;
       }
+      @font-face {
+        font-family: 'QuincyCF';
+        src: url('<?php echo $template_directory_uri ?>/fonts/QuincyCF-Regular.woff') format('woff'),
+          url('<?php echo $template_directory_uri ?>/fonts/QuincyCF-Regular.ttf') format('truetype');
+        font-weight: normal;
+        font-style: normal;
+        font-display: swap;
+      }
     </style> <?php
   }
-	foreach ( $fonts as $font ) : ?>
+  foreach ( $fonts as $font ) : ?>
 
-	<link rel="preload" href="<?php echo $template_directory_uri . '/fonts/' . $font ?>" as="font" crossorigin="anonymous" /> <?php
-	endforeach ?>
+  <link rel="preload" href="<?php echo $template_directory_uri . '/fonts/' . $font ?>" as="font" crossorigin="anonymous" /> <?php
+  endforeach ?>
   <!-- other preload --> <?php
   echo PHP_EOL;
   if ( !$preload ) {
@@ -138,11 +147,41 @@
   <meta name="msapplication-TileColor" content="#ffffff">
   <meta name="theme-color" content="#ffffff"> <?php
   echo PHP_EOL;
-  wp_head() ?>
+  wp_head();
+  if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'lighthouse' ) === false ) : ?>
+    <!-- Google Tag Manager -->
+    <script>(function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+    j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+    'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+    })(window,document,'script','dataLayer','GTM-P39P8HM');</script>
+    <!-- End Google Tag Manager --> <?php
+  endif ?>
 </head>
 
 <body <?php body_class() ?>> <?php
-  wp_body_open() ?>
+  wp_body_open();
+  if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'lighthouse' ) === false ) : ?>
+  <!-- Yandex.Metrika counter -->
+    <script>
+       (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
+       m[i].l=1*new Date();k=e.createElement(t),a=e.getElementsByTagName(t)[0],k.async=1,k.src=r,a.parentNode.insertBefore(k,a)})
+       (window, document, "script", "https://mc.yandex.ru/metrika/tag.js", "ym");
+
+       ym(86902604, "init", {
+            clickmap:true,
+            trackLinks:true,
+            accurateTrackBounce:true,
+            webvisor:true
+       });
+    </script>
+    <noscript><div><img src="https://mc.yandex.ru/watch/86902604" style="position:absolute; left:-9999px;" alt="" /></div></noscript>
+  <!-- /Yandex.Metrika counter -->
+  <!-- Google Tag Manager (noscript) -->
+  <noscript><iframe src="https://www.googletagmanager.com/ns.html?id=GTM-P39P8HM"
+  height="0" width="0" style="display:none;visibility:hidden"></iframe></noscript>
+  <!-- End Google Tag Manager (noscript) --> <?php
+  endif ?>
   <noscript>
     <!-- <noindex> -->Для полноценного использования сайта включите JavaScript в настройках вашего браузера.<!-- </noindex> -->
   </noscript>

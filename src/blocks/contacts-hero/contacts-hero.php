@@ -17,8 +17,10 @@
     <div class="contacts__block">
       <span class="contacts__block-title">Мы в социальных сетях</span>
       <div class="contacts__block-socials"> <?php
-        foreach ( $social_links as $key => $value ) : ?>
-          <a href="<?php echo $value ?>" target="_blank" class="contacts__block-socials-link <?php echo $key ?>"></a> <?php
+        foreach ( $social_links as $social_link_title => $social_link_url ) :
+          if ( $social_link_url ) : ?>
+            <a href="<?php echo $social_link_url ?>" target="_blank" class="contacts__block-socials-link <?php echo $social_link_title ?>"></a> <?php
+          endif;
         endforeach ?>
       </div>
     </div>

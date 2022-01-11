@@ -71,6 +71,11 @@
       height: 45px;
     }
 
+    >.slick-list {
+      margin: 0 -40px 0 0;
+      width: calc(100% + 40px);
+    }
+
     .author-article-card {
       width: calc((100% - 40px) / 2);
 

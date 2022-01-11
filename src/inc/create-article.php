@@ -1,5 +1,6 @@
 <?php
 
+// Что за функция и зачем она не понятно, забыл
 function my_get_adjacent_post( $in_same_term = false, $excluded_terms = '', $previous = true, $taxonomy = 'category', $post = null, $parent_term = null ) {
   global $wpdb;
 
@@ -266,8 +267,9 @@ function create_article( $args ) {
         $permalink = get_the_permalink( $article->ID ); ?>
         <span class="article__share-title">Поделиться</span>
         <a href="https://vkontakte.ru/share.php?url=<?php echo $permalink ?>" class="article__share-link vk-share-link" target="_blank"></a>
-        <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php echo $permalink ?>" class="article__share-link facebook-share-link" target="_blank"></a>
-        <a href="http://twitter.com/share?text=<?php echo $article->post_title ?>&url=<?php echo $permalink ?>" class="article__share-link twitter-share-link" target="_blank"></a>
+        <!-- <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php #echo $permalink ?>" class="article__share-link facebook-share-link" target="_blank"></a> -->
+        <!-- <a href="http://twitter.com/share?text=<?php #echo $article->post_title ?>&url=<?php #echo $permalink ?>" class="article__share-link twitter-share-link" target="_blank"></a> -->
+        <a href="https://t.me/share/url?url=<?php echo $permalink ?>&text=<?php echo $article->post_title ?>" class="article__share-link tg-share-link" target="_blank"></a>
         <input type="text" value="<?php echo $permalink ?>" onclick="copyInputValue()" class="article__share-link share-link">
       </div>
     </article> <?php

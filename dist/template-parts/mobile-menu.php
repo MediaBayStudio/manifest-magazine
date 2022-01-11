@@ -28,14 +28,9 @@
         </ul>
       </nav>
       <div class="menu__links"> <?php
-        $links = [ 
-          'instagram' => $instagram_link,
-          'facebook' => $facebook_link,
-          'twitter' => $twitter_link
-        ];
-        foreach ( $links as $key => $value ) :
-          if ( $value ) : ?>
-            <a href="<?php echo $value ?>" target="_blank" class="menu__link <?php echo $key ?>"></a> <?php
+        foreach ( $social_links as $social_link_name => $social_link_url ) :
+          if ( $social_link_url ) : ?>
+            <a href="<?php echo $social_link_url ?>" target="_blank" class="menu__link <?php echo $social_link_name ?>"></a> <?php
           endif;
         endforeach ?>
       </div>

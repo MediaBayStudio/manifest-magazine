@@ -5,12 +5,22 @@
 
 function create_article_card( $args ) {
 
+  $queried_object = get_queried_object();
+
+  if ( $queried_object->term_id ) {
+    $queried_term = $queried_object;
+  }
+
   if ( is_object( $args['object'] ) ) {
     $article = $args['object'];
     $article_id = $article->ID;
     $article_title = $article->post_title;
+    $excerpt = get_the_excerpt( $article->ID );
+    if ( !$excerpt ) {
+      $excerpt = $args['object']->post_content;
+    }
     $article_descr = get_excerpt( [
-      'text' => $args['object']->post_content,
+      'text' => $excerpt,
       'maxchar'   =>  120,
       'autop' => false,
       'ignore_more' => true
@@ -20,9 +30,21 @@ function create_article_card( $args ) {
 
     foreach ( $article_categories as $category ) {
       if ( $category->parent ) {
-        $article_child_category = $category;
+        // if ( $queried_term ) {
+          // if ( $category->parent === $queried_term->term_id ) {
+            // $article_child_category = $category;
+          // }
+        // } else {
+          $article_child_category = $category;
+        // }
       } else {
-        $article_parent_category = $category;
+        // if ( $queried_term ) {
+          // if ( $category->term_id === $queried_term->term_id ) {
+            // $article_parent_category = $category;
+          // }
+        // } else {
+          $article_parent_category = $category;
+        // }
       }
     }
   } else {

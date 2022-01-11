@@ -16,7 +16,8 @@
       'tel_adv' => 'Телефон по вопросам рекламы',
       'instagram'    =>  'Ссылка на Instagram',
       'facebook'    =>  'Ссылка на Facebook',
-      'twitter'    =>  'Ссылка на Twitter'
+      'twitter'    =>  'Ссылка на Twitter',
+      'telegram'    =>  'Ссылка на Telegram'
     ];
 
     foreach ($options as $id => $name) {

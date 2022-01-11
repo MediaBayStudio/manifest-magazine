@@ -23,7 +23,8 @@ $parent_categories = get_terms( [
 
 $author_categories = '<button type="button" class="author-hero-articles-sect__category-btn active" data-category-id="0">Все темы</button><span class="author-hero-articles-sect__category-dot"></span>';
 
-$author_all_articles = '<div class="author-hero-articles-sect__block active" data-category-id="0">';
+// $author_all_articles = '<div class="author-hero-articles-sect__block active" data-category-id="0">';
+$all_articles = [];
 
 $author_articles = [];
 
@@ -40,7 +41,10 @@ foreach ( $parent_categories as $parent_category ) {
 
     foreach ( $articles as $article ) {
       $article_thumbnail_id = get_post_thumbnail_id( $article->ID );
-      $article_thumbnail_url = wp_get_attachment_image_url( $article_thumbnail_id, 'thumb' );
+      $article_thumbnail_url = wp_get_attachment_image_url( $article_thumbnail_id, 'author_article' );
+      if ( !$article_thumbnail_url ) {
+        $article_thumbnail_url = wp_get_attachment_image_url( $article_thumbnail_id, 'thumb' );
+      }
       $article_thumbnail_webp_url = str_replace( ['.jpg', '.png'], '.webp', $article_thumbnail_url );
       $article_link = get_the_permalink( $article->ID );
 
@@ -66,9 +70,10 @@ foreach ( $parent_categories as $parent_category ) {
       </div>';
 
       $author_articles[ $i ] .= $article_html;
+      $all_articles[ $article->ID ] = $article_html;
 
-      $author_all_articles .= $article_html;
-      $author_all_articles .= $article_html;
+      // $author_all_articles .= $article_html;
+      // $author_all_articles .= $article_html;
     } // endforeach ( $articles as $article )
 
     $author_categories .= '<button type="button" class="author-hero-articles-sect__category-btn" data-category-id="' . $parent_category->term_id . '">' . $parent_category->name . '</button><span class="author-hero-articles-sect__category-dot"></span>';
@@ -80,7 +85,7 @@ foreach ( $parent_categories as $parent_category ) {
   unset( $articles );
 } // endforeach ( $parent_categories as $parent_category )
 
-$author_all_articles .= '</div>' ?>
+// $author_all_articles .= '</div>' ?>
 
 <section class="author-hero container">
   <picture class="author-hero__pic">
@@ -112,8 +117,13 @@ if ( $author_articles ) : ?>
       <hr class="author-hero-articles-sect__categories-line"> <?php
       echo $author_categories ?>
     </div>
-    <div class="author-hero-articles-sect__articles author-hero-articles"> <?php
-      echo $author_all_articles;
+    <div class="author-hero-articles-sect__articles author-hero-articles">
+      <div class="author-hero-articles-sect__block active" data-category-id="0"> <?php
+        foreach ( $all_articles as $author_article ) {
+          echo $author_article;
+        }  ?>
+      </div> <?php
+      // echo $author_all_articles;
       foreach ( $author_articles as $author_article ) {
         echo $author_article;
       } ?>
