@@ -23,6 +23,62 @@ $instagram_link = get_option( 'contacts_instagram' );
 $twitter_link = get_option( 'contacts_twitter' );
 $telegram_link = get_option( 'contacts_telegram' );
 
+// Проверка поддержки webp браузером
+$webp_support = strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false || strpos( $_SERVER['HTTP_USER_AGENT'], ' Chrome/' ) !== false;
+
+// figcaption for media-text
+add_filter( 'render_block', function( $block_content, $block ) {
+  global $webp_support;
+  if ( $block['blockName'] === 'core/media-text' ) {
+    $image_id = $block['attrs']['mediaId'];
+    // var_dump( $block['attrs'] );
+    if ( $image_id ) {
+      $image = get_post( $image_id );
+      $image_caption = $image->post_excerpt;
+      $desktop_img = image_get_intermediate_size( $image_id, 'laptop' );
+
+      if ( $desktop_img['url'] ) {
+        if ( $webp_support ) {
+          $desktop_img_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $desktop_img['url'] );
+        } else {
+          $desktop_img_url = $desktop_img['url'];
+        }
+
+        $matches = [];
+        preg_match( '/background-position:.*?(?=;|")/', $block_content, $matches );
+
+        $background_position = '';
+
+        // var_dump( $block_content );
+
+        if ( $_POST ) {
+          if ( $matches ) {
+            $background_position = ' ' .  $matches[0];            
+          }
+  
+          $replacement = '$1" style="background-image: url(' . $desktop_img_url . ');' . $background_position . '"';
+        } else {
+          if ( $matches ) {
+            $background_position = ' style="' . $matches[0] . '"';
+          }
+          $replacement = '$1 lazy" data-src="' . $desktop_img_url . '"' . $background_position;
+        }
+
+        $block_content = preg_replace( '/(<figure\s.*)"\sstyle=".*?"/', $replacement, $block_content );
+        $block_content = preg_replace( '/<img .*?>/', '', $block_content );
+      }
+      if ( $image_caption ) {
+        if ( mb_stripos( $image_caption, 'источник' ) === false ) {
+          $image_caption = 'Источник: ' . $image_caption;
+        }
+        $content = str_replace( '</figure>', '<figcaption>' . $image_caption . '</figcaption></figure>', $block_content );
+        return $content;
+      }
+    }
+  }
+  return $block_content;
+}, 10, 2 );
+
 $social_links = [ 
   'instagram' => $instagram_link,
   'telegram' => $telegram_link,
@@ -30,12 +86,24 @@ $social_links = [
   // 'twitter' => $twitter_link
 ];
 
+add_filter( 'big_image_size_threshold', function() {
+	return 1600;
+} );
+
+if ( is_admin() ) {
+  add_filter( 'gettext', function( $translation, $text, $dom ) {
+    // echo "<p>{$translation}</p>";
+    if ( $dom === 'default' ) {
+      if ( $translation  === 'Подпись' ) {
+        $translation = 'Источник';
+      }
+    }
+    return $translation;
+  }, 10, 3 );
+}
+
 $logo_id = get_theme_mod( 'custom_logo' );
 $logo_url = wp_get_attachment_url( $logo_id );
-
-// Проверка поддержки webp браузером
-$webp_support = strpos( $_SERVER['HTTP_ACCEPT'], 'image/webp' ) !== false || strpos( $_SERVER['HTTP_USER_AGENT'], ' Chrome/' ) !== false;
-
 
 // Модицифируем поиск по статьям
 add_filter( 'pre_get_posts', function( $query ) {

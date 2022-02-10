@@ -29,7 +29,7 @@ add_action( 'wp_generate_attachment_metadata', function ( $image_meta, $img_id )
 
   $upload_dir = preg_replace( '/.*uploads/', '', $dirname );
 
-  foreach ( $image_sizes as $size_name => $width ) {
+  foreach ( $image_sizes as $size_name ) {
     $file = image_get_intermediate_size( $img_id, $size_name );
     $file_webp = str_replace( ['.jpg', '.jpeg', '.png'], '', $file['file'] );
     $file_webp_name = $file_webp . '.webp';

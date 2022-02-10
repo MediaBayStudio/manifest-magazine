@@ -1,11 +1,34 @@
 <?php
 
 $is_author = is_author();
+$articles = [];
 
 if ( $section['by_default'] ) {
-  $articles = get_posts( [
-    'numberposts' => 6
-  ] );
+
+  if ( is_front_page() ) {
+    $users = get_users( [
+      'number' => -1,
+      'orderby' => 'post_count',
+      'order' => 'desc',
+      'role__in' => ['author', 'editor']
+    ] );
+
+    foreach ( $users as $user ) {
+      $user_posts = get_posts( [
+        'numberposts' => 1,
+        'order' => 'desc',
+        'author' => $user->ID
+      ] );
+      if ( $user_posts ) {
+        $articles[] = $user_posts[0];
+      }
+    }
+  } else {
+    $articles = get_posts( [
+      'numberposts' => 10
+    ] );
+  }
+
   if ( $is_author || is_page_template( 'authors.php' ) ) {
     $title_tag = 'h1';
     $title_class = 'sect-h1';

@@ -17,9 +17,9 @@
     $articles = null;
 
     if ( $section['sort_by'] === 'date' ) {
-      $args['order'] = 'ASC';
+      $args['order'] = 'DESC';
       $args['orderby'] = 'date';
-      $btn_attr = ' data-order="ASC" data-orderby="date"';
+      $btn_attr = ' data-order="DESC" data-orderby="date"';
     } else if ( $section['sort_by'] === 'popuplar' ) {
       $args['meta_key'] = 'post_views_count';
       $args['orderby'] = 'meta_value_num';

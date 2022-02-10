@@ -53,7 +53,7 @@ foreach ( $parent_categories as $parent_category ) {
         <a href="' . $article_link . '" class="author-hero-article__link-pic">
           <picture class="author-hero-article__pic lazy">
             <source type="image/webp" srcset="#" data-srcset="' . $article_thumbnail_webp_url . '">
-            <img src="#" alt="#" data-src="' . $article_thumbnail_url . '" class="author-hero-article__img">
+            <img src="#" alt="' . esc_attr( $article->post_title ) . '" data-src="' . $article_thumbnail_url . '" class="author-hero-article__img">
           </picture>
         </a>
         <div class="author-hero-article__text">

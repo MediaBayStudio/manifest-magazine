@@ -95,7 +95,7 @@ function create_article_card( $args ) {
     <a href="' . $article_permalink . '" class="' . $card_class . '__link">
       <picture class="' . $card_class . '__pic' . $lazy_class . '">
         <source type="image/webp" ' . $src_attr . $article_img_webp . '">
-        <img ' . $img_attr . $article_img_url . '" alt="' . $article_img_alt . '" class="' . $card_class . '__img">
+        <img ' . $img_attr . $article_img_url . '" alt="' . esc_attr( $article_img_alt ) . '" class="' . $card_class . '__img">
       </picture>
     </a>';
     if ( $card_class === 'category-hero-article-card' ) {

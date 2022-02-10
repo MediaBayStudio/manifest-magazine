@@ -4,7 +4,6 @@
     article = q(lastArticleSelector),
     ftr = q('.ftr'),
     parallaxElements = qa('.with-parallax'),
-    imagesWithAlt = qa('figure > img[alt^="Источник"]'),
     loadmore = true,
     url = siteUrl + '/wp-admin/admin-ajax.php',
     showError = function(text, btn) {
@@ -13,11 +12,6 @@
       console.warn(text);
     };
 
-  console.log(imagesWithAlt);
-
-  imagesWithAlt.forEach(function(img) {
-    img.insertAdjacentHTML('afterend', '<figcaption>' + img.alt + '</figcaption>');
-  });
 
   if (article) {
     window.addEventListener('scroll', function() {

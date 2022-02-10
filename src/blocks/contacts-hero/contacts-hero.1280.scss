@@ -9,7 +9,12 @@
 
   &__contacts {}
 
-  &__adv {}
+  &__adv {
+    &-img {
+      width: 620px;
+      height: 260px;
+    }
+  }
 }
 
 .contacts {

@@ -260,27 +260,26 @@ document.addEventListener('DOMContentLoaded', function() {
   
   })();
 
-  ;
-  (function() {
+  (function () {
     // Массив форм, на которые будет добавлена валидация
     let $forms = [
-      id('subscribe-form'),
-      id('ftr-form'),
-      id('contact-us-form'),
-      id('became-an-author-form'),
-      id('offer-an-idea-form')
+      id("subscribe-form"),
+      id("ftr-form"),
+      id("contact-us-form"),
+      id("became-an-author-form"),
+      id("offer-an-idea-form"),
     ];
   
-    let formValidator = function(params) {
+    let formValidator = function (params) {
       let $form = params.form,
         $formBtn = params.formBtn,
         $uploadFilesBlock = params.uploadFilesBlock,
-        errorsClass = 'invalid',
+        errorsClass = "invalid",
         $filesInput = params.filesInput,
         // Правила проверки форм, аналогично jquery.validate
         rules = {
           name: {
-            required: true
+            required: true,
           },
           tel: {
             required: true,
@@ -289,36 +288,37 @@ document.addEventListener('DOMContentLoaded', function() {
           },
           email: {
             required: true,
-            pattern: /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/,
+            pattern:
+              /^[A-Za-z0-9](([_\.\-]?[a-zA-Z0-9]+)*)@([A-Za-z0-9]+)(([\.\-]?[a-zA-Z0-9]+)*)\.([A-Za-z])+$/,
             // or: 'tel'
           },
           msg: {
             required: true,
-            pattern: /[^\<\>\[\]%\&'`]+$/
+            pattern: /[^\<\>\[\]%\&'`]+$/,
           },
           policy: {
-            required: true
-          }
+            required: true,
+          },
         },
         messages = {
           tel: {
-            required: 'Введите ваш телефон',
-            pattern: 'Укажите верный телефон'
+            required: "Введите ваш телефон",
+            pattern: "Укажите верный телефон",
           },
           name: {
-            required: 'Введите ваше имя',
+            required: "Введите ваше имя",
           },
           email: {
-            required: 'Введите ваш E-mail',
-            pattern: 'Введите верный E-mail'
+            required: "Введите ваш E-mail",
+            pattern: "Введите верный E-mail",
           },
           msg: {
-            required: 'Введите ваше сообщение',
-            pattern: 'Введены недопустимые символы'
+            required: "Введите ваше сообщение",
+            pattern: "Введены недопустимые символы",
           },
           policy: {
-            required: 'Согласитель с политикой обработки персональных данных'
-          }
+            required: "Согласитель с политикой обработки персональных данных",
+          },
         },
         /*
           Функция получения значения полей у текущей формы.
@@ -328,7 +328,7 @@ document.addEventListener('DOMContentLoaded', function() {
           Например:
           {'user-email': 'mail@mail.ru'}
         */
-        getFormData = function($form) {
+        getFormData = function ($form) {
           let formElements = $form.elements,
             values = {};
   
@@ -345,7 +345,7 @@ document.addEventListener('DOMContentLoaded', function() {
         /*
           Функция проверки правильности заполнения формы.
         */
-        validationForm = function(event) {
+        validationForm = function (event) {
           let errors = {},
             thisForm = $form,
             values = getFormData(thisForm);
@@ -358,16 +358,21 @@ document.addEventListener('DOMContentLoaded', function() {
               $orFormElement = thisForm[or];
   
             if (rule) {
-              if ($formElement.hasAttribute('required') || rule.required === true) {
+              if (
+                $formElement.hasAttribute("required") ||
+                rule.required === true
+              ) {
                 let elementType = $formElement.type,
                   pattern = rule.pattern;
   
                 // Если элемент не чекнут или пустой
-                if (((elementType === 'checkbox' || elementType === 'radio') && !$formElement.checked) ||
-                  elementValue === '') {
-  
+                if (
+                  ((elementType === "checkbox" || elementType === "radio") &&
+                    !$formElement.checked) ||
+                  elementValue === ""
+                ) {
                   if (or && $orFormElement) {
-                    if ($orFormElement.value === '') {
+                    if ($orFormElement.value === "") {
                       errors[elementName] = messages[elementName].required;
                       continue;
                     }
@@ -378,8 +383,15 @@ document.addEventListener('DOMContentLoaded', function() {
                 }
   
                 // Если текстовый элемент, у которого есть щаблон для заполнения
-                if (elementType !== 'cehckbox' && elementType !== 'radio' && pattern) {
-                  if (elementValue !== '' && pattern.test(elementValue) === false) {
+                if (
+                  elementType !== "cehckbox" &&
+                  elementType !== "radio" &&
+                  pattern
+                ) {
+                  if (
+                    elementValue !== "" &&
+                    pattern.test(elementValue) === false
+                  ) {
                     errors[elementName] = messages[elementName].pattern;
                     continue;
                   }
@@ -391,18 +403,17 @@ document.addEventListener('DOMContentLoaded', function() {
           }
   
           if (Object.keys(errors).length == 0) {
-            thisForm.removeEventListener('change', validationForm);
-            thisForm.removeEventListener('input', validationForm);
+            thisForm.removeEventListener("change", validationForm);
+            thisForm.removeEventListener("input", validationForm);
             $form.validatie = true;
           } else {
-            thisForm.addEventListener('change', validationForm);
-            thisForm.addEventListener('input', validationForm);
+            thisForm.addEventListener("change", validationForm);
+            thisForm.addEventListener("input", validationForm);
             showErrors(thisForm, errors);
             $form.validatie = false;
           }
-  
         },
-        showErrors = function($form, errors) {
+        showErrors = function ($form, errors) {
           let $formElements = $form.elements;
   
           for (let elementName in errors) {
@@ -417,116 +428,131 @@ document.addEventListener('DOMContentLoaded', function() {
               }
               continue;
             } else {
-              $formElement.insertAdjacentHTML('afterend', $errorElement);
+              $formElement.insertAdjacentHTML("afterend", $errorElement);
             }
   
             $formElement.classList.add(errorsClass);
           }
-  
         },
-        resetForm = function($form) {
+        resetForm = function ($form) {
           let $formElements = $form.elements;
   
           for (let i = 0; i < $formElements.length; i++) {
             hideError($formElements[i]);
-            $formElements[i].classList.remove('filled');
+            $formElements[i].classList.remove("filled");
           }
   
           $form.reset();
   
           if ($uploadFilesBlock) {
-            $uploadFilesBlock.innerHTML = '';
+            $uploadFilesBlock.innerHTML = "";
           }
           // if ($form === $quizForm) {
           //   id('quiz').resetQuiz();
           // }
         },
-        hideError = function($formElement) {
+        hideError = function ($formElement) {
           let $nextElement = $formElement.nextElementSibling;
           $formElement.classList.remove(errorsClass);
           if ($nextElement && $nextElement.classList.contains(errorsClass)) {
             $nextElement.parentElement.removeChild($nextElement);
           }
         },
-        submitHandler = function(event) {
-          let $form = q('#' + event.detail.id + '>form'),
+        submitHandler = function (event) {
+          let $form = q("#" + event.detail.id + ">form"),
             eventType = event.type;
   
-          if (eventType === 'wpcf7mailsent') {
-            resetForm($form);
-            console.log('отправлено');
+          if (eventType === "wpcf7mailsent") {
+            let thanksPopupDescr = q('.thanks-popup__descr');
+  
+            if ($form.id === 'ftr-form' || $form.id === 'subscribe-form') {
+              thanksPopupDescr.innerHTML = 'Мы добавим ваш e&#8209;mail адрес в&nbsp;список рассылок.';
+            } else {
+              thanksPopupDescr.innerHTML = thanksPopup.getAttribute('data-descr');
+            }
+  
+            thanksPopup.openPopup();
+  
+            thanksPopupTimer = setTimeout(function () {
+              thanksPopup.closePopup();
+            }, 3000);
+  
+            setTimeout(function () {
+              $form.classList.remove("sent");
+            }, 3000);
+  
+            console.log("отправлено");
+          } else if (eventType === "wpcf7mailfailed") {
+            errorPopup.openPopup();
+            console.log("отправка не удалась");
           }
-          /* else if (eventType === 'wpcf7mailfailed') {
-                  console.log('отправка не удалась');
-                }*/
   
-          $form.classList.remove('loading');
-  
-          setTimeout(function() {
-            $form.classList.remove('sent');
-          }, 3000);
-  
-          thanksPopup.openPopup();
-          thanksPopupTimer = setTimeout(function() {
-            thanksPopup.closePopup();
-          }, 3000);
-  
-  
+          resetForm($form);
+          $form.classList.remove("loading");
         },
-        toggleInputsClass = function() {
+        toggleInputsClass = function () {
           let $input = event.target,
             type = $input.type,
             files = $input.files,
             classList = $input.classList,
             value = $input.value;
   
-          if (type === 'text' || type === 'email' || type === 'tel' || $input.tagName === 'TEXTAREA') {
-            if (value === '') {
-              classList.remove('filled');
+          if (
+            type === "text" ||
+            type === "email" ||
+            type === "tel" ||
+            $input.tagName === "TEXTAREA"
+          ) {
+            if (value === "") {
+              classList.remove("filled");
             } else {
-              classList.add('filled');
+              classList.add("filled");
             }
-          } else if (type === 'file') {
+          } else if (type === "file") {
             // $input.filesArray = [];
   
-            let uploadedFiles = '';
+            let uploadedFiles = "";
             for (let i = 0, len = files.length; i < len; i++) {
               // $input.filesArray[i] = files[i];
-              uploadedFiles += '<span class="uploadedfiles__file"><span class="uploadedfiles__file-text">' + files[i].name + '</span></span>';
+              uploadedFiles +=
+                '<span class="uploadedfiles__file"><span class="uploadedfiles__file-text">' +
+                files[i].name +
+                "</span></span>";
             }
             $uploadFilesBlock.innerHTML = uploadedFiles;
           }
         };
   
-      $form.setAttribute('novalidate', '');
+      $form.setAttribute("novalidate", "");
       $form.validatie = false;
-      $formBtn.addEventListener('click', function() {
+      $formBtn.addEventListener("click", function () {
         validationForm();
         if ($form.validatie === false) {
           event.preventDefault();
         } else {
-          $form.classList.add('loading');
+          $form.classList.add("loading");
           // resetForm($form);
         }
       });
       if (!document.wpcf7mailsent) {
-        document.addEventListener('wpcf7mailsent', submitHandler);
+        document.addEventListener("wpcf7mailsent", submitHandler);
         document.wpcf7mailsent = true;
       }
-      $form.addEventListener('input', toggleInputsClass);
+      $form.addEventListener("input", toggleInputsClass);
     };
   
     for (var i = $forms.length - 1; i >= 0; i--) {
       if ($forms[i]) {
         formValidator({
           form: $forms[i],
-          formBtn: q('.btn', $forms[i]) || q('.btn[form="' + $forms[i].id + '"]'),
-          uploadFilesBlock: q('.uploadedfiles', $forms[i]),
-          filesInput: q('input[type="file"]', $forms[i])
+          formBtn: q(".btn", $forms[i]) || q('.btn[form="' + $forms[i].id + '"]'),
+          uploadFilesBlock: q(".uploadedfiles", $forms[i]),
+          filesInput: q('input[type="file"]', $forms[i]),
         });
       }
     }
   })();
+  
 
   mobileMenu = function(_) {
     let setMenuStyles = function(trf, trs) {

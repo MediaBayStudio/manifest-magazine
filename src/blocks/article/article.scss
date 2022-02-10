@@ -150,6 +150,21 @@
       }
     }
 
+      @media (max-width:600px) {
+        .wp-block-media-text {
+          &.is-stacked-on-mobile {
+            overflow: hidden;
+            .wp-block-media-text__media {
+              margin: 20px 0 0;
+              grid-row: 2;
+            }
+            .wp-block-media-text__content {
+              grid-row: 1;
+            }
+          }
+        }
+      }
+
     .wp-block-image {
       +.wp-block-media-text {
         margin-top: 30px;
@@ -162,6 +177,7 @@
     .wp-block-media-text {
       figure {
         display: flex;
+        background-position: center;
       }
       figcaption {
         margin-top: auto;
@@ -253,7 +269,11 @@
       >ul:last-child,
       >ol:last-child,
       >.wp-block-pullquote:last-child:last-of-type>blockquote {
-        margin-bottom: 0;
+        margin-bottom: 0 !important;
+      }
+      >ul:first-child,
+      >ol:first-child {
+        margin-top: 0 !important;
       }
     }
 

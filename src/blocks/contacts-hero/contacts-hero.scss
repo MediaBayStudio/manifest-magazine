@@ -17,7 +17,8 @@
   }
 
   &__adv {
-    margin: 40px 0 0;
+    display: none;
+    // margin: 40px 0 0;
   }
 }
 
@@ -42,6 +43,7 @@
   }
 
   &__block-link {
+    max-width: 400px;
     transition: color .5s;
   }
 

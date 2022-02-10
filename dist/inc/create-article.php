@@ -130,6 +130,7 @@ function my_get_adjacent_post( $in_same_term = false, $excluded_terms = '', $pre
 }
 
 function create_article( $args ) {
+  global $article_thumbnail_data, $webp_support;
 
   if ( $_POST ) {
     $args = $_POST;
@@ -144,7 +145,7 @@ function create_article( $args ) {
 
   $exists_post = $parsed_args['exists_post'];
   $exclude_posts = $parsed_args['exclude_posts'];
-  $parent_category = $parsed_args['parent_category'];
+  // $parent_category = $parsed_args['parent_category'];
 
   if ( $parsed_args['article'] ) {
     $article = $parsed_args['article'];
@@ -154,10 +155,9 @@ function create_article( $args ) {
   if ( $parsed_args['next_article'] ) {
     $article = get_posts( [
       'numberposts' => 1,
-      'category' => $parsed_args['parent_category'],
+      // 'category' => $parsed_args['parent_category'],
       'exclude' => $parsed_args['exclude_posts']
     ] )[0];
-    // var_dump( $article );
   }
 
   if ( $parsed_args['related_articles'] ) {
@@ -177,7 +177,7 @@ function create_article( $args ) {
           foreach ( $related_articles as $related_article ) {
             $related_articles_html .= create_article_card( [
               'object' => $related_article,
-              'lazyload' => false,
+              'lazyload' => true,
               'print' => false
             ] );
           }
@@ -186,12 +186,13 @@ function create_article( $args ) {
       </section>';
   }
 
-  if ( $related_articles && count( $related_articles ) > 2 && $next_article ) {
+  if ( $related_articles && count( $related_articles ) > 2 && $parsed_args['next_article'] ) {
     echo $related_articles_html;
   }
 
   if ( $article ) :
     $terms = get_the_terms( $article->ID, 'category' );
+    // var_dump( $terms );
     foreach ( $terms as $term ) {
       if ( $term->parent ) {
         $child_category = $term;
@@ -228,13 +229,13 @@ function create_article( $args ) {
             <a href="<?php echo $author_url ?>" class="article__author-pic-link">
               <picture class="article__author-pic">
                 <source type="image/webp" srcset="<?php echo $avatar_webp_url ?>">
-                <img src="<?php echo $avatar_url ?>" alt="<?php echo $author_name ?>" class="article__author-img" />
+                <img src="<?php echo $avatar_url ?>" alt="<?php echo esc_attr( $author_name ) ?>" class="article__author-img" />
               </picture>
             </a>
             <div class="article__author-info">
               <a href="<?php echo $author_url ?>" class="article__author-name-link"><span class="article__author-name"><?php echo $author_name ?></span></a> <?php
               if ( $author_category->name === 'Без рубрики' ) {
-                $style = 'style="display:none"';
+                $style = ' style="display:none"';
               } else {
                 $style = '';
               } ?>
@@ -245,10 +246,59 @@ function create_article( $args ) {
           </div>
         </div>
         <picture class="article__header-pic"> <?php
-          $thumbnail_url = get_the_post_thumbnail_url( $article->ID );
-          $thumbnail_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $thumbnail_url ) ?>
-          <source type="image/webp" srcset="<?php echo $thumbnail_webp_url ?>">
-          <img src="<?php echo $thumbnail_url ?>" alt="#" class="article__header-img" />
+
+          if ( !$article_thumbnail_data ) {
+            $thumbnail_url = get_the_post_thumbnail_url( $article->ID );
+            $thumbnail_id = get_post_thumbnail_id( $article->ID );
+            $mobile_img = image_get_intermediate_size( $thumbnail_id, 'mobile' );
+            $tablet_img = image_get_intermediate_size( $thumbnail_id, 'tablet' );
+            $laptop_img = image_get_intermediate_size( $thumbnail_id, 'laptop' );
+            $desktop_img = image_get_intermediate_size( $thumbnail_id, 'desktop' );
+            $source_html = '';
+
+            $thumbnail_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $thumbnail_url );
+            $mobile_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $mobile_img['url'] );
+            $tablet_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $tablet_img['url'] );
+            $laptop_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $laptop_img['url'] );
+            $desktop_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $desktop_img['url'] );
+
+            $post_author_avatar_preload_url = get_field( 'avatar', 'user_' . $article->post_author )['url'];
+
+            if ( $webp_support ) {
+              $post_author_avatar_preload_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $post_author_avatar_preload_url );
+            }
+
+            $article_thumbnail_data = [
+              'mobile_img_url' => $mobile_img['url'],
+              'tablet_img_url' => $tablet_img['url'],
+              'laptop_img_url' => $laptop_img['url'],
+              'desktop_img_url' => $desktop_img['url'],
+              'mobile_webp_url' => $mobile_webp_url,
+              'tablet_webp_url' => $tablet_webp_url,
+              'laptop_webp_url' => $laptop_webp_url,
+              'desktop_webp_url' => $desktop_webp_url,
+              'type' => $mobile_img['mime-type']
+            ];
+
+            if ( !$desktop_img ) {
+              $article_thumbnail_data['desktop_img_url'] = $thumbnail_url;
+              $article_thumbnail_data['desktop_webp_url'] = $thumbnail_webp_url;
+            }
+          }
+
+          $source_html = '';
+
+          $source_html .= '<source type="image/webp" srcset="' . $article_thumbnail_data['mobile_webp_url'] . ', ' . $article_thumbnail_data['laptop_webp_url'] . ' 2x" media="(max-width:767.98px)">';
+          $source_html .= '<source type="' . $article_thumbnail_data['type'] . '" srcset="' . $article_thumbnail_data['mobile_img_url'] . ', ' . $article_thumbnail_data['laptop_img_url'] . ' 2x" media="(max-width:767.98px)">';
+
+          $source_html .= '<source type="image/webp" srcset="' . $article_thumbnail_data['tablet_webp_url'] . ', ' . $article_thumbnail_data['desktop_webp_url'] . ' 2x" media="(min-width:767.98px) and (max-width:1023.98px)">';
+          $source_html .= '<source type="' . $article_thumbnail_data['type'] . '" srcset="' . $article_thumbnail_data['tablet_img_url'] . ', ' . $article_thumbnail_data['desktop_img_url'] . ' 2x" media="(min-width:767.98px) and (max-width:1023.98px)">';
+
+          $source_html .= '<source type="image/webp" srcset="' . $article_thumbnail_data['desktop_webp_url'] . '" media="(min-width:1023.98px)">';
+          $source_html .= '<source type="' . $article_thumbnail_data['type'] . '" srcset="' . $article_thumbnail_data['desktop_img_url'] . '" media="(min-width:1023.98px)">';
+
+          echo $source_html ?>
+          <img src="<?php echo $article_thumbnail_data['desktop_img_url'] ?>" alt="<?php echo esc_attr( $article->post_title ) ?>" class="article__header-img" />
         </picture>
       </header>
       <section class="article__body"> <?php
@@ -264,13 +314,18 @@ function create_article( $args ) {
         </div> <?php
       endif ?>
       <div class="article__share"> <?php
-        $permalink = get_the_permalink( $article->ID ); ?>
+        $permalink = get_the_permalink( $article->ID );
+        if ( $_POST ) {
+          $lazy_data = '"';
+        } else {
+          $lazy_data = ' lazy" data-src="#"';
+        } ?>
         <span class="article__share-title">Поделиться</span>
-        <a href="https://vkontakte.ru/share.php?url=<?php echo $permalink ?>" class="article__share-link vk-share-link" target="_blank"></a>
+        <a href="https://vkontakte.ru/share.php?url=<?php echo $permalink ?>" class="article__share-link vk-share-link<?php echo $lazy_data ?> target="_blank"></a>
         <!-- <a href="http://www.facebook.com/sharer.php?s=100&p[url]=<?php #echo $permalink ?>" class="article__share-link facebook-share-link" target="_blank"></a> -->
         <!-- <a href="http://twitter.com/share?text=<?php #echo $article->post_title ?>&url=<?php #echo $permalink ?>" class="article__share-link twitter-share-link" target="_blank"></a> -->
-        <a href="https://t.me/share/url?url=<?php echo $permalink ?>&text=<?php echo $article->post_title ?>" class="article__share-link tg-share-link" target="_blank"></a>
-        <input type="text" value="<?php echo $permalink ?>" onclick="copyInputValue()" class="article__share-link share-link">
+        <a href="<?php echo urlencode( "https://t.me/share/url?url={$permalink}&text={$article->post_title}" ) ?>" class="article__share-link tg-share-link<?php echo $lazy_data ?> target="_blank"></a>
+        <input type="text" value="<?php echo $permalink ?>" onclick="copyInputValue()" class="article__share-link share-link<?php echo $lazy_data ?>>
       </div>
     </article> <?php
     wp_reset_postdata();

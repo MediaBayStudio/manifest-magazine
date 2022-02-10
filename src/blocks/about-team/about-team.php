@@ -11,42 +11,6 @@
         <span class="team-card__title"><?php echo $team['title'] ?></span>
         <span class="team-card__role"><?php echo $team['role'] ?></span>
         <p class="team-card__descr"><?php echo $team['descr'] ?></p>
-      </div>
-      <div class="team-card">
-        <picture class="team-card__pic lazy">
-          <source type="image/webp" srcset="#" data-srcset="<?php echo str_replace( ['.jpg', '.png'], '.webp', $team['img']['url'] ) ?>">
-          <img src="#" alt="#" data-src="<?php echo $team['img']['url'] ?>" class="team-card__img">
-        </picture>
-        <span class="team-card__title"><?php echo $team['title'] ?></span>
-        <span class="team-card__role"><?php echo $team['role'] ?></span>
-        <p class="team-card__descr"><?php echo $team['descr'] ?></p>
-      </div>
-      <div class="team-card">
-        <picture class="team-card__pic lazy">
-          <source type="image/webp" srcset="#" data-srcset="<?php echo str_replace( ['.jpg', '.png'], '.webp', $team['img']['url'] ) ?>">
-          <img src="#" alt="#" data-src="<?php echo $team['img']['url'] ?>" class="team-card__img">
-        </picture>
-        <span class="team-card__title"><?php echo $team['title'] ?></span>
-        <span class="team-card__role"><?php echo $team['role'] ?></span>
-        <p class="team-card__descr"><?php echo $team['descr'] ?></p>
-      </div>
-      <div class="team-card">
-        <picture class="team-card__pic lazy">
-          <source type="image/webp" srcset="#" data-srcset="<?php echo str_replace( ['.jpg', '.png'], '.webp', $team['img']['url'] ) ?>">
-          <img src="#" alt="#" data-src="<?php echo $team['img']['url'] ?>" class="team-card__img">
-        </picture>
-        <span class="team-card__title"><?php echo $team['title'] ?></span>
-        <span class="team-card__role"><?php echo $team['role'] ?></span>
-        <p class="team-card__descr"><?php echo $team['descr'] ?></p>
-      </div>
-      <div class="team-card">
-        <picture class="team-card__pic lazy">
-          <source type="image/webp" srcset="#" data-srcset="<?php echo str_replace( ['.jpg', '.png'], '.webp', $team['img']['url'] ) ?>">
-          <img src="#" alt="#" data-src="<?php echo $team['img']['url'] ?>" class="team-card__img">
-        </picture>
-        <span class="team-card__title"><?php echo $team['title'] ?></span>
-        <span class="team-card__role"><?php echo $team['role'] ?></span>
-        <p class="team-card__descr"><?php echo $team['descr'] ?></p>
       </div> <?php
     endforeach ?>
   </div>

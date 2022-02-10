@@ -1,6 +1,7 @@
       <?php
         global
           $instagram_link,
+          $telegram_link,
           $facebook_link,
           $twitter_link,
           $social_links,

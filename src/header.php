@@ -1,6 +1,8 @@
 <?php
   global
+    $webp_support,
     $instagram_link,
+    $telegram_link,
     $facebook_link,
     $twitter_link,
     $social_links,
@@ -17,15 +19,122 @@
     $logo_url,
     $template_directory_uri;
 
+    $preload = [];
+    $preload[] = ['url' => $logo_url];
+    $preload[] = ['url' => $template_directory_uri . '/img/icon-burger.svg'];
+    $preload[] = ['url' => $template_directory_uri . '/img/icon-search.svg'];
+
     if ( is_front_page() ) {
       $script_name = 'script-index';
       $style_name = 'style-index';
+      if ( $GLOBALS['sections'][0]['slider_view'] === 'smaill_img' ) {
+        // $preload[] = ['url' => $GLOBALS['sections'][0]['slider'][0]['small_img']]['url'];
+        $preload[] = ['url' => $template_directory_uri . '/img/words-circle.svg'];
+        $preload[] = ['url' => $template_directory_uri . '/img/index-hero-line.svg'];
+      }
+
     } else if ( is_404() ) {
       $script_name = 'script-404';
       $style_name = 'style-404';
     } else if ( is_single() ) {
       $script_name = 'script-single';
       $style_name = 'style-single';
+
+      $thumbnail_url = get_the_post_thumbnail_url( $post->ID );
+      $thumbnail_id = get_post_thumbnail_id( $post->ID );
+      $mobile_img = image_get_intermediate_size( $thumbnail_id, 'mobile' );
+      $tablet_img = image_get_intermediate_size( $thumbnail_id, 'tablet' );
+      $laptop_img = image_get_intermediate_size( $thumbnail_id, 'laptop' );
+      $desktop_img = image_get_intermediate_size( $thumbnail_id, 'desktop' );
+      $source_html = '';
+
+      $thumbnail_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $thumbnail_url );
+      $mobile_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $mobile_img['url'] );
+      $tablet_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $tablet_img['url'] );
+      $laptop_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $laptop_img['url'] );
+      $desktop_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $desktop_img['url'] );
+
+      $post_author_avatar_preload_url = get_field( 'avatar', 'user_' . $post->post_author )['url'];
+
+      if ( $webp_support ) {
+        $mobile_preload_url = $mobile_webp_url;
+        $tablet_preload_url = $tablet_webp_url;
+        $laptop_preload_url = $laptop_webp_url;
+        $desktop_preload_url = $desktop_webp_url;
+        $post_author_avatar_preload_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $post_author_avatar_preload_url );
+      } else {
+        $mobile_preload_url = $mobile_img['url'];
+        $tablet_preload_url = $tablet_img['url'];
+        $laptop_preload_url = $laptop_img['url'];
+        $desktop_preload_url = $desktop_img['url'];
+      }
+
+      $GLOBALS['article_thumbnail_data'] = [
+        'mobile_img_url' => $mobile_img['url'],
+        'tablet_img_url' => $tablet_img['url'],
+        'laptop_img_url' => $laptop_img['url'],
+        'desktop_img_url' => $desktop_img['url'],
+        'mobile_webp_url' => $mobile_webp_url,
+        'tablet_webp_url' => $tablet_webp_url,
+        'laptop_webp_url' => $laptop_webp_url,
+        'desktop_webp_url' => $desktop_webp_url,
+        'type' => $mobile_img['mime-type']
+      ];
+
+      if ( !$desktop_img ) {
+        $desktop_preload_url = $webp_support ? $thumbnail_webp_url : $thumbnail_url;
+        $GLOBALS['article_thumbnail_data']['desktop_img_url'] = $thumbnail_url;
+        $GLOBALS['article_thumbnail_data']['desktop_webp_url'] = $thumbnail_webp_url;
+      }
+
+      $first_screen_images = [
+        [
+          'url' => $mobile_preload_url,
+          'imagesrcset' => $laptop_preload_url,
+          'media' => '(max-width:767.98px)'
+        ],
+        [
+          'url' => $tablet_preload_url,
+          'imagesrcset' => $desktop_preload_url,
+          'media' => '(min-width:767.98px) and (max-width:1023.98px)'
+        ],
+        [
+          'url' => $desktop_preload_url,
+          'media' => '(min-width:1023.98px)'
+        ]
+      ];
+
+      foreach ( $first_screen_images as $first_screen_image ) {
+        $first_screen_image_data = [
+          'url' => $first_screen_image['url'],
+          'media' => $first_screen_image['media']
+        ];
+        if ( $first_screen_image['imagesrcset'] ) {
+          $first_screen_image_data['imagesrcset'] = $first_screen_image['imagesrcset'] . ' 2x';
+        }
+        $preload[] = $first_screen_image_data;
+      }
+
+      $preload[] = ['url' => $post_author_avatar_preload_url];
+
+    } else if ( is_author() ) {
+      $script_name = 'script-author';
+      $style_name = 'style-author';
+      $GLOBALS['current_author'] = get_queried_object();
+      $GLOBALS['current_author']->avatar_url = get_field( 'avatar', $GLOBALS['current_author'] )['url'];
+      $GLOBALS['current_author']->avatar_webp_url = str_replace( ['.jpg', '.png'], '.webp', $GLOBALS['current_author']->avatar_url );
+
+      $avatar_preload_url = $webp_support ? $GLOBALS['current_author']->avatar_webp_url : $GLOBALS['current_author']->avatar_url;
+
+      $preload[] = ['url' => $avatar_preload_url];
+      $preload[] = [
+        'url' => $template_directory_uri . '/img/author-hero-bg-mobile.svg',
+        'media' => '(max-width:767.98px)'
+      ];
+      $preload[] = [
+        'rl' => $template_directory_uri . '/img/author-hero-bg-desktop.svg',
+        'media' => '(min-width:767.98px)'
+      ];
     } else {
       if ( $GLOBALS['current_template'] ) {
         $script_name = 'script-' . $GLOBALS['current_template'];
@@ -36,19 +145,13 @@
       } 
     }
 
-    if ( is_author() ) {
-      $GLOBALS['current_author'] = get_queried_object();
-      $GLOBALS['current_author']->avatar_url = get_field( 'avatar', $GLOBALS['current_author'] )['url'];
-      $GLOBALS['current_author']->avatar_webp_url = str_replace( ['.jpg', '.png'], '.webp', $GLOBALS['current_author']->avatar_url );
-    }
-
     $GLOBALS['page_script_name'] = $script_name;
     $GLOBALS['page_style_name'] = $style_name ?>
 <!DOCTYPE html>
 <html <?php language_attributes() ?>>
 <head>
-  <script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent%2CIntersectionObserver%2CIntersectionObserverEntry%2CElement.prototype.closest%2CElement.prototype.dataset%2CHTMLPictureElement"></script>
-  <meta charset="<?php bloginfo( 'charset' ) ?>" />
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=CustomEvent%2CIntersectionObserver%2CIntersectionObserverEntry%2CElement.prototype.closest%2CElement.prototype.dataset%2CHTMLPictureElement%2Cfetch"></script>
+  <!-- <meta charset="<?php #bloginfo( 'charset' ) ?>" /> -->
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <!-- styles preload -->
@@ -91,45 +194,10 @@
   foreach ( $fonts as $font ) : ?>
 
   <link rel="preload" href="<?php echo $template_directory_uri . '/fonts/' . $font ?>" as="font" crossorigin="anonymous" /> <?php
-  endforeach ?>
+  endforeach;
+  echo PHP_EOL ?>
   <!-- other preload --> <?php
   echo PHP_EOL;
-  if ( !$preload ) {
-    $preload = get_field( 'preload' );
-  }
-
-  $preload[] = $logo_url;
-  $preload[] = $template_directory_uri . '/img/icon-burger.svg';
-  $preload[] = $template_directory_uri . '/img/icon-search.svg';
-
-  if ( is_front_page() ) {
-    if ( $GLOBALS['sections'][0]['slider_view'] === 'smaill_img' ) {
-      $preload[] = $GLOBALS['sections'][0]['slider'][0]['small_img'];
-      $preload[] = $template_directory_uri . '/img/words-circle.svg';
-      $preload[] = $template_directory_uri . '/img/index-hero-line.svg';
-    } else {
-      $preload[] = $GLOBALS['sections'][0]['slider'][0]['full_screen_img'];
-    }
-  } else if ( is_author() ) {
-    $preload[] = [
-      'filepath' => $GLOBALS['current_author']->avatar_url,
-      'webp' => $GLOBALS['current_author']->avatar_webp_url
-    ];
-    $preload[] = [
-      'filepath' => $template_directory_uri . '/img/author-hero-bg-mobile.svg',
-      'media' => '(max-width:767.98px)'
-    ];
-    $preload[] = [
-      'filepath' => $template_directory_uri . '/img/author-hero-bg-desktop.svg',
-      'media' => '(min-width:767.98px)'
-    ];
-  } else if ( is_single() ) {
-    $post_thumbnail = get_the_post_thumbnail_url( $post );
-    $preload[] = [
-      'filepath' => $post_thumbnail,
-      'webp' => str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $post_thumbnail )
-    ];
-  }
 
   if ( $preload ) {
     foreach ( $preload as $item ) {
