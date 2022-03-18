@@ -62,7 +62,13 @@
     padding-left: 100px;
     font-size: 16px;
 
+    .without-grid-left,
     .without-grid {
+      margin-left: -100px;
+    }
+
+    .is-style-without-grid-left,
+    .is-style-without-grid {
       margin-left: -100px;
     }
 
@@ -335,7 +341,7 @@
   .wp-block-columns {
     .wp-block-column:not(:last-child) {
       p {
-        margin: 0;
+        margin: 0 0 30px;
       }
     }
   }

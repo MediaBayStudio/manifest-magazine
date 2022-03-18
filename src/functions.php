@@ -1,5 +1,6 @@
 <?php
 // Глобальные переменные
+$version = '1.0.1';
 $template_directory_uri = get_template_directory_uri();
 $template_directory = get_template_directory();
 
@@ -48,8 +49,6 @@ add_filter( 'render_block', function( $block_content, $block ) {
         preg_match( '/background-position:.*?(?=;|")/', $block_content, $matches );
 
         $background_position = '';
-
-        // var_dump( $block_content );
 
         if ( $_POST ) {
           if ( $matches ) {

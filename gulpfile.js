@@ -126,6 +126,7 @@ task('default', function(done) {
       watch(path.join(config.src.blocks, '**', '*.js'), buildJs);
       watch(path.join(config.src.js, 'components', '*.js'), buildJs);
       watch(path.join(config.src.js, 'script.js'), buildJs);
+      watch(path.join(config.src.js, 'script-admin.js'), buildJs);
 
       watch(path.join(config.src.path, 'style.scss'), buildCss);
       watch(path.join(config.src.blocks, '**', '*.scss'), buildCss);

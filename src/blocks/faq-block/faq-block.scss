@@ -21,6 +21,10 @@
   }
 
   &__author-pic {
+  }
+
+  &__author-pic-link {
+  // &__author-pic {
     margin: 0 20px 0 0;
     flex-shrink: 0;
     width: 50px;
@@ -29,7 +33,9 @@
     border-radius: 50%;
   }
 
+  &__author-pic,
   &__author-img {
+    display: block;
     width: 100%;
     height: 100%;
   }
@@ -43,6 +49,10 @@
   &__author-title {
     margin: 0 0 10px;
     font: bold 14px/130% $quincy;
+    transition: color .5s;
+    &:hover {
+      color: $darkBlue;
+    }
   }
 
   &__author-category {
@@ -54,6 +64,25 @@
   }
 
   &__answer {}
+
+  &__answer-details {
+    &[open] {
+      .faq-card__answer-summary {
+        display: none;
+      }
+    }
+  }
+
+  &__answer-summary {
+    cursor: pointer;
+    list-style: none;
+    color: $darkBlue;
+    border-bottom: 1px solid transparent;
+    transition: border-bottom-color .5s;
+    &:hover {
+      border-bottom-color: currentColor;
+    }
+  }
 }
 
 .faq-block {

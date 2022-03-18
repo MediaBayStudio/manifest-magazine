@@ -186,7 +186,13 @@
       }
     }
 
+    .without-grid-left,
     .without-grid {
+      margin-left: -215px;
+    }
+
+    .is-style-without-grid-left,
+    .is-style-without-grid {
       margin-left: -215px;
     }
 
@@ -247,6 +253,24 @@
     //   }
     // }
 
+    .wp-block-media-text {
+      &.object-fit-contain {
+        img {
+          width: auto;
+        }
+        &.without-grid-left {
+          figure {
+            margin: 0 0 0 auto;
+          }
+        }
+        &.without-grid-right {
+          figure {
+            margin: 0 auto 0 0;
+          }
+        }
+      }
+    }
+
     .wp-block-media-text__content {
 
       h1,
@@ -267,7 +291,8 @@
     h4,
     h5,
     h6,
-    p {
+    p,
+    .wp-block-media-text  {
       +.wp-block-media-text,
       +.wp-block-columns,
       +.three-blocks-with-border {

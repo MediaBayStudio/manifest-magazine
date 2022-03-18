@@ -61,16 +61,19 @@
       }
     }
 
-    .without-grid {
+    .without-grid,
+    .is-style-without-grid {
       margin-left: -270px;
       margin-right: -105px;
     }
 
-    .without-grid-left {
+    .without-grid-left,
+    .is-style-without-grid-left {
       margin-left: -270px;
     }
 
-    .without-grid-right {
+    .without-grid-right,
+    .is-style-without-grid-right {
       margin-right: -105px;
     }
 

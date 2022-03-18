@@ -17,7 +17,8 @@
     $preload,
     $site_url,
     $logo_url,
-    $template_directory_uri;
+    $template_directory_uri,
+    $version;
 
     $preload = [];
     $preload[] = ['url' => $logo_url];
@@ -32,6 +33,14 @@
         $preload[] = ['url' => $template_directory_uri . '/img/words-circle.svg'];
         $preload[] = ['url' => $template_directory_uri . '/img/index-hero-line.svg'];
       }
+      $preload[] = [
+        'url' => $template_directory_uri . '/js/slick.min.js',
+        'as' => 'script'
+      ];
+      $preload[] = [
+        'url' => $template_directory_uri . '/js/script-index.js',
+        'as' => 'script'
+      ];
 
     } else if ( is_404() ) {
       $script_name = 'script-404';
@@ -155,13 +164,13 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no, user-scalable=no, viewport-fit=cover" />
   <meta http-equiv="X-UA-Compatible" content="ie=edge" />
   <!-- styles preload -->
-  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/style.css"> <?php
+  <link rel="preload" as="style" href="<?php echo "$template_directory_uri/style.css?ver=$version" ?>"> <?php
   if ( $style_name ) : ?>
-  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.css" />
-  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.576.css" media="(min-width:575.98px)" />
-  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.768.css" media="(min-width:767.98px)" />
-  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.1024.css" media="(min-width:1023.98px)" />
-  <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/<?php echo $style_name ?>.1280.css" media="(min-width:1279.98px)" /> <?php
+  <link rel="preload" as="style" href="<?php echo "$template_directory_uri/css/$style_name.css?ver=$version" ?>" />
+  <link rel="preload" as="style" href="<?php echo "$template_directory_uri/css/$style_name.576.css?ver=$version" ?>" media="(min-width:575.98px)" />
+  <link rel="preload" as="style" href="<?php echo "$template_directory_uri/css/$style_name.768.css?ver=$version" ?>" media="(min-width:767.98px)" />
+  <link rel="preload" as="style" href="<?php echo "$template_directory_uri/css/$style_name.1024.css?ver=$version" ?> " media="(min-width:1023.98px)" />
+  <link rel="preload" as="style" href="<?php echo "$template_directory_uri/css/$style_name.1280.css?ver=$version" ?>" media="(min-width:1279.98px)" /> <?php
   endif ?>
   <link rel="preload" as="style" href="<?php echo $template_directory_uri ?>/css/hover.css" media="(hover) and (min-width:1024px)" />
   <!-- fonts preload --> <?php
@@ -230,6 +239,23 @@
 <body <?php body_class() ?>> <?php
   wp_body_open();
   if ( stripos( $_SERVER['HTTP_USER_AGENT'], 'lighthouse' ) === false ) : ?>
+    <!-- Meta Pixel Code -->
+<script>
+!function(f,b,e,v,n,t,s)
+{if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)}(window, document,'script',
+'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', '482640093575419');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=482640093575419&ev=PageView&noscript=1"
+/></noscript>
+<!-- End Meta Pixel Code -->
   <!-- Yandex.Metrika counter -->
     <script>
        (function(m,e,t,r,i,k,a){m[i]=m[i]||function(){(m[i].a=m[i].a||[]).push(arguments)};
