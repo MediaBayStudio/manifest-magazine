@@ -48,12 +48,19 @@ foreach ( $parent_categories as $parent_category ) {
       $article_thumbnail_webp_url = str_replace( ['.jpg', '.png'], '.webp', $article_thumbnail_url );
       $article_link = get_the_permalink( $article->ID );
 
+      $img_style = '';
+      switch ( $article->ID ) {
+        case 3297:
+          $img_style = ' style="object-position:left"';
+          break;
+      }
+
       $article_html =
       '<div class="author-hero-article">
         <a href="' . $article_link . '" class="author-hero-article__link-pic">
           <picture class="author-hero-article__pic lazy">
             <source type="image/webp" srcset="#" data-srcset="' . $article_thumbnail_webp_url . '">
-            <img src="#" alt="' . esc_attr( $article->post_title ) . '" data-src="' . $article_thumbnail_url . '" class="author-hero-article__img">
+            <img src="#" alt="' . esc_attr( $article->post_title ) . '"' . $img_style . ' data-src="' . $article_thumbnail_url . '" class="author-hero-article__img">
           </picture>
         </a>
         <div class="author-hero-article__text">

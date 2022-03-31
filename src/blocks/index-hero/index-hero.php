@@ -9,14 +9,31 @@ if ( $section['slider_view'] === 'full_screen_img' ) {
 if ( $section['slider_view'] !== 'full_screen_img' ) : ?>
   <img src="<?php echo $template_directory_uri ?>/img/words-circle.svg" alt="#" class="index-hero-sect__circle"> <?php
 endif;
+if ( $section['manual'] ) {
+  $slides = $section['slider'];
+} else {
+  $slides = get_posts( [
+    'numberposts' => $section['numberposts']
+  ] );
+}
+
+// $slides = $section['slider'];
 $i = 0;
-foreach ( $section['slider'] as $slide ) :
-  $single = $slide['single'];
+foreach ( $slides as $slide ) :
+  if ( is_array( $slide ) ) {
+    $single = $slide['single'];
+    $img = ($section['slider_view'] === 'full_screen_img' ? $slide['full_screen_img'] : $slide['small_img']);
+  } else {
+    $single = $slide;
+    $img = [
+      'url' => get_the_post_thumbnail_url( $single->ID ),
+      'id' => get_post_thumbnail_id( $single->ID )
+    ];
+  }
+  
   $single_id = $single->ID;
   $permalink = get_the_permalink( $single_id );
   $categories = get_the_terms( $single_id, 'category' );
-
-  $img = ($section['slider_view'] === 'full_screen_img' ? $slide['full_screen_img'] : $slide['small_img']);
   $img_id = $img['id'];
 
   $desktop_url = image_get_intermediate_size( $img_id, 'desktop' );
@@ -63,7 +80,18 @@ foreach ( $section['slider'] as $slide ) :
 
   $picture .= '<source type="image/webp" ' . $source_attr . $webp_url . '">';
 
-  $picture .= '<img ' . $img_attr . $img['url'] . '" alt="#" class="index-hero-slide__img">';
+  $img_style = '';
+
+  switch ( $single_id ) {
+    case 3297:
+      $img_style = ' style="object-position:left"';
+      break;
+    case 3132:
+      $img_style = ' style="object-position:80%"';
+      break;
+  }
+
+  $picture .= '<img ' . $img_attr . $img['url'] . '"' . $img_style . ' alt="#" class="index-hero-slide__img">';
 
   $picture .= '</picture>';
 
@@ -101,6 +129,6 @@ endforeach ?>
   <div class="slider-progress__bar">
     <div class="slider-progress__background"></div>
   </div>
-  <span class="slider-progress__total-number">0<?php echo $i ?></span>
+  <span class="slider-progress__total-number"><?php echo substr( '0' . $i, -2) ?></span>
 </div>
 </section>

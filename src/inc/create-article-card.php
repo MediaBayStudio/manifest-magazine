@@ -90,12 +90,19 @@ function create_article_card( $args ) {
 
   $article_img_webp = str_replace( ['.png', '.jpg', '.jpeg'], '.webp', $article_img_url );
 
+  $img_style = '';
+  switch ( $article_id ) {
+    case 3297:
+      $img_style = ' style="object-position:left"';
+      break;
+  }
+
   $response =
   '<article class="' . $card_class . $parsed_args['classes'] . '" data-post-id="' . $article_id . '">
     <a href="' . $article_permalink . '" class="' . $card_class . '__link">
       <picture class="' . $card_class . '__pic' . $lazy_class . '">
         <source type="image/webp" ' . $src_attr . $article_img_webp . '">
-        <img ' . $img_attr . $article_img_url . '" alt="' . esc_attr( $article_img_alt ) . '" class="' . $card_class . '__img">
+        <img ' . $img_attr . $article_img_url . '"' . $img_style . ' alt="' . esc_attr( $article_img_alt ) . '" class="' . $card_class . '__img">
       </picture>
     </a>';
     if ( $card_class === 'category-hero-article-card' ) {

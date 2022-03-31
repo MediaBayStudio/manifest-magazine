@@ -311,7 +311,8 @@ span.wpcf7-not-valid-tip,
 .instagram,
 .facebook,
 .twitter,
-.telegram {
+.telegram,
+.vk {
   background: center/contain no-repeat;
   filter: brightness(0.1);
   transition: filter .5s;
@@ -320,6 +321,11 @@ span.wpcf7-not-valid-tip,
 .instagram:not(.lazy),
 .instagram.lazyloaded {
   background-image: url('./img/icon-instagram-orange.svg');
+}
+
+.vk:not(.lazy),
+.vk.lazyloaded {
+  background-image: url('./img/icon-vk-orange.svg');
 }
 
 .facebook:not(.lazy),

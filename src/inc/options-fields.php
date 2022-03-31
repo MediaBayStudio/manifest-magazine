@@ -15,6 +15,7 @@
       'tel' => 'Телефон редакции',
       'tel_adv' => 'Телефон по вопросам рекламы',
       'instagram'    =>  'Ссылка на Instagram',
+      'vk'    =>  'Ссылка на Вконтакте',
       'facebook'    =>  'Ссылка на Facebook',
       'twitter'    =>  'Ссылка на Twitter',
       'telegram'    =>  'Ссылка на Telegram'

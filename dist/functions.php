@@ -1,6 +1,6 @@
 <?php
 // Глобальные переменные
-$version = '1.0.1';
+$version = '1.0.2';
 $template_directory_uri = get_template_directory_uri();
 $template_directory = get_template_directory();
 
@@ -21,6 +21,7 @@ $email = get_option( 'contacts_email' );
 $email_adv = get_option( 'contacts_email_adv' );
 $facebook_link = get_option( 'contacts_facebook' );
 $instagram_link = get_option( 'contacts_instagram' );
+$vk_link = get_option( 'contacts_vk' );
 $twitter_link = get_option( 'contacts_twitter' );
 $telegram_link = get_option( 'contacts_telegram' );
 
@@ -81,6 +82,7 @@ add_filter( 'render_block', function( $block_content, $block ) {
 $social_links = [ 
   'instagram' => $instagram_link,
   'telegram' => $telegram_link,
+  'vk' => $vk_link,
   // 'facebook' => $facebook_link,
   // 'twitter' => $twitter_link
 ];
