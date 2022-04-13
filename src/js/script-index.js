@@ -8,6 +8,8 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //=include ../blocks/index-articles/index-articles.js
 
+//=include ../blocks/index-horoscope/index-horoscope.js
+
 //=include ../blocks/category-articles/category-articles.js
 
 //=include ../blocks/author-articles/author-articles.js
@@ -18,9 +20,9 @@ document.addEventListener('DOMContentLoaded', function() {
 
 //=include ../blocks/index-subscribe/index-subscribe.js
 
-//=include ../blocks/error-popup/error-popup.js
-
 //=include ../blocks/thanks-popup/thanks-popup.js
+
+//=include ../blocks/error-popup/error-popup.js
 
 //=include ../blocks/search-popup/search-popup.js
 

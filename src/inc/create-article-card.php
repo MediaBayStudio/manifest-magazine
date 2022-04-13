@@ -81,14 +81,17 @@ function create_article_card( $args ) {
   }
 
   $article_thumbnail_id = get_post_thumbnail_id( $article_id );
-  $article_img_url = image_get_intermediate_size( $article_thumbnail_id, $img_size )['url'];
+  $article_img = image_get_intermediate_size( $article_thumbnail_id, $img_size );
+  $article_img_webp = image_get_intermediate_size( $article_thumbnail_id, $img_size . '_webp' );
   $article_img_alt = $article_title;
 
-  if ( !$article_img_url ) {
-    $article_img_url = image_get_intermediate_size( $article_thumbnail_id, 'mobile' )['url'];
+  if ( !$article_img ) {
+    $article_img = image_get_intermediate_size( $article_thumbnail_id, 'mobile' );
+    $article_img_webp = image_get_intermediate_size( $article_thumbnail_id, 'mobile_webp' );
   }
 
-  $article_img_webp = str_replace( ['.png', '.jpg', '.jpeg'], '.webp', $article_img_url );
+  $article_img_url = $article_img['url'];
+  $article_img_webp_url = $article_img_webp['url'];
 
   $img_style = '';
   switch ( $article_id ) {
@@ -101,7 +104,7 @@ function create_article_card( $args ) {
   '<article class="' . $card_class . $parsed_args['classes'] . '" data-post-id="' . $article_id . '">
     <a href="' . $article_permalink . '" class="' . $card_class . '__link">
       <picture class="' . $card_class . '__pic' . $lazy_class . '">
-        <source type="image/webp" ' . $src_attr . $article_img_webp . '">
+        <source type="image/webp" ' . $src_attr . $article_img_webp_url . '">
         <img ' . $img_attr . $article_img_url . '"' . $img_style . ' alt="' . esc_attr( $article_img_alt ) . '" class="' . $card_class . '__img">
       </picture>
     </a>';

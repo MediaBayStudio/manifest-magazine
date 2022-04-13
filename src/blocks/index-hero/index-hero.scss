@@ -16,14 +16,19 @@
   padding-bottom: $sectionVerticalPadding320;
   position: relative;
   display: flex;
+  background: url('../img/index-hero-line.svg') center/100% auto no-repeat, #FEFBF6;
 
   &.slick-slider {
-    display: block;
+    // display: block;
+    flex-flow: column;
   }
 
   .slick-list {
+    margin: 0 0 0 #{-$sectionHorizontalPadding320};
+    padding: 40px 0 0;
+    width: 100vw;
     overflow: hidden;
-    width: 100%;
+    // width: 100%;
   }
 
   &__circle {
@@ -35,17 +40,61 @@
   }
 
   &__slide {
-    max-width: 100%;
-    width: 100%;
-    flex-shrink: 0;
-    transition: opacity .5s;
-    &:not(:first-of-type) {
-      opacity: 0;
+    display: flex;
+    flex-flow: column;
+    //     max-width: 100%;
+    //     width: 100%;
+    //     flex-shrink: 0;
+    //     transition: opacity .5s;
+
+    //     &:not(:first-of-type) {
+    //       opacity: 0;
+    //     }
+      
+    // with big image
+    &.big-img {
+      position: relative;
+
+      .index-hero-slide__pic-link {
+        // position: absolute;
+        // top: -40px;
+        // left: 0;
+        margin: -40px 0 0;
+        width: 100%;
+        height: 175px + 40px;
+        // height: 100%;
+        // height: calc(100% + 80px);
+      }
+
+      .index-hero-slide__pic,
+      .index-hero-slide__img {
+        width: 100%;
+        height: 100%;
+      }
+
+      // .index-hero-slide__text {
+        // margin: auto 0 0;
+        // position: relative;
+      // }
+    }
+
+    // with small image
+    &.small-img {
+      .index-hero-slide__pic {
+        margin: 0 auto 30px;
+        width: 135px;
+        height: 175px;
+        // transform: rotate(13deg);
+      }
     }
   }
 
   &__progress {
     order: 10;
+    // margin: 40px auto 0;
+    margin: 0 auto;
+    justify-content: center;
+    color: $gray1;
   }
 
   &__dots {
@@ -65,122 +114,136 @@
     flex-shrink: 0;
   }
 
-  &.small-img {
-    // padding-top: 40px;
-    background: url('../img/index-hero-line.svg') center/100% auto no-repeat, #FEFBF6;
-
-    .slick-list {
-      padding-top: 40px;
+  .slider-progress {
+    &__current-number {
+      color: $orange;
     }
 
-    .index-hero-sect__progress {
-      margin: 40px auto 0;
-      justify-content: center;
-      color: $gray1;
-
-      .slider-progress {
-        &__current-number {
-          color: $orange;
-        }
-
-        &__bar {
-          background: $gray1;
-          position: relative;
-        }
-
-        &__background {
-          // width: 50%;
-          background: $orange;
-        }
-
-        &__total-number {}
-      }
+    &__bar {
+      background: $gray1;
+      position: relative;
     }
 
-    .index-hero-slide {
-      &__pic {
-        margin: 0 auto 30px;
-        width: 135px;
-        height: 175px;
-        // width: 60%;
-        // min-height: 200px;
-        transform: rotate(13deg);
-      }
-
-      &__img {}
-
-      &__text {}
-
-      &__categories {}
-
-      &__parent-category {}
-
-      &__title {}
-
-      &__descr {}
+    &__background {
+      background: $orange;
     }
   }
 
-  &.full-screen {
-    padding-left: 0;
-    padding-right: 0;
+  //   &.small-img {
+  //     background: url('../img/index-hero-line.svg') center/100% auto no-repeat, #FEFBF6;
 
-    .index-hero-sect__progress {
-      position: absolute;
-      top: 110px;
-      left: 50%;
-      transform: translateX(-50%);
-      color: #fff;
+  //     .slick-list {
+  //       padding-top: 40px;
+  //     }
 
-      // &.last-slide {
-      //   .slider-progress {
-      //     &__current-number {
-      //       color: #fff;
-      //     }
+  //     .index-hero-sect__progress {
+  //       margin: 40px auto 0;
+  //       justify-content: center;
+  //       color: $gray1;
 
-      //     &__total-number {
-      //       color: $darkBlue;
-      //     }
-      //   }
-      // }
+  //       .slider-progress {
+  //         &__current-number {
+  //           color: $orange;
+  //         }
 
-      .slider-progress {
-        &__current-number {
-          color: $darkBlue;
-        }
+  //         &__bar {
+  //           background: $gray1;
+  //           position: relative;
+  //         }
 
-        &__bar {
-          background: #fff;
-        }
+  //         &__background {
+  //           // width: 50%;
+  //           background: $orange;
+  //         }
 
-        &__background {
-          // width: 50%;
-          background: $darkBlue;
-        }
+  //         &__total-number {}
+  //       }
+  //     }
 
-        &__total-number {}
-      }
-    }
+  //     .index-hero-slide {
+  //       &__pic {
+  //         margin: 0 auto 30px;
+  //         width: 135px;
+  //         height: 175px;
+  //         // width: 60%;
+  //         // min-height: 200px;
+  //         transform: rotate(13deg);
+  //       }
 
-    .index-hero-slide {
-      &__pic {}
+  //       &__img {}
 
-      &__img {}
+  //       &__text {}
 
-      &__text {
-        margin: 15px 0 0 0;
-        padding: 0 20px;
-      }
+  //       &__categories {}
 
-      &__categories {}
+  //       &__parent-category {}
 
-      &__parent-category {}
+  //       &__title {}
 
-      &__title {}
+  //       &__descr {}
+  //     }
+  //   }
 
-      &__descr {}
-    }
-  }
+  //   &.full-screen {
+  //     padding-left: 0;
+  //     padding-right: 0;
+
+  //     .index-hero-sect__progress {
+  //       position: absolute;
+  //       top: 110px;
+  //       left: 50%;
+  //       transform: translateX(-50%);
+  //       color: #fff;
+
+  //       // &.last-slide {
+  //       //   .slider-progress {
+  //       //     &__current-number {
+  //       //       color: #fff;
+  //       //     }
+
+  //       //     &__total-number {
+  //       //       color: $darkBlue;
+  //       //     }
+  //       //   }
+  //       // }
+
+  //       .slider-progress {
+  //         &__current-number {
+  //           color: $darkBlue;
+  //         }
+
+  //         &__bar {
+  //           background: #fff;
+  //         }
+
+  //         &__background {
+  //           // width: 50%;
+  //           background: $darkBlue;
+  //         }
+
+  //         &__total-number {}
+  //       }
+  //     }
+
+  //     .index-hero-slide {
+  //       &__pic {}
+
+  //       &__img {}
+
+  //       &__text {
+  //         margin: 15px 0 0 0;
+  //         padding: 0 20px;
+  //       }
+
+  //       &__categories {}
+
+  //       &__parent-category {}
+
+  //       &__title {}
+
+  //       &__descr {}
+  //     }
+  //   }
 }
 
 
@@ -195,7 +258,10 @@
     object-fit: cover;
   }
 
-  &__text {}
+  &__text {
+    margin: 25px 0 0;
+    padding: 0 20px;
+  }
 
   &__categories {
     margin: 0 0 10px;

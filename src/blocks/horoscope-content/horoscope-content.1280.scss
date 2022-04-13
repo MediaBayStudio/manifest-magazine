@@ -1,0 +1,34 @@
+@import '../../scss/assets/colors';
+@import '../../scss/assets/mixins';
+@import '../../scss/assets/variables';
+
+.horoscope {
+  &-content {
+    margin-top: 40px;
+    padding-right: calc(50vw - 600px);
+  }
+
+  &-zodiac-list {
+    max-width: 450px;
+    max-height: 422px;
+    margin-right: 150px;
+
+    .zodiac-btn {
+
+      &__icon {
+        width: 90px;
+        height: 90px;
+      }
+    }
+  }
+
+  &-d-title {
+    max-width: 420px;
+    font-size: 24px;
+    margin-bottom: 40px;
+  }
+
+  &-text {
+    padding: 50px 0 50px 50px;
+  }
+}
