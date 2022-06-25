@@ -4,87 +4,41 @@
 
 .index-hero-sect {
   &__circle {
-    width: 125px;
-    height: 125px;
-    left: calc(50vw - 210px);
+    // width: 125px;
+    // height: 125px;
+    // left: calc(50vw - 210px);
   }
 
-  &__slide {}
+  .slick-list {
+    margin: 0;
+    width: 100%;
+    // .index-hero-slide {
+    // margin: 0;
+    // width: 100%;
+    // }
+  }
+
+  &__slide {
+    margin: 0;
+    width: 100%;
+  }
 
   &__progress {}
-
-  &.small-img {
-    .index-hero-sect__progress {
-      .slider-progress {
-        &__current-number {}
-
-        &__bar {}
-
-        &__background {}
-
-        &__total-number {}
-      }
-    }
-
-    
-
-    .index-hero-slide {
-      &__pic {}
-
-      &__img {}
-
-      &__text {}
-
-      &__categories {}
-
-      &__parent-category {}
-
-      &__title {}
-
-      &__descr {}
-    }
-  }
-
-  &.full-screen {
-
-    .index-hero-sect__progress {
-
-      .slider-progress {
-        &__current-number {}
-
-        &__bar {}
-
-        &__background {}
-
-        &__total-number {}
-      }
-    }
-
-    .index-hero-slide {
-      &__pic {}
-
-      &__img {}
-
-      &__text {}
-
-      &__categories {}
-
-      &__parent-category {}
-
-      &__title {}
-
-      &__descr {}
-    }
-  }
 }
 
 
 .index-hero-slide {
+  &__pic-link {
+    height: 225px;
+  }
+
   &__pic {}
 
   &__img {}
 
-  &__text {}
+  &__text {
+    padding: 0;
+  }
 
   &__categories {}
 

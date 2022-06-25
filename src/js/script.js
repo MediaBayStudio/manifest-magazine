@@ -37,11 +37,13 @@ document.addEventListener('DOMContentLoaded', function() {
 
   // menu.open();
 
-  // let navLinks = qa('.nav-link, .hdr__callback');
+  let links = qa('a[href^="#"]');
 
-  // for (let i = 0, len = navLinks.length; i < len; i++) {
-  // navLinks[i].addEventListener('click', scrollToTarget);
-  // }
+  console.log(links);
+
+  for (let i = 0, len = links.length; i < len; i++) {
+    links[i].addEventListener('click', scrollToTarget);
+  }
 
   sticky(hdr);
 

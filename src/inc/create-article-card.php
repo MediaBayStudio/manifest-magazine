@@ -76,13 +76,17 @@ function create_article_card( $args ) {
 
   if ( $card_class === 'category-hero-article-card' ) {
     $img_size = 'tablet';
+    $img_size_2x = 'desktop';
   } else {
     $img_size = 'mobile';
+    $img_size_2x = 'laptop';
   }
 
   $article_thumbnail_id = get_post_thumbnail_id( $article_id );
   $article_img = image_get_intermediate_size( $article_thumbnail_id, $img_size );
   $article_img_webp = image_get_intermediate_size( $article_thumbnail_id, $img_size . '_webp' );
+  $article_img_2x = image_get_intermediate_size( $article_thumbnail_id, $img_size_2x );
+  $article_img_webp_2x = image_get_intermediate_size( $article_thumbnail_id, $img_size_2x . '_webp' );
   $article_img_alt = $article_title;
 
   if ( !$article_img ) {
@@ -90,8 +94,15 @@ function create_article_card( $args ) {
     $article_img_webp = image_get_intermediate_size( $article_thumbnail_id, 'mobile_webp' );
   }
 
+  if ( !$article_img_2x ) {
+    $article_img_2x = ['url' => wp_get_original_image_url( $article_thumbnail_id )];
+    $article_img_webp_2x = ['url' => wp_get_original_image_url( $article_thumbnail_id )];
+  }
+
   $article_img_url = $article_img['url'];
   $article_img_webp_url = $article_img_webp['url'];
+  $article_img_2x_url = $article_img_2x['url'];
+  $article_img_webp_2x_url = $article_img_webp_2x['url'];
 
   $img_style = '';
   switch ( $article_id ) {
@@ -104,7 +115,7 @@ function create_article_card( $args ) {
   '<article class="' . $card_class . $parsed_args['classes'] . '" data-post-id="' . $article_id . '">
     <a href="' . $article_permalink . '" class="' . $card_class . '__link">
       <picture class="' . $card_class . '__pic' . $lazy_class . '">
-        <source type="image/webp" ' . $src_attr . $article_img_webp_url . '">
+        <source type="image/webp" ' . $src_attr . $article_img_webp_url . ', ' . $article_img_webp_2x_url . ' 2x">
         <img ' . $img_attr . $article_img_url . '"' . $img_style . ' alt="' . esc_attr( $article_img_alt ) . '" class="' . $card_class . '__img">
       </picture>
     </a>';

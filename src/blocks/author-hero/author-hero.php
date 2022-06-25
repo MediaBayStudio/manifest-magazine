@@ -66,9 +66,13 @@ foreach ( $parent_categories as $parent_category ) {
         <div class="author-hero-article__text">
           <a href="' . $article_link . '" class="author-hero-article__link-title">
             <span class="author-hero-article__title">' . $article->post_title . '</span>
-          </a>
-          <p class="author-hero-article__descr">' . get_excerpt( [
-            'text' => $article->post_content,
+          </a>';
+          $excerpt = get_the_excerpt( $article->ID );
+          if ( !$excerpt ) {
+            $excerpt = $article->post_content;
+          }
+          $article_html .= '<p class="author-hero-article__descr">' .  get_excerpt( [
+            'text' => $excerpt,
             'maxchar' => 120,
             'autop' => false,
             'ignore_more' => true

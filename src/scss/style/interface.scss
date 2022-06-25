@@ -39,6 +39,18 @@ form {
   }
 } 
 
+.wp-block-media-text.mih-500px > .wp-block-media-text__media {
+  min-height: 500px;
+}
+
+.wp-block-media-text.mih-400px > .wp-block-media-text__media {
+  min-height: 400px;
+}
+
+.wp-block-media-text.mih-300px > .wp-block-media-text__media {
+  min-height: 300px;
+}
+
 .vk-share-link:not(.lazy),
 .vk-share-link.lazyloaded {
   background-image: url('./img/icon-share-vk.svg');

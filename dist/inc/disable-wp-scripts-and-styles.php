@@ -14,6 +14,9 @@ add_action( 'init', function() {
   // Отключаем скрипты wp-embed
   remove_action( 'wp_head', 'wp_oembed_add_discovery_links' );
   remove_action( 'wp_head', 'wp_oembed_add_host_js' );
+  // Remove svg and body styles
+  remove_action( 'wp_body_open', 'wp_global_styles_render_svg_filters' );
+  remove_action( 'wp_enqueue_scripts', 'wp_enqueue_global_styles' );
   // Отключаем гутенберг
   // if ( 'disable_gutenberg' ) {
   //   add_filter( 'use_block_editor_for_post_type', '__return_false', 100 );

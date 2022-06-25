@@ -29,6 +29,32 @@ add_action( 'init', function() {
     'taxonomies'          => ['author_question']
   ] );
 
+  register_post_type( 'inspiration', [
+    'label'  => null,
+    'labels' => [
+      'name'               => 'Вдохновения дня',
+      'singular_name'      => 'Вдохновение дня',
+      'add_new'            => 'Добавить',
+      'add_new_item'       => 'Добавление',
+      'edit_item'          => 'Редактирование',
+      'new_item'           => 'Новое ',
+      'view_item'          => 'Смотреть',
+      'search_items'       => 'Искать',
+      'not_found'          => 'Не найдено',
+      'not_found_in_trash' => 'Не найдено в корзине',
+      'parent_item_colon'  => '',
+      'menu_name'          => 'Вдохновения дня',
+    ],
+    'description'         => '',
+    'public'              => true,
+    'show_in_menu'        => null,
+    'show_in_rest'        => null,
+    'rest_base'           => null,
+    'menu_position'       => null,
+    'menu_icon'           => null,
+    'hierarchical'        => false,
+    'supports'            => ['title']
+  ] );
 
   register_taxonomy( 'author_question_category', ['author_question'], [
     'label'                 => '',

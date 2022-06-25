@@ -119,7 +119,7 @@ var browser = {
   mobileMenu,
   // Прокрутка до элемента при помощи requestAnimationFrame
   scrollToTarget = function(e, target) {
-    e.preventDefault();
+    e && e.preventDefault();
 
     if (this === window) {
       _ = e.target;
@@ -127,10 +127,11 @@ var browser = {
       _ = this;
     }
 
-    if (target == 0) {
-      target = body;
-    } else {
+    if (!target) {
       target = target || _.getAttribute('data-scroll-target');
+      if (target == 0) {
+        target = document.body;
+      }
     }
 
     if (!target && _.tagName === 'A') {
@@ -148,29 +149,30 @@ var browser = {
 
     menu && menu.close();
 
-    let wndwY = window.pageYOffset,
-      targetStyles = getComputedStyle(target),
-      targetTop = target.getBoundingClientRect().top - +(targetStyles.paddingTop).slice(0, -2) - +(targetStyles.marginTop).slice(0, -2),
-      start = null,
-      V = .35,
-      step = function(time) {
-        if (start === null) {
-          start = time;
-        }
-        let progress = time - start,
-          r = (targetTop < 0 ? Math.max(wndwY - progress / V, wndwY + targetTop) : Math.min(wndwY + progress / V, wndwY + targetTop));
-
-        window.scrollTo(0, r);
-
-        if (r != wndwY + targetTop) {
-          requestAnimationFrame(step);
-        }
+    let wndwY = window.pageYOffset;
+    let targetStyles = getComputedStyle(target);
+    // let targetTop = target.getBoundingClientRect().top - +(targetStyles.paddingTop).slice(0, -2) - +(targetStyles.marginTop).slice(0, -2);
+    let targetTop = target.getBoundingClientRect().top;
+    let start = null;
+    let V = Math.abs(targetTop) > 3000 ? 0.15 : 0.35;
+    let step = function(time) {
+      if (start === null) {
+        start = time;
       }
+      let progress = time - start;
+      let r = (targetTop < 0 ? Math.max(wndwY - progress / V, wndwY + targetTop) : Math.min(wndwY + progress / V, wndwY + targetTop));
+
+      window.scrollTo(0, r);
+
+      if (r != wndwY + targetTop) {
+        requestAnimationFrame(step);
+      }
+    }
 
     requestAnimationFrame(step);
-  },
-  // Функция запрета/разрешения прокрутки страницы
-  pageScroll = function(disallow) {
+  };
+// Функция запрета/разрешения прокрутки страницы
+pageScroll = function(disallow) {
     fakeScrollbar.classList.toggle('active', disallow);
     body.classList.toggle('no-scroll', disallow);
     body.style.paddingRight = disallow ? fakeScrollbar.offsetWidth - fakeScrollbar.clientWidth + 'px' : '';

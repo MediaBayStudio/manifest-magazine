@@ -1,5 +1,25 @@
+<?php
+foreach ( $GLOBALS['sections'] as $sect ) {
+  if ( $sect['acf_fc_layout'] === 'index-horoscope' ) {
+    $horoscope_descr = $sect['slide_descr'];
+    break;
+  }
+} ?>
 <section class="index-hero-sect container"<?php echo $section_id ?>>
-  <img src="<?php echo $template_directory_uri ?>/img/words-circle.svg" alt="#" class="index-hero-sect__circle"> <?php
+  <div class="index-hero-sect__slide index-hero-slide big-img slick-slide" style="width: 1185px;" data-slick-index="5" aria-hidden="true" tabindex="-1">
+    <a href="#horoscope" data-scroll-target="#horoscope" class="index-hero-slide__pic-link" tabindex="-1">
+      <picture class="index-hero-slide__pic">
+        <img src="<?php echo "$template_directory_uri/img/horoscope-img.jpg" ?>" alt="Астрологический прогноз" class="index-hero-slide__img">
+      </picture>
+    </a>
+    <div class="index-hero-slide__text">
+      <a href="#horoscope" data-scroll-target="#horoscope" class="index-hero-slide__title-link" tabindex="-1">
+        <h2 class="index-hero-slide__title">Астрологический прогноз на неделю с <?php echo date( 'd.m', strtotime( 'this week monday' ) ) ?> по <?php echo date( 'd.m', strtotime( 'this week sunday' ) ) ?></h2>
+      </a>
+      <p class="index-hero-slide__descr"><?php echo $horoscope_descr ?></p>
+    </div>
+  </div>
+  <!-- <img src="<?php #echo $template_directory_uri ?>/img/words-circle.svg" alt="#" class="index-hero-sect__circle"> --> <?php
   if ( $section['manual'] ) {
     $index_hero_slides = $section['slider'];
   } else {
@@ -17,87 +37,110 @@
     $categories = get_the_terms( $single_id, 'category' );
     $fields = get_fields( $single_id );
 
-    if ( $fields['use_small_image'] ) {
-      $image = $fields['small_image'];
-      $slide_class_name = ' small-img';
-
-      if ( $image ) {
-        $image_id = $image['ID'];
-        $img_alt = $image['alt'];
-      } else {
-        $image_id = get_post_thumbnail_id( $single_id );
-        $img_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
-        $image = image_get_intermediate_size( $image_id, 'mobile' );
-      }
-
-      $image_webp = image_get_intermediate_size( $image_id, 'mobile_webp' );
-
-      if ( !$image_webp ) {
-        $image_webp = image_get_intermediate_size( $image_id, 'webp' );
-      }
-
-      $image_url = $image['url'];
-    } else {
-      $image = $fields['big_image'];
-      $slide_class_name = ' big-img';
-
-      if ( $image ) {
-        $image_id = $image['ID'];
-        $img_alt = $image['alt'];
-      } else {
-        $image_id = get_post_thumbnail_id( $single_id );
-        $img_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
-      }
-
-      $image_url = get_the_post_thumbnail_url( $single_id );
-
-      $image_webp = image_get_intermediate_size( $image_id, 'webp' );
-      $image_desktop = image_get_intermediate_size( $image_id, 'desktop');
-      $image_laptop = image_get_intermediate_size( $image_id, 'laptop');
-      $image_tablet = image_get_intermediate_size( $image_id, 'tablet');
-      $image_mobile = image_get_intermediate_size( $image_id, 'mobile');
-
-      if ( $image_desktop ) {
-        $image_desktop_webp = image_get_intermediate_size( $image_id, 'desktop_webp');
-        if ( $image_desktop ) {
-          $image_desktop_url = $image_desktop['url'];
-        }
-        if ( $image_desktop_webp ) {
-          $image_desktop_webp_url = $image_desktop_webp['url'];
-        }
-      }
-
-      if ( $image_laptop ) {
-        $image_laptop_webp = image_get_intermediate_size( $image_id, 'laptop_webp');
-        if ( $image_laptop ) {
-          $image_laptop_url = $image_laptop['url'];
-        }
-        if ( $image_laptop_webp ) {
-          $image_laptop_webp_url = $image_laptop_webp['url'];
-        }
-      }
-
-      if ( $image_tablet ) {
-        $image_tablet_webp = image_get_intermediate_size( $image_id, 'tablet_webp');
-        if ( $image_tablet ) {
-          $image_tablet_url = $image_tablet['url'];
-        }
-        if ( $image_tablet_webp ) {
-          $image_tablet_webp_url = $image_tablet_webp['url'];
-        }
-      }
-
-      if ( $image_mobile ) {
-        $image_mobile_webp = image_get_intermediate_size( $image_id, 'mobile_webp');
-        if ( $image_mobile ) {
-          $image_mobile_url = $image_mobile['url'];
-        }
-        if ( $image_mobile_webp ) {
-          $image_mobile_webp_url = $image_mobile_webp['url'];
-        }
-      }
+    $object_position = 'center';
+    $custom_object_position = get_field( 'index_hero_position', $article->ID );
+    if ( $custom_object_position ) {
+      $object_position = $custom_object_position;
     }
 
+    if ( $fields['use_small_image'] ) {
+      // $image = $fields['small_image'];
+      $slide_class_name = ' small-img';
+
+    //   if ( $image ) {
+    //     $image_id = $image['ID'];
+    //     $img_alt = $image['alt'];
+    //   } else {
+    //     $image_id = get_post_thumbnail_id( $single_id );
+    //     $img_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+    //     $image = image_get_intermediate_size( $image_id, 'mobile' );
+    //   }
+
+    //   $image_webp = image_get_intermediate_size( $image_id, 'mobile_webp' );
+
+    //   if ( !$image_webp ) {
+    //     $image_webp = image_get_intermediate_size( $image_id, 'webp' );
+    //   }
+
+    //   $image_laptop = image_get_intermediate_size( $image_id, 'laptop');
+
+    //   if ( $image_laptop ) {
+    //     $image_laptop_webp = image_get_intermediate_size( $image_id, 'laptop_webp');
+    //     if ( $image_laptop ) {
+    //       $image_laptop_url = $image_laptop['url'];
+    //     }
+    //     if ( $image_laptop_webp ) {
+    //       $image_laptop_webp_url = $image_laptop_webp['url'];
+    //     }
+    //   }
+
+    //   $image_url = $image['url'];
+    } else {
+      // $image = $fields['big_image'];
+      $slide_class_name = ' big-img';
+
+      // if ( $image ) {
+        // $image_id = $image['ID'];
+        // $img_alt = $image['alt'];
+      // } else {
+        // $image_id = get_post_thumbnail_id( $single_id );
+        // $img_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+      // }
+
+      // $image_url = get_the_post_thumbnail_url( $single_id );
+
+      // $image_webp = image_get_intermediate_size( $image_id, 'webp' );
+      // $image_desktop = image_get_intermediate_size( $image_id, 'desktop');
+      // $image_laptop = image_get_intermediate_size( $image_id, 'laptop');
+      // $image_tablet = image_get_intermediate_size( $image_id, 'tablet');
+      // $image_mobile = image_get_intermediate_size( $image_id, 'mobile');
+
+      // if ( $image_desktop ) {
+      //   $image_desktop_webp = image_get_intermediate_size( $image_id, 'desktop_webp');
+      //   if ( $image_desktop ) {
+      //     $image_desktop_url = $image_desktop['url'];
+      //   }
+      //   if ( $image_desktop_webp ) {
+      //     $image_desktop_webp_url = $image_desktop_webp['url'];
+      //   }
+      // }
+
+      // if ( $image_laptop ) {
+      //   $image_laptop_webp = image_get_intermediate_size( $image_id, 'laptop_webp');
+      //   if ( $image_laptop ) {
+      //     $image_laptop_url = $image_laptop['url'];
+      //   }
+      //   if ( $image_laptop_webp ) {
+      //     $image_laptop_webp_url = $image_laptop_webp['url'];
+      //   }
+      // }
+
+      // if ( $image_tablet ) {
+      //   $image_tablet_webp = image_get_intermediate_size( $image_id, 'tablet_webp');
+      //   if ( $image_tablet ) {
+      //     $image_tablet_url = $image_tablet['url'];
+      //   }
+      //   if ( $image_tablet_webp ) {
+      //     $image_tablet_webp_url = $image_tablet_webp['url'];
+      //   }
+      // }
+
+      // if ( $image_mobile ) {
+      //   $image_mobile_webp = image_get_intermediate_size( $image_id, 'mobile_webp');
+      //   if ( $image_mobile ) {
+      //     $image_mobile_url = $image_mobile['url'];
+      //   }
+      //   if ( $image_mobile_webp ) {
+      //     $image_mobile_webp_url = $image_mobile_webp['url'];
+      //   }
+      // }
+    }
+
+    $image_id = get_post_thumbnail_id( $single_id );
+    $image_url = get_the_post_thumbnail_url( $single_id );
+    $img_alt = get_post_meta( $image_id, '_wp_attachment_image_alt', true );
+
+    $image_webp = image_get_intermediate_size( $image_id, 'webp' );
     $image_webp_url = $image_webp['url'];
 
     if ( !$img_alt ) {
@@ -125,14 +168,14 @@
 
     if ( $image_laptop_url ) {
       if ( $image_laptop_webp_url ) {
-      $picture .= '<source type="image/webp" media="(min-width:767.98px) and (max-width:1023.98px)" ' . $source_attr . $image_laptop_webp_url . '">';        
+      $picture .= '<source type="image/webp" media="(min-width:767.98px)" ' . $source_attr . $image_laptop_webp_url . '">';        
       }
       $picture .= '<source type="' . $image_laptop['mime-type'] . '" media="(min-width:767.98px) and (max-width:1023.98px)" ' . $source_attr . $image_laptop_url . '">';
     }
 
     if ( $image_tablet_url ) {
       if ( $image_tablet_webp_url ) {
-        $picture .= '<source type="image/webp" media="(min-width:575.98px) and (max-width:767.98px)" ' . $source_attr . $image_tablet_webp_url . '">';
+        $picture .= '<source type="image/webp" media="(min-width:575.98px)" ' . $source_attr . $image_tablet_webp_url . '">';
       }
       $picture .= '<source type="' . $image_tablet['mime-type'] . '" media="(min-width:575.98px) and (max-width:767.98px)" ' . $source_attr . $image_tablet_url . '">';
     }
@@ -146,7 +189,13 @@
 
     $picture .= '<source type="image/webp" ' . $source_attr . $image_webp_url . '">';
 
-    $picture .= '<img ' . $img_attr . $image_url . '" alt="' . esc_attr( $img_alt ) . '" class="index-hero-slide__img">';
+    if ( $single_id === 3297 ) {
+      $image_style = ' style="transform:rotate3d(0, 1, 0, -180deg)"';
+    } else {
+      $image_style = '';
+    }
+
+    $picture .= '<img ' . $img_attr . $image_url . '"' . $image_style . ' alt="' . esc_attr( $img_alt ) . '" class="index-hero-slide__img" style="object-position:' . $object_position . ';">';
 
     $picture .= '</picture>';
 
@@ -178,7 +227,17 @@
       </div>
     </div> <?php
     $i++;
-  endforeach ?>
+    unset( 
+    $image_desktop_url,
+    $image_desktop_webp_url,
+    $image_laptop_url,
+    $image_laptop_webp_url,
+    $image_tablet_url,
+    $image_tablet_webp_url,
+    $image_mobile_url,
+    $image_mobile_webp_url );
+  endforeach;
+  $i++; ?>
   <div class="index-hero-sect__progress slider-progress">
     <span class="slider-progress__current-number">01</span>
     <div class="slider-progress__bar">

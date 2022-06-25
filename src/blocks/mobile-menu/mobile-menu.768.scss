@@ -45,7 +45,7 @@
       margin: 0 0 25px;
     }
 
-    &:nth-last-child(3) {
+    &:nth-last-child(2) {
       padding: 0 0 25px;
 
       &::after {
@@ -67,7 +67,7 @@
     }
 
     .menu__nav-li {
-      &:nth-last-child(3) {
+      &:nth-last-child(2) {
         padding: 0;
       }
     }

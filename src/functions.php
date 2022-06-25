@@ -1,6 +1,6 @@
 <?php
 // Глобальные переменные
-$version = '1.0.2';
+$version = '1.0.6';
 $template_directory_uri = get_template_directory_uri();
 $template_directory = get_template_directory();
 

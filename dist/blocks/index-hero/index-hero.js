@@ -1,52 +1,55 @@
 ;
 (function() {
-  let slider = q('.index-hero-sect'),
-    progress = q('.index-hero-sect__progress', slider),
-    progressBar = q('.slider-progress__bar', progress),
-    progressCurrentNumber = q('.slider-progress__current-number', progress),
-    progressBg = q('.slider-progress__background', progress),
-    slidesSelector = '.index-hero-sect__slide',
-    slides = qa(slidesSelector, slider),
-    $slider = $(slider),
-    isSmallImg = slider.classList.contains('small-img'),
-    buildHeroSlider = function() {
-      if (SLIDER.hasSlickClass($slider)) {
-        // слайдер уже создан
-        return;
-      }
-      if (slides.length && slides.length > 1) {
-        $slider.slick({
-          slide: slidesSelector,
-          arrows: false,
-          infinite: false,
-          fade: isSmallImg,
-          // appendArrows: $('.index-hero-sect__arrows'),
-          // prevArrow: SLIDER.createArrow('index-hero-sect__prev', arrowSvg),
-          // nextArrow: SLIDER.createArrow('index-hero-sect__next', arrowSvg),
-          draggable: false,
-          mobileFirst: true,
-          responsive: [{
-            breakpoint: 1023.98,
-            settings: {
-              arrows: true,
-              prevArrow: SLIDER.createArrow('index-hero-sect__prev', SLIDER.arrowSvg),
-              nextArrow: SLIDER.createArrow('index-hero-sect__next', SLIDER.arrowSvg)
-            }
-          }]
-        });
-      }
-    },
-    buildDots = function() {
-      let dotsHTML = '<div class="index-hero-sect__dots">';
+  let slider = q('.index-hero-sect');
+  let progress = q('.index-hero-sect__progress', slider);
+  let progressBar = q('.slider-progress__bar', progress);
+  let progressCurrentNumber = q('.slider-progress__current-number', progress);
+  let progressBg = q('.slider-progress__background', progress);
+  let slidesSelector = '.index-hero-sect__slide';
+  let slides = qa(slidesSelector, slider);
+  let $slider = $(slider);
+  let isSmallImg = slider.classList.contains('small-img');
+  let buildHeroSlider = function() {
+    if (SLIDER.hasSlickClass($slider)) {
+      // слайдер уже создан
+      return;
+    }
+    if (slides.length && slides.length > 1) {
+      // return;
+      $slider.slick({
+        slide: slidesSelector,
+        arrows: false,
+        // infinite: false,
+        // fade: isSmallImg,
+        autoplay: true,
+        autoplayspeed: 5000,
+        // appendArrows: $('.index-hero-sect__arrows'),
+        // prevArrow: SLIDER.createArrow('index-hero-sect__prev', arrowSvg),
+        // nextArrow: SLIDER.createArrow('index-hero-sect__next', arrowSvg),
+        // draggable: false,
+        mobileFirst: true,
+        responsive: [{
+          breakpoint: 1023.98,
+          settings: {
+            arrows: true,
+            prevArrow: SLIDER.createArrow('index-hero-sect__prev', SLIDER.arrowSvg),
+            nextArrow: SLIDER.createArrow('index-hero-sect__next', SLIDER.arrowSvg)
+          }
+        }]
+      });
+    }
+  }
+  let buildDots = function() {
+    let dotsHTML = '<div class="index-hero-sect__dots">';
 
-      for (let i = 0, len = slides.length; i < len; i++) {
-        dotsHTML += '<button type="button" class="index-hero-sect__dot" data-slide-index="' + i + '" style="width:calc(100% / ' + slides.length + ')"></button>';
-      }
+    for (let i = 0, len = slides.length; i < len; i++) {
+      dotsHTML += '<button type="button" class="index-hero-sect__dot" data-slide-index="' + i + '" style="width:calc(100% / ' + slides.length + ')"></button>';
+    }
 
-      dotsHTML += '</div>';
+    dotsHTML += '</div>';
 
-      progressBar.insertAdjacentHTML('afterbegin', dotsHTML);
-    };
+    progressBar.insertAdjacentHTML('afterbegin', dotsHTML);
+  }
 
   if (progressBar) {
     progressBar.addEventListener('click', function(e) {

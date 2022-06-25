@@ -1,6 +1,6 @@
 <?php
 
-// Что за функция и зачем она не понятно, забыл
+// Функция показа следующей по дате записи
 function my_get_adjacent_post( $in_same_term = false, $excluded_terms = '', $previous = true, $taxonomy = 'category', $post = null, $parent_term = null ) {
   global $wpdb;
 
@@ -191,6 +191,11 @@ function create_article( $args ) {
   }
 
   if ( $article ) :
+    $object_position = 'center';
+    $custom_object_position = get_field( 'article_hero_position', $article->ID );
+    if ( $custom_object_position ) {
+      $object_position = $custom_object_position;
+    }
     $terms = get_the_terms( $article->ID, 'category' );
     // var_dump( $terms );
     foreach ( $terms as $term ) {
@@ -298,7 +303,7 @@ function create_article( $args ) {
           $source_html .= '<source type="' . $article_thumbnail_data['type'] . '" srcset="' . $article_thumbnail_data['desktop_img_url'] . '" media="(min-width:1023.98px)">';
 
           echo $source_html ?>
-          <img src="<?php echo $article_thumbnail_data['desktop_img_url'] ?>" alt="<?php echo esc_attr( $article->post_title ) ?>" class="article__header-img" />
+          <img src="<?php echo $article_thumbnail_data['desktop_img_url'] ?>" style="object-position: <?php echo $object_position ?>;" alt="<?php echo esc_attr( $article->post_title ) ?>" class="article__header-img" />
         </picture>
       </header>
       <section class="article__body"> <?php

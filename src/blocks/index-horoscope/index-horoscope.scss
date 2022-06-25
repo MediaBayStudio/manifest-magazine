@@ -59,28 +59,40 @@
 }
 
 .horoscope-zodiac-list {
-  padding: 0 20px;
-  margin: 20px 0 30px -20px;
+  padding: 0 20px 20px;
+  margin: 20px 0 10px -20px;
   width: 100vw;
   display: flex;
-  -ms-overflow-style: none;
-  scrollbar-width: none;
+  // -ms-overflow-style: none;
+  // scrollbar-width: none;
   overflow-x: scroll;
-  scroll-snap-type: x mandatory;
+  // scroll-snap-type: x mandatory;
+  scrollbar-color: $beige $beige;
+  scrollbar-width: thin;
 
   &::-webkit-scrollbar {
-    display: none;
+    height: 3px;
+  }
+
+  &::-webkit-scrollbar-thumb {
+    border-radius: 6px;
+    background: $beige;
+  }
+
+  &::-webkit-scrollbar-track {
+    // background: $beige;
+    background: linear-gradient(to top, transparent 0px 1px, $beige 1px 2px, transparent 2px 3px);
   }
 }
 
 .zodiac-btn {
-  scroll-snap-align: start;
+  // scroll-snap-align: start;
   margin: 0 12px 0 0;
   flex-shrink: 0;
   display: flex;
   flex-flow: column;
   align-items: center;
-  
+
   &:last-child {
     margin-right: 0;
   }

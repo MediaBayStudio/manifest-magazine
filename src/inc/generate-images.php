@@ -56,7 +56,7 @@ function generate_webp( $metadata, $img_id ) {
       $webp_size_name = $size_name . '_webp';
       $mime_type = 'image/webp';
 
-      $cwebp_command = "/usr/local/bin/cwebp -q 90 {$file['file']} -o {$webp_basename}";
+      $cwebp_command = "/usr/local/bin/cwebp -q 100 {$file['file']} -o {$webp_basename}";
       chdir( $main_img_dirname );
       exec( $cwebp_command );
 
@@ -73,7 +73,7 @@ function generate_webp( $metadata, $img_id ) {
 
   $main_img_webp_basename = $main_img_filename . '.webp';
   $main_img_webp_filepath = $main_img_dirname . DIRECTORY_SEPARATOR . $main_img_webp_basename;
-  $cwebp_command = "/usr/local/bin/cwebp -q 90 {$main_img_basename} -o {$main_img_webp_basename}";
+  $cwebp_command = "/usr/local/bin/cwebp -q 100 {$main_img_basename} -o {$main_img_webp_basename}";
 
   chdir( $main_img_dirname );
   exec( $cwebp_command );
@@ -104,7 +104,7 @@ function generate_webp( $metadata, $img_id ) {
   // }
 }
 
-function minify_img( $src, $dest = null, $quality = 90 ) {
+function minify_img( $src, $dest = null, $quality = 100 ) {
   if ( is_null( $dest ) ) {
     $dest = $src;
   }

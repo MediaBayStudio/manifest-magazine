@@ -4,19 +4,27 @@
 
 .index-hero-sect {
 
-  &.slick-slider {
-    flex-wrap: wrap;
-  }
+  &__slide {
+    padding: 30px 50px 0;
+    height: 400px;
 
-  &__circle {
-    top: 33px;
-    right: calc(50vw - 440px);
-  }
+    &.small-img {
+      .index-hero-slide__pic-link {
+        width: 480px;
+      }
+    }
 
-  &__slide {}
+    &.big-img {
+      .index-hero-slide__pic-link {}
+    }
+  }
 
   &__progress {
-    z-index: 1;
+    left: calc(50vw - 430px);
+
+    .slider-progress__bar {}
+
+    .slider-progress__background {}
   }
 
   &__prev,
@@ -26,210 +34,46 @@
     height: 100%;
     position: absolute;
     top: 0;
-    color: $darkBlue;
     opacity: 0;
     transition: transform .5s, opacity .5s;
     z-index: 1;
 
     >.arrow__svg {
-      width: 50px;
-      height: 30px;
-      transition: transform .5s;
+      display: none;
     }
 
-    &:hover {
-      opacity: 1;
-    }
-
-    &.slick-disabled {
-      opacity: 0;
-    }
   }
 
   &__prev {
     justify-content: flex-start;
     left: calc(50vw - 475px);
-
-    >.arrow__svg {
-      transform: translateX(-125%) rotate(180deg);
-    }
-
-    &:hover {
-      >.arrow__svg {
-        transform: translateX(0) rotate(180deg);
-      }
-    }
   }
 
   &__next {
     justify-content: flex-end;
     right: calc(50vw - 475px);
-
-    >.arrow__svg {
-      transform: translateX(125%);
-    }
-
-    &:hover {
-      >.arrow__svg {
-        transform: translateX(0);
-      }
-    }
   }
 
-  &.small-img {
-    background-position-y: top;
-    background-size: 960px auto;
-    display: flex;
-    // flex-flow: column;
-    position: relative;
-    // overflow: hidden;
-
-    // &:hover {
-    //   .index-hero-sect__prev,
-    //   .index-hero-sect__next {
-    //     opacity: 1;
-    //     transform: translate(0, -50%);
-    //   }
-    // }
-    .index-hero-sect__progress {
-      margin-top: 35px;
-      padding-bottom: 30px;
-      order: 10;
-
-      .slider-progress {
-        &__current-number {}
-
-        &__bar {}
-
-        &__background {}
-
-        &__total-number {}
-      }
-    }
-
-    // .index-hero-sect__prev,
-    // .index-hero-sect__next {
-    //   align-items: center;
-    //   width: 10%;
-    //   height: 100%;
-    //   position: absolute;
-    //   top: 0;
-    //   color: $darkBlue;
-    //   opacity: 0;
-    //   transition: transform .5s, opacity .5s;
-    //   z-index: 1;
-    //   > .arrow__svg {
-    //     width: 50px;
-    //     height: 30px;
-    //     transition: transform .5s;
-    //   }
-    //   &:hover {
-    //     opacity: 1;
-    //   }
-    //   &.slick-disabled {
-    //     opacity: 0;
-    //   }
-    // }
-
-    // .index-hero-sect__prev {
-    //   justify-content: flex-start;
-    //   left: calc(50vw - 475px);
-
-    //   >.arrow__svg {
-    //     transform: translateX(-125%) rotate(180deg);
-    //   }
-
-    //   &:hover {
-    //     >.arrow__svg {
-    //       transform: translateX(0) rotate(180deg);
-    //     }
-    //   }
-    // }
-
-    // .index-hero-sect__next {
-    //   justify-content: flex-end;
-    //   right: calc(50vw - 475px);
-
-    //   >.arrow__svg {
-    //     transform: translateX(125%);
-    //   }
-
-    //   &:hover {
-    //     >.arrow__svg {
-    //       transform: translateX(0);
-    //     }
-    //   }
-    // }
-
-    .index-hero-slide {
-      &__pic {
-        width: 217px;
-        height: 261px;
-      }
-
-      &__pic-link {
-        margin: 65px 150px 0 auto;
-      }
-
-      &__img {}
-
-      &__text {
-        margin: 55px 0 0 75px
-      }
-
-      &__categories {}
-
-      &__parent-category {}
-
-      &__title {}
-
-      &__descr {}
-    }
-  }
-
-  &.full-screen {
-    padding: 0 $sectionHorizontalPadding1024;
-
-    .index-hero-sect__progress {
-      .slider-progress {
-        &__current-number {}
-
-        &__bar {}
-
-        &__background {}
-
-        &__total-number {}
-      }
-    }
-
-    .index-hero-slide {
-      padding: 55px 55px 105px 75px;
-
-      &__pic {}
-
-      &__img {}
-
-      &__text {}
-
-      &__categories {}
-
-      &__parent-category {}
-
-      &__title {}
-
-      &__descr {}
-    }
-  }
 }
 
-
 .index-hero-slide {
+
+  &.slick-current {
+    .index-hero-slide__text {
+      &::before {}
+    }
+  }
+
+  &__pic-link {}
+
   &__pic {}
 
   &__img {}
 
   &__text {
-    max-width: 415px;
+    max-width: 400px;
+
+    &::before {}
   }
 
   &__categories {}
@@ -237,10 +81,8 @@
   &__parent-category {}
 
   &__title {
-    font-size: 36px;
+    font-size: 30px;
   }
 
-  &__descr {
-    font-size: 16px;
-  }
+  &__descr {}
 }

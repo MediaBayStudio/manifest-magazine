@@ -65,6 +65,13 @@
   width: 100%;
   max-height: 362px;
   flex-shrink: 0;
+  // -ms-overflow-style: none;
+  // scrollbar-width: none;
+  overflow: visible;
+  // &::-webkit-scrollbar {
+    // height: 0;
+    // width: 0;
+  // }
 }
 
 .zodiac-btn {

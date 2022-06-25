@@ -4,14 +4,30 @@
 
 .index-hero-sect {
 
-  &__circle {
-    top: 40px;
-    right: calc(50vw - 520px);
+  &__slide {
+    padding: 60px;
+    height: 500px;
+
+    &.small-img {
+      .index-hero-slide__pic-link {
+        width: 600px;
+      }
+    }
+
+    &.big-img {
+      .index-hero-slide__pic-link {}
+    }
   }
 
-  &__slide {}
+  &__progress {
+    bottom: 40px;
+    left: calc(50vw - 540px);
 
-  &__progress {}
+    .slider-progress__bar {}
+
+    .slider-progress__background {}
+  }
+
 
   &__prev {
     left: calc(50vw - 590px);
@@ -21,95 +37,26 @@
     right: calc(50vw - 590px);
   }
 
-  &.small-img {
-    background-size: 1180px auto;
-
-    .index-hero-sect__progress {
-      margin-top: 10px;
-      padding-bottom: 50px;
-
-      .slider-progress {
-        &__current-number {}
-
-        &__bar {}
-
-        &__background {}
-
-        &__total-number {}
-      }
-    }
-
-    .index-hero-slide {
-      &__pic {
-        width: 275px;
-        height: 340px;
-      }
-
-      &__pic-link {
-        margin-right: 200px;
-      }
-
-      &__img {}
-
-      &__text {
-        margin: 105px 0 0 80px;
-      }
-
-      &__categories {}
-
-      &__parent-category {}
-
-      &__title {}
-
-      &__descr {}
-    }
-  }
-
-  &.full-screen {
-    padding: 0 $sectionHorizontalPadding1280;
-
-    .index-hero-sect__progress {
-      bottom: 50px;
-
-      .slider-progress {
-        &__current-number {}
-
-        &__bar {}
-
-        &__background {}
-
-        &__total-number {}
-      }
-    }
-
-    .index-hero-slide {
-      padding: 105px 60px 175px 80px;
-
-      &__pic {}
-
-      &__img {}
-
-      &__text {}
-
-      &__categories {}
-
-      &__parent-category {}
-
-      &__title {}
-
-      &__descr {}
-    }
-  }
 }
 
-
 .index-hero-slide {
+
+  &.slick-current {
+    .index-hero-slide__text {
+      &::before {}
+    }
+  }
+
+  &__pic-link {}
+
   &__pic {}
 
   &__img {}
 
   &__text {
-    max-width: 525px;
+    max-width: 490px;
+
+    &::before {}
   }
 
   &__categories {}
@@ -120,7 +67,5 @@
     font-size: 40px;
   }
 
-  &__descr {
-    margin-top: 30px;
-  }
+  &__descr {}
 }

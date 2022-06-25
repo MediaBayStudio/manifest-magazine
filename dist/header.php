@@ -57,11 +57,13 @@
       $desktop_img = image_get_intermediate_size( $thumbnail_id, 'desktop' );
       $source_html = '';
 
-      $thumbnail_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $thumbnail_url );
-      $mobile_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $mobile_img['url'] );
-      $tablet_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $tablet_img['url'] );
-      $laptop_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $laptop_img['url'] );
-      $desktop_webp_url = str_replace( ['.jpg', '.jpeg', '.png'], '.webp', $desktop_img['url'] );
+      $thumbnail_webp_url = image_get_intermediate_size( $thumbnail_id, 'webp' )['url'];
+      $mobile_webp_url = image_get_intermediate_size( $thumbnail_id, 'mobile_webp' )['url'];
+      $tablet_webp_url = image_get_intermediate_size( $thumbnail_id, 'tablet_webp' )['url'];
+      $laptop_webp_url = image_get_intermediate_size( $thumbnail_id, 'laptop_webp' )['url'];
+      $desktop_webp_url = image_get_intermediate_size( $thumbnail_id, 'desktop_webp' )['url'];
+
+      $post_author_avatar = get_field( 'avatar', 'user_' . $post->post_author );
 
       $post_author_avatar_preload_url = get_field( 'avatar', 'user_' . $post->post_author )['url'];
 

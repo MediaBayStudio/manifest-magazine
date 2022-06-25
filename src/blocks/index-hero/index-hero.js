@@ -15,17 +15,18 @@
       return;
     }
     if (slides.length && slides.length > 1) {
+      // return;
       $slider.slick({
         slide: slidesSelector,
         arrows: false,
-        infinite: false,
-        fade: isSmallImg,
-        // autoplay: true,
-        // autoplayspeed: 5000,
+        // infinite: false,
+        // fade: isSmallImg,
+        autoplay: true,
+        autoplayspeed: 5000,
         // appendArrows: $('.index-hero-sect__arrows'),
         // prevArrow: SLIDER.createArrow('index-hero-sect__prev', arrowSvg),
         // nextArrow: SLIDER.createArrow('index-hero-sect__next', arrowSvg),
-        draggable: false,
+        // draggable: false,
         mobileFirst: true,
         responsive: [{
           breakpoint: 1023.98,

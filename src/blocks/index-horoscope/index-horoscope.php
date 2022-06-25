@@ -10,12 +10,12 @@
     'vesy' => 'Весы',
     'skorpion' => 'Скорпион',
     'strelecz' => 'Стрелец',
-    'ryby' => 'Рыбы',
-    'vodolej' => 'Водолей',
     'kozerog' => 'Козерог',
+    'vodolej' => 'Водолей',
+    'ryby' => 'Рыбы'
   ];
 
-  $date = $section['date'];
+  $title = 'Астрологический прогноз на неделю с ' . date( 'd.m', strtotime( 'this week monday' ) ) . ' по ' . date( 'd.m', strtotime( 'this week sunday' ) );
   $horoscope_author = $section['author_img'];
 
   $mobile_img = image_get_intermediate_size( $horoscope_author['ID'], 'thumb' );
@@ -29,7 +29,7 @@
   $mobile_img_url = $mobile_img['url'];
   $mobile_img_webp_url = $mobile_img_webp['url'];
 ?>
-<section class="index-horoscope sect container">
+<section class="index-horoscope sect container" id="horoscope">
   <h2 class="index-horoscope__title sect-title sect-title-underline">Eженедельный гороскоп</h2>
   <div class="horoscope-author">
     <div class="horoscope-author__info">
@@ -45,7 +45,7 @@
     <p class="horoscope-author__descr"><?php echo $section['author_descr'] ?></p>
   </div>
   <div class="horoscope-content">
-    <h3 class="horoscope-content__title horoscope-content__title-mobile"><?php echo $date ?></h3>
+    <h3 class="horoscope-content__title horoscope-content__title-mobile"><?php echo $title ?></h3>
     <ul class="horoscope-zodiac-list"> <?php
       foreach ( $horoscope_info as $field_name => $ru_name ) : ?>
         <li class="zodiac-btn<?php echo $field_name === 'oven' ? ' active' : '' ?>" data-zodiac-name="<?php echo $ru_name ?>" data-horoscope-text="<?php echo $section[ $field_name ] ?>">
@@ -55,7 +55,7 @@
       endforeach ?>
     </ul>
     <div class="horoscope-text">
-      <p class="horoscope-content__title horoscope-content__title-desktop"><?php echo $date ?></p>
+      <p class="horoscope-content__title horoscope-content__title-desktop"><?php echo $title ?></p>
       <span class="horoscope-text__zodiac"><?php echo $horoscope_info['oven'] ?></span>
       <p class="horoscope-text__descr"><?php echo $section['oven'] ?></p>
     </div>
